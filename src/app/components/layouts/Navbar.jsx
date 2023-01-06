@@ -37,7 +37,7 @@ const Navbar = () => {
                 </Link>
                 <Link to={URL_REGISTER}>
                   <button className="btn btn-green">Sign up</button>
-                </Link>{" "}
+                </Link>
               </>
             )}
           </div>
