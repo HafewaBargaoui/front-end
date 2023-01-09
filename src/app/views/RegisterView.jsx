@@ -31,19 +31,17 @@ const RegisterView = () => {
 		);
 	};
 
-	// rajouter sexe
-	// delete confirmPassword / terms
-	// Pas besoin d'envoyer termns non plus c'est du controle côté front comme pour le confirm password
-
 	const initialValues = {
 		name: "",
 		lastname: "",
 		birthday: "",
 		email: "",
 		password: "",
+		confirmPassword: "",
 		address: "",
 		addressAdd: "",
 		street: "",
+		numberOfStreet: "",
 		city: "",
 		zip: "",
 		phone: "",
@@ -105,6 +103,9 @@ const RegisterView = () => {
 			showMessageError(true);
 		} else {
 			showMessageError(false);
+			delete values.terms;
+			delete values.confirmPassword;
+			const response = await register(values);
 		}
 	};
 
@@ -128,12 +129,14 @@ const RegisterView = () => {
 	const onChange = (e) => {
 		const {name, value, type, checked} = e.target;
 		setValues({...values, [name]: type === "checkbox" ? checked : value});
-		// console.log(e.target);
 	};
 
 	const test = async () => {
+		delete values.terms;
+		delete values.confirmPassword;
+
+		console.log(values);
 		const response = await register(values);
-		console.log(response);
 	};
 
 	return (
