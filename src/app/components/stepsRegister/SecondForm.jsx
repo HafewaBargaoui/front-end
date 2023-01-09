@@ -11,14 +11,14 @@ const SecondForm = ({formValues, onChange}) => {
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						htmlFor="address"
+						htmlFor="pathType"
 					>
 						Type de voie
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="address"
-						name="address"
+						id="pathType"
+						name="pathType"
 						type="text"
 						placeholder="Addresse"
 						onChange={onChange}
@@ -29,14 +29,14 @@ const SecondForm = ({formValues, onChange}) => {
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						htmlFor="AddressAdd"
+						htmlFor="additionalAddress"
 					>
 						Complément d'adresse
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						id="addressAdd"
-						name="addressAdd"
+						name="additionalAddress"
 						type="text"
 						placeholder="Addresse complémentaire"
 						onChange={onChange}
@@ -47,13 +47,13 @@ const SecondForm = ({formValues, onChange}) => {
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						htmlFor="Street"
+						htmlFor="streetName"
 					>
 						Nom de la rue
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-						id="street"
+						id="streetName"
 						name="streetName"
 						type="text"
 						placeholder="Nom de la rue"
@@ -65,7 +65,7 @@ const SecondForm = ({formValues, onChange}) => {
 				<div className="mb-4">
 					<label
 						className="block text-gray-700 text-sm font-bold mb-2"
-						htmlFor="Street"
+						htmlFor="streetNumber"
 					>
 						Numéro de la rue
 					</label>
@@ -73,7 +73,7 @@ const SecondForm = ({formValues, onChange}) => {
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						id="street"
 						name="streetNumber"
-						type="number"
+						type="streetNumber"
 						placeholder="rue"
 						onChange={onChange}
 						value={formValues.numberOfStreet}

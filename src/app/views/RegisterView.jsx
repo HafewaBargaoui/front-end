@@ -38,14 +38,14 @@ const RegisterView = () => {
 		email: "",
 		password: "",
 		confirmPassword: "",
-		address: "",
+		pathType: "",
 		additionalAddress: "",
 		streetName: "",
 		streetNumber: "",
 		city: "",
 		zip: "",
 		phone: "",
-		sexe: "",
+		sex: "",
 		terms: "",
 	};
 
@@ -95,8 +95,9 @@ const RegisterView = () => {
 			values.password == "" ||
 			values.confirmPassword == "" ||
 			values.address == "" ||
-			values.addressComplement == "" ||
-			values.street == "" ||
+			values.additionalAddress == "" ||
+			values.streetName == "" ||
+			values.streetNumber == "" ||
 			values.city == "" ||
 			values.zip == ""
 		) {
