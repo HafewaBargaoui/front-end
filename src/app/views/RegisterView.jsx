@@ -39,9 +39,9 @@ const RegisterView = () => {
 		password: "",
 		confirmPassword: "",
 		address: "",
-		addressAdd: "",
-		street: "",
-		numberOfStreet: "",
+		additionalAddress: "",
+		streetName: "",
+		streetNumber: "",
 		city: "",
 		zip: "",
 		phone: "",
@@ -95,7 +95,7 @@ const RegisterView = () => {
 			values.password == "" ||
 			values.confirmPassword == "" ||
 			values.address == "" ||
-			values.addressAdd == "" ||
+			values.addressComplement == "" ||
 			values.street == "" ||
 			values.city == "" ||
 			values.zip == ""
@@ -137,6 +137,7 @@ const RegisterView = () => {
 
 		console.log(values);
 		const response = await register(values);
+		console.log(response);
 	};
 
 	return (
