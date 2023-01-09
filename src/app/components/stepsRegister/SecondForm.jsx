@@ -14,7 +14,7 @@ const SecondForm = ({ formValues, onChange }) => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="address"
           >
-            Addresse
+            Type de voie
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -32,7 +32,7 @@ const SecondForm = ({ formValues, onChange }) => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="AddressAdd"
           >
-            Addresse complémentaire
+            Complément d'adresse
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -50,16 +50,34 @@ const SecondForm = ({ formValues, onChange }) => {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="Street"
           >
-            Numéro de la rue
+            Nom de la rue
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="street"
             name="street"
             type="text"
-            placeholder="rue"
+            placeholder="Nom de la rue"
             onChange={onChange}
             value={formValues.street}
+          ></input>
+        </div>
+
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="Street"
+          >
+            Numéro de la rue
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="street"
+            name="street"
+            type="number"
+            placeholder="rue"
+            onChange={onChange}
+            value={formValues.numberOfStreet}
           ></input>
         </div>
 
@@ -109,7 +127,7 @@ const SecondForm = ({ formValues, onChange }) => {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="phone"
-            type="text"
+            type="tel"
             name="phone"
             onChange={onChange}
             value={formValues.phone}

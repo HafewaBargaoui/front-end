@@ -22,13 +22,13 @@ const RegisterView = () => {
 
   const [error, setError] = useState("hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative");
 
-  const showMessageError = (boolean) => {
+  const showMessageError = (boolean) => 
+  {
     setError(boolean === false ? "hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" : "bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative");
   };
 
-// rajouter sexe
-// delete confirmPassword / terms
-  const initialValues = {
+  const initialValues = 
+  {
     name: "",
     lastname: "",
     birthday: "",
@@ -38,6 +38,7 @@ const RegisterView = () => {
     address: "",
     addressAdd: "",
     street: "",
+    numberOfStreet: "",
     city: "",
     zip: "",
     phone: "",
@@ -79,6 +80,9 @@ const RegisterView = () => {
     else
     {
       showMessageError(false)
+      delete values.terms;
+      delete values.confirmPassword;
+      const response = await register(values);
     };
   }
 
@@ -102,12 +106,14 @@ const RegisterView = () => {
   const onChange = (e) => {
     const { name, value, type, checked } = e.target;
     setValues({ ...values, [name]: type === "checkbox" ? checked : value });
-    console.log(e.target);
   };
 
   const test = async () => {
+    delete values.terms;
+    delete values.confirmPassword;
+
+    console.log(values);
     const response = await register(values);
-    console.log(response);
   }
 
   return (
