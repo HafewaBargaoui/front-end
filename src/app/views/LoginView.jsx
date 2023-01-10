@@ -1,56 +1,42 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+// import { Link } from "react-router-dom";
 
-import { URL_HOME } from '../constants/urls/urlFrontEnd';
+export default function login() {
+    return (
+        <div className='creation'>
+           <h1> login </h1>
+        
+        </div>
+    );
+}
+
+// ce qu'il y avait au départ : 
+
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+
+// import { URL_HOME } from '../constants/urls/urlFrontEnd';
+// import { URL_FOOTER } from '../constants/urls/urlFrontEnd';
+
 // import Login from './../components/account/Login';
-import { selectIsLogged } from './../redux-store/authenticationSlice';
+// import { selectIsLogged } from '../redux-store/authenticationSlice';
+// import Slider from "../views/HomeSlider";
 
 /**
  * View/Page Login
  *
  * @author Peter Mollet
  */
-const LoginView = () => {
-    const navigate = useNavigate();
-    const isAuthenticated = useSelector(selectIsLogged);
 
-    useEffect(() => {
-        if (isAuthenticated) navigate(URL_HOME);
-    }, []);
+// const HomePageView = () => {
+//     const navigate = useNavigate();
+//     const isAuthenticated = useSelector(selectIsLogged);
 
-    return (
-        <div className="flex h-full items-center justify-center">
-            {/* <Login className="" /> */}
-            <form>
-            <h1>barre de recherche</h1>
+//     useEffect(() => {
+//         if (isAuthenticated) navigate(URL_HOME, URL_FOOTER);
+//     }, []);
+// return (
 
-                <div className=''>
-                    <label for="inputDeparture">Départ :</label>
-                    <input type="text" name="departure" id="inputDeparture"></input>
-                </div>
+// )
 
-                <div>
-                    <label for="inputDestination">Destination :</label>
-                    <input type="text" name="destination" id="inputDestination"></input>
-                </div>
-
-                <div>
-                    <label for="inputDate">Date :</label>
-                    <input type="date" name="date" id="inputDate"></input>
-                </div>
-
-                <div>
-                    <label for="inputNumber">Nombre de personne :</label>
-                    <input type="number" name="number" id="inputNumber"></input>
-                </div>
-            </form>
-            
-        </div>
-    )
-       
-};
-
-export default LoginView;
-
-// page d'accueil quand un utilisateur non connecté va sur le site
+// export default HomePageView;

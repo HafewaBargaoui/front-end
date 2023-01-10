@@ -31,8 +31,15 @@ export default function CreateView() {
                     <input type="radio" name="musicType" id="radioNo"></input>
                     <label for="radioNo">Non</label>
 
+                    <p>Parler :</p>
+                    <input type="radio" name="talkType" id="radioYes"></input>
+                    <label for="radioYes">Oui</label>
+
+                    <input type="radio" name="talkType" id="radioNo"></input>
+                    <label for="radioNo">Non</label>
 
 
+                {/* Pour ceux en dessous il peu y avoir différentes tailles (grand ou petit) */}
                     <div>
                         <label for="inputBagage">Bagage :</label>
                         <input type="text" name="bagage" id="inputBagage"></input>
@@ -41,11 +48,6 @@ export default function CreateView() {
                     <div>
                         <label for="inputAnimal">Animaux :</label>
                         <input type="text" name="animal" id="inputAnimal"></input>
-                    </div>
-
-                    <div>
-                        <label for="inputSpeak">Parler :</label>
-                        <input type="text" name="speak" id="inputSpeak"></input>
                     </div>
                 </div>
             </form>

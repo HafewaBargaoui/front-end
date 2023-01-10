@@ -7,14 +7,17 @@ import {
   URL_CREATE,
   URL_HISTORICAL,
   // URL_LOGIN,
-  URL_REGISTER,
+  URL_AVATAR,
+  // URL_REGISTER,
 } from "../../constants/urls/urlFrontEnd";
 
 const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <div className="absolute mx-auto w-full bg-white px-4 shadow-sm sm:px-6">
+    
+
+    <div className="absolute mx-auto w-full bg-black px-4 sm:px-6">
       <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
         <div>
           <Link to={URL_HOME}>
@@ -26,19 +29,20 @@ const Navbar = () => {
               // width={200}
               // height={60}
             // /> */}
-            <button className="link">logo carbuddy</button>
+            {/* <img src="../images/CarbuddyBlackgreen.png"></img> */}
+            <button className="btn-white">logo carbuddy</button>
           </Link>
         </div>
 
         <div>
           <Link to={URL_CREATE}>
-            <button className="link">Créer un trajet</button>
+            <button className="btn-white">Créer un trajet</button>
           </Link>
         </div>
 
         <div>
           <Link to={URL_HISTORICAL}>
-            <button className="link">Historique des trajets</button>
+            <button className="btn-white">Historique des trajets</button>
           </Link>
         </div>
 
@@ -47,32 +51,29 @@ const Navbar = () => {
             {/* {isLoggued ? (
               <button className="btn btn-red">Sign Out</button>
             ) : ( */}
-              <>
-                {/* <img src="/images/avatar.png" alt="tête avatar"></img> */}
+            <>
+              {/* <img src="/images/avatar.png" alt="tête avatar"></img> */}
 
-                <Link to={URL_REGISTER}>
-                <button className="link">Tête Avatar</button>
-                </Link>
+              <Link to={URL_AVATAR}>
+                <button className="btn-white">Tête Avatar</button>
+              </Link>
 
-                {/* <Link to={URL_REGISTER}> */}
-                  {/* avant URL_LOGIN */}
-                  {/* <button className="link">Connexion</button>
+              {/* <Link to={URL_REGISTER}> */}
+              {/* avant URL_LOGIN */}
+              {/* <button className="link">Connexion</button>
                 </Link> */}
 
-                {/* <Link to={URL_REGISTER}>
+              {/* <Link to={URL_REGISTER}>
                   <button className="link">Inscription</button>
                 </Link>{" "} */}
-              </>
+            </>
 
-            {/* )} */}
           </div>
         </div>
       </div>
     </div>
+    
   );
 };
 
 export default Navbar;
-
-// login -> connexion
-// register -> inscription

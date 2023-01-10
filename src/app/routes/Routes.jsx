@@ -11,8 +11,11 @@ import CheckCar from "../views/CheckCar";
 import CheckFilters from "../views/CheckFilters";
 import Created from "../views/Created";
 import HistoricalView from "../views/HistoricalView";
+import AvatarView from "../views/AvatarView";
+import GoSearch from "../views/GoSearch";
 
 import { PrivateRoute } from "./PrivateRoute";
+import HomePageView from "../views/HomePageView";
 
 /**
  * Routes of the application
@@ -27,7 +30,7 @@ const Routes = () => {
         path={URL.URL_HOME}
         element={
           <PrivateRoute>
-            <HomeView />
+            <HomePageView />
           </PrivateRoute>
         }
       />
@@ -61,6 +64,14 @@ const Routes = () => {
       <Route exact path="/created" element={<Created />} />
       
       <Route exact path="/historical" element={<HistoricalView />} />
+
+      <Route exact path="/avatar" element={<AvatarView />} />
+
+      <Route exact path="/gosearch" element={<GoSearch />} />
+
+      <Route exact path="/homePage" element={<HomePageView />} />
+
+      
 
 
       <Route
