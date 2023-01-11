@@ -30,3 +30,28 @@
         @apply text-xl
     }
 }
+
+
+.lienhover {
+    display: inline-block;
+    position: relative;
+    color: #ffffff;
+  }
+  
+  .lienhover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .lienhover:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
