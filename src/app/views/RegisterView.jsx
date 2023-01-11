@@ -127,17 +127,17 @@ const RegisterView = () => {
   </div>
 
       <ul className="flex justify-between w-full">
-        <li onClick={setForm} className={page === 0 ? "bg-blue-300 w-2/6 rounded-lg  " : "bg: transparent"} >
+        <li onClick={setForm} className={page === 0 ? "bg-vert w-2/6 rounded-lg  " : "bg: transparent"} >
           <div className="flex items-center ">
             <span className="stepper-head-icon">
 
-              <svg className="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+              <svg className="h-8 w-8 text-roseh" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
             </span>
             <span
               className={
                 page === 0
                   ? "ml-2 text-white font-medium"
-                  : "ml-2 text-blue-300 cursor-pointer"
+                  : "ml-2 text-gray-400 cursor-pointer"
               }
             >
               Étape 1/3
@@ -147,19 +147,19 @@ const RegisterView = () => {
         <li
           onClick={setForm}
           className={
-            page === 1 ? "bg-blue-300  w-2/6 rounded-lg" : "bg: transparent "
+            page === 1 ? "bg-vert  w-2/6 rounded-lg" : "bg: transparent "
           }
         >
           <div className="flex items-center">
             <span className="stepper-head-icon">
 
-              <svg className="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+              <svg className="h-8 w-8 text-roseh" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
             </span>
             <span
               className={
                 page === 1
                   ? "ml-2 text-white font-medium"
-                  : "ml-2 text-blue-300 cursor-pointer"
+                  : "ml-2 text-gray-400 cursor-pointer"
               }
             >
               Étape 2/3
@@ -169,19 +169,19 @@ const RegisterView = () => {
         <li
           onClick={setForm}
           className={
-            page === 2 ? "bg-blue-300 w-2/6 rounded-lg" : "bg: transparent"
+            page === 2 ? "bg-vert w-2/6 rounded-lg" : "bg: transparent"
           }
         >
           <div className="flex items-center">
             <span className="stepper-head-icon">
 
-              <svg className="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+              <svg className="h-8 w-8 text-roseh" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
             </span>
             <span
               className={
                 page === 2
                   ? "ml-2 text-white font-medium"
-                  : "ml-2 text-blue-300 cursor-pointer"
+                  : "ml-2 text-gray-400 cursor-pointer"
               }
             >
 
@@ -194,7 +194,7 @@ const RegisterView = () => {
       <div className="grid grid-cols-2 gap-4 place-content-center items-center">
         <button
           onClick={handlePrev}
-          className="bg-blue-200  hover:bg-blue-300 rounded-md text-gray-800 font-bold py-2 px-4 disabled:bg-gray-400 "
+          className="bg-rose  hover:bg-roseh rounded-md text-black font-bold py-2 px-4 disabled:bg-gray-300 "
           disabled={page === 0}
         >
           Prev
@@ -202,20 +202,20 @@ const RegisterView = () => {
         {page === 2 ? (
           <button
             onClick={handleSubmit}
-            className="bg-blue-200 hover:bg-blue-300 rounded-md text-gray-800 font-bold py-2 px-4 "
+            className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
           >
             Submit
           </button>
         ) : (
           <button
             onClick={handleNext}
-            className="bg-blue-200 hover:bg-blue-300 rounded-md text-gray-800 font-bold py-2 px-4 "
+            className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
           >
             Next
           </button>
 
 )}
-<button onClick={test}>envoie</button>
+{/* <button onClick={test}>envoie</button> */}
       </div>
     </div>
   );
