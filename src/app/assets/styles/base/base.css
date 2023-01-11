@@ -35,11 +35,11 @@
 /* HomePageView */
 
 .recherche {
-    background-color: #f8c6c38f;
+    background-color: #f8c6c36c;
 }
 
-.pub {
-    /* background-size: cover; */
-    /* background-image: linear-gradient(rgba(51, 189, 46, 0.399), rgba(42, 166, 65, 0.738)), url("../images/bggradient.svg"); */
-    background-color: #14ae5cb5;
+.accueil {
+    background-size: cover;
+    background-image: linear-gradient(rgba(51, 189, 46, 0.399), rgba(42, 166, 65, 0.738)), url("/imgs/bggradient.svg");
+    /* background-color: #14ae5cb5; */
 }
