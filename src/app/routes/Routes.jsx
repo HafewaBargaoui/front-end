@@ -6,14 +6,7 @@ import * as URL from "../constants/urls/urlFrontEnd";
 import AdminHomeView from "../views/AdminHomeView";
 import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
-import CreateRoute from "../views/CreateRoute";
-import CheckCar from "../views/CheckCar";
-import CheckFilters from "../views/CheckFilters";
-import Created from "../views/Created";
-import HistoricalView from "../views/HistoricalView";
-import AvatarView from "../views/AvatarView";
-import GoSearch from "../views/GoSearch";
-
+import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
 
@@ -84,7 +77,7 @@ const Routes = () => {
       />
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
-
+      <Route path={URL.URL_REGISTER} element={<RegisterView />} />
     </RoutesContainer>
   );
 };

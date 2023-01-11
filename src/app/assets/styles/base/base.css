@@ -32,14 +32,26 @@
 }
 
 
-/* HomePageView */
-
-.recherche {
-    background-color: #f8c6c36c;
-}
-
-.accueil {
-    background-size: cover;
-    background-image: linear-gradient(rgba(51, 189, 46, 0.399), rgba(42, 166, 65, 0.738)), url("/imgs/bggradient.svg");
-    /* background-color: #14ae5cb5; */
-}
+.lienhover {
+    display: inline-block;
+    position: relative;
+    color: #ffffff;
+  }
+  
+  .lienhover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .lienhover:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
