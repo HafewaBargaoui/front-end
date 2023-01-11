@@ -54,14 +54,14 @@ const Navbar = () => {
           </button>
         </div>
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className="hidden w-full md:flex md:items-center md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+          <ul className="flex p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
             <li>
               <a
                 href="#"
-                className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
+                className="lienhover  block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
                 aria-current="page"
               >
                 A Propos
@@ -70,7 +70,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
+                className="lienhover  block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
               >
                 Chercher
               </a>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
+                className="lienhover  block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
               >
                 Tarifs
               </a>

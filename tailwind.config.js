@@ -25,6 +25,7 @@ module.exports = {
         verth: "#349660",
         rose: "#FFCBC8",
         roseh: "#EFBBB8",
+        gris: "#D1D1D1",
       },
     },
   },
