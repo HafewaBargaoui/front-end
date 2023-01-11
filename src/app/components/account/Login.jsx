@@ -22,16 +22,17 @@ const Login = () => {
 		authenticate(values)
 			.then((res) => {
 				console.log(res);
-				if (res.status === 200 && res.data.id_token) {
-					dispatch(signIn(res.data.id_token));
-					navigate(URL_HOME);
+				if (res.status === 200) {
+					alert("bonjour : " + res.data.name);
+					// dispatch(signIn(res.data.id_token));
+					// navigate(URL_HOME);
 				}
 			})
 			.catch(() => setErrorLog(true));
 	};
 
 	return (
-		<div className="w-full max-w-md space-y-3 rounded-md  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8">
+		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
 			<div className="flex justify-center pb-16">
 				<h2 className=" text-center text-3xl font-extrabold text-gray-800">
 					connexion
@@ -91,7 +92,7 @@ const Login = () => {
 					<div className="text-center">
 						<button
 							type="submit"
-							className="btn bg-green-500 group relative w-1/2"
+							className="btn bg-vert group hover:bg-verth relative w-1/2 text-white"
 						>
 							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
 								<LockClosedIcon
@@ -102,9 +103,13 @@ const Login = () => {
 							Connexion
 						</button>
 						<div className="flex justify-between pt-8">
-							<button className="btn bg-red-100">Mot de passe oublié</button>
+							<button className="btn bg-rose hover:bg-roseh ">
+								Mot de passe oublié
+							</button>
 
-							<button className="btn bg-red-100">Adresse Email oublié</button>
+							<button className="btn bg-rose hover:bg-roseh">
+								Adresse Email oublié
+							</button>
 						</div>
 					</div>
 					{errorLog && (

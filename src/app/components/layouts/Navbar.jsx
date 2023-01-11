@@ -1,5 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import logo from "../../assets/images/C_logoWhite.png";
+import {
+	URL_HOME,
+	URL_LOGIN,
+	URL_REGISTER,
+} from "../../constants/urls/urlFrontEnd";
 
 const Navbar = () => {
 	return (
@@ -17,18 +23,22 @@ const Navbar = () => {
 				</a>
 				<div className="flex md:order-2">
 					<div className="grid md:grid-cols-2 md:gap-2">
-						<button
-							type="button"
-							className=" md:text-white md:bg-vert md:hover:bg-verth md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-						>
-							S'incrire
-						</button>
-						<button
-							type="button"
-							className="md:text-white md:bg-rose md:hover:bg-roseh md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-						>
-							Connexion
-						</button>
+						<Link to={URL_REGISTER}>
+							<button
+								type="button"
+								className=" md:text-white md:bg-vert md:hover:bg-verth md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
+							>
+								S'incrire
+							</button>{" "}
+						</Link>
+						<Link to={URL_LOGIN}>
+							<button
+								type="button"
+								className="md:text-white md:bg-rose md:hover:bg-roseh md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
+							>
+								Connexion
+							</button>
+						</Link>
 					</div>
 					<button
 						data-collapse-toggle="navbar-sticky"
