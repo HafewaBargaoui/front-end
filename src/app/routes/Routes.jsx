@@ -4,7 +4,7 @@ import { Route, Routes as RoutesContainer } from "react-router-dom";
 import { ROLE_ADMIN } from "../constants/rolesConstant";
 import * as URL from "../constants/urls/urlFrontEnd";
 import AdminHomeView from "../views/AdminHomeView";
-import HomeView from "../views/HomeView";
+// import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
@@ -21,11 +21,7 @@ const Routes = () => {
     <RoutesContainer>
       <Route
         path={URL.URL_HOME}
-        element={
-          <PrivateRoute>
-            <HomePageView />
-          </PrivateRoute>
-        }
+        element={<HomePageView />}
       />
 
       {/* <Route
@@ -48,7 +44,7 @@ const Routes = () => {
       {/* <Route exact path="/login" element={<LoginView />} /> */}
 
 
-      <Route exact path="/create" element={<CreateRoute />} /> 
+      {/* <Route exact path="/create" element={<CreateRoute />} /> 
 
       <Route exact path="/checkcar" element={<CheckCar />} />  
 
@@ -62,9 +58,9 @@ const Routes = () => {
 
       <Route exact path="/gosearch" element={<GoSearch />} />
 
-      <Route exact path="/homePage" element={<HomePageView />} />
+      <Route exact path="/homePage" element={<HomePageView />} /> */}
 
-      
+
 
 
       <Route

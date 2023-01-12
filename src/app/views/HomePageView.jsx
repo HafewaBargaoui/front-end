@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 export default function HomePageView() {
 
     return (
-        <div className='accueil'>
+        <div className="accueil bg-cover bg-[url('./imgs/bggradient.svg')]">
             <div className='recherche'>
 
-                <div className="flex flex-row items-center justify-around py-12 ml-16 mr-16">
+                <div className="flex flex-row items-center justify-around py-12 ml-16 mr-16  ">
 
                     <div className=''>
                         {/* <label for="inputDeparture">Départ :</label> */}

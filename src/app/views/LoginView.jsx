@@ -26,4 +26,4 @@ const LoginView = () => {
 	);
 };
 
-// export default HomePageView;
+export default LoginView;

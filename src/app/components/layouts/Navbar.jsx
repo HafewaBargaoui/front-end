@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/C_logoWhite.png";
 import {
 	URL_HOME,
@@ -11,16 +11,13 @@ const Navbar = () => {
 	return (
 		<nav className="grid bg-black px-2 sm:px-4 py-2.5 fixed h-32 content-center w-full z-20 top-0 left-0">
 			<div className="container flex items-center justify-between mx-auto">
-				<a
-					href="#"
-					className="flex items-center"
-				>
+				<Link to={URL_HOME}>
 					<img
 						src={logo}
 						className="h-6 xl:h-22 xl:ml-16 sm:h-9"
 						alt="carbuddy Logo"
 					/>
-				</a>
+				</Link>
 				<div className="flex md:order-2">
 					<div className="grid md:grid-cols-2 md:gap-2">
 						<Link to={URL_REGISTER}>
@@ -74,7 +71,7 @@ const Navbar = () => {
 								className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
 								aria-current="page"
 							>
-								A Propos
+								Créer un trajet
 							</a>
 						</li>
 						<li>
@@ -82,15 +79,14 @@ const Navbar = () => {
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
 							>
-								Chercher
-							</a>
+								listes des trajets							</a>
 						</li>
 						<li>
 							<a
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
 							>
-								Tarifs
+								condition d'utilisation
 							</a>
 						</li>
 					</ul>
