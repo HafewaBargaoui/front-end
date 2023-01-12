@@ -9,8 +9,8 @@ import {
 
 const Navbar = () => {
 	return (
-		<nav className="grid bg-black px-2 sm:px-4 py-2.5 fixed h-32 content-center w-full z-20 top-0 left-0">
-			<div className="container flex items-center justify-between mx-auto">
+		<nav className="grid bg-black px-2 sm:px-4 py-2.5 fixed h-24 content-center w-full z-20 top-0 left-0">
+			<div className="container flex items-center justify-between mx-auto ">
 				<Link to={URL_HOME}>
 					<img
 						src={logo}
@@ -64,7 +64,7 @@ const Navbar = () => {
 					className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
 					id="navbar-sticky"
 				>
-					<ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+					<ul className=" ml-32 flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0">
 						<li>
 							<a
 								href="#"

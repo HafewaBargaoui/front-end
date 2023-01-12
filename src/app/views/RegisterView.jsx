@@ -142,7 +142,8 @@ const RegisterView = () => {
 	};
 
 	return (
-		<div className="grid gap-4 place-content-center mt-8">
+		<div className=" pt-32 grid gap-8 place-content-center ">
+			
 			<div
 				className={error}
 				id="messageError"
@@ -245,6 +246,7 @@ const RegisterView = () => {
 {/* <button onClick={test}>envoie</button> */}
       </div>
     </div>
+	
   );
 };
 

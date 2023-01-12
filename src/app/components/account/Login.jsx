@@ -1,12 +1,12 @@
-import {LockClosedIcon} from "@heroicons/react/solid";
-import {Field, Form, Formik} from "formik";
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {Link, useNavigate} from "react-router-dom";
+import { LockClosedIcon } from "@heroicons/react/solid";
+import { Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
-import {URL_HOME} from "../../constants/urls/urlFrontEnd";
-import {signIn} from "../../redux-store/authenticationSlice";
-import {authenticate} from "./../../api/backend/account";
+import { URL_HOME } from "../../constants/urls/urlFrontEnd";
+import { signIn } from "../../redux-store/authenticationSlice";
+import { authenticate } from "./../../api/backend/account";
 
 /**
  * Component Login
@@ -34,9 +34,11 @@ const Login = () => {
 	return (
 		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
 			<div className="flex justify-center pb-16">
-				<h2 className=" text-center text-3xl font-extrabold text-gray-800">
-					connexion
-				</h2>
+				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
+					CONNEXION
+				</h1>
+
+				<hr />
 			</div>
 
 			<Formik
@@ -49,22 +51,23 @@ const Login = () => {
 				<Form className="mt-8 space-y-6">
 					<div className="flex flex-col space-y-6">
 						<label
-							className="pl-1"
+							className="pl-1 font-semibold"
 							htmlFor="email"
 						>
 							Email:{" "}
 						</label>
 						<Field
 							type="text"
+
 							name="email"
 							placeholder="email"
 							autoComplete="email"
-							className="input"
+							className="inputInscription"
 						/>
 					</div>
 					<div className="flex flex-col space-y-6 ">
 						<label
-							className="pl-1"
+							className="pl-1 font-semibold"
 							htmlFor="password"
 						>
 							Mot de Passe:{" "}
@@ -75,7 +78,7 @@ const Login = () => {
 							name="password"
 							placeholder="Password"
 							autoComplete="current-password"
-							className="input"
+							className="inputInscription"
 						/>
 					</div>
 
@@ -103,7 +106,7 @@ const Login = () => {
 							Connexion
 						</button>
 						<div className="flex justify-between pt-8">
-							<button className="btn bg-rose hover:bg-roseh ">
+							<button className="btn bg-rose hover:bg-roseh  ">
 								Mot de passe oublié
 							</button>
 
