@@ -2,20 +2,24 @@ import React from "react";
 
 const ThirdForm = ({ onChange, formValues }) => {
   return (
-    <div className="w-full max-w-sm">
-      <form className="bg-white shadow-md rounded px-24 pt-16 pb-10 mb-8 rounded-md ">
+    <div className="w-full max-w-md space-y-8 rounded-xl p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
         <div className="grid gap-4 place-content-center items-center">
           <h1 className="text-gray-700 pb-8 font-bold text-2xl">Étape 3/3</h1>
         </div>
+
+      <form className="mt-8 space-y-6">
+
+
+
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
             htmlFor="username"
           >
             Username
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
             name="username"
             onChange={onChange}
