@@ -1,12 +1,12 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {LockClosedIcon} from "@heroicons/react/solid";
+import {Field, Form, Formik} from "formik";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
 
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate } from "./../../api/backend/account";
+import {URL_HOME} from "../../constants/urls/urlFrontEnd";
+import {signIn} from "../../redux-store/authenticationSlice";
+import {authenticate} from "./../../api/backend/account";
 
 /**
  * Component Login
@@ -58,7 +58,6 @@ const Login = () => {
 						</label>
 						<Field
 							type="text"
-
 							name="email"
 							placeholder="email"
 							autoComplete="email"
