@@ -1,34 +1,29 @@
 import React from "react";
-import logo from "../../assets/images/C_logoWhite.png"
-
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectIsLogged } from "./../../redux-store/authenticationSlice";
+import {
+  URL_HOME,
+  URL_LOGIN,
+  URL_REGISTER,
+} from "../../constants/urls/urlFrontEnd";
 
 const Navbar = () => {
+  const isLoggued = useSelector(selectIsLogged);
+
   return (
-    <nav className="grid bg-black px-2 sm:px-4 py-2.5 fixed h-32 content-center w-full z-20 top-0 left-0">
-      <div className="container flex items-center justify-between mx-auto">
-        <a href="#" className="flex items-center">
-          <img
-            src={logo}
-            className="h-6 xl:h-22 xl:ml-16 sm:h-9"
-            alt="carbuddy Logo"
-          />
-
-        </a>
-        <div className="flex md:order-2">
-        <div className="grid md:grid-cols-2 md:gap-2">
-
-          <button
-            type="button"
-            className=" md:text-white md:bg-vert md:hover:bg-verth md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-          >
-            S'incrire
-          </button>
-          <button
-            type="button"
-            className="md:text-white md:bg-rose md:hover:bg-roseh md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-          >
-            Connexion
-          </button>
+    <div className="absolute mx-auto w-full bg-white px-4 shadow-sm sm:px-6">
+      <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
+        <div>
+          <Link to={URL_HOME}>
+            <img
+              className="h-8 w-auto cursor-pointer sm:h-10"
+              src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
+              alt=""
+              width={200}
+              height={60}
+            />
+          </Link>
         </div>
 
         <div className="flex flex-1 items-center justify-end lg:w-0">
@@ -42,13 +37,13 @@ const Navbar = () => {
                 </Link>
                 <Link to={URL_REGISTER}>
                   <button className="btn btn-green">Sign up</button>
-                </Link>
+                </Link>{" "}
               </>
             )}
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
