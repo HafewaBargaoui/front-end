@@ -21,10 +21,11 @@ const Login = () => {
 	const handleLogin = (values) => {
 		authenticate(values)
 			.then((res) => {
-				console.log(res);
 				if (res.status === 200) {
-					alert("bonjour : " + res.data.name);
-					// dispatch(signIn(res.data.id_token));
+					console.log(res.data);
+
+					// console.log(res);
+					dispatch(signIn(res.data));
 					// navigate(URL_HOME);
 				}
 			})
