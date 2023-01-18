@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {register} from "../api/backend/account";
-import {NAME_REGEX, PWD_REGEX, STREETNAME_REGEX} from "../constants/regex";
+import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
 import SecondForm from "../components/stepsRegister/SecondForm";
 import ThirdForm from "../components/stepsRegister/ThirdForm";
@@ -67,10 +67,11 @@ const RegisterView = () => {
 		terms: false,
 	};
 
-	const [values, setValues] = useState(initialValues);
-	const [validateValue, setValidateValues] = useState(initialValidationValues);
+	console.log(REGEX);
+	console.log(REGEX.name);
 
-	console.log(STREETNAME_REGEX);
+	const [values, setValues] = useState(initialValues);
+	const [validateValues, setValidateValues] = useState(initialValidationValues);
 
 	const handleForms = () => {
 		switch (page) {
@@ -148,11 +149,24 @@ const RegisterView = () => {
 		}
 	};
 
+	console.log(REGEX.password);
 	const onChange = (e) => {
 		const {name, value, type, checked} = e.target;
 		setValues({...values, [name]: type === "checkbox" ? checked : value});
-		setValidateValues({...validateValue, [name]: PWD_REGEX.test(value)});
+
+		const inputRegexName = Object.keys(REGEX).find(
+			(regexName) => regexName === name
+		);
+
+		if (inputRegexName) {
+			setValidateValues({
+				...validateValues,
+				[name]: REGEX[name].test(value),
+			});
+		}
 	};
+
+	console.log(validateValues);
 
 	const test = async () => {
 		delete values.terms;
