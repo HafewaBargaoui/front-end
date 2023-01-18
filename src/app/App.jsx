@@ -31,7 +31,7 @@ const App = () => {
 
 	useEffect(() => {
 		const token = getToken();
-		if (token) dispatch(signIn(token));
+		if (token) dispatch(signIn({token}));
 		setIsLogin(false);
 	}, []);
 
@@ -40,7 +40,7 @@ const App = () => {
 	return (
 		<BrowserRouter>
 			<div className="flex h-full cursor-default relative flex-col bg-gray-100">
-				{isLogged && <IdleTimerCustom />}
+				{isLogged /*&& <IdleTimerCustom />*/}
 				<Navbar />
 				<main className="mt-24 grow">
 					<Routes />

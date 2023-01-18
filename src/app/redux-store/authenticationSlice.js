@@ -25,10 +25,13 @@ export const authenticationSlice = createSlice({
 	initialState,
 	reducers: {
 		signIn: (state, action) => {
-			console.log(action.payload);
-			const token = action.payload;
+			console.log(action.payload.token);
+			const token = action.payload.token;
 			state.token = token;
+			console.log(state.token);
+			console.log(getPayloadToken(token));
 			const claims = getPayloadToken(token);
+
 			console.log(claims);
 			console.log(claims.sub);
 			console.log(claims.userRoles);
@@ -36,13 +39,14 @@ export const authenticationSlice = createSlice({
 
 			const user = {
 				username: claims.sub,
-				roles: claims.userRoles,
+				// roles: claims.userRoles,
 				roles: userRolesStr.split(","),
 			};
 			state.user = user;
 			console.log(state.user);
+			console.log(isTokenValid);
 			state.isAuthenticated = isTokenValid(token);
-			setToken(action.payload);
+			setToken(action.payload.token);
 		},
 		signOut: (state) => {
 			localStorage.clear();
