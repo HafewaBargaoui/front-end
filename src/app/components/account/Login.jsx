@@ -1,12 +1,12 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
-import { Field, Form, Formik } from "formik";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {LockClosedIcon} from "@heroicons/react/solid";
+import {Field, Form, Formik} from "formik";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
 
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate } from "./../../api/backend/account";
+import {URL_HOME} from "../../constants/urls/urlFrontEnd";
+import {signIn} from "../../redux-store/authenticationSlice";
+import {authenticate} from "./../../api/backend/account";
 
 /**
  * Component Login
@@ -14,100 +14,121 @@ import { authenticate } from "./../../api/backend/account";
  * @author Peter Mollet
  */
 const Login = () => {
-  const [errorLog, setErrorLog] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+	const [errorLog, setErrorLog] = useState(false);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-  const handleLogin = (values) => {
-    authenticate(values)
-      .then((res) => {
-        if (res.status === 200 && res.data.id_token) {
-          dispatch(signIn(res.data.id_token));
-          navigate(URL_HOME);
-        }
-      })
-      .catch(() => setErrorLog(true));
-  };
+	const handleLogin = (values) => {
+		authenticate(values)
+			.then((res) => {
+				if (res.status === 200) {
+					dispatch(signIn(res.data));
+					navigate(URL_HOME);
+				} else {
+					console.log(res.message);
+				}
+			})
+			.catch((error) => setErrorLog(error));
+	};
 
-  return (
-    <div className="w-full max-w-md space-y-8 rounded-md bg-white p-4 py-12 px-4 shadow sm:px-6 lg:px-8">
-      <div>
-        <div className="flex justify-center">
-          <img
-            className="h-12 w-auto cursor-pointer sm:h-10"
-            src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-            alt=""
-            width={200}
-            height={60}
-          />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-          Sign in to your account
-        </h2>
-      </div>
+	return (
+		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
+			<div className="flex justify-center pb-16">
+				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
+					CONNEXION
+				</h1>
 
-      <hr />
+				<hr />
+			</div>
 
-      <Formik
-        initialValues={{
-          username: "",
-          password: "",
-        }}
-        onSubmit={handleLogin}
-      >
-        <Form className="mt-8 space-y-6">
-          <div className="flex flex-col space-y-3 rounded-md shadow-sm">
-            <Field
-              type="text"
-              name="username"
-              placeholder="Login"
-              autoComplete="username"
-              className="input"
-            />
-            <Field
-              type="password"
-              name="password"
-              placeholder="Password"
-              autoComplete="current-password"
-              className="input"
-            />
-          </div>
+			<Formik
+				initialValues={{
+					email: "",
+					password: "",
+				}}
+				onSubmit={handleLogin}
+			>
+				<Form className="mt-8 space-y-6">
+					<div className="flex flex-col space-y-6">
+						<label
+							className="pl-1 font-semibold"
+							htmlFor="email"
+						>
+							Email:{" "}
+						</label>
+						<Field
+							type="text"
+							name="email"
+							placeholder="email"
+							autoComplete="email"
+							className="inputInscription"
+						/>
+					</div>
+					<div className="flex flex-col space-y-6 ">
+						<label
+							className="pl-1 font-semibold"
+							htmlFor="password"
+						>
+							Mot de Passe:{" "}
+						</label>
 
-          <div className="mt-3 flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-                  Forgot your password?
-                </span>
-              </Link>
-            </div>
-          </div>
+						<Field
+							type="password"
+							name="password"
+							placeholder="Password"
+							autoComplete="current-password"
+							className="inputInscription"
+						/>
+					</div>
 
-          <div>
-            <button
-              type="submit"
-              className="btn btn-primary group relative w-full"
-            >
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LockClosedIcon
-                  className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
-                  aria-hidden="true"
-                />
-              </span>
-              Sign in
-            </button>
-          </div>
-          {errorLog && (
-            <div className="flex justify-center">
-              <small className="text-sm italic text-red-600">
-                Login/Password incorrect(s)
-              </small>
-            </div>
-          )}
-        </Form>
-      </Formik>
-    </div>
-  );
+					{/* <div className="mt-3 flex items-center justify-between">
+						<div className="text-sm">
+							<Link to="/forgot-password">
+								<span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
+									Forgot your password?
+								</span>
+							</Link>
+						</div>
+					</div> */}
+
+					<div className="text-center">
+						<button
+							type="submit"
+							className="btn bg-vert group hover:bg-verth relative w-1/2 text-white"
+						>
+							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+								<LockClosedIcon
+									className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
+									aria-hidden="true"
+								/>
+							</span> */}
+							Connexion
+						</button>
+						<div className="flex justify-between pt-8">
+							<button className="btn bg-rose hover:bg-roseh  ">
+								Mot de passe oublié
+							</button>
+
+							<button className="btn bg-rose hover:bg-roseh">
+								Adresse Email oublié
+							</button>
+						</div>
+					</div>
+					{errorLog && (
+						<div className="flex justify-center">
+							<small className="text-sm italic text-red-600">
+								Login/Password incorrect(s)
+							</small>
+						</div>
+					)}
+
+					<p>
+						{/* vous n'avez pas encore de compte ? <Link to ={}>cliquez ici</Link> */}
+					</p>
+				</Form>
+			</Formik>
+		</div>
+	);
 };
 
 export default Login;

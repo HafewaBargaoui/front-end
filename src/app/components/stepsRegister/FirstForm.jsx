@@ -1,128 +1,276 @@
 import React from "react";
 
-const FirstForm = ({ formValues, onChange }) => {
-  return (
-    <div className="w-full max-w-sm">
+const FirstForm = ({
+	formValues,
+	onChange,
+	formValidation,
+	onFocus,
+	onBlur,
+	checkingFocus,
+}) => {
+	return (
+		<div className=" max-w-lg  rounded-xl  px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
+			<div className="grid gap-4 place-content-center items-center">
+				<h1 className="mt-2 text-center text-3xl font-semibold text-black">
+					INSCRIPTION
+				</h1>
+			</div>
+			<hr />
 
-      <form className="bg-white shadow-md  px-24 rounded-md">
+			<form className="mt-8 space-y-6 ">
+				<div className="flex justify-around">
+					<div>
+						<label htmlFor="female">Femme </label>
+						<input
+							type="radio"
+							name="sex"
+							id="sexe"
+							value="femme"
+							onChange={onChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="male">Homme </label>
+						<input
+							type="radio"
+							name="sex"
+							id="sexe"
+							value="homme"
+							onChange={onChange}
+						/>
+					</div>
+				</div>
+				<div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
+					<div className="grid grid-row space-y-3 ">
+						<div className="h-28">
+							<label
+								className="block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="name"
+							>
+								Nom
+							</label>
 
-        <div className="grid gap-4 place-content-center items-center">
-          <h1 className="text-gray-700 pb-8 font-bold text-2xl">Étape 1/3</h1>
-        </div>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="lastname"
+								name="lastname"
+								type="text"
+								placeholder="Nom"
+								onChange={onChange}
+								value={formValues.lastname}
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Nom
-          </label>
+							{/* {formValidation.lastname === false && checkingFocus.lastname && (
+								<p className="text-xs pt-2 text-red-600">
+									3 à 30 lettre. Doit commencer par une majuscule
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.lastname === false && checkingFocus.lastname
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								3 à 30 lettre. Doit commencer par une majuscule
+							</p>
+						</div>
 
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 "
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Nom"
-            onChange={onChange}
-            value={formValues.name}
-          ></input>
-        </div>
+						<div className="h-28">
+							<label
+								className="block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="lastname"
+							>
+								Prénom
+							</label>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastname" >
-            Prénom
-          </label>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="name"
+								name="name"
+								onChange={onChange}
+								value={formValues.name}
+								type="text"
+								placeholder="Prénom"
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
+							{/* {formValidation.name === false && checkingFocus.name && (
+								<p className="text-xs pt-2 text-red-600">
+									3 à 30 lettre. Doit commencer par une majuscule
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.name === false && checkingFocus.name
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								3 à 30 lettre. Doit commencer par une majuscule
+							</p>
+						</div>
 
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="lastname"
-            name="lastname"
-            onChange={onChange}
-            value={formValues.lastname}
-            type="text"
-            placeholder="Prénom"
-          ></input>
-        </div>
+						<div className="h-28">
+							<label
+								className=" block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="birthday"
+							>
+								Date de naissance
+							</label>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="birthday" >
-            Date de naissance
-          </label>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="birthday"
+								name="birthday"
+								onChange={onChange}
+								value={formValues.birthday}
+								type="date"
+								placeholder="Date de naissance"
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
+							{/* {formValidation.birthday === false && checkingFocus.birhtday && (
+								<p className="text-xs pt-2 text-red-600">
+									Veillez entrer une date au format jj/mm/aaaa
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.birthday === false && checkingFocus.birthday
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Veillez entrer une date Valide
+							</p>
+						</div>
+					</div>
 
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="birthday"
-            name="birthday"
-            onChange={onChange}
-            value={formValues.birthday}
-            type="date"
-            placeholder="Date de naissance"
-          ></input>
-        </div>
+					<div className="grid grid-row space-y-3">
+						<div className="h-28">
+							<label
+								className="block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="email"
+							>
+								Adresse mail
+							</label>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email" >
-            Adresse mail
-          </label>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="email"
+								name="email"
+								onChange={onChange}
+								value={formValues.email}
+								type="mail"
+								placeholder="Adresse mail"
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
+							{/* {formValidation.email === false && checkingFocus.email && (
+								<p className="text-xs pt-2 text-red-600">
+									Veillez entrer une adresse E-mail Valide
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.email === false && checkingFocus.email
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Veillez entrer une adresse E-mail Valide
+							</p>
+						</div>
 
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            name="email"
-            onChange={onChange}
-            value={formValues.email}
-            type="mail"
-            placeholder="Adresse mail"
-          ></input>
-        </div>
+						<div className="h-28">
+							<label
+								className="block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="password"
+							>
+								Mot de passe
+							</label>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="password"
+								name="password"
+								value={formValues.password}
+								onChange={onChange}
+								type="password"
+								placeholder="******************"
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
 
-        <div className="mb-6">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="password"
-          >
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            name="password"
-            value={formValues.password}
-            onChange={onChange}
-            type="password"
-            placeholder="******************"
-          ></input>
-        </div>
+							{/* {formValidation.password === false && checkingFocus.password && (
+								<p className="text-xs pt-2 text-red-600">
+									8 à 24 caractère. Doit inclure au moins une lettre majuscule,
+									un chiffre et un caractère spécial
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.password === false && checkingFocus.password
+										? "text-xs pt-2 text-red-600 text-red-600	"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								8 à 24 caractère. Doit inclure au moins une lettre majuscule, un
+								chiffre et un caractère spécial
+							</p>
+						</div>
 
-        <div className="mb-6">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="confirmPassword"
-          >
-            ConfirmPassword
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            value={formValues.confirmPassword}
-            onChange={onChange}
-            placeholder="******************"
-          ></input>
-        </div>
+						<div className="h-28">
+							<label
+								className="block text-gray-700 text-sm font-semibold mb-2"
+								htmlFor="confirmPassword"
+							>
+								Confirmation mot de passe
+							</label>
+							<input
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="confirmPassword"
+								name="confirmPassword"
+								type="password"
+								value={formValues.confirmPassword}
+								onChange={onChange}
+								placeholder="******************"
+								onFocus={onFocus}
+								onBlur={onBlur}
+							></input>
+							{/* {formValidation.confirmPassword === false &&
+								checkingFocus.confirmPassword && (
+									<p className="text-xs pt-2 text-red-600">
+										Doit être identique au mot de passe !
+									</p>
+								)} */}
+							<p
+								className={
+									formValidation.confirmPassword === false &&
+									checkingFocus.confirmPassword
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Doit être identique au mot de passe
+							</p>
+						</div>
+					</div>
+				</div>
 
-        <div data-role="main" className="ui-content">
-            
-            <label htmlFor="male">Homme</label>
-            <input type="radio" name="sexe" id="sexe" value="homme" onChange={onChange}/>
-
-            <label htmlFor="female">Femme</label>
-            <input type="radio" name="sexe" id="sexe" value="femme" onChange={onChange}/>
-            
-        </div>
-            
-      </form>
-    </div>
-  );
+				<div
+					data-role="main"
+					className="ui-content"
+				>
+					<div className="grid grid-cols-2 place-items-center gap-3 text-black font-bold">
+						<div></div>
+					</div>
+				</div>
+			</form>
+		</div>
+	);
 };
 
 export default FirstForm;

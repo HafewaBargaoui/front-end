@@ -4,10 +4,11 @@ import { Route, Routes as RoutesContainer } from "react-router-dom";
 import { ROLE_ADMIN } from "../constants/rolesConstant";
 import * as URL from "../constants/urls/urlFrontEnd";
 import AdminHomeView from "../views/AdminHomeView";
-import HomeView from "../views/HomeView";
+// import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
+import HomePageView from "../views/HomePageView";
 
 /**
  * Routes of the application
@@ -20,12 +21,48 @@ const Routes = () => {
     <RoutesContainer>
       <Route
         path={URL.URL_HOME}
+        element={<HomePageView />}
+      />
+
+      {/* <Route
+        path={URL.URL_CREATE}
         element={
           <PrivateRoute>
-            <HomeView />
+            <CreateView />
           </PrivateRoute>
         }
-      />
+      /> */}
+
+      {/* <Route
+        path={URL.URL_HISTORICAL}
+        element={
+          <PrivateRoute>
+            <HistoricalView />
+          </PrivateRoute>
+        }
+      /> */}
+      {/* <Route exact path="/login" element={<LoginView />} /> */}
+
+
+      {/* <Route exact path="/create" element={<CreateRoute />} /> 
+
+      <Route exact path="/checkcar" element={<CheckCar />} />  
+
+      <Route exact path="/checkfilters" element={<CheckFilters />} />      
+
+      <Route exact path="/created" element={<Created />} />
+      
+      <Route exact path="/historical" element={<HistoricalView />} />
+
+      <Route exact path="/avatar" element={<AvatarView />} />
+
+      <Route exact path="/gosearch" element={<GoSearch />} />
+
+      <Route exact path="/homePage" element={<HomePageView />} /> */}
+
+
+
+
       <Route
         path={URL.URL_ADMIN_HOME}
         element={
@@ -34,6 +71,7 @@ const Routes = () => {
           </PrivateRoute>
         }
       />
+
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
     </RoutesContainer>

@@ -42,3 +42,7 @@
 .btn-indigo{
     @apply text-white bg-indigo-600 hover:bg-indigo-700 hover:text-white active:ring-indigo-500 ;
 }
+
+.btn-white{
+    @apply text-white bg-black p-2 rounded-md ;
+}

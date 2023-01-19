@@ -1,13 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import authenticationReducer from './authenticationSlice';
+import {configureStore} from "@reduxjs/toolkit";
+import authenticationReducer from "./authenticationSlice";
+// import {devToolsEnhancer} from "redux-devtools-extension";
 
-/**
- * To configure the store redux.
- *
- * @author Peter Mollet
- */
 export const store = configureStore({
-    reducer: {
-        auth: authenticationReducer,
-    },
+	reducer: {
+		auth: authenticationReducer,
+	},
+	// middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+	// enhancers: [devToolsEnhancer()],
 });
