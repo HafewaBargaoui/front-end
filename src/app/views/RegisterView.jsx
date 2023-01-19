@@ -61,10 +61,11 @@ const RegisterView = () => {
 		// streetName: false,
 		// streetNumber: false,
 		// city: false,
-		// zip: false,
-		// phone: false,
+		zip: false,
+		phone: false,
 		// sex: false,
-		// terms: false,
+		terms: false,
+		username: false,
 	};
 
 	console.log(REGEX);
@@ -103,6 +104,10 @@ const RegisterView = () => {
 					<SecondForm
 						formValues={values}
 						onChange={onChange}
+						onFocus={onFocus}
+						onBlur={onBlur}
+						formValidation={validateValues}
+						checkingFocus={checkingFocus}
 					></SecondForm>
 				);
 			}
@@ -111,6 +116,10 @@ const RegisterView = () => {
 					<ThirdForm
 						formValues={values}
 						onChange={onChange}
+						onFocus={onFocus}
+						onBlur={onBlur}
+						formValidation={validateValues}
+						checkingFocus={checkingFocus}
 					></ThirdForm>
 				);
 			}
@@ -174,12 +183,7 @@ const RegisterView = () => {
 		if (inputRegexName) {
 			setValidateValues({
 				...validateValues,
-				[name]:
-					// name === "confirmPassword"
-					// 	? values.password === values.confirmPassword
-					// 		? true
-					// 		: false:
-					REGEX[name].test(value),
+				[name]: REGEX[name].test(value),
 			});
 		}
 	};
@@ -206,7 +210,7 @@ const RegisterView = () => {
 	};
 
 	return (
-		<div className=" pt-32 grid gap-8 place-content-center  ">
+		<div className=" pt-12 mb-12 grid gap-4 place-content-center  ">
 			<div
 				className={error}
 				id="messageError"
@@ -367,7 +371,7 @@ const RegisterView = () => {
 				) : (
 					<button
 						onClick={handleNext}
-						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
+						className=" bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-gray-400"
 					>
 						Next
 					</button>
