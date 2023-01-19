@@ -9,6 +9,7 @@ import LoginView from "../views/LoginView";
 import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
+import ForgetLoginView from "../views/ForgetLoginView";
 
 /**
  * Routes of the application
@@ -73,6 +74,7 @@ const Routes = () => {
       />
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
+      <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView/>} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
     </RoutesContainer>
   );

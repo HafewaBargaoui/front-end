@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-import {URL_HOME} from "../../constants/urls/urlFrontEnd";
+import {URL_HOME, URL_FORGET_LOGIN} from "../../constants/urls/urlFrontEnd";
 import {signIn} from "../../redux-store/authenticationSlice";
 import {authenticate} from "./../../api/backend/account";
 
@@ -18,6 +18,7 @@ const Login = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+
 	const handleLogin = (values) => {
 		authenticate(values)
 			.then((res) => {
@@ -29,6 +30,13 @@ const Login = () => {
 				}
 			})
 			.catch((error) => setErrorLog(error));
+	};
+  const handleForgetLogin = () => {
+
+
+					navigate(URL_FORGET_LOGIN);
+				
+			
 	};
 
 	return (
@@ -105,7 +113,8 @@ const Login = () => {
 							Connexion
 						</button>
 						<div className="flex justify-between pt-8">
-							<button className="btn bg-rose hover:bg-roseh  ">
+							<button className="btn bg-rose hover:bg-roseh  "
+              					onClick={handleForgetLogin}                        >
 								Mot de passe oublié
 							</button>
 
