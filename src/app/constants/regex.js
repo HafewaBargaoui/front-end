@@ -1,5 +1,5 @@
-const name = /[a - zA - Z]/;
-const lastname = /[a - zA - Z]/;
+const name = /^[A-Z][A-Za-z\é\è\ê\-]+$/;
+const lastname = /^[A-Z][A-Za-z\é\è\ê\-]+$/;
 const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const pathtype = /[a - zA - Z]/;

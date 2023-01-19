@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {register} from "../api/backend/account";
 import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
@@ -56,15 +56,15 @@ const RegisterView = () => {
 		email: false,
 		password: false,
 		confirmPassword: false,
-		pathType: false,
-		additionalAddress: false,
-		streetName: false,
-		streetNumber: false,
-		city: false,
-		zip: false,
-		phone: false,
-		sex: false,
-		terms: false,
+		// pathType: false,
+		// additionalAddress: false,
+		// streetName: false,
+		// streetNumber: false,
+		// city: false,
+		// zip: false,
+		// phone: false,
+		// sex: false,
+		// terms: false,
 	};
 
 	console.log(REGEX);
@@ -72,6 +72,15 @@ const RegisterView = () => {
 
 	const [values, setValues] = useState(initialValues);
 	const [validateValues, setValidateValues] = useState(initialValidationValues);
+	const [checkingFocus, setCheckingFocus] = useState(initialValidationValues);
+
+	useEffect(() => {
+		if (values.password === values.confirmPassword) {
+			setValidateValues({...validateValues, confirmPassword: true});
+		} else {
+			setValidateValues({...validateValues, confirmPassword: false});
+		}
+	}, [values.confirmPassword, values.password]);
 
 	const handleForms = () => {
 		switch (page) {
@@ -81,6 +90,10 @@ const RegisterView = () => {
 						<FirstForm
 							formValues={values}
 							onChange={onChange}
+							onFocus={onFocus}
+							onBlur={onBlur}
+							formValidation={validateValues}
+							checkingFocus={checkingFocus}
 						></FirstForm>
 					</div>
 				);
@@ -150,10 +163,10 @@ const RegisterView = () => {
 	};
 
 	console.log(REGEX.password);
+
 	const onChange = (e) => {
 		const {name, value, type, checked} = e.target;
 		setValues({...values, [name]: type === "checkbox" ? checked : value});
-
 		const inputRegexName = Object.keys(REGEX).find(
 			(regexName) => regexName === name
 		);
@@ -161,9 +174,24 @@ const RegisterView = () => {
 		if (inputRegexName) {
 			setValidateValues({
 				...validateValues,
-				[name]: REGEX[name].test(value),
+				[name]:
+					// name === "confirmPassword"
+					// 	? values.password === values.confirmPassword
+					// 		? true
+					// 		: false:
+					REGEX[name].test(value),
 			});
 		}
+	};
+
+	const onFocus = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: true});
+	};
+
+	const onBlur = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: false});
 	};
 
 	console.log(validateValues);
