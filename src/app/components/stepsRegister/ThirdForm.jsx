@@ -44,7 +44,7 @@ const ThirdForm = ({
 					</p>
 				</div>
 
-				<div className="flex justify-items-center content-center items-center">
+				<div className="flex justify-items-center  content-center items-center">
 					<label
 						className="block text-gray-700 px-2  text-sm font-bold mb-2"
 						htmlFor="Terms"
@@ -55,9 +55,20 @@ const ThirdForm = ({
 						name="terms"
 						value={formValues.terms}
 						onChange={onChange}
-						className="shadow cursor-pointer border rounded"
+						className="shadow cursor-pointer border rounded mr-2"
 						type="checkbox"
+						onFocus={onFocus}
+						onBlur={onBlur}
 					></input>
+					<p
+						className={
+							formValidation.terms === false
+								? "text-xs pt-2 "
+								: "invisible text-xs pt-2 "
+						}
+					>
+						Veuillez acceptez nos condition d'utilisation
+					</p>
 				</div>
 				<div className="flex items-center justify-between"></div>
 			</form>

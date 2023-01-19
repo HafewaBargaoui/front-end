@@ -83,6 +83,14 @@ const RegisterView = () => {
 		}
 	}, [values.confirmPassword, values.password]);
 
+	useEffect(() => {
+		if (values.terms === true) {
+			setValidateValues({...validateValues, terms: true});
+		} else {
+			setValidateValues({...validateValues, terms: false});
+		}
+	}, [values.terms]);
+
 	const handleForms = () => {
 		switch (page) {
 			case 0: {
