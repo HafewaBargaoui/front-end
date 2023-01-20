@@ -56,20 +56,11 @@ const RegisterView = () => {
 		email: false,
 		password: false,
 		confirmPassword: false,
-		// pathType: false,
-		// additionalAddress: false,
-		// streetName: false,
-		// streetNumber: false,
-		// city: false,
 		zip: false,
 		phone: false,
-		// sex: false,
 		terms: false,
 		username: false,
 	};
-
-	console.log(REGEX);
-	console.log(REGEX.name);
 
 	const [values, setValues] = useState(initialValues);
 	const [validateValues, setValidateValues] = useState(initialValidationValues);
@@ -90,6 +81,32 @@ const RegisterView = () => {
 			setValidateValues({...validateValues, terms: false});
 		}
 	}, [values.terms]);
+
+	const onChange = (e) => {
+		const {name, value, type, checked} = e.target;
+		setValues({...values, [name]: type === "checkbox" ? checked : value});
+
+		const inputRegexName = Object.keys(REGEX).find(
+			(regexName) => regexName === name
+		);
+
+		if (inputRegexName) {
+			setValidateValues({
+				...validateValues,
+				[name]: REGEX[name].test(value),
+			});
+		}
+	};
+
+	const onFocus = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: true});
+	};
+
+	const onBlur = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: false});
+	};
 
 	const handleForms = () => {
 		switch (page) {
@@ -136,32 +153,6 @@ const RegisterView = () => {
 		}
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		if (
-			values.name == "" ||
-			values.lastname == "" ||
-			values.birthday == "" ||
-			values.email == "" ||
-			values.password == "" ||
-			values.confirmPassword == "" ||
-			values.address == "" ||
-			values.additionalAddress == "" ||
-			values.streetName == "" ||
-			values.streetNumber == "" ||
-			values.city == "" ||
-			values.zip == ""
-		) {
-			showMessageError(true);
-		} else {
-			showMessageError(false);
-			delete values.terms;
-			delete values.confirmPassword;
-			const response = await register(values);
-		}
-	};
-
 	const setForm = (e) => {
 		const name = e.target.innerText;
 		switch (name) {
@@ -178,44 +169,35 @@ const RegisterView = () => {
 				setPage(0);
 		}
 	};
-
-	console.log(REGEX.password);
-
-	const onChange = (e) => {
-		const {name, value, type, checked} = e.target;
-		setValues({...values, [name]: type === "checkbox" ? checked : value});
-		const inputRegexName = Object.keys(REGEX).find(
-			(regexName) => regexName === name
+	const checkingInvalidInputs = () => {
+		const isInputNotValid = Object.entries(validateValues).some(
+			([key, value]) => value === false
 		);
 
-		if (inputRegexName) {
-			setValidateValues({
-				...validateValues,
-				[name]: REGEX[name].test(value),
-			});
+		return isInputNotValid;
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		if (checkingInvalidInputs()) {
+			showMessageError(true);
+		} else {
+			showMessageError(false);
+			delete values.terms;
+			delete values.confirmPassword;
+			const response = await register(values);
 		}
 	};
 
-	const onFocus = (e) => {
-		const {name, value, type, checked} = e.target;
-		setCheckingFocus({...checkingFocus, [name]: true});
-	};
+	// const test = async () => {
+	// 	delete values.terms;
+	// 	delete values.confirmPassword;
 
-	const onBlur = (e) => {
-		const {name, value, type, checked} = e.target;
-		setCheckingFocus({...checkingFocus, [name]: false});
-	};
-
-	console.log(validateValues);
-
-	const test = async () => {
-		delete values.terms;
-		delete values.confirmPassword;
-
-		console.log(values);
-		const response = await register(values);
-		console.log(response);
-	};
+	// 	console.log(values);
+	// 	const response = await register(values);
+	// 	console.log(response);
+	// };
 
 	return (
 		<div className=" pt-12 mb-12 grid gap-4 place-content-center  ">
@@ -224,7 +206,7 @@ const RegisterView = () => {
 				id="messageError"
 			>
 				<strong className="font-bold">
-					Un problème sur le formulaire est détecté
+					Un problème a été détecté, veuillez vérifier vos saisies
 				</strong>
 				<span className="absolute top-0 bottom-0 right-0 px-4 py-3"></span>
 			</div>
@@ -372,7 +354,9 @@ const RegisterView = () => {
 				{page === 2 ? (
 					<button
 						onClick={handleSubmit}
-						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
+						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-opacity-25 disabled:text-opacity-25"
+						//permet de désactiver/griser le bouttons submits si les saisies ne sont pas bonnes :
+						// disabled={checkingInvalidInputs()}
 					>
 						Submit
 					</button>
