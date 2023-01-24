@@ -1,23 +1,40 @@
 import {LockClosedIcon} from "@heroicons/react/solid";
-import {Field, Form, Formik} from "formik";
+import {Field, Form, Formik, ErrorMessage} from "formik";
+import * as Yup from 'yup'
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-import {URL_HOME, URL_FORGET_LOGIN} from "../../constants/urls/urlFrontEnd";
+import {URL_HOME, URL_FORGET_LOGIN, URL_LOGIN} from "../../constants/urls/urlFrontEnd";
 import {signIn} from "../../redux-store/authenticationSlice";
 import {authenticate} from "../../api/backend/account";
 
 /**
  * Component Reset Password
  */
+
+const initialValues = {
+	password: '',
+    password_confirm: '',
+  }
+  
+  const validationSchema = Yup.object({
+	password: Yup.string().required('Saisissez votre mot de passe'),
+    password_confirm: Yup.string()
+      .oneOf([Yup.ref('password'), ''], 'Doit être identque au mot de passe')
+      .required('Confirmez votre mot de passe'),
+  })
+
+
+
+
 const ResetPassword = () => {
 	const [errorLog, setErrorLog] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 
-	const handleLogin = (values) => {
+	const ResetPassword = (values) => {
 		authenticate(values)
 			.then((res) => {
 				if (res.status === 200) {
@@ -29,10 +46,10 @@ const ResetPassword = () => {
 			})
 			.catch((error) => setErrorLog(error));
 	};
-  const handleForgetLogin = () => {
+  const handleResetLogin = () => {
 
 
-					navigate(URL_FORGET_LOGIN);
+					navigate(URL_LOGIN);
 				
 			
 	};
@@ -48,11 +65,9 @@ const ResetPassword = () => {
 			</div>
 
 			<Formik
-				initialValues={{
-					email: "",
-					password: "",
-				}}
-				onSubmit={handleLogin}
+				 initialValues={initialValues}
+				 validationSchema={validationSchema}
+				onSubmit={handleResetLogin}
 			>
 				<Form className="mt-8 space-y-6">
 					
@@ -61,16 +76,19 @@ const ResetPassword = () => {
 							className="pl-1 font-semibold"
 							htmlFor="password"
 						>
-							Mot de Passe:{" "}
+							Saisissez votre nouveau mot de passe {" "}
 						</label>
 
 						<Field
 							type="password"
 							name="password"
-							placeholder="Password"
+							placeholder="Mot de passe"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>
+						<ErrorMessage name='password'>
+                {error => <div className='text-xs pt-2 text-red-600'>{error}</div>} 
+              </ErrorMessage> 
 					</div>
 
                     <div className="flex flex-col space-y-6 ">
@@ -78,40 +96,29 @@ const ResetPassword = () => {
 							className="pl-1 font-semibold"
 							htmlFor="password"
 						>
-							Mot de Passe:{" "}
+							Confirmez le nouveau mot de passe {" "}
 						</label>
 
 						<Field
 							type="password"
 							name="password_confirm"
-							placeholder="Password"
+							placeholder="Confirmer"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>
+						 <ErrorMessage name='password_confirm'>
+                {error => <div className='text-xs pt-2 text-red-600'>{error}</div>} 
+              </ErrorMessage> 
+						
 					</div>
-
-					{/* <div className="mt-3 flex items-center justify-between">
-						<div className="text-sm">
-							<Link to="/forgot-password">
-								<span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-									Forgot your password?
-								</span>
-							</Link>
-						</div>
-					</div> */}
 
 					<div className="text-center">
 						<button
 							type="submit"
 							className="btn bg-vert group hover:bg-verth relative w-1/2 text-white"
 						>
-							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-								<LockClosedIcon
-									className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
-									aria-hidden="true"
-								/>
-							</span> */}
-							Connexion
+				
+							Enregistrer
 						</button>
 						
 					</div>

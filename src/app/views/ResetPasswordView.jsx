@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import ForgetLogin from "../components/account/ForgetLogin";
+import ResetPassword from "../components/account/ResetPassword";
 
 import {URL_HOME} from "../constants/urls/urlFrontEnd";
 import Login from "./../components/account/Login";
@@ -22,7 +22,7 @@ const ResetPasswordView = () => {
 
 	return (
 		<div className="flex h-full items-center justify-center loginContainer ">
-			<ForgetLogin className="" />
+			<ResetPassword className="" />
 		</div>
 	);
 };

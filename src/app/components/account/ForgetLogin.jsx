@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 
 import {URL_LOGIN } from "../../constants/urls/urlFrontEnd";
 
+import {URL_RESET_PASSWORD } from "../../constants/urls/urlFrontEnd";
 
 const initialValues = {
 	email: '',
@@ -24,7 +25,7 @@ const ForgetLogin = () => {
 
 	const handleSubmit = () => {
 		//Send requet to back 
-		navigate(URL_LOGIN);
+		navigate(URL_RESET_PASSWORD);
 	};
 
 	return (
