@@ -43,7 +43,7 @@ const Login = () => {
 
 			<Formik
 				initialValues={{
-					username: "",
+					email: "",
 					password: "",
 				}}
 				onSubmit={handleLogin}

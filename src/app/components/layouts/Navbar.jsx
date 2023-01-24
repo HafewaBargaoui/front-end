@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/C_logoWhite.png";
 import {
+	URL_AVATAR,
 	URL_HOME,
 	URL_LOGIN,
 	URL_REGISTER,
@@ -19,7 +20,13 @@ const Navbar = () => {
 					/>
 				</Link>
 				<div className="flex md:order-2">
-					<div className="grid md:grid-cols-2 md:gap-2">
+					<div className="w-16 mr-16">
+						<Link to={URL_AVATAR}>
+							<img src="imgs/avatar.png"></img>
+						</Link>
+
+					</div>
+					{/* <div className="grid md:grid-cols-2 md:gap-2">
 						<Link to={URL_REGISTER}>
 							<button
 								type="button"
@@ -36,7 +43,7 @@ const Navbar = () => {
 								Connexion
 							</button>
 						</Link>
-					</div>
+					</div> */}
 					<button
 						data-collapse-toggle="navbar-sticky"
 						type="button"
@@ -64,29 +71,30 @@ const Navbar = () => {
 					className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
 					id="navbar-sticky"
 				>
-					<ul className=" ml-32 flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0">
+					<ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0 ml-12">
 						<li>
 							<a
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
-								aria-current="page"
-							>
+								aria-current="page">
+							
 								Créer un trajet
-							</a>
+								</a>
+							
 						</li>
 						<li>
 							<a
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
 							>
-								listes des trajets							</a>
+								Liste des trajets							</a>
 						</li>
 						<li>
 							<a
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
 							>
-								condition d'utilisation
+								Conditions d'utilisation
 							</a>
 						</li>
 					</ul>

@@ -6,6 +6,11 @@ import * as URL from "../constants/urls/urlFrontEnd";
 import AdminHomeView from "../views/AdminHomeView";
 // import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
+import AvatarView from "../views/AvatarView";
+import ProfilView from "../views/ProfilView";
+import FaqView from "../views/FaqView";
+import ContactView from "../views/ContactView";
+
 import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
@@ -71,9 +76,14 @@ const Routes = () => {
           </PrivateRoute>
         }
       />
+      <Route path={URL.URL_PROFIL} element={<ProfilView />} />
+      <Route path={URL.URL_FAQ} element={<FaqView />} />
+      <Route path={URL.URL_CONTACT} element={<ContactView />} />
+
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
+      <Route path={URL.URL_AVATAR} element={<AvatarView />} />
     </RoutesContainer>
   );
 };

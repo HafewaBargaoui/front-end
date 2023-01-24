@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export default function CreateRoute() {
+export default function Create() {
     return (
         <div className='creation'>
            <h1>Création du trajet :</h1>
@@ -27,14 +27,3 @@ export default function CreateRoute() {
     );
 }
 
-// avant cette page il faut la page inscription et connexion
-
-// départ
-// destination
-// date
-
-// choix et ou vérification des données enregistrées sur la voiture
-
-// vérification des filtres
-
-// trajet créé
