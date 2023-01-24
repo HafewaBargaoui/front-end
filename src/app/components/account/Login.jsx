@@ -21,14 +21,14 @@ const Login = () => {
 	const handleLogin = (values) => {
 		authenticate(values)
 			.then((res) => {
-				console.log(res);
 				if (res.status === 200) {
-					alert("bonjour : " + res.data.name);
-					// dispatch(signIn(res.data.id_token));
-					// navigate(URL_HOME);
+					dispatch(signIn(res.data));
+					navigate(URL_HOME);
+				} else {
+					console.log(res.message);
 				}
 			})
-			.catch(() => setErrorLog(true));
+			.catch((error) => setErrorLog(error));
 	};
 
 	return (
@@ -43,7 +43,7 @@ const Login = () => {
 
 			<Formik
 				initialValues={{
-					username: "",
+					email: "",
 					password: "",
 				}}
 				onSubmit={handleLogin}
