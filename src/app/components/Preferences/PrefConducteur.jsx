@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import { useDropzone } from "react-dropzone";
 
 import drag from "../../assets/images/profileprefs/drag.png";
+import { getCarBrand } from '../../api/backend/account';
 
 const PrefConducteur = () => {
 
@@ -80,18 +81,16 @@ const PrefConducteur = () => {
       console.log(prefConducteur);
     }, [prefConducteur]);
 
-    const carOptions = [
-      {
-        id: "1",
-        label: "peugeot",
-        value: "peugeot",
-      },
-      {
-        id:"2",
-        label: "opel",
-        value: "opel",
-      }
-    ];
+    const [carOpt, setcarOpt] = useState([])
+    const carOptions = async () => {
+      const response = await getCarBrand();
+      setcarOpt(response.data)
+    }
+    useEffect(() => {
+      carOptions();
+  
+    }, [])
+    
 
     const modeleOptions = [
       {
@@ -162,8 +161,9 @@ const PrefConducteur = () => {
         <div className="h-24 w-48 bg-white grid grid-flow-row place-items-center ">
         <p>marque</p>
         <select value={formik.values.carOption} onChange={formik.handleChange} name="carOption">
-            {carOptions.map((option) => (
-              <option key={option.id} value={option.value} >{option.label}</option>
+            {carOpt.map((option, i) => (
+
+              <option key={option._id} value={option.name} >{option.name}</option>
             ))}
           </select>
         </div>
