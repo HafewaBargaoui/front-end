@@ -10,6 +10,8 @@ import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
 
+import ProfilePrefsView from "../views/ProfilePrefsView";
+
 /**
  * Routes of the application
  * with public and private route
@@ -74,6 +76,7 @@ const Routes = () => {
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
+      <Route path={URL.URL_PROFILEPREFS} element={<ProfilePrefsView />} />
     </RoutesContainer>
   );
 };

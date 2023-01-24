@@ -8,3 +8,4 @@ export const URL_HISTORICAL = '/historical';
 export const URL_AVATAR = '/avatar';
 export const URL_FOOTER = '/';
 export const URL_HOMEPAGE ='/homePage';
+export const URL_PROFILEPREFS ='/profilePrefs';
