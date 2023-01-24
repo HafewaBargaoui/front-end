@@ -36,7 +36,7 @@ const PrefModal = ({setmodalOn,setchoiceOui, setchoiceNon}) => {
 
 
   return (
-    <div className="h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm"
+    <div className="h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-black bg-opacity-50 backdrop-blur-sm x"
          onClick={clickOut}    
         >
 
@@ -44,7 +44,7 @@ const PrefModal = ({setmodalOn,setchoiceOui, setchoiceNon}) => {
         <div className="relative w-full h-full max-w-md md:h-auto"
            
            >
-             <div className="relative h-44 grid place-items-center bg-black shadow">
+             <div className="relative h-44 grid place-items-center bg-black shadow rounded-lg">
                <button
                  type="button"
                  onClick={closeClick}
@@ -73,7 +73,7 @@ const PrefModal = ({setmodalOn,setchoiceOui, setchoiceNon}) => {
                    data-modal-hide="popup-modal"
                    type="button"
                    onClick={clickOui}
-                   className="text-white bg-vert hover:bg-verth font-semibold text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                   className="text-white bg-vert hover:bg-verth rounded-md font-semibold text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                  >
                    OUI
                  </button>
@@ -81,7 +81,7 @@ const PrefModal = ({setmodalOn,setchoiceOui, setchoiceNon}) => {
                    data-modal-hide="popup-modal"
                    onClick={clickNon}
                    type="button"
-                   className="text-black bg-rose hover:bg-roseh font-semibold text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                   className="text-black bg-rose hover:bg-roseh rounded-md font-semibold text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
                  >
                    NON
                  </button>
