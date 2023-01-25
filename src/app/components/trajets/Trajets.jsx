@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import paul from "../../assets/images/profil/fakeUser3.png";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
+import haut from "../../assets/images/profil/flecheHaut.png";
+import bas from "../../assets/images/profil/flecheBas.png";
 
 const Trajets = () => {
   const [fav, setFav] = useState(false);
@@ -89,9 +91,10 @@ const Trajets = () => {
 
   return (
     <div className="m-36 w-full">
+    
       <div className="m-2">
         <div
-          className={`grid grid-flow-row bg-white w-full rounded-lg p-2 drop-shadow-lg ${
+          className={`grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg ${
             histo && "scale-105"
           } hover:scale-105 hover:transition duration-700 ease-in-out`}
           onClick={() => setHisto(!histo)}
@@ -99,17 +102,18 @@ const Trajets = () => {
           <p className="uppercase font-semibold m-2">
             trajet / <span className="font-light">historique</span>
           </p>
+          <img src={!histo ? haut : bas } alt="logo" />
         </div>
 
         <div
           className={`${
             !histo && "hidden"
-          }  h-56 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
         >
-          <div className="mt-10">
+          <div className="mt-6">
             {trajets.map((trajet) => (
               <div
-                className={`grid grid-flow-col bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
+                className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={trajet.id}
               >
                 <p className="uppercase font-semibold m-2">{trajet.date}</p>
@@ -119,7 +123,7 @@ const Trajets = () => {
                   <span className="font-light">{trajet.arrive}</span>
                 </p>
 
-                <img src={paul} alt="photo conducteur" className="w-10 h-10" />
+                <img src={paul} alt="photo conducteur" className="w-8 h-8" />
                 <p className="uppercase font-semibold m-2">
                   {trajet.conducteur} /{" "}
                   <span className="font-light">{trajet.modele}</span>
@@ -132,28 +136,30 @@ const Trajets = () => {
             ))}
           </div>
         </div>
+      </div>
 
-
+      <div className="m-2">
         <div
-          className={`grid grid-flow-row bg-white w-full rounded-lg mt-2 p-2 drop-shadow-lg ${
+          className={`grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg ${
             fav && "scale-105"
           } hover:scale-105 hover:transition duration-700 ease-in-out`}
           onClick={() => setFav(!fav)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">favoris</span>
+            trajet / <span className="font-light">historique</span>
           </p>
+          <img src={!fav ? haut : bas } alt="logo" />
         </div>
 
         <div
           className={`${
             !fav && "hidden"
-          }  h-56 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
         >
-          <div className="mt-10">
+          <div className="mt-6">
             {trajets.map((trajet) => (
               <div
-                className={`grid grid-flow-col bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
+                className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={trajet.id}
               >
                 <p className="uppercase font-semibold m-2">{trajet.date}</p>
@@ -163,7 +169,7 @@ const Trajets = () => {
                   <span className="font-light">{trajet.arrive}</span>
                 </p>
 
-                <img src={paul} alt="photo conducteur" className="w-10 h-10" />
+                <img src={paul} alt="photo conducteur" className="w-8 h-8" />
                 <p className="uppercase font-semibold m-2">
                   {trajet.conducteur} /{" "}
                   <span className="font-light">{trajet.modele}</span>
@@ -176,9 +182,11 @@ const Trajets = () => {
             ))}
           </div>
         </div>
+      </div>
 
+      <div className="m-2">
         <div
-          className={`grid grid-flow-row bg-white w-full rounded-lg mt-2 p-2 drop-shadow-lg ${
+          className={`grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg ${
             recurent && "scale-105"
           } hover:scale-105 hover:transition duration-700 ease-in-out`}
           onClick={() => setRecurent(!recurent)}
@@ -186,17 +194,18 @@ const Trajets = () => {
           <p className="uppercase font-semibold m-2">
             trajet / <span className="font-light">historique</span>
           </p>
+          <img src={!recurent ? haut : bas } alt="logo" />
         </div>
 
         <div
           className={`${
             !recurent && "hidden"
-          }  h-56 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
         >
-          <div className="mt-10">
+          <div className="mt-6">
             {trajets.map((trajet) => (
               <div
-                className={`grid grid-flow-col bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
+                className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={trajet.id}
               >
                 <p className="uppercase font-semibold m-2">{trajet.date}</p>
@@ -206,7 +215,7 @@ const Trajets = () => {
                   <span className="font-light">{trajet.arrive}</span>
                 </p>
 
-                <img src={paul} alt="photo conducteur" className="w-10 h-10" />
+                <img src={paul} alt="photo conducteur" className="w-8 h-8" />
                 <p className="uppercase font-semibold m-2">
                   {trajet.conducteur} /{" "}
                   <span className="font-light">{trajet.modele}</span>
@@ -219,9 +228,11 @@ const Trajets = () => {
             ))}
           </div>
         </div>
+      </div>
 
+      <div className="m-2">
         <div
-          className={`grid grid-flow-row bg-white w-full rounded-lg mt-2 p-2 drop-shadow-lg ${
+          className={`grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg ${
             propose && "scale-105"
           } hover:scale-105 hover:transition duration-700 ease-in-out`}
           onClick={() => setPropose(!propose)}
@@ -229,17 +240,18 @@ const Trajets = () => {
           <p className="uppercase font-semibold m-2">
             trajet / <span className="font-light">historique</span>
           </p>
+          <img src={!propose ? haut : bas } alt="logo" />
         </div>
 
         <div
           className={`${
             !propose && "hidden"
-          }  h-56 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
         >
-          <div className="mt-10">
+          <div className="mt-6">
             {trajets.map((trajet) => (
               <div
-                className={`grid grid-flow-col bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
+                className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={trajet.id}
               >
                 <p className="uppercase font-semibold m-2">{trajet.date}</p>
@@ -249,7 +261,7 @@ const Trajets = () => {
                   <span className="font-light">{trajet.arrive}</span>
                 </p>
 
-                <img src={paul} alt="photo conducteur" className="w-10 h-10" />
+                <img src={paul} alt="photo conducteur" className="w-8 h-8" />
                 <p className="uppercase font-semibold m-2">
                   {trajet.conducteur} /{" "}
                   <span className="font-light">{trajet.modele}</span>
@@ -262,10 +274,11 @@ const Trajets = () => {
             ))}
           </div>
         </div>
-
-
-
       </div>
+
+
+
+      
     </div>
   );
 };
