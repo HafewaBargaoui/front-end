@@ -92,8 +92,8 @@ export default function HomePageView() {
 					<Link to={URL_REGISTER}>
 						<button
 							type="button"
-							className=" md:text-white font-semibold md:bg-cyan-800 md:hover:bg-cyan-700 md:focus:ring-4 md:focus:outline- 
-							 none md:font-medium md:rounded-lg text-md px-5 py-2.5 text-center mt-8 ml-72">
+							className=" text-white font-semibold bg-cyan-800 hover:bg-cyan-700 md:focus:ring-4 md:focus:outline- 
+							 none rounded-lg text-md px-5 py-2.5 text-center mt-8 ml-72">
 							S'inscrire
 						</button>{" "}
 					</Link>

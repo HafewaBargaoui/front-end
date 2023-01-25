@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
     URL_LOGIN,
     URL_PROFIL,
+    URL_PROFILEPREFS,
     URL_REGISTER,
 } from "./../constants/urls/urlFrontEnd";
 
@@ -32,7 +33,7 @@ export default function Avatar() {
                     </Link>
                 </div>
                 <div className='px-80 text-xl'>
-                    <Link to={URL_PROFIL}>
+                    <Link to={URL_PROFILEPREFS}>
                         <button
                             type="button"
                             className=" text-white "
