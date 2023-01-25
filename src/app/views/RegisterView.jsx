@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {register} from "../api/backend/account";
-
+import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
 import SecondForm from "../components/stepsRegister/SecondForm";
 import ThirdForm from "../components/stepsRegister/ThirdForm";
@@ -49,7 +49,64 @@ const RegisterView = () => {
 		terms: "",
 	};
 
+	const initialValidationValues = {
+		name: false,
+		lastname: false,
+		birthday: false,
+		email: false,
+		password: false,
+		confirmPassword: false,
+		zip: false,
+		phone: false,
+		terms: false,
+		username: false,
+	};
+
 	const [values, setValues] = useState(initialValues);
+	const [validateValues, setValidateValues] = useState(initialValidationValues);
+	const [checkingFocus, setCheckingFocus] = useState(initialValidationValues);
+
+	useEffect(() => {
+		if (values.password === values.confirmPassword) {
+			setValidateValues({...validateValues, confirmPassword: true});
+		} else {
+			setValidateValues({...validateValues, confirmPassword: false});
+		}
+	}, [values.confirmPassword, values.password]);
+
+	useEffect(() => {
+		if (values.terms === true) {
+			setValidateValues({...validateValues, terms: true});
+		} else {
+			setValidateValues({...validateValues, terms: false});
+		}
+	}, [values.terms]);
+
+	const onChange = (e) => {
+		const {name, value, type, checked} = e.target;
+		setValues({...values, [name]: type === "checkbox" ? checked : value});
+
+		const inputRegexName = Object.keys(REGEX).find(
+			(regexName) => regexName === name
+		);
+
+		if (inputRegexName) {
+			setValidateValues({
+				...validateValues,
+				[name]: REGEX[name].test(value),
+			});
+		}
+	};
+
+	const onFocus = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: true});
+	};
+
+	const onBlur = (e) => {
+		const {name, value, type, checked} = e.target;
+		setCheckingFocus({...checkingFocus, [name]: false});
+	};
 
 	const handleForms = () => {
 		switch (page) {
@@ -59,6 +116,10 @@ const RegisterView = () => {
 						<FirstForm
 							formValues={values}
 							onChange={onChange}
+							onFocus={onFocus}
+							onBlur={onBlur}
+							formValidation={validateValues}
+							checkingFocus={checkingFocus}
 						></FirstForm>
 					</div>
 				);
@@ -68,6 +129,10 @@ const RegisterView = () => {
 					<SecondForm
 						formValues={values}
 						onChange={onChange}
+						onFocus={onFocus}
+						onBlur={onBlur}
+						formValidation={validateValues}
+						checkingFocus={checkingFocus}
 					></SecondForm>
 				);
 			}
@@ -76,37 +141,15 @@ const RegisterView = () => {
 					<ThirdForm
 						formValues={values}
 						onChange={onChange}
+						onFocus={onFocus}
+						onBlur={onBlur}
+						formValidation={validateValues}
+						checkingFocus={checkingFocus}
 					></ThirdForm>
 				);
 			}
 			default:
 				return null;
-		}
-	};
-
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		if (
-			values.name == "" ||
-			values.lastname == "" ||
-			values.birthday == "" ||
-			values.email == "" ||
-			values.password == "" ||
-			values.confirmPassword == "" ||
-			values.address == "" ||
-			values.additionalAddress == "" ||
-			values.streetName == "" ||
-			values.streetNumber == "" ||
-			values.city == "" ||
-			values.zip == ""
-		) {
-			showMessageError(true);
-		} else {
-			showMessageError(false);
-			delete values.terms;
-			delete values.confirmPassword;
-			const response = await register(values);
 		}
 	};
 
@@ -126,29 +169,44 @@ const RegisterView = () => {
 				setPage(0);
 		}
 	};
+	const checkingInvalidInputs = () => {
+		const isInputNotValid = Object.entries(validateValues).some(
+			([key, value]) => value === false
+		);
 
-	const onChange = (e) => {
-		const {name, value, type, checked} = e.target;
-		setValues({...values, [name]: type === "checkbox" ? checked : value});
+		return isInputNotValid;
 	};
 
-	const test = async () => {
-		delete values.terms;
-		delete values.confirmPassword;
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
-		console.log(values);
-		const response = await register(values);
-		console.log(response);
+		if (checkingInvalidInputs()) {
+			showMessageError(true);
+		} else {
+			showMessageError(false);
+			delete values.terms;
+			delete values.confirmPassword;
+			const response = await register(values);
+		}
 	};
+
+	// const test = async () => {
+	// 	delete values.terms;
+	// 	delete values.confirmPassword;
+
+	// 	console.log(values);
+	// 	const response = await register(values);
+	// 	console.log(response);
+	// };
 
 	return (
-		<div className=" pt-32 grid gap-8 place-content-center  ">
+		<div className=" pt-12 mb-12 grid gap-4 place-content-center  ">
 			<div
 				className={error}
 				id="messageError"
 			>
 				<strong className="font-bold">
-					Un problème sur le formulaire est détecté
+					Un problème a été détecté, veuillez vérifier vos saisies
 				</strong>
 				<span className="absolute top-0 bottom-0 right-0 px-4 py-3"></span>
 			</div>
@@ -296,14 +354,16 @@ const RegisterView = () => {
 				{page === 2 ? (
 					<button
 						onClick={handleSubmit}
-						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
+						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-opacity-25 disabled:text-opacity-25"
+						//permet de désactiver/griser le bouttons submits si les saisies ne sont pas bonnes :
+						// disabled={checkingInvalidInputs()}
 					>
 						Submit
 					</button>
 				) : (
 					<button
 						onClick={handleNext}
-						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 "
+						className=" bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-gray-400"
 					>
 						Next
 					</button>

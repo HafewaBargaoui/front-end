@@ -14,6 +14,10 @@ import ContactView from "../views/ContactView";
 import RegisterView from "../views/RegisterView";
 import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
+import ForgetLoginView from "../views/ForgetLoginView";
+import ResetPassword from "../views/ResetPasswordView";
+
+import ProfilePrefsView from "../views/ProfilePrefsView";
 
 /**
  * Routes of the application
@@ -82,7 +86,10 @@ const Routes = () => {
 
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
+      <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView/>} />
+      <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword/>} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
+      <Route path={URL.URL_PROFILEPREFS} element={<ProfilePrefsView />} />
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
     </RoutesContainer>
   );

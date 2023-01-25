@@ -1,5 +1,7 @@
 export const URL_HOME = '/';
 export const URL_LOGIN = '/login';
+export const URL_FORGET_LOGIN = '/forget-login';
+export const URL_RESET_PASSWORD = '/reset-password';
 export const URL_ADMIN_HOME = '/admin';
 export const URL_REGISTER = '/register';
 export const URL_LIST = '/simple-list';
@@ -11,3 +13,4 @@ export const URL_HOMEPAGE ='/homePage'
 export const URL_PROFIL ='/profil'
 export const URL_FAQ ='/faq'
 export const URL_CONTACT ='/contact'
+export const URL_PROFILEPREFS ='/profilePrefs';
