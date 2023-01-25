@@ -19,14 +19,16 @@ const initialValues = {
   }
   
   const validationSchema = Yup.object({
-	password: Yup.string().required('Saisissez votre mot de passe'),
+	password: Yup.string().required('Saisissez votre mot de passe')
+	.min(8, 'Password is too short - should be 8 chars minimum.')
+	.max(24, 'Password is too long - should be 24 chars maximum.')
+	.matches(/[A-Z]/, 'Password requires an uppercase letter')
+	.matches(/[0-9]/, 'Password requires a number')
+	.matches(/[^\w]/, 'Password requires a symbol'),
     password_confirm: Yup.string()
       .oneOf([Yup.ref('password'), ''], 'Doit être identque au mot de passe')
       .required('Confirmez votre mot de passe'),
   })
-
-
-
 
 const ResetPassword = () => {
 	const [errorLog, setErrorLog] = useState(false);
