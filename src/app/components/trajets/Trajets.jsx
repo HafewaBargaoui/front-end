@@ -108,7 +108,7 @@ const Trajets = () => {
         <div
           className={`${
             !histo && "hidden"
-          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 scrollbar`}
         >
           <div className="mt-6">
             {trajets.map((trajet) => (
@@ -146,7 +146,7 @@ const Trajets = () => {
           onClick={() => setFav(!fav)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">historique</span>
+            trajet / <span className="font-light">favoris</span>
           </p>
           <img src={!fav ? haut : bas } alt="logo" />
         </div>
@@ -154,7 +154,7 @@ const Trajets = () => {
         <div
           className={`${
             !fav && "hidden"
-          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 scrollbar`}
         >
           <div className="mt-6">
             {trajets.map((trajet) => (
@@ -192,7 +192,7 @@ const Trajets = () => {
           onClick={() => setRecurent(!recurent)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">historique</span>
+            trajet / <span className="font-light">récurents</span>
           </p>
           <img src={!recurent ? haut : bas } alt="logo" />
         </div>
@@ -200,7 +200,7 @@ const Trajets = () => {
         <div
           className={`${
             !recurent && "hidden"
-          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 scrollbar`}
         >
           <div className="mt-6">
             {trajets.map((trajet) => (
@@ -238,7 +238,7 @@ const Trajets = () => {
           onClick={() => setPropose(!propose)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">historique</span>
+            trajet / <span className="font-light">proposés</span>
           </p>
           <img src={!propose ? haut : bas } alt="logo" />
         </div>
@@ -246,7 +246,7 @@ const Trajets = () => {
         <div
           className={`${
             !propose && "hidden"
-          }  h-64 overflow-scroll bg-opacity-10 mt-0 bg-slate-300`}
+          }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 scrollbar`}
         >
           <div className="mt-6">
             {trajets.map((trajet) => (
