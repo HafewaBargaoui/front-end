@@ -27,7 +27,9 @@ const Login = () => {
 					navigate(URL_HOME);
 				} else {
 					console.log(res.message);
-				}
+					dispatch(signIn(res.data));
+					navigate(URL_HOME);
+				} 
 			})
 			.catch((error) => setErrorLog(error));
 	};
