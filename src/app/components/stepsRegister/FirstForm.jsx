@@ -1,8 +1,15 @@
 import React from "react";
 
-const FirstForm = ({formValues, onChange}) => {
+const FirstForm = ({
+	formValues,
+	onChange,
+	formValidation,
+	onFocus,
+	onBlur,
+	checkingFocus,
+}) => {
 	return (
-		<div className="w-full max-w-md space-y-8 rounded-xl p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
+		<div className=" max-w-lg  rounded-xl  px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
 			<div className="grid gap-4 place-content-center items-center">
 				<h1 className="mt-2 text-center text-3xl font-semibold text-black">
 					INSCRIPTION
@@ -10,10 +17,32 @@ const FirstForm = ({formValues, onChange}) => {
 			</div>
 			<hr />
 
-			<form className="mt-8 space-y-6">
+			<form className="mt-8 space-y-6 ">
+				<div className="flex justify-around">
+					<div>
+						<label htmlFor="female">Femme </label>
+						<input
+							type="radio"
+							name="sex"
+							id="sexe"
+							value="femme"
+							onChange={onChange}
+						/>
+					</div>
+					<div>
+						<label htmlFor="male">Homme </label>
+						<input
+							type="radio"
+							name="sex"
+							id="sexe"
+							value="homme"
+							onChange={onChange}
+						/>
+					</div>
+				</div>
 				<div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
-					<div className="grid grid-row space-y-3">
-						<div className="mb-4">
+					<div className="grid grid-row space-y-3 ">
+						<div className="h-28">
 							<label
 								className="block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="name"
@@ -22,17 +51,34 @@ const FirstForm = ({formValues, onChange}) => {
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 "
-								id="name"
-								name="name"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								id="lastname"
+								name="lastname"
 								type="text"
 								placeholder="Nom"
 								onChange={onChange}
-								value={formValues.name}
+								value={formValues.lastname}
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+
+							{/* {formValidation.lastname === false && checkingFocus.lastname && (
+								<p className="text-xs pt-2 text-red-600">
+									3 à 30 lettre. Doit commencer par une majuscule
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.lastname === false && checkingFocus.lastname
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								3 à 30 lettre. Doit commencer par une majuscule
+							</p>
 						</div>
 
-						<div className="mb-6">
+						<div className="h-28">
 							<label
 								className="block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="lastname"
@@ -42,16 +88,32 @@ const FirstForm = ({formValues, onChange}) => {
 
 							<input
 								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-								id="lastname"
-								name="lastname"
+								id="name"
+								name="name"
 								onChange={onChange}
-								value={formValues.lastname}
+								value={formValues.name}
 								type="text"
 								placeholder="Prénom"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+							{/* {formValidation.name === false && checkingFocus.name && (
+								<p className="text-xs pt-2 text-red-600">
+									3 à 30 lettre. Doit commencer par une majuscule
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.name === false && checkingFocus.name
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								3 à 30 lettre. Doit commencer par une majuscule
+							</p>
 						</div>
 
-						<div className="mb-6">
+						<div className="h-28">
 							<label
 								className=" block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="birthday"
@@ -67,12 +129,28 @@ const FirstForm = ({formValues, onChange}) => {
 								value={formValues.birthday}
 								type="date"
 								placeholder="Date de naissance"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+							{/* {formValidation.birthday === false && checkingFocus.birhtday && (
+								<p className="text-xs pt-2 text-red-600">
+									Veillez entrer une date au format jj/mm/aaaa
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.birthday === false && checkingFocus.birthday
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Veillez entrer une date Valide
+							</p>
 						</div>
 					</div>
 
 					<div className="grid grid-row space-y-3">
-						<div className="mb-6">
+						<div className="h-28">
 							<label
 								className="block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="email"
@@ -88,10 +166,26 @@ const FirstForm = ({formValues, onChange}) => {
 								value={formValues.email}
 								type="mail"
 								placeholder="Adresse mail"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+							{/* {formValidation.email === false && checkingFocus.email && (
+								<p className="text-xs pt-2 text-red-600">
+									Veillez entrer une adresse E-mail Valide
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.email === false && checkingFocus.email
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Veillez entrer une adresse E-mail Valide
+							</p>
 						</div>
 
-						<div className="mb-6">
+						<div className="h-28">
 							<label
 								className="block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="password"
@@ -106,10 +200,29 @@ const FirstForm = ({formValues, onChange}) => {
 								onChange={onChange}
 								type="password"
 								placeholder="******************"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+
+							{/* {formValidation.password === false && checkingFocus.password && (
+								<p className="text-xs pt-2 text-red-600">
+									8 à 24 caractère. Doit inclure au moins une lettre majuscule,
+									un chiffre et un caractère spécial
+								</p>
+							)} */}
+							<p
+								className={
+									formValidation.password === false && checkingFocus.password
+										? "text-xs pt-2 text-red-600 text-red-600	"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								8 à 24 caractère. Doit inclure au moins une lettre majuscule, un
+								chiffre et un caractère spécial
+							</p>
 						</div>
 
-						<div className="mb-6">
+						<div className="h-28">
 							<label
 								className="block text-gray-700 text-sm font-semibold mb-2"
 								htmlFor="confirmPassword"
@@ -124,7 +237,25 @@ const FirstForm = ({formValues, onChange}) => {
 								value={formValues.confirmPassword}
 								onChange={onChange}
 								placeholder="******************"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
+							{/* {formValidation.confirmPassword === false &&
+								checkingFocus.confirmPassword && (
+									<p className="text-xs pt-2 text-red-600">
+										Doit être identique au mot de passe !
+									</p>
+								)} */}
+							<p
+								className={
+									formValidation.confirmPassword === false &&
+									checkingFocus.confirmPassword
+										? "text-xs pt-2 text-red-600"
+										: " invisible text-xs pt-2 text-red-600"
+								}
+							>
+								Doit être identique au mot de passe
+							</p>
 						</div>
 					</div>
 				</div>
@@ -134,27 +265,7 @@ const FirstForm = ({formValues, onChange}) => {
 					className="ui-content"
 				>
 					<div className="grid grid-cols-2 place-items-center gap-3 text-black font-bold">
-						<div>
-							<label htmlFor="male">Homme </label>
-							<input
-								type="radio"
-								name="sex"
-								id="sexe"
-								value="homme"
-								onChange={onChange}
-							/>
-						</div>
-
-						<div>
-							<label htmlFor="female">Femme </label>
-							<input
-								type="radio"
-								name="sex"
-								id="sexe"
-								value="femme"
-								onChange={onChange}
-							/>
-						</div>
+						<div></div>
 					</div>
 				</div>
 			</form>

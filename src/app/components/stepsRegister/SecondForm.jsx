@@ -1,6 +1,13 @@
 import React from "react";
 
-const SecondForm = ({formValues, onChange}) => {
+const SecondForm = ({
+	formValues,
+	onChange,
+	formValidation,
+	onFocus,
+	onBlur,
+	checkingFocus,
+}) => {
 	return (
 		<div className="w-full max-w-md space-y-8 rounded-xl p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
 			<div className="grid gap-4 place-content-center items-center">
@@ -117,6 +124,8 @@ const SecondForm = ({formValues, onChange}) => {
 								onChange={onChange}
 								value={formValues.zip}
 								placeholder="Code postal"
+								onFocus={onFocus}
+								onBlur={onBlur}
 							></input>
 						</div>
 					</div>
@@ -136,8 +145,19 @@ const SecondForm = ({formValues, onChange}) => {
 						name="phone"
 						onChange={onChange}
 						value={formValues.phone}
+						onFocus={onFocus}
+						onBlur={onBlur}
 						placeholder="Téléphone"
 					></input>
+					<p
+						className={
+							formValidation.phone === false && checkingFocus.phone
+								? "text-xs pt-2 text-red-600"
+								: " invisible text-xs pt-2 text-red-600"
+						}
+					>
+						Veuillez entrer un numéro de téléphone valide
+					</p>
 				</div>
 			</form>
 		</div>
