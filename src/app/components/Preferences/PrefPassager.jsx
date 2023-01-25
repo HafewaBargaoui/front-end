@@ -136,7 +136,7 @@ const PrefPassager = () => {
                         checked
                           ? "hover:bg-roseh hover:bg-opacity-70"
                           : "hover:bg-bleuh hover:bg-opacity-30"
-                      } border border-black cursor-pointer`}
+                      } shadow-sm cursor-pointer`}
                       key={card.id}
                     >
                     <img
@@ -177,7 +177,7 @@ const PrefPassager = () => {
                         checked
                           ? "hover:bg-roseh hover:bg-opacity-70"
                           : "hover:bg-bleuh hover:bg-opacity-30"
-                      } border border-black cursor-pointer`}
+                      } shadow-sm cursor-pointer`}
                       key={card.id}
                     >
                     <img
@@ -217,7 +217,7 @@ const PrefPassager = () => {
                         checked
                           ? "hover:bg-roseh hover:bg-opacity-70"
                           : "hover:bg-bleuh hover:bg-opacity-30"
-                      } border border-black cursor-pointer`}
+                      } shadow-sm cursor-pointer`}
                       key={card.id}
                     >
                       <img

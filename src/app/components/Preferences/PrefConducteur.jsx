@@ -92,23 +92,7 @@ const PrefConducteur = () => {
   useEffect(() => {
     carOptions();
   }, []);
-  //console.log(carOpt[0])
-  console.log(      modeleOption.map((option) => option.modele));
-  console.log(fuelOption)
 
-
-  const modeleOptions = [
-    {
-      id: "1",
-      label: "508",
-      value: "508",
-    },
-    {
-      id: "2",
-      label: "corsa",
-      value: "corsa",
-    },
-  ];
 
   const placeOptions = [
     {
@@ -151,28 +135,6 @@ const PrefConducteur = () => {
     },
   ];
 
-  const carburantOptions = [
-    {
-      id: "1",
-      label: "essence",
-      value: "essence",
-    },
-    {
-      id: "2",
-      label: "diesel",
-      value: "diesel",
-    },
-    {
-      id: "3",
-      label: "hybride",
-      value: "hybride",
-    },
-    {
-      id: "4",
-      label: "electrique",
-      value: "electrique",
-    },
-  ];
 
   const acceptOption = [
     { id: 1, title: "animaux"},
@@ -286,7 +248,7 @@ const PrefConducteur = () => {
                         checked
                           ? "hover:bg-verth hover:bg-opacity-70"
                           : "hover:bg-bleuh hover:bg-opacity-30"
-                      } border border-black cursor-pointer`}
+                      } shadow-sm cursor-pointer`}
                       key={option.id}
                     >
                     <div className="grid place-items-center justify-items-center text-center">
