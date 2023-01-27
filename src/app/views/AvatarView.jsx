@@ -10,7 +10,7 @@ import {
 
 export default function Avatar() {
     return (
-        <div className="accueil py-80 bg-cover bg-[url('./imgs/Gradient.png')]">
+        <div className="accueil h-screen grid place-content-center bg-cover bg-[url('./imgs/Gradient.png')]">
             <div className='flex flex-row mx-auto'>
                 <div className='px-80 text-xl'>
                     <Link to={URL_REGISTER}>
