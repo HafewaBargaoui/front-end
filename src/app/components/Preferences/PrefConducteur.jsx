@@ -3,8 +3,11 @@ import { useState, useEffect, useCallback } from "react";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import { getCarBrand, postDriverPrefs } from "../../api/backend/account";
-
+import {
+  getCarBrand,
+  postDriverVehicule,
+  postDriverPrefs,
+} from "../../api/backend/account";
 
 const PrefConducteur = () => {
   function MyDropzone() {
@@ -12,7 +15,7 @@ const PrefConducteur = () => {
     const onDrop = useCallback(
       (acceptedFiles) => {
         setFiles([...files, ...acceptedFiles]);
-        formik.setFieldValue("file", [...files, ...acceptedFiles]);
+        formik.setFieldValue("picture_path", [...files, ...acceptedFiles]);
       },
       [files]
     );
@@ -49,46 +52,40 @@ const PrefConducteur = () => {
     );
   }
 
-  const [prefConducteur, setprefConducteur] = useState([]);
   const [nextClicked, setnextClicked] = useState(false);
   const formik = useFormik({
     initialValues: {
-      carOption: "",
-      modeleOption: "",
-      place: 0,
-      coffre: "",
-      carburantOption: "",
-      animal: "",
-      smoker: "",
-      file: null,
+      brand: "",
+      model: "",
+      seats: 0,
+      large_luggage: "",
+      fuel_type: "",
+      animal_friendly: "",
+      smoker_friendly: "",
+      picture_path: null,
     },
     onSubmit: async (values) => {
-      setprefConducteur((prevState) => [
-        {
-          //brand: values.carOption,
-          seats: values.place,
-          //large_luggage: values.coffre,
-          model: values.modeleOption,
-          fuel_type: values.carburantOption,
-          //animal_friendly: values.animal,
-          //smoker_friendly: values.smoker,
-          picture_path: values.file,
-        },
-      ]);
-      await postDriverPrefs(values)
-      //setnextClicked(true);
+      const userVehicule = {
+        brand: values.brand,
+          seats: values.seats,
+          model: values.model,
+          fuel_type: values.fuel_type,
+          picture_path: values.picture_path,
+      };
+      const userPrefs = {
+        animal_friendly: values.animal_friendly,
+        smoker_friendly: values.smoker_friendly,
+        large_luggage: values.large_luggage,
+      };
+      await postDriverVehicule(userVehicule);
+      await postDriverPrefs(userPrefs);
+      setnextClicked(true);
     },
   });
 
 
-
-
-  useEffect(() => {
-    console.log(prefConducteur);
-  }, [prefConducteur]);
-
   const [carOpt, setcarOpt] = useState([]);
-  const [modeleOption, setmodeleOption] = useState([]);
+  const [model, setmodel] = useState([]);
   const [fuelOption, setfuelOption] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState({});
 
@@ -99,22 +96,20 @@ const PrefConducteur = () => {
     console.log(response.data);
   };
 
-
   const getModele = async (e) => {
     const selectedBrandName = e.target.value;
     let marque = carOpt.find((brand) => brand.name === selectedBrandName);
     setSelectedBrand(marque);
-    setmodeleOption(marque.modele);
+    setmodel(marque.modele);
     console.log(marque.modele);
     formik.handleChange(e);
   };
-
 
   useEffect(() => {
     carOptions();
   }, []);
 
-  const placeOptions = [
+  const seatsOptions = [
     {
       id: "1",
       label: "1",
@@ -137,7 +132,7 @@ const PrefConducteur = () => {
     },
   ];
 
-  const coffreOptions = [
+  const large_luggageOptions = [
     {
       id: "1",
       label: "pas de coffre",
@@ -155,12 +150,8 @@ const PrefConducteur = () => {
     },
   ];
 
-  const animalOption = [
-    { id: 1, title: "animaux" },
-  ];
-  const smokerOption = [
-    { id: 2, title: "fumeurs" },
-  ];
+  const animalOption = [{ id: 1, title: "animaux" }];
+  const smokerOption = [{ id: 2, title: "fumeurs" }];
 
   return (
     <>
@@ -174,12 +165,12 @@ const PrefConducteur = () => {
             <div className="grid grid-cols-3 gap-4 pt-4 place-items-center ">
               <div className="h-20 w-36  grid grid-flow-row place-items-center ">
                 <p className="text-xs uppercase font-semibold">marque</p>
-
-                <select value={formik.values.carOption}
-                 onChange={getModele}
-                  name="carOption" 
+                <select
+                  value={formik.values.brand}
+                  onChange={getModele}
+                  name="brand"
                   className="inputInscription"
-                  >
+                >
                   <option value=""> Marque </option>
                   {carOpt.map((option, i) => (
                     <option
@@ -196,13 +187,13 @@ const PrefConducteur = () => {
               <div className="h-20 w-36   grid grid-flow-row place-items-center ">
                 <p className="text-xs uppercase font-semibold">modele</p>
                 <select
-                  value={formik.values.modeleOption}
+                  value={formik.values.model}
                   onChange={formik.handleChange}
-                  name="modeleOption"
+                  name="model"
                   className="inputInscription"
                 >
                   <option value=""> Modèle </option>
-                  {modeleOption.map((option, i) => (
+                  {model.map((option, i) => (
                     <option
                       className="bg-black border border-roseh rounded-lg text-white font-light"
                       key={i}
@@ -217,9 +208,9 @@ const PrefConducteur = () => {
               <div className="h-20 w-36   grid grid-flow-row place-items-center ">
                 <p className="text-xs uppercase font-semibold">carburant</p>
                 <select
-                  value={formik.values.carburantOption}
+                  value={formik.values.fuel_type}
                   onChange={formik.handleChange}
-                  name="carburantOption"
+                  name="fuel_type"
                   className="inputInscription"
                 >
                   <option value=""> Carburant </option>
@@ -242,13 +233,13 @@ const PrefConducteur = () => {
                   nombre de place
                 </p>
                 <select
-                  value={formik.values.place}
+                  value={formik.values.seats}
                   onChange={formik.handleChange}
-                  name="place"
+                  name="seats"
                   className="inputInscription"
                 >
                   <option value=""> Nb de places </option>
-                  {placeOptions.map((option) => (
+                  {seatsOptions.map((option) => (
                     <option
                       className="bg-black border border-roseh rounded-lg text-white font-light"
                       key={option.id}
@@ -263,13 +254,13 @@ const PrefConducteur = () => {
               <div className="h-20 w-48  grid grid-flow-row place-items-center ">
                 <p className="text-xs uppercase font-semibold">espace</p>
                 <select
-                  value={formik.values.coffre}
+                  value={formik.values.large_luggage}
                   onChange={formik.handleChange}
-                  name="coffre"
+                  name="large_luggage"
                   className="inputInscription"
                 >
                   <option value=""> Coffre </option>
-                  {coffreOptions.map((option) => (
+                  {large_luggageOptions.map((option) => (
                     <option
                       className="bg-black border border-roseh rounded-lg text-white font-light"
                       key={option.id}
@@ -284,7 +275,7 @@ const PrefConducteur = () => {
 
             <div className="grid grid-cols-2 gap-4 justify-items-center place-content-center">
               {animalOption.map((option) => {
-                const checked = formik.values.animal;
+                const checked = formik.values.animal_friendly;
                 return (
                   <div
                     className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${checked
@@ -302,18 +293,17 @@ const PrefConducteur = () => {
                         type="checkbox"
                         className=" fixed opacity-0 h-20 w-20"
                         id={option.id}
-                        name="animal"
+                        name="animal_friendly"
                         value={option.title}
                         onChange={formik.handleChange}
                       />
                     </div>
                   </div>
-
                 );
               })}
 
               {smokerOption.map((option) => {
-                const checkedd = formik.values.smoker;
+                const checkedd = formik.values.smoker_friendly;
                 return (
                   <div
                     className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${checkedd
@@ -331,13 +321,12 @@ const PrefConducteur = () => {
                         type="checkbox"
                         className=" fixed opacity-0 h-20 w-20"
                         id={option.id}
-                        name="smoker"
+                        name="smoker_friendly"
                         value={option.title}
                         onChange={formik.handleChange}
                       />
                     </div>
                   </div>
-
                 );
               })}
             </div>
@@ -350,7 +339,7 @@ const PrefConducteur = () => {
                 <div className="">
                   <MyDropzone
                     onDrop={(acceptedFiles) =>
-                      formik.setFieldValue("file", acceptedFiles[0])
+                      formik.setFieldValue("file", acceptedpicture_paths[0])
                     }
                   />
                 </div>
