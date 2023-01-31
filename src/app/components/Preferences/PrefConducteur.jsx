@@ -159,7 +159,8 @@ const PrefConducteur = () => {
                   name="carOption"
                   className="inputInscription"
                 >
-                  {carOpt.map((option, i) => (
+                  <option value=""></option>
+                  {carOpt.map((option) => (
                     <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option._id} value={option.name}>
                       {option.name}
                     </option>
