@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import { getCarBrand } from "../../api/backend/account";
+import { getCarBrand, postDriverPrefs } from "../../api/backend/account";
+
 
 const PrefConducteur = () => {
   function MyDropzone() {
@@ -54,45 +55,64 @@ const PrefConducteur = () => {
     initialValues: {
       carOption: "",
       modeleOption: "",
-      place: "",
+      place: 0,
       coffre: "",
       carburantOption: "",
-      accept: "",
+      animal: "",
+      smoker: "",
       file: null,
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       setprefConducteur((prevState) => [
         {
-          marque: values.carOption,
-          place: values.place,
-          coffre: values.coffre,
-          modele: values.modeleOption,
-          carburant: values.carburantOption,
-          accept: values.accept,
-          file: values.file,
+          //brand: values.carOption,
+          seats: values.place,
+          //large_luggage: values.coffre,
+          model: values.modeleOption,
+          fuel_type: values.carburantOption,
+          //animal_friendly: values.animal,
+          //smoker_friendly: values.smoker,
+          picture_path: values.file,
         },
       ]);
-      setnextClicked(true)
+      await postDriverPrefs(values)
+      //setnextClicked(true);
     },
   });
+
+
+
 
   useEffect(() => {
     console.log(prefConducteur);
   }, [prefConducteur]);
 
   const [carOpt, setcarOpt] = useState([]);
-  const [modeleOption, setmodeleOption] = useState([])
-  const [fuelOption, setfuelOption] = useState([])
+  const [modeleOption, setmodeleOption] = useState([]);
+  const [fuelOption, setfuelOption] = useState([]);
+  const [selectedBrand, setSelectedBrand] = useState({});
+
   const carOptions = async () => {
     const response = await getCarBrand();
     setcarOpt(response.data);
-    setmodeleOption(response.data)
-    setfuelOption(response.data)
+    setfuelOption(response.data);
+    console.log(response.data);
   };
-  useEffect(() => {
+
+
+  const getModele = async (e) => {
+    const selectedBrandName = e.target.value;
+    let marque = carOpt.find((brand) => brand.name === selectedBrandName);
+    setSelectedBrand(marque);
+    setmodeleOption(marque.modele);
+    console.log(marque.modele);
+    formik.handleChange(e);
+  };
+  
+
+   useEffect(() => {
     carOptions();
   }, []);
-
 
   const placeOptions = [
     {
@@ -135,10 +155,11 @@ const PrefConducteur = () => {
     },
   ];
 
-
-  const acceptOption = [
-    { id: 1, title: "animaux"},
-    { id: 2, title: "fumeurs"},
+  const animalOption = [
+    { id: 1, title: "animaux" },
+  ];
+  const smokerOption = [
+    { id: 2, title: "fumeurs" },
   ];
 
   return (
@@ -155,13 +176,21 @@ const PrefConducteur = () => {
                 <p className="text-xs uppercase font-semibold">marque</p>
                 <select
                   value={formik.values.carOption}
-                  onChange={formik.handleChange}
+                  onChange={getModele}
                   name="carOption"
                   className="inputInscription"
+                 
                 >
                   <option value=""></option>
                   {carOpt.map((option) => (
                     <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option._id} value={option.name}>
+                <option value=""> Marque </option>
+                  {carOpt.map((option, i) => (
+                    <option
+                      className="bg-black border border-roseh rounded-lg text-white font-light"
+                      key={option._id}
+                      value={option.name}
+                    >
                       {option.name}
                     </option>
                   ))}
@@ -176,9 +205,14 @@ const PrefConducteur = () => {
                   name="modeleOption"
                   className="inputInscription"
                 >
-                    {modeleOption.map((option, i) => (
-                    <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option._id} value={option.modele[i]}>
-                      {option.modele[i]}
+                <option value=""> Modèle </option>
+                  {modeleOption.map((option, i) => (
+                    <option
+                      className="bg-black border border-roseh rounded-lg text-white font-light"
+                      key={i}
+                      value={option}
+                    >
+                      {option}
                     </option>
                   ))}
                 </select>
@@ -192,8 +226,13 @@ const PrefConducteur = () => {
                   name="carburantOption"
                   className="inputInscription"
                 >
+                <option value=""> Carburant </option>
                   {fuelOption.map((option, i) => (
-                    <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option._id} value={option.fuelType[i]}>
+                    <option
+                      className="bg-black border border-roseh rounded-lg text-white font-light"
+                      key={option._id}
+                      value={option.fuelType[i]}
+                    >
                       {option.fuelType[i]}
                     </option>
                   ))}
@@ -203,15 +242,22 @@ const PrefConducteur = () => {
 
             <div className="grid grid-cols-2 gap-4 p-4 place-items-center ">
               <div className="h-20 w-48  grid grid-flow-row place-items-center ">
-                <p className="text-xs uppercase font-semibold">nombre de place</p>
+                <p className="text-xs uppercase font-semibold">
+                  nombre de place
+                </p>
                 <select
                   value={formik.values.place}
                   onChange={formik.handleChange}
                   name="place"
                   className="inputInscription"
                 >
+                <option value=""> Nb de places </option>
                   {placeOptions.map((option) => (
-                    <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option.id} value={option.value}>
+                    <option
+                      className="bg-black border border-roseh rounded-lg text-white font-light"
+                      key={option.id}
+                      value={option.value}
+                    >
                       {option.label}
                     </option>
                   ))}
@@ -226,8 +272,13 @@ const PrefConducteur = () => {
                   name="coffre"
                   className="inputInscription"
                 >
+                <option value=""> Coffre </option>
                   {coffreOptions.map((option) => (
-                    <option className="bg-black border border-roseh rounded-lg text-white font-light" key={option.id} value={option.value}>
+                    <option
+                      className="bg-black border border-roseh rounded-lg text-white font-light"
+                      key={option.id}
+                      value={option.value}
+                    >
                       {option.label}
                     </option>
                   ))}
@@ -235,38 +286,69 @@ const PrefConducteur = () => {
               </div>
             </div>
 
-    
             <div className="grid grid-cols-2 gap-4 justify-items-center place-content-center">
-                {acceptOption.map((option) => {
-                  const checked = formik.values.accept.includes(option.title);
-                  return (
-                    <div
-                      className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
-                        checked
-                          ? "bg-vert bg-opacity-70"
-                          : "bg-bleu bg-opacity-30"
-                      } p-1 hover:scale-105 hover:shadow-lg ${
-                        checked
-                          ? "hover:bg-verth hover:bg-opacity-70"
-                          : "hover:bg-bleuh hover:bg-opacity-30"
-                      } shadow-sm cursor-pointer`}
-                      key={option.id}
-                    >
+              {animalOption.map((option) => {
+                const checked = formik.values.animal;
+                return (
+                  <div
+                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
+                      checked
+                        ? "bg-vert bg-opacity-70"
+                        : "bg-bleu bg-opacity-30"
+                    } p-1 hover:scale-105 hover:shadow-lg ${
+                      checked
+                        ? "hover:bg-verth hover:bg-opacity-70"
+                        : "hover:bg-bleuh hover:bg-opacity-30"
+                    } shadow-sm cursor-pointer`}
+                    key={option.id}
+                  >
                     <div className="grid place-items-center justify-items-center text-center">
                       <label htmlFor={option.id}>{option.title}</label>
                       <input
                         type="checkbox"
                         className=" fixed opacity-0 h-20 w-20"
                         id={option.id}
-                        name="accept"
+                        name="animal"
                         value={option.title}
                         onChange={formik.handleChange}
                       />
                     </div>
                   </div>
-                )})}
-              </div>
-    
+
+                );
+              })}
+
+              {smokerOption.map((option) => {
+                const checkedd = formik.values.smoker;
+                return (
+                  <div
+                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
+                      checkedd
+                        ? "bg-vert bg-opacity-70"
+                        : "bg-bleu bg-opacity-30"
+                    } p-1 hover:scale-105 hover:shadow-lg ${
+                      checkedd
+                        ? "hover:bg-verth hover:bg-opacity-70"
+                        : "hover:bg-bleuh hover:bg-opacity-30"
+                    } shadow-sm cursor-pointer`}
+                    key={option.id}
+                  >
+                    <div className="grid place-items-center justify-items-center text-center">
+                      <label htmlFor={option.id}>{option.title}</label>
+                      <input
+                        type="checkbox"
+                        className=" fixed opacity-0 h-20 w-20"
+                        id={option.id}
+                        name="smoker"
+                        value={option.title}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                  </div>
+
+                );
+              })}
+            </div>
 
             <div className="grid justify-center w-full pb-4">
               <div className="h-24 w-full grid grid-flow-row place-items-center ">
