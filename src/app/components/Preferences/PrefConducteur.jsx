@@ -3,7 +3,8 @@ import { useState, useEffect, useCallback } from "react";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import { getCarBrand } from "../../api/backend/account";
+import { getCarBrand, postDriverPrefs } from "../../api/backend/account";
+
 
 const PrefConducteur = () => {
   function MyDropzone() {
@@ -54,29 +55,33 @@ const PrefConducteur = () => {
     initialValues: {
       carOption: "",
       modeleOption: "",
-      place: "",
+      place: 0,
       coffre: "",
       carburantOption: "",
       animal: "",
       smoker: "",
       file: null,
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       setprefConducteur((prevState) => [
         {
-          brand: values.carOption,
+          //brand: values.carOption,
           seats: values.place,
-          large_luggage: values.coffre,
+          //large_luggage: values.coffre,
           model: values.modeleOption,
           fuel_type: values.carburantOption,
-          animal_friendly: values.animal,
-          smoker_friendly: values.smoker,
+          //animal_friendly: values.animal,
+          //smoker_friendly: values.smoker,
           picture_path: values.file,
         },
       ]);
-      setnextClicked(true);
+      await postDriverPrefs(values)
+      //setnextClicked(true);
     },
   });
+
+
+
 
   useEffect(() => {
     console.log(prefConducteur);
