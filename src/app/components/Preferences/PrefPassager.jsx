@@ -50,7 +50,7 @@ const PrefPassager = () => {
   const [prefPassager, setprefPassager] = useState([]);
   const formik = useFormik({
     initialValues: {
-      genre: "",
+      sexe: "",
       prefs: "",
       vehicule: "",
       file: null,
@@ -58,7 +58,7 @@ const PrefPassager = () => {
     onSubmit: (values) => {
       setprefPassager((prevState) => [
         {
-          sexe: values.genre,
+          sexe: values.sexe,
           prefs: values.prefs,
           vehicule: values.vehicule,
           file: values.file,
@@ -71,7 +71,7 @@ const PrefPassager = () => {
     console.log(prefPassager);
   }, [prefPassager]);
 
-  const dbGenre = [
+  const dbsexe = [
     { id: 1, title: "homme", image: homme },
     { id: 2, title: "femme", image: femme },
   ];
@@ -124,8 +124,8 @@ const PrefPassager = () => {
                 je suis
               </p>
               <div className="grid grid-cols-2 gap-4 place-content-center">
-                {dbGenre.map((card, id) => {
-                  const checked = formik.values.genre.includes(card.title);
+                {dbsexe.map((card, id) => {
+                  const checked = formik.values.sexe.includes(card.title);
                   return (
                     <div
                       className={`grid grid-row-2 place-items-center h-40 w-20 rounded-md ${
@@ -150,7 +150,7 @@ const PrefPassager = () => {
                         type="checkbox"
                         className="opacity-0 fixed  h-40 w-20"
                         id={card.id}
-                        name="genre"
+                        name="sexe"
                         value={card.title}
                         onChange={formik.handleChange}
                       />
