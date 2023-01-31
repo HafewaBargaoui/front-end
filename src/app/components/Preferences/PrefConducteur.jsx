@@ -3,7 +3,11 @@ import { useState, useEffect, useCallback } from "react";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import { getCarBrand, postDriverPrefs } from "../../api/backend/account";
+import {
+  getCarBrand,
+  postDriverVehicule,
+  postDriverPrefs,
+} from "../../api/backend/account";
 
 const PrefConducteur = () => {
   function MyDropzone() {
@@ -48,40 +52,37 @@ const PrefConducteur = () => {
     );
   }
 
-  const [prefConducteur, setprefConducteur] = useState([]);
   const [nextClicked, setnextClicked] = useState(false);
   const formik = useFormik({
     initialValues: {
       brand: "",
       model: "",
       seats: 0,
-      //large_luggage: "",
+      large_luggage: "",
       fuel_type: "",
-      //animal: "",
-      //smoker: "",
+      animal_friendly: "",
+      smoker_friendly: "",
       picture_path: null,
     },
     onSubmit: async (values) => {
-      setprefConducteur((prevState) => [
-        {
-          brand: values.brand,
+      const userVehicule = {
+        brand: values.brand,
           seats: values.seats,
-          //large_luggage: values.large_luggage,
           model: values.model,
           fuel_type: values.fuel_type,
-          //animal_friendly: values.animal,
-          //smoker_friendly: values.smoker,
           picture_path: values.picture_path,
-        },
-      ]);
-      await postDriverPrefs(values);
-      //setnextClicked(true);
+      };
+      const userPrefs = {
+        animal_friendly: values.animal_friendly,
+        smoker_friendly: values.smoker_friendly,
+        large_luggage: values.large_luggage,
+      };
+      await postDriverVehicule(userVehicule);
+      await postDriverPrefs(userPrefs);
+      setnextClicked(true);
     },
   });
 
-  useEffect(() => {
-    console.log(prefConducteur);
-  }, [prefConducteur]);
 
   const [carOpt, setcarOpt] = useState([]);
   const [model, setmodel] = useState([]);
@@ -274,7 +275,7 @@ const PrefConducteur = () => {
 
             <div className="grid grid-cols-2 gap-4 justify-items-center place-content-center">
               {animalOption.map((option) => {
-                const checked = formik.values.animal;
+                const checked = formik.values.animal_friendly;
                 return (
                   <div
                     className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
@@ -294,7 +295,7 @@ const PrefConducteur = () => {
                         type="checkbox"
                         className=" fixed opacity-0 h-20 w-20"
                         id={option.id}
-                        name="animal"
+                        name="animal_friendly"
                         value={option.title}
                         onChange={formik.handleChange}
                       />
@@ -304,7 +305,7 @@ const PrefConducteur = () => {
               })}
 
               {smokerOption.map((option) => {
-                const checkedd = formik.values.smoker;
+                const checkedd = formik.values.smoker_friendly;
                 return (
                   <div
                     className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
@@ -324,7 +325,7 @@ const PrefConducteur = () => {
                         type="checkbox"
                         className=" fixed opacity-0 h-20 w-20"
                         id={option.id}
-                        name="smoker"
+                        name="smoker_friendly"
                         value={option.title}
                         onChange={formik.handleChange}
                       />
