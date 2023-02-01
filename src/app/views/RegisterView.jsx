@@ -56,10 +56,8 @@ const RegisterView = () => {
 		email: false,
 		password: false,
 		confirmPassword: false,
-		zip: false,
 		phone: false,
-		terms: false,
-		username: false,
+		terms: false
 	};
 
 	const [values, setValues] = useState(initialValues);

@@ -2,12 +2,25 @@ import {
 	URL_BACK_AUTHENTICATE,
 	URL_BACK_REGISTER,
 	URL_BACK_CARBRANDS,
+	URL_BACK_DRIVER,
+	URL_BACK_DRIVERPREF,
+
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
 export function getCarBrand(values) {
 	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
+}
+
+export function postDriverVehicule(values) {
+	apiBackEnd.defaults.withCredentials = true;
+	return apiBackEnd.post(URL_BACK_DRIVER, values);
+}
+
+export function postDriverPrefs(values) {
+	apiBackEnd.defaults.withCredentials = true;
+	return apiBackEnd.post(URL_BACK_DRIVERPREF, values);
 }
 
 export function authenticate(values) {
