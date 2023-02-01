@@ -217,7 +217,7 @@ const FirstForm = ({
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								8 à 24 caractères. Doit inclure au moins une lettre majuscule, un
+								8 à 24 caractères. Il doit inclure au moins une lettre majuscule, un
 								chiffre et un caractère spécial.
 							</p>
 						</div>
