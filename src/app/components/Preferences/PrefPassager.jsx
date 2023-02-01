@@ -23,6 +23,8 @@ import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
 
+import {userPreference} from "../../api/backend/account";
+
 const PrefPassager = () => {
   function MyDropzone() {
     const onDrop = useCallback((acceptedFiles) => {
@@ -64,6 +66,7 @@ const PrefPassager = () => {
           file: values.file,
         },
       ]);
+      userPreference(values);
     },
   });
 
