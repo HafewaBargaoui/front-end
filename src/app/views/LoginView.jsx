@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
-import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import {URL_HOME} from "../constants/urls/urlFrontEnd";
+import { URL_HOME } from "../constants/urls/urlFrontEnd";
 import Login from "./../components/account/Login";
-import {selectIsLogged} from "./../redux-store/authenticationSlice";
+import { selectIsLogged } from "./../redux-store/authenticationSlice";
 
 /**
  * View/Page Login
@@ -20,8 +20,10 @@ const LoginView = () => {
 	}, []);
 
 	return (
-		<div className="flex h-full items-center justify-center loginContainer ">
-			<Login className="" />
+		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full">
+			<div className="flex h-full items-center justify-center loginContainer ">
+				<Login className="" />
+			</div>
 		</div>
 	);
 };

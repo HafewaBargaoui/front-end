@@ -9,15 +9,15 @@ const FirstForm = ({
 	checkingFocus,
 }) => {
 	return (
-		<div className=" max-w-lg  rounded-xl  px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
+		<div className=" max-w-2xl  rounded-xl  px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-slate-500">
 			<div className="grid gap-4 place-content-center items-center">
-				<h1 className="mt-2 text-center text-3xl font-semibold text-black">
+				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					INSCRIPTION
 				</h1>
 			</div>
 			<hr />
 
-			<form className="mt-8 space-y-6 ">
+			<form className="mt-8 ml-6 space-y-6 ">
 				<div className="flex justify-around">
 					<div>
 						<label htmlFor="female">Femme </label>
@@ -44,14 +44,14 @@ const FirstForm = ({
 					<div className="grid grid-row space-y-3 ">
 						<div className="h-28">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="name"
 							>
 								Nom
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="lastname"
 								name="lastname"
 								type="text"
@@ -70,24 +70,24 @@ const FirstForm = ({
 							<p
 								className={
 									formValidation.lastname === false && checkingFocus.lastname
-										? "text-xs pt-2 text-red-600"
+										? "text-xs pt-2 text-pink-800 font-semibold"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								3 à 30 lettre. Doit commencer par une majuscule
+								3 à 30 lettres. Commence par une majuscule.
 							</p>
 						</div>
 
 						<div className="h-28">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="lastname"
 							>
 								Prénom
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="name"
 								name="name"
 								onChange={onChange}
@@ -105,24 +105,24 @@ const FirstForm = ({
 							<p
 								className={
 									formValidation.name === false && checkingFocus.name
-										? "text-xs pt-2 text-red-600"
+										? "text-xs pt-2 text-pink-800 font-semibold"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								3 à 30 lettre. Doit commencer par une majuscule
+								3 à 30 lettres. Commence par une majuscule.
 							</p>
 						</div>
 
 						<div className="h-28">
 							<label
-								className=" block text-gray-700 text-sm font-semibold mb-2"
+								className=" block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="birthday"
 							>
 								Date de naissance
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="birthday"
 								name="birthday"
 								onChange={onChange}
@@ -140,11 +140,11 @@ const FirstForm = ({
 							<p
 								className={
 									formValidation.birthday === false && checkingFocus.birthday
-										? "text-xs pt-2 text-red-600"
+										? "text-xs pt-2 text-pink-800 font-semibold"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								Veillez entrer une date Valide
+								Veuillez entrer une date valide.
 							</p>
 						</div>
 					</div>
@@ -152,14 +152,14 @@ const FirstForm = ({
 					<div className="grid grid-row space-y-3">
 						<div className="h-28">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="email"
 							>
 								Adresse mail
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="email"
 								name="email"
 								onChange={onChange}
@@ -177,23 +177,23 @@ const FirstForm = ({
 							<p
 								className={
 									formValidation.email === false && checkingFocus.email
-										? "text-xs pt-2 text-red-600"
+										? "text-xs pt-2 text-pink-800 font-semibold"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								Veillez entrer une adresse E-mail Valide
+								Veuillez entrer une adresse E-mail valide.
 							</p>
 						</div>
 
 						<div className="h-28">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="password"
 							>
 								Mot de passe
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="password"
 								name="password"
 								value={formValues.password}
@@ -213,24 +213,24 @@ const FirstForm = ({
 							<p
 								className={
 									formValidation.password === false && checkingFocus.password
-										? "text-xs pt-2 text-red-600 text-red-600	"
+										? "text-xs pt-2 text-pink-800 font-semibold	"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								8 à 24 caractère. Doit inclure au moins une lettre majuscule, un
-								chiffre et un caractère spécial
+								8 à 24 caractères. Doit inclure au moins une lettre majuscule, un
+								chiffre et un caractère spécial.
 							</p>
 						</div>
 
 						<div className="h-28">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="confirmPassword"
 							>
 								Confirmation mot de passe
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="confirmPassword"
 								name="confirmPassword"
 								type="password"
@@ -250,11 +250,11 @@ const FirstForm = ({
 								className={
 									formValidation.confirmPassword === false &&
 									checkingFocus.confirmPassword
-										? "text-xs pt-2 text-red-600"
+										? "text-xs pt-2 text-pink-800 font-semibold"
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								Doit être identique au mot de passe
+								Doit être identique au mot de passe.
 							</p>
 						</div>
 					</div>

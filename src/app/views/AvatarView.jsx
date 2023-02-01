@@ -17,7 +17,7 @@ export default function Avatar() {
                             type="button"
                             className=" text-white "
                         >
-                            S'incrire
+                            S'inscrire
                         </button>{" "}
                     </Link>
                 </div>
