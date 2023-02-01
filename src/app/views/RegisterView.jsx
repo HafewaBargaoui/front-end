@@ -198,13 +198,15 @@ const RegisterView = () => {
 	// };
 
 	return (
-		<div className=" pt-12 mb-12 grid gap-4 place-content-center  ">
+		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full">
+
+		<div className=" pt-4 mb-12 grid gap-4 place-content-center  ">
 			<div
 				className={error}
 				id="messageError"
 			>
 				<strong className="font-bold">
-					Un problème a été détecté, veuillez vérifier vos saisies
+					Un problème a été détecté, veuillez vérifier vos saisies.
 				</strong>
 				<span className="absolute top-0 bottom-0 right-0 px-4 py-3"></span>
 			</div>
@@ -213,13 +215,13 @@ const RegisterView = () => {
 				<li
 					onClick={setForm}
 					className={
-						page === 0 ? "bg-vert w-2/6 rounded-lg  " : "bg: transparent"
+						page === 0 ? "bg-cyan-700 w-2/6 rounded-lg  " : "bg: transparent"
 					}
 				>
 					<div className="flex items-center ">
-						<span className="stepper-head-icon">
+						<span className="stepper-head-icon ml-12">
 							<svg
-								className="h-8 w-8 text-rose"
+								className="h-8 w-8 text-cyan-500"
 								width="24"
 								height="24"
 								viewBox="0 0 24 24"
@@ -245,7 +247,7 @@ const RegisterView = () => {
 						<span
 							className={
 								page === 0
-									? "ml-2 text-white font-medium"
+									? "ml-5 text-white font-medium"
 									: "ml-2 text-gray-500 cursor-pointer"
 							}
 						>
@@ -256,13 +258,13 @@ const RegisterView = () => {
 				<li
 					onClick={setForm}
 					className={
-						page === 1 ? "bg-vert  w-2/6 rounded-lg" : "bg: transparent "
+						page === 1 ? "bg-cyan-700  w-2/6 rounded-lg" : "bg: transparent "
 					}
 				>
 					<div className="flex items-center">
 						<span className="stepper-head-icon">
 							<svg
-								className="h-8 w-8 text-rose"
+								className="h-8 w-8 text-cyan-500"
 								width="24"
 								height="24"
 								viewBox="0 0 24 24"
@@ -299,13 +301,13 @@ const RegisterView = () => {
 				<li
 					onClick={setForm}
 					className={
-						page === 2 ? "bg-vert w-2/6 rounded-lg" : "bg: transparent"
+						page === 2 ? "bg-cyan-700 w-2/6 rounded-lg" : "bg: transparent"
 					}
 				>
 					<div className="flex items-center">
 						<span className="stepper-head-icon">
 							<svg
-								className="h-8 w-8 text-rose"
+								className="h-8 w-8 text-cyan-500"
 								width="24"
 								height="24"
 								viewBox="0 0 24 24"
@@ -344,7 +346,7 @@ const RegisterView = () => {
 			<div className="grid grid-cols-2 gap-4 place-content-center items-center">
 				<button
 					onClick={handlePrev}
-					className="bg-rose  hover:bg-roseh rounded-md text-gray-600 font-bold py-2 px-4 disabled:bg-gray-400 disabled:bg-opacity-25 disabled:text-opacity-25 "
+					className="bg-cyan-700  hover:bg-cyan-800 rounded-md text-gray-400 font-bold py-2 px-4 disabled:bg-gray-400 disabled:bg-opacity-25 disabled:text-opacity-25 "
 					disabled={page === 0}
 				>
 					Prev
@@ -352,7 +354,7 @@ const RegisterView = () => {
 				{page === 2 ? (
 					<button
 						onClick={handleSubmit}
-						className="bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-opacity-25 disabled:text-opacity-25"
+						className="bg-cyan-700 hover:bg-cyan-800 rounded-md text-white font-bold py-2 px-4 disabled:bg-opacity-25 disabled:text-opacity-25"
 						//permet de désactiver/griser le bouttons submits si les saisies ne sont pas bonnes :
 						// disabled={checkingInvalidInputs()}
 					>
@@ -361,13 +363,14 @@ const RegisterView = () => {
 				) : (
 					<button
 						onClick={handleNext}
-						className=" bg-vert hover:bg-verth rounded-md text-black font-bold py-2 px-4 disabled:bg-gray-400"
+						className=" bg-cyan-700 hover:bg-cyan-800 rounded-md text-white font-bold py-2 px-4 disabled:bg-gray-400"
 					>
 						Next
 					</button>
 				)}
 				{/* <button onClick={test}>envoie</button> */}
 			</div>
+		</div>
 		</div>
 	);
 };

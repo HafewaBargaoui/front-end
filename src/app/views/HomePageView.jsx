@@ -73,21 +73,21 @@ export default function HomePageView() {
 				<div className="flex mx-auto w-1/2 h-auto ">
 					<img
 						className="rounded-lg drop-shadow-lg"
-						src="imgs/pexels-lisa-fotios-1392621.jpg"
+						src="imgs/route.jpg"
 						alt="voiture"
 					></img>
 				</div>
 
 				<div className="flex mx-auto pb-20 pt-10 text-white leading-8 text-center w-1/3 text-xl tracking-wide drop-shadow-lg ">
 					<p>
-						Une multitude de trajets sont disponibles sur notre application. Réservez votre trajet en quelques clics ! Pour que vous puissiez voyager en toute confiance, nous vérifions chaques profils.
+						Une multitude de trajets est disponible sur notre application. Réservez votre trajet en quelques clics ! Pour que vous puissiez voyager en toute confiance, nous vérifions chaques profils.
 					</p>
 				</div>
 			</div>
 			<div className="flex flex-row mt-20">
 				<div className="basis-1/2 ml-24 mr-24">
 					<h1 className="text-transform: uppercase text-white text-5xl font-semibold mt-28 ml-20">Qui sommes-nous ?</h1>
-					<p className="text-white mt-8 leading-8 text-xl"> Nous sommes une société de covoiturage qui privilégie le coopératif et non l'aspect financier. 30 points offerts dès votre inscription ! Pour en profiter dès à présent cliquez sur le bouton ci-dessous. </p>
+					<p className="text-white mt-8 leading-8 text-xl"> Nous sommes une société de covoiturage qui privilégie le coopératif et non l'aspect financier. 50 points offerts dès votre inscription ! Pour en profiter dès à présent cliquez sur le bouton ci-dessous. </p>
 
 					<Link to={URL_REGISTER}>
 						<button
@@ -103,7 +103,7 @@ export default function HomePageView() {
 					<img
 						className="flex  "
 						// className="rounded-sm drop-shadow-lg"
-						src="imgs/pexels-lisa-fotios-1392621.jpg"
+						src="imgs/map.jpg"
 						alt="voiture"
 					></img>
 				</div>
@@ -137,13 +137,14 @@ export default function HomePageView() {
 						</img>
 					</div>
 					<div className="flex flex-row text-white mx-auto">
-						<div className="mr-48 text-lg"><a href="https://mytek-store.fr/cgv">CGV</a></div>
+						<div className="mr-40 text-lg"><a href="https://mytek-store.fr/cgv">CGV</a></div>
+						<div className="mr-40 text-lg"><a href="https://mytek-store.fr/mentions-legales">CGU</a></div>
 						<div className="mr-24 text-lg">
 							<Link to={URL_FAQ}>
 								FAQ
 							</Link>
 						</div>
-						<div className="ml-24 text-lg">
+						<div className="ml-20 text-lg">
 							<Link to={URL_CONTACT}>
 								Nous contacter
 							</Link>
@@ -173,16 +174,6 @@ export default function HomePageView() {
 						<div className="w-14 pr-6">
 							<a href="https://instagram.com"><img src="imgs/instagram.png"></img></a>
 						</div>
-						{/* <div className="text-white">
-							<a href="https://google.com">google+</a>
-						</div>
-						<div className="text-white">
-							<a href="https://pinterest.com">pinterest</a>
-						</div>
-						<div className="text-white">
-						<a href="https://spotify.com">spotify</a>
-						</div> */}
-
 					</div>
 					<div className="mx-auto text-white">
 						<p>Copyright © 2023.Carbuddy Inc.</p>

@@ -26,24 +26,7 @@ const Navbar = () => {
 						</Link>
 
 					</div>
-					{/* <div className="grid md:grid-cols-2 md:gap-2">
-						<Link to={URL_REGISTER}>
-							<button
-								type="button"
-								className=" md:text-white md:bg-vert md:hover:bg-verth md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-							>
-								S'incrire
-							</button>{" "}
-						</Link>
-						<Link to={URL_LOGIN}>
-							<button
-								type="button"
-								className="md:text-white md:bg-rose md:hover:bg-roseh md:focus:ring-4 md:focus:outline-none  md:font-medium md:rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 "
-							>
-								Connexion
-							</button>
-						</Link>
-					</div> */}
+					
 					<button
 						data-collapse-toggle="navbar-sticky"
 						type="button"
@@ -94,7 +77,7 @@ const Navbar = () => {
 								href="#"
 								className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
 							>
-								Conditions d'utilisation
+								 
 							</a>
 						</li>
 					</ul>
