@@ -35,48 +35,7 @@ const Navbar = () => {
                 onClick={dropdown}
                 >
               <img src="imgs/avatar.png"/>
-              {/* <div className={`${clicked ? "opacity-100 transition duration-700 ease-in-out" : "opacity-0 transition duration-700 ease-in-out"} h-full w-full p-4 grid place-items-center bg-black shadow bg-opacity-50 backdrop-blur-sm  rounded-lg`}>
 
-      
-<a
-        href={URL_TRAJETS}
-        className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
-      >
-        Liste des trajets{" "}
-      </a>
-      <hr className='m-4 p-x-4' />
-      <a
-        href="#"
-        className="block py-2 pl-3 pr-4 text-white text-xs rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-      >
-        Conditions d'utilisation
-      </a>
-      <hr className='m-4 p-x-4' />
-      <a
-        href="#"
-        className="block py-2 pl-3 pr-4 text-white text-xs rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-      >
-        test1
-      </a>
-      <hr className='m-4 p-x-4' />
-      <a
-        href="#"
-        className="block py-2 pl-3 pr-4 text-white text-xs rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-      >
-       test2
-      </a>
-      <hr className='m-4 p-x-4' />
-      <a
-        href="#"
-        className="block py-2 pl-3 pr-4 text-white text-xs rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-      >
-        test3
-      </a>
-
-  
- 
-  
-</div> */}
               {clicked && <Menu setclicked={setclicked} clicked={clicked}/>}
           </div>
   
@@ -108,7 +67,7 @@ const Navbar = () => {
                 href="#"
                 className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
               >
-                Conditions d'utilisation
+                BuddyCoins
               </a>
             </li>
           </ul>
