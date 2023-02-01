@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import { URL_PROFILEPREFS, URL_TRAJETS, URL_PROFIL, URL_LOGIN } from "../../constants/urls/urlFrontEnd";
+import { URL_PROFILEPREFS, URL_TRAJETS, URL_PROFIL, URL_LOGIN, URL_CARTE } from "../../constants/urls/urlFrontEnd";
 
 const Menu = ({ setclicked, clicked }) => {
   const menuRef = useRef();
@@ -44,7 +44,13 @@ const Menu = ({ setclicked, clicked }) => {
             >
               profil
             </a>
-           
+            <hr className="m-4 p-x-4" />
+            <a
+              href={URL_CARTE}
+              className="block py-2 pl-3 pr-4 text-white text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
+            >
+              carte
+            </a>
             <hr className="m-4 p-x-4 border border-gray-500 w-full" />
             <a
               href={URL_LOGIN}
