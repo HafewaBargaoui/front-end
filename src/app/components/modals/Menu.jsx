@@ -15,7 +15,7 @@ const Menu = ({ setclicked, clicked }) => {
 
   return (
     <div
-      className="absolute mr-16 flex justify-center items-center "
+      className="absolute mr-16 z-50 flex justify-center items-center "
       onClick={clickOut}
     >
       <div >

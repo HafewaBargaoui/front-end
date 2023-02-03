@@ -13,7 +13,7 @@ const Carte = () => {
 
     return (
 
-        <div className="rounded-lg">
+        <div className="rounded-lg z-10">
 
         <MapContainer center={position} zoom={15} scrollWheelZoom={true} style={{ width: '70vw', height: '50vh' }}>
         <TileLayer
