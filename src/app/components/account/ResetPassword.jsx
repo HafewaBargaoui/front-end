@@ -5,13 +5,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import {
-  URL_HOME,
-  URL_FORGET_LOGIN,
-  URL_LOGIN,
-} from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate, resetpassword } from "../../api/backend/account";
+import {signIn} from "../../redux-store/authenticationSlice";
+import {authenticate} from "../../api/backend/account";
+
+import { resetpassword } from "../../api/backend/account";
 
 /**
  * Component Reset Password
@@ -36,31 +33,36 @@ const validationSchema = Yup.object({
 });
 
 const ResetPassword = () => {
-  const [errorLog, setErrorLog] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+	const [errorLog, setErrorLog] = useState(false);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-  const ResetPassword = (values) => {
-    authenticate(values)
-      .then((res) => {
-        if (res.status === 200) {
-          dispatch(signIn(res.data));
-          navigate(URL_HOME);
-        } else {
-          console.log(res.message);
-        }
-      })
-      .catch((error) => setErrorLog(error));
-  };
+
+	const ResetPassword = (values) => {
+		authenticate(values)
+			.then((res) => {
+				if (res.status === 200) {
+					dispatch(signIn(res.data));
+					navigate(URL_HOME);
+				} else {
+					console.log(res.message);
+				}
+			})
+			.catch((error) => setErrorLog(error));
+	};
   const handleResetLogin = async (values) => {
-    //navigate(URL_LOGIN);
-    const newPassword = {
-      password: values.password,
-      password_confirm: values.password_confirm,
-    };
-    console.log(newPassword);
-    await resetpassword(newPassword);
-  };
+
+	const queryParameters = new URLSearchParams(window.location.search)
+	const token = queryParameters.get("token");
+	console.log(token);
+	
+	const newPassword = {
+		password: values.password,
+		password_confirm: values.password_confirm,
+	  };
+	  	await resetpassword(newPassword, token);
+		navigate(URL_LOGIN);
+	};
 
   return (
     <div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">

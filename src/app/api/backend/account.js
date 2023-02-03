@@ -48,3 +48,12 @@ export function resetpassword(values) {
 export function userPreference(values) {
 	return apiBackEnd.post(URL_BACK_USER_PREFERENCE, values);
 }
+
+export function resetpassword(values, token) {
+	apiBackEnd.defaults.headers.common['Authorization'] = `Bearer ${token}` 
+    return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values, token);
+}
+
+export function forgetpassword(values) {
+    return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+}
