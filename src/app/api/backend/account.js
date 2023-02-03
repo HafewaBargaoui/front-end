@@ -31,19 +31,10 @@ export function authenticate(values) {
 	return apiBackEnd.post(URL_BACK_AUTHENTICATE, values);
 }
 
-
-
 export function register(values) {
 	return apiBackEnd.post(URL_BACK_REGISTER, values);
 }
 
-export function forgetpassword(values) {
-	return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
-}
-
-export function resetpassword(values) {
-	return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values);
-}
 
 export function userPreference(values) {
 	return apiBackEnd.post(URL_BACK_USER_PREFERENCE, values);
