@@ -4,9 +4,8 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-import {URL_LOGIN } from "../../constants/urls/urlFrontEnd";
-
 import {URL_RESET_PASSWORD } from "../../constants/urls/urlFrontEnd";
+import { forgetpassword } from "../../api/backend/account";
 
 const initialValues = {
 	email: '',
@@ -23,9 +22,15 @@ const ForgetLogin = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const handleSubmit = () => {
+	// navigate(URL_RESET_PASSWORD);
+	const handleSubmit = async(values) => 
+	{
 		//Send requet to back 
-		navigate(URL_RESET_PASSWORD);
+		const mail = {
+			email : values.email
+		}
+		console.log(mail);
+		await forgetpassword(mail)
 	};
 
 	return (

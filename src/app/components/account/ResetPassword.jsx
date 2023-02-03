@@ -5,9 +5,10 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-import {URL_HOME, URL_FORGET_LOGIN, URL_LOGIN} from "../../constants/urls/urlFrontEnd";
 import {signIn} from "../../redux-store/authenticationSlice";
 import {authenticate} from "../../api/backend/account";
+
+import { resetpassword } from "../../api/backend/account";
 
 /**
  * Component Reset Password
@@ -48,12 +49,18 @@ const ResetPassword = () => {
 			})
 			.catch((error) => setErrorLog(error));
 	};
-  const handleResetLogin = () => {
+  const handleResetLogin = async (values) => {
 
-
-					navigate(URL_LOGIN);
-				
-			
+	const queryParameters = new URLSearchParams(window.location.search)
+	const token = queryParameters.get("token");
+	console.log(token);
+	
+	const newPassword = {
+		password: values.password,
+		password_confirm: values.password_confirm,
+	  };
+	  	await resetpassword(newPassword, token);
+		navigate(URL_LOGIN);
 	};
 
 	return (
