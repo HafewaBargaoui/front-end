@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom";
 import {URL_LOGIN } from "../../constants/urls/urlFrontEnd";
 
 import {URL_RESET_PASSWORD } from "../../constants/urls/urlFrontEnd";
+import { URL_BACK_FORGET_PASSWORD } from "../../constants/urls/urlBackEnd";
+import { forgetpassword } from "../../api/backend/account";
 
 const initialValues = {
 	email: '',
@@ -23,9 +25,14 @@ const ForgetLogin = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const handleSubmit = () => {
+	const handleSubmit = async(values) => {
 		//Send requet to back 
-		navigate(URL_RESET_PASSWORD);
+		//navigate(URL_RESET_PASSWORD);
+		const mail = {
+			email : values.email
+		}
+		console.log(mail);
+		await forgetpassword(mail)
 	};
 
 	return (
@@ -49,7 +56,9 @@ const ForgetLogin = () => {
 					<div className="flex flex-col space-y-6">
 						<label
 							className="pl-1 font-semibold"
-							htmlFor="email"	>
+							htmlFor="email"	
+							>
+							
 							Email:{" "}
 						</label>
 						<Field
