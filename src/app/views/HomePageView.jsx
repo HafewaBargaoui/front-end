@@ -6,6 +6,7 @@ import {
 	URL_CONTACT,
 } from "../constants/urls/urlFrontEnd";
 
+
 export default function HomePageView() {
 	return (
 		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')]">
@@ -61,7 +62,6 @@ export default function HomePageView() {
 				</div>
 			</div>
 
-			{/* <div className='bg-gradient-to-l from-green-500'>  */}
 			<div className="">
 				<div className="flex mx-auto w-96 mt-10 mb-10 ">
 					<img
