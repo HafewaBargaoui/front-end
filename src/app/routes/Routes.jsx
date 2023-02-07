@@ -19,6 +19,7 @@ import ResetPassword from "../views/ResetPasswordView";
 
 import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
+import CarteView from "../views/CarteView";
 
 /**
  * Routes of the application
@@ -93,6 +94,7 @@ const Routes = () => {
       <Route path={URL.URL_PROFILEPREFS} element={<ProfilePrefsView />} />
       <Route path={URL.URL_TRAJETS} element={<TrajetsView />} />
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
+      <Route path={URL.URL_CARTE} element={<CarteView />} />
     </RoutesContainer>
   );
 };
