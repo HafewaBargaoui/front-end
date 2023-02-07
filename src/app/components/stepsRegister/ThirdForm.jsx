@@ -9,44 +9,48 @@ const ThirdForm = ({
 	checkingFocus,
 }) => {
 	return (
-		<div className="w-full max-w-md space-y-8 rounded-xl p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
+		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500 ">
 			<div className="grid gap-4 place-content-center items-center">
-				<h1 className="text-gray-700 pb-8 font-bold text-2xl">Étape 3/3</h1>
+				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
+					INSCRIPTION
+				</h1>
 			</div>
+			<hr />
 
-			<form className="mt-8 space-y-6">
+
+			<form className="mt-8 px-16 space-y-6">
 				<div className="mb-4">
 					<label
-						className="block text-gray-700 text-sm font-semibold mb-2"
+						className="block text-gray-800 text-md font-semibold mb-2"
 						htmlFor="username"
 					>
-						Username
+						Nom d'utilisateur :
 					</label>
 					<input
-						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
 						id="username"
 						name="username"
 						onChange={onChange}
 						type="text"
-						placeholder="Username"
+						placeholder="michel52"
 						onFocus={onFocus}
 						onBlur={onBlur}
 					></input>
 					<p
 						className={
 							formValidation.username === false && checkingFocus.username
-								? "text-xs pt-2 text-red-600"
-								: " invisible text-xs pt-2 text-red-600"
+								? "text-xs pt-2 text-pink-800 font-semibold"
+								: " invisible text-xs pt-2 text-pink-800"
 						}
 					>
-						Le pseudo doit commencer par par une lettre. Lettres, chiffres,
-						trait d'union accéptés
+						Le pseudo doit commencer par une lettre. Chiffres, lettres et
+						traits d'unions acceptés.
 					</p>
 				</div>
 
 				<div className="flex justify-items-center  content-center items-center">
 					<label
-						className="block text-gray-700 px-2  text-sm font-bold mb-2"
+						className="block text-gray-800 px-2  text-sm font-bold mb-2"
 						htmlFor="Terms"
 					>
 						Terms
@@ -67,7 +71,7 @@ const ThirdForm = ({
 								: "invisible text-xs pt-2 "
 						}
 					>
-						Veuillez acceptez nos condition d'utilisation
+						Veuillez accepter nos conditions d'utilisation
 					</p>
 				</div>
 				<div className="flex items-center justify-between"></div>

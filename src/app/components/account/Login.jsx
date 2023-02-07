@@ -42,14 +42,13 @@ const Login = () => {
 	};
 
 	return (
-		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
-			<div className="flex justify-center pb-16">
-				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
+		<div className="w-full max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
+			<div className="place-content-center">
+				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					CONNEXION
 				</h1>
-
-				<hr />
 			</div>
+			<hr />
 
 			<Formik
 				initialValues={{
@@ -58,13 +57,13 @@ const Login = () => {
 				}}
 				onSubmit={handleLogin}
 			>
-				<Form className="mt-8 space-y-6">
-					<div className="flex flex-col space-y-6">
+				<Form className=" ml-16 mr-16 space-y-6">
+					<div className="flex flex-col space-y-3">
 						<label
-							className="pl-1 font-semibold"
+							className="mt-6 text-gray-800 text-md font-semibold"
 							htmlFor="email"
 						>
-							Email:{" "}
+							Email :{" "}
 						</label>
 						<Field
 							type="text"
@@ -74,18 +73,19 @@ const Login = () => {
 							className="inputInscription"
 						/>
 					</div>
-					<div className="flex flex-col space-y-6 ">
+					<div className="flex flex-col space-y-3">
 						<label
-							className="pl-1 font-semibold"
+							className=" text-gray-800 text-md font-semibold"
+							
 							htmlFor="password"
 						>
-							Mot de Passe:{" "}
+							Mot de Passe :{" "}
 						</label>
 
 						<Field
 							type="password"
 							name="password"
-							placeholder="Password"
+							placeholder="mot de passe"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>
@@ -104,7 +104,7 @@ const Login = () => {
 					<div className="text-center">
 						<button
 							type="submit"
-							className="btn bg-vert group hover:bg-verth relative w-1/2 text-white"
+							className="btn bg-cyan-700 group hover:bg-cyan-800 relative w-1/2 text-white mt-4"
 						>
 							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
 								<LockClosedIcon
@@ -114,20 +114,20 @@ const Login = () => {
 							</span> */}
 							Connexion
 						</button>
-						<div className="flex justify-between pt-8">
-							<button className="btn bg-rose hover:bg-roseh  "
+						<div className="flex justify-between  mt-8">
+							<button className="btn bg-cyan-600 hover:bg-cyan-500  "
               					onClick={handleForgetLogin}                        >
 								Mot de passe oublié
 							</button>
 
-							<button className="btn bg-rose hover:bg-roseh">
-								Adresse Email oublié
+							<button className="btn bg-cyan-600 hover:bg-cyan-500">
+								Adresse Email oubliée
 							</button>
 						</div>
 					</div>
 					{errorLog && (
 						<div className="flex justify-center">
-							<small className="text-sm italic text-red-600">
+							<small className="text-sm italic text-pink-800 font-semibold">
 								Login/Password incorrect(s)
 							</small>
 						</div>

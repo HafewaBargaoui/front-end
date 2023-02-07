@@ -9,7 +9,7 @@ const FirstForm = ({
 	checkingFocus,
 }) => {
 	return (
-		<div className=" max-w-2xl  rounded-xl  px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-slate-500">
+		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500">
 			<div className="grid gap-4 place-content-center items-center">
 				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					INSCRIPTION
@@ -26,6 +26,7 @@ const FirstForm = ({
 							name="sex"
 							id="sexe"
 							value="femme"
+							className="text-cyan-600"
 							onChange={onChange}
 						/>
 					</div>
@@ -36,26 +37,27 @@ const FirstForm = ({
 							name="sex"
 							id="sexe"
 							value="homme"
+							className="text-cyan-600"
 							onChange={onChange}
 						/>
 					</div>
 				</div>
 				<div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
 					<div className="grid grid-row space-y-3 ">
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="name"
 							>
-								Nom
+								Nom :
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64 "
 								id="lastname"
 								name="lastname"
 								type="text"
-								placeholder="Nom"
+								placeholder="Dupont"
 								onChange={onChange}
 								value={formValues.lastname}
 								onFocus={onFocus}
@@ -78,12 +80,12 @@ const FirstForm = ({
 							</p>
 						</div>
 
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="lastname"
 							>
-								Prénom
+								Prénom :
 							</label>
 
 							<input
@@ -93,7 +95,7 @@ const FirstForm = ({
 								onChange={onChange}
 								value={formValues.name}
 								type="text"
-								placeholder="Prénom"
+								placeholder="Michel"
 								onFocus={onFocus}
 								onBlur={onBlur}
 							></input>
@@ -113,12 +115,12 @@ const FirstForm = ({
 							</p>
 						</div>
 
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className=" block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="birthday"
 							>
-								Date de naissance
+								Date de naissance :
 							</label>
 
 							<input
@@ -150,12 +152,12 @@ const FirstForm = ({
 					</div>
 
 					<div className="grid grid-row space-y-3">
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="email"
 							>
-								Adresse mail
+								Adresse mail :
 							</label>
 
 							<input
@@ -165,7 +167,7 @@ const FirstForm = ({
 								onChange={onChange}
 								value={formValues.email}
 								type="mail"
-								placeholder="Adresse mail"
+								placeholder="michel.dupont@gmail.com "
 								onFocus={onFocus}
 								onBlur={onBlur}
 							></input>
@@ -181,16 +183,16 @@ const FirstForm = ({
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								Veuillez entrer une adresse E-mail valide.
+								Veuillez entrer une adresse e-mail valide.
 							</p>
 						</div>
 
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="password"
 							>
-								Mot de passe
+								Mot de passe :
 							</label>
 							<input
 								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
@@ -217,17 +219,17 @@ const FirstForm = ({
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								8 à 24 caractères. Il doit inclure au moins une lettre majuscule, un
+								8 à 24 caractères. Doit inclure au moins une lettre majuscule, un
 								chiffre et un caractère spécial.
 							</p>
 						</div>
 
-						<div className="h-28">
+						<div className="h-24">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="confirmPassword"
 							>
-								Confirmation mot de passe
+								Confirmation mot de passe :
 							</label>
 							<input
 								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"

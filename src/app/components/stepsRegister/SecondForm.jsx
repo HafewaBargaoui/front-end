@@ -9,46 +9,48 @@ const SecondForm = ({
 	checkingFocus,
 }) => {
 	return (
-		<div className="w-full max-w-md space-y-8 rounded-xl p-4 py-12 px-4 shadow-lg sm:px-6 lg:px-8 bg-cover bg-center bg-[url('../../assets/images/GradientInscr.png')]">
+		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500 px-48 pb-8">
 			<div className="grid gap-4 place-content-center items-center">
-				<h1 className="mt-2 text-center text-3xl font-semibold text-black">
+				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					INSCRIPTION
 				</h1>
 			</div>
-			<form className="mt-8 space-y-6">
+			<hr />
+
+			<form className="mt-8 ml-6 space-y-6">
 				<div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
 					<div className="grid grid-row space-y-3">
-						<div className="mb-4">
+						<div className="mb-4 w-72">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="pathType"
 							>
-								Type de voie
+								Type de voie :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="address"
 								name="pathType"
 								type="text"
-								placeholder="adresse"
+								placeholder="avenue, hameau, rue..."
 								onChange={onChange}
 								value={formValues.pathType}
 							></input>
 						</div>
 
-						<div className="mb-4">
+						<div className="mb-2">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2 mt-2"
 								htmlFor="additionalAddress"
 							>
-								Complément d'adresse
+								Complément d'adresse :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="addressAdd"
 								name="additionalAddress"
 								type="text"
-								placeholder="Adresse complémentaire"
+								placeholder="adresse complémentaire"
 								onChange={onChange}
 								value={formValues.additionalAddress}
 							></input>
@@ -56,17 +58,17 @@ const SecondForm = ({
 
 						<div className="mb-4">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2 mt-4"
 								htmlFor="streetName"
 							>
-								Nom de la rue
+								Nom de la rue :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="street"
 								name="streetName"
 								type="text"
-								placeholder="Nom de la rue"
+								placeholder="Faidherbe"
 								onChange={onChange}
 								value={formValues.streetName}
 							></input>
@@ -75,17 +77,17 @@ const SecondForm = ({
 					<div className="grid grid-row space-y-3">
 						<div className="mb-4">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="streetNumber"
 							>
-								Numéro de la rue
+								Numéro de la rue :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="street"
 								name="streetNumber"
 								type="number"
-								placeholder="numéro de la rue"
+								placeholder="123"
 								onChange={onChange}
 								value={formValues.streetNumber}
 							></input>
@@ -93,17 +95,17 @@ const SecondForm = ({
 
 						<div className="mb-6">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2 mt-2"
 								htmlFor="City"
 							>
-								Ville
+								Ville :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="city"
 								name="city"
 								type="text"
-								placeholder="Ville"
+								placeholder="Lille"
 								onChange={onChange}
 								value={formValues.city}
 							></input>
@@ -111,19 +113,19 @@ const SecondForm = ({
 
 						<div className="mb-6">
 							<label
-								className="block text-gray-700 text-sm font-semibold mb-2"
+								className="block text-gray-800 text-md font-semibold mb-2 mt-4"
 								htmlFor="Zip"
 							>
-								Code postal
+								Code postal :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="zip"
 								type="text"
 								name="zip"
 								onChange={onChange}
 								value={formValues.zip}
-								placeholder="Code postal"
+								placeholder="59000"
 								onFocus={onFocus}
 								onBlur={onBlur}
 							></input>
@@ -133,13 +135,13 @@ const SecondForm = ({
 
 				<div className="mb-6">
 					<label
-						className="block text-gray-700 text-sm font-semibold mb-2"
+						className="block text-gray-800 text-md font-semibold mb-2"
 						htmlFor="Phone"
 					>
-						Téléphone
+						Téléphone :
 					</label>
 					<input
-						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 						id="phone"
 						type="tel"
 						name="phone"
@@ -147,13 +149,13 @@ const SecondForm = ({
 						value={formValues.phone}
 						onFocus={onFocus}
 						onBlur={onBlur}
-						placeholder="Téléphone"
+						placeholder="06.12.34.56.78"
 					></input>
 					<p
 						className={
 							formValidation.phone === false && checkingFocus.phone
-								? "text-xs pt-2 text-red-600"
-								: " invisible text-xs pt-2 text-red-600"
+								? "text-xs pt-2 text-pink-800 font-semibold"
+								: " invisible text-xs pt-2 text-pink-800"
 						}
 					>
 						Veuillez entrer un numéro de téléphone valide

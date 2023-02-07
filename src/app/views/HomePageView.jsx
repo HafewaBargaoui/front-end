@@ -6,6 +6,7 @@ import {
 	URL_CONTACT,
 } from "../constants/urls/urlFrontEnd";
 
+
 export default function HomePageView() {
 	return (
 		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')]">
@@ -61,7 +62,6 @@ export default function HomePageView() {
 				</div>
 			</div>
 
-			{/* <div className='bg-gradient-to-l from-green-500'>  */}
 			<div className="">
 				<div className="flex mx-auto w-96 mt-10 mb-10 ">
 					<img
@@ -73,7 +73,7 @@ export default function HomePageView() {
 				<div className="flex mx-auto w-1/2 h-auto ">
 					<img
 						className="rounded-lg drop-shadow-lg"
-						src="imgs/route.jpg"
+						src="imgs/2hommes.jpeg"
 						alt="voiture"
 					></img>
 				</div>
@@ -101,7 +101,7 @@ export default function HomePageView() {
 				</div>
 				<div className="basis-1/2 ">
 					<img
-						className="flex  "
+						className="flex rounded-lg  "
 						// className="rounded-sm drop-shadow-lg"
 						src="imgs/map.jpg"
 						alt="voiture"
