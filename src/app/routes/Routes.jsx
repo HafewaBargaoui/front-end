@@ -16,6 +16,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
 import ForgetLoginView from "../views/ForgetLoginView";
 import ResetPassword from "../views/ResetPasswordView";
+import ForgetEmailView from "../views/ForgetEmailView";
 
 import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
@@ -90,6 +91,7 @@ const Routes = () => {
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView/>} />
       <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword/>} />
+      <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView/>} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       <Route path={URL.URL_PROFILEPREFS} element={<ProfilePrefsView />} />
       <Route path={URL.URL_TRAJETS} element={<TrajetsView />} />
