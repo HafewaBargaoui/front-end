@@ -5,7 +5,7 @@ const ProfilInfos = () => {
     <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
       <div className="grid place-content-center">
         <div className="flex flex-col text-black text-lg">
-          <div className="grid place-items-center m-4 text-black hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <div className="grid place-items-center m-4 text-black">
             <img
               className="w-16 rounded-full border-2 border-green-500"
               src="imgs/avatar.png"
@@ -64,7 +64,7 @@ const ProfilInfos = () => {
             <p className="font-thin">0102030405</p>
           </div>
         </div>
-        <button className="mt-8 bg-vert hover:bg-verth rounded-md text-white font-bold py-2 px-4">
+        <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
           Modifier Profil
         </button>
       </div>
