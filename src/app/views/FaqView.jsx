@@ -71,7 +71,7 @@ export default function Faq() {
                     <p className='mt-4 text-lg mb-24'>S'il s'agit d'un déplacement domicile-travail, les conducteurs et les passagers sont couverts au titre de l'accident de trajet. Il donne donc accès aux mêmes droits qu'un accident du travail. Dans le régime assurantiel domicile-travail de droit commun, les détours raisonnables sont couverts. Ces détours sont ceux que le conducteur fait pour prendre ou déposer un passager. Pour prouver que le conducteur était bien sur le chemin du travail et que le détour qu'il a fait était pour prendre ou déposer un passager, l'inscription sur notre application peut servir de justificatif.</p>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 // personne à mobilité réduite
