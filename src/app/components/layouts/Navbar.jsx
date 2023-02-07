@@ -49,9 +49,9 @@ const Navbar = () => {
           />
         </Link>
         <div className="relative md:order-2 ">
-          <Menu as="div" className=" relative w-16 mr-16 opacity-100 z-50 ">
-            <Menu.Button className={`inline-flex w-full justify-center rounded-full  ${isAuthenticated && "border border-green-500"}  bg-black px-4 py-8 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
-              <img src="imgs/avatar.png" />
+          <Menu as="div" className=" relative w-24 mr-16 opacity-100 z-50 ">
+            <Menu.Button className={`inline-flex w-16 justify-center rounded-full bg-black px-4 py-8 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
+              <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src="imgs/avatar.png" />
             </Menu.Button>
             <Transition
               as={Fragment}
