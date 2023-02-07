@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 
-import {URL_HOME, URL_FORGET_LOGIN} from "../../constants/urls/urlFrontEnd";
+import {URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL} from "../../constants/urls/urlFrontEnd";
 import {signIn} from "../../redux-store/authenticationSlice";
 import {authenticate} from "./../../api/backend/account";
 
@@ -40,7 +40,12 @@ const Login = () => {
 				
 			
 	};
+	const handleForgetEmail = () => {
 
+		navigate(URL_FORGET_EMAIL);
+	
+
+};
 	return (
 		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
 			<div className="flex justify-center pb-16">
@@ -120,7 +125,8 @@ const Login = () => {
 								Mot de passe oublié
 							</button>
 
-							<button className="btn bg-rose hover:bg-roseh">
+							<button className="btn bg-rose hover:bg-roseh"
+							onClick={handleForgetEmail} >
 								Adresse Email oublié
 							</button>
 						</div>
