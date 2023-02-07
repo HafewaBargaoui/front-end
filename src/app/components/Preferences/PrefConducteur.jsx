@@ -15,7 +15,7 @@ const PrefConducteur = () => {
     const onDrop = useCallback(
       (acceptedFiles) => {
         setFiles([...files, ...acceptedFiles]);
-        formik.setFieldValue("picture_path", [...files, ...acceptedFiles]);
+        formik.setFieldValue("files", [...files, ...acceptedFiles]);
       },
       [files]
     );
@@ -62,23 +62,28 @@ const PrefConducteur = () => {
       fuel_type: "",
       animal_friendly: "",
       smoker_friendly: "",
-      picture_path: null,
+      files: null,
     },
     onSubmit: async (values) => {
-      const userVehicule = {
-        brand: values.brand,
-          seats: values.seats,
-          model: values.model,
-          fuel_type: values.fuel_type,
-          picture_path: values.picture_path,
-      };
-      const userPrefs = {
-        animal_friendly: values.animal_friendly,
-        smoker_friendly: values.smoker_friendly,
-        large_luggage: values.large_luggage,
-      };
-      await postDriverVehicule(userVehicule);
-      await postDriverPrefs(userPrefs);
+
+      const formDataUserVehicule = new FormData();
+      formDataUserVehicule.append("brand",  values.brand);
+      formDataUserVehicule.append("seats",  values.seats);
+      formDataUserVehicule.append("model",  values.model);
+      formDataUserVehicule.append("fuel_type",  values.fuel_type);
+
+      for (var i = 0; i < values.files.length; i++) 
+      {
+        let file = values.files[i];
+        formDataUserVehicule.append('files', file);
+      }      
+      const formDataUserPrefs = new FormData();
+      formDataUserPrefs.append("animal_friendly", values.animal_friendly);
+      formDataUserPrefs.append("smoker_friendly", values.smoker_friendly);
+      formDataUserPrefs.append("large_luggage", values.large_luggage);
+
+      await postDriverVehicule(formDataUserVehicule);
+      await postDriverPrefs(formDataUserPrefs);
       setnextClicked(true);
     },
   });
@@ -339,7 +344,7 @@ const PrefConducteur = () => {
                 <div className="">
                   <MyDropzone
                     onDrop={(acceptedFiles) =>
-                      formik.setFieldValue("file", acceptedpicture_paths[0])
+                      formik.setFieldValue("file", acceptedfiless[0])
                     }
                   />
                 </div>

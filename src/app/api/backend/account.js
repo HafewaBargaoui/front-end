@@ -13,7 +13,6 @@ import {
 import apiBackEnd from "./api.Backend";
 
 export function getCarBrand(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
 }
 
@@ -28,7 +27,6 @@ export function postDriverPrefs(values) {
 }
 
 export function authenticate(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_AUTHENTICATE, values);
 }
 
@@ -43,6 +41,7 @@ export function register(values) {
 
 
 export function userPreference(values) {
+	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_USER_PREFERENCE, values);
 }
 
@@ -54,3 +53,10 @@ export function resetpassword(values, token) {
 export function forgetpassword(values) {
     return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
 }
+
+apiBackEnd.interceptors.request.use(function (config) {
+	apiBackEnd.defaults.withCredentials = true;
+    return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
