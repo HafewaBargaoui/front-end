@@ -32,7 +32,7 @@ const ForgetLogin = () => {
 	};
 
 	return (
-		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover bg-[url('/src/app/assets/images/GradientLogin.png')]">
+		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover  bg-slate-500">
 			<div className="flex justify-center pb-16">
 				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
 				{/* Saisissez votre adresse e-mail. 
@@ -74,7 +74,7 @@ const ForgetLogin = () => {
 						{/* <div className="flex justify-between pt-8"> */}
 							<button 
 								type="submit"
-								className="btn bg-vert group hover:bg-verth relative w-1/2 text-white"
+								className="btn bg-cyan-700 hover:bg-cyan-800 relative w-1/2 text-white font-bold"
 							>
 								Envoyer
 							</button>
