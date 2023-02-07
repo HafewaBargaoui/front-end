@@ -49,30 +49,22 @@ const PrefPassager = () => {
       </div>
     );
   }
-  const [prefPassager, setprefPassager] = useState([]);
   const formik = useFormik({
+
     initialValues: {
       sexe: "",
       prefs: "",
-      vehicule: "",
-      file: null,
+      vehicule: ""
     },
     onSubmit: (values) => {
-      setprefPassager((prevState) => [
-        {
-          sexe: values.sexe,
-          prefs: values.prefs,
-          vehicule: values.vehicule,
-          file: values.file,
-        },
-      ]);
-      userPreference(values);
+      const formData = new FormData();
+      formData.append('files', values.file);
+      formData.append('sexe', values.sexe);
+      formData.append('prefs', values.prefs);
+      formData.append('vehicule', values.vehicule);
+      userPreference(formData);
     },
   });
-
-  useEffect(() => {
-    console.log(prefPassager);
-  }, [prefPassager]);
 
   const dbsexe = [
     { id: 1, title: "homme", image: homme },
@@ -103,7 +95,7 @@ const PrefPassager = () => {
 
   return (
     <>
-      <form method="post" onSubmit={formik.handleSubmit} itemRef="form">
+      <form method="post" onSubmit={formik.handleSubmit} itemRef="form" encType="multipart/form-data">
         <div className="w-full max-w-lg lg:px-8 bg-white bg-opacity-30 shadow-lg rounded-lg shadow-gray-900/80">
           <p className="text-center m-1 font-semibold drop-shadow-sm">
             NOM PRENOM
@@ -114,7 +106,7 @@ const PrefPassager = () => {
                 photo de profil
               </p>
               <div className="">
-                <MyDropzone
+                <MyDropzone type="file" accept="image"
                   onDrop={(acceptedFiles) =>
                     formik.setFieldValue("file", acceptedFiles[0])
                   }
