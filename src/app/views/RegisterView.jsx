@@ -200,7 +200,7 @@ const RegisterView = () => {
 	return (
 		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full">
 
-		<div className=" pt-4 mb-12 grid gap-4 place-content-center  ">
+		<div className=" pt-8 mb-12 grid gap-4 place-content-center  ">
 			<div
 				className={error}
 				id="messageError"
@@ -262,7 +262,7 @@ const RegisterView = () => {
 					}
 				>
 					<div className="flex items-center">
-						<span className="stepper-head-icon">
+						<span className="stepper-head-icon ml-10">
 							<svg
 								className="h-8 w-8 text-cyan-500"
 								width="24"
@@ -290,7 +290,7 @@ const RegisterView = () => {
 						<span
 							className={
 								page === 1
-									? "ml-2 text-white font-medium"
+									? "ml-5 text-white font-medium"
 									: "ml-2 text-gray-500 cursor-pointer"
 							}
 						>
@@ -305,7 +305,7 @@ const RegisterView = () => {
 					}
 				>
 					<div className="flex items-center">
-						<span className="stepper-head-icon">
+						<span className="stepper-head-icon ml-10">
 							<svg
 								className="h-8 w-8 text-cyan-500"
 								width="24"
@@ -333,7 +333,7 @@ const RegisterView = () => {
 						<span
 							className={
 								page === 2
-									? "ml-2 text-white font-medium"
+									? "ml-5 text-white font-medium"
 									: "ml-2 text-gray-500 cursor-pointer"
 							}
 						>
