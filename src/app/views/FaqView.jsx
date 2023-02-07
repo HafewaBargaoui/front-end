@@ -3,11 +3,11 @@ import React, { useEffect } from 'react';
 export default function Faq() {
 
     useEffect(() => {
-		window.scrollTo(0, 0);
-	  }, []);
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
-        <div className="accueil bg-cover bg-[url('./imgs/Gradient.png')]">
+        <div className="h-full w-full flex justify-center items-center bg-cover bg-[url('./imgs/Gradient.png')]">
             <div className='flex flex-col text-white text-lg ml-64 mr-64'>
                 <div className='text-white mt-12 mb-12 text-4xl font-bold uppercase text-center underline underline-offset-4 text-cyan-500'>
                     <p>Foire aux questions :</p>
@@ -25,24 +25,44 @@ export default function Faq() {
                     <p className='text-lg ml-16 mb-2'> •	Fluidifier le trafic puisque le conducteur ne voyage pas seul, il a avec lui un ou plusieurs passagers qui ont laissés leurs véhicules sur des parkings spécialement dédiés au covoiturage.</p>
                 </div>
                 <div className=''>
-                    <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Le profil d'un utilisateur</h5>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl'>Comment s'inscrire à l'application ?</h6>
-                    <p className='mt-4 text-lg'>Pour s'inscrire à l'application ,il faut cliquer sur la tête avatar puis cliquer sur "s'inscrire". On peut également s'inscrire à partir de la page d'accueil, il faut juste scroller un peu et cliquer sur le bouton "S'inscrire". </p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se désinscrire à l'application ?</h6>
-                    <p className='mt-4 text-lg'>Il faut être connecté et aller dans mon profil. Pour se faire, il faut cliquer sur la tête avatar, puis mon profil. Tout en bas, il y a un lien "se désinscrire" il faut cliquer dessus et confirmer son choix. La désinscription est prise en compte.</p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Je n'ai pas reçu de mail à la fin de mon inscription que dosi-je faire ?</h6>
+                    <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Inscription - connexion</h5>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment s'inscrire ?</h6>
+                    <p className='mt-4 text-lg'>Pour s'inscrire à l'application ,il faut cliquer sur la tête avatar puis cliquer sur "S'inscrire". Ensuite, on est redirigé vers la page où il faut renseigner diverses informations. On peut également s'inscrire à partir de la page d'accueil, il suffit juste de scroller un peu et cliquer sur le bouton "S'inscrire". </p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se désinscrire ?</h6>
+                    <p className='mt-4 text-lg'>Il faut être connecté et aller dans mon profil. Pour se faire, il faut cliquer sur la tête avatar, puis cliquer sur "Profil". Tout en bas, il y a un lien "Se désinscrire" il faut cliquer dessus et confirmer son choix. La désinscription est prise en compte.</p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se connecter ?</h6>
+                    <p className='mt-4 text-lg'>Il faut cliquer sur la tête avatar puis cliquer sur "Se connecter". Ensuite, on est redirigé vers la page où il faut renseigner son adresse mail et le mot de passe qu'on s'est créé. A savoir que pour se connecter à l'application, il faut s'inscrire au préalable.</p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se déconnecter ?</h6>
+                    <p className='mt-4 text-lg'>Pour se déconnecter il faut cliquer sur la tête avatar puis cliquer sur "Déconnexion". A savoir que pour se déconnecter à l'application, il faut être connecté au préalable.</p>
+                </div>
+                <div>
+                    <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Profil d'un utilisateur</h5>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Je n'ai pas reçu de mail à la fin de mon inscription que dois-je faire ?</h6>
                     <p className='mt-4 text-lg'>Il faut d'abord vérifier que l'email de validation ne se trouve pas dans le dossier "spam" ou "courrier indésirable". Si le courriel n'est pas dans l'un de ses dossiers c'est que l'inscription n'a pas été prise en compte. Recommencez donc la procédure d'inscription en vérifiant bien votre adresse mail.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment puis-je modifier mon mot de passe ?</h6>
-                    <p className='mt-4 text-lg'>Il faut être connecté puis cliquer sur l'avatar et aller dans mon profil. Il y a un lien "modifier mon mot de passe". (il faut renseigner l'ancien et créer le nouveau?)</p>
+                    <p className='mt-4 text-lg'>Il faut être connecté puis cliquer sur l'avatar et aller dans mon profil. Il y a un lien "Modifier mot de passe". (il faut renseigner l'ancien et créer le nouveau?)</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon mot de passe ?</h6>
-                    <p className='mt-4 text-lg'> J'ai la possibilité d'en créer un nouveau. Au moment de me connecter si je ne sais plus mon mot de passe il faut que je clique sur "mot de passe oublié" pour pouvoir en créer un nouveau. Je suis redirigé vers une page où je dois renseigner mon adresse mail. Un mail est envoyé sur ma boite mail et à l'intérieur il y a un code qui permet la réinitialisation de mon mot de passe.</p>
+                    <p className='mt-4 text-lg'> J'ai la possibilité d'en créer un nouveau. Au moment de me connecter si je ne sais plus mon mot de passe il faut que je clique sur "Mot de passe oublié" pour pouvoir en créer un nouveau. Je suis redirigé vers une page où je dois renseigner mon adresse mail. Un mail est envoyé sur ma boite mail et à l'intérieur il y a un code qui permet la réinitialisation de mon mot de passe.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon adresse email ?</h6>
                     <p className='mt-4 text-lg'>J'ai la possibilité de la récupérer par le biais de mon numéro de téléphone. Au moment de me connecter si je ne sais plus mon adresse mail il faut que je clique sur "Adresse email oubliée" pour pouvoir la récupérer. Je suis redirigé vers une page où je dois renseigner mon numéro de téléphone.</p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment faire une recherche de trajet ?</h6>
-                    <p className='mt-4 text-lg'>Pour recherher un trajet il faut remplir les champs demandés sur la page d'accueil puis cliquer sur "GO !" pour lancer la recherche. Ensuite l'utilisateur est redirigé vers une page avec les résultats de la recherche et la possibilité de choisir des filtres.</p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment faire une création de trajet ?</h6>
-                    <p className='mt-4 text-lg'>La création de trajet est réservée pour les conducteurs. Il remplit les champs demandés et il renseigne les filtres qui lui permettent de créer un trajet.</p>
-
+                </div>
+                <div>
+                    <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Le trajet</h5>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment créer un trajet ?</h6>
+                    <p className='mt-4 text-lg'>La création d'un trajet est réservée pour les conducteurs. Pour créer un trajet il faut, dans la barre de navigation, cliquer sur "Créer un trajet". On est redirigé vers une page où il faut remplir les champs demandés et renseigner les filtres qui lui permettent de créer un trajet. A savoir que la création d'un trajet se fait que lorsque l'utilisateur est inscrit et connecté.</p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment rechercher un trajet ?</h6>
+                    <p className='mt-4 text-lg'>Pour rechercher un trajet il faut remplir les champs demandés dans la barre de recherche sur la page d'accueil puis cliquer sur "GO !" pour lancer la recherche. Ensuite l'utilisateur est redirigé vers une page avec les résultats de la recherche et la possibilité de choisir des filtres.</p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment réserver un trajet ?</h6>
+                    <p className='mt-4 text-lg'> La réservation d'un trajet s'effectue après la recherche d'un trajet. En revanche il faut être inscrit et connecté pour pouvoir faire une réservation. </p>
+                </div>
+                <div className=''>
+                    <h5 className='underline underline-offset-4 font-bold text-3xl mt-12 mb-4 text-cyan-500'>Les points (buddycoins)</h5>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment dois-je payer mon covoiturage ?</h6>
+                    <p className='mt-4 text-lg'>Le principe de cette application c'est qu'il n'y a pas d'échange d'argent et que tout soit basé sur un système de points. 1 kilomètre = 1 point. Lorsqu'un utilisateur s'inscrit il a 50 points offerts donc il a droit à 50 kilomètres offerts.</p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Que faire lorsque je n'ai plus de points pour faire un trajet ?</h6>
+                    <p className='mt-4 text-lg'>J'ai la possibilité d'en acheter. Pour cela il faut être connecté puis aller dans mon profil et dans la catégorie "acheter des points". On peut également aller dans la barre de navigation et cliquer sur "BuddyCoins". </p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Est-il possible de vendre mes points ?</h6>
+                    <p className='mt-4 text-lg'>Oui. Pour cela il faut être connecté et aller dans mon profil. Il y a un lien qui permet cette transaction. </p>
                 </div>
                 <div>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mt-12 mb-4 text-cyan-500'>L'évaluation des conducteurs</h5>
@@ -54,14 +74,12 @@ export default function Faq() {
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Qui peut voir les avis ?</h6>
                     <p className='mt-4 text-lg'>Tous les avis sont visibles par tous les utilisateurs inscrits et connectés (ou tout le monde même pas connecté ?)</p>
                 </div>
-                <div className=''>
-                    <h5 className='underline underline-offset-4 font-bold text-3xl mt-12 mb-4 text-cyan-500'>Les points (buddycoins)</h5>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment dois-je payer mon covoiturage ?</h6>
-                    <p className='mt-4 text-lg'>Le principe de cette application c'est qu'il n'y a pas d'échange d'argent et que tout soit basé sur un système de points. 1 kilomètre = 1 point. Lorsqu'un utilisateur s'inscrit il a 50 points offerts donc il a 50 kilomètres offerts. En revanche si l'utilisateur est tout le temps conducteur il a la possibilité de vendre ses points. Et un utilisateur peut acheter des points lorsqu'il n'en a plus.</p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Que faire lorsque je n'ai plus de points pour faire un trajet ?</h6>
-                    <p className='mt-4 text-lg'>J'ai la possibilité d'en acheter. Pour cela il faut être connecté puis aller dans mon profil et dans la catégorie "acheter des points". OU Pour cela il faut aller sur la barre de navigation et cliquer sur "BuddyCoins" </p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Est-il possible de vendre mes points ?</h6>
-                    <p className='mt-4 text-lg'>Oui. Pour cela il faut être connecté et aller dans mon profil. Il y a un lien qui permet cette transaction. </p>
+                <div>
+                    <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Le désistement</h5>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si le conducteur se désiste ?</h6>
+                    <p className='mt-4 text-lg'>Le conducteur doit prévenir au plus vite les passagers qu'il devait prendre avec lui. Ils devront trouver un autre moyen de transport ou trouver un autre trajet de covoiturage via l'application. </p>
+                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si un passager se désiste ?</h6>
+                    <p className='mt-4 text-lg'>Le passager doit prévenir au plus vite le conducteur puisque celui-ci va l'attendre ou bien faire un détour pour venir le chercher.</p>
                 </div>
                 <div>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mt-12 mb-4 text-cyan-500'>L'assurance</h5>
@@ -77,3 +95,10 @@ export default function Faq() {
 // personne à mobilité réduite
 // chien guide d'aveugle
 // prime covoiturage
+
+// désistement que faire des points?
+// si le conducteur ne peut pas assurer le trajet :
+// le passager qui a réservé et utilisé des points -> il faut lui rendre ses points si le trajet n'a pas été réalisé
+
+// si le passager annule le trajet -> on lui rend ses points ou pas?
+// excuse valable : on rend sinon non?
