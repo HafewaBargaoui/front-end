@@ -39,6 +39,7 @@ export const authenticationSlice = createSlice({
 
 			const user = {
 				username: claims.sub,
+				id: claims.userId,
 				// roles: claims.userRoles,
 				roles: userRolesStr.split(","),
 			};
