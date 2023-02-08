@@ -4,8 +4,10 @@ import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
 import SecondForm from "../components/stepsRegister/SecondForm";
 import ThirdForm from "../components/stepsRegister/ThirdForm";
+import { useNavigate } from "react-router-dom";
 
 const RegisterView = () => {
+	const navigate = useNavigate();
 	const formList = ["FirstForm", "SecondForm", "ThirdForm"];
 
 	const formLength = formList.length;
@@ -186,6 +188,10 @@ const RegisterView = () => {
 			delete values.confirmPassword;
 			const response = await register(values);
 		}
+		
+      	navigate("/register-submitted");
+
+		//redirection vers page message
 	};
 
 	// const test = async () => {
