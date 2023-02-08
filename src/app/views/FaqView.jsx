@@ -40,7 +40,8 @@ export default function Faq() {
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Je n'ai pas reçu de mail à la fin de mon inscription que dois-je faire ?</h6>
                     <p className='mt-4 text-lg'>Il faut d'abord vérifier que l'email de validation ne se trouve pas dans le dossier "spam" ou "courrier indésirable". Si le courriel n'est pas dans l'un de ses dossiers c'est que l'inscription n'a pas été prise en compte. Recommencez donc la procédure d'inscription en vérifiant bien votre adresse mail.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Comment puis-je modifier mon mot de passe ?</h6>
-                    <p className='mt-4 text-lg'>Il faut être connecté puis cliquer sur l'avatar et aller dans mon profil. Il y a un lien "Modifier mot de passe". (il faut renseigner l'ancien et créer le nouveau?)</p>
+                    <p className='mt-4 text-lg'>Il faut être connecté puis cliquer sur l'avatar et aller dans mon profil. Il y a un lien "Modifier mot de passe".</p>
+                    {/*  (il faut renseigner l'ancien et créer le nouveau?) */}
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon mot de passe ?</h6>
                     <p className='mt-4 text-lg'> J'ai la possibilité d'en créer un nouveau. Au moment de me connecter si je ne sais plus mon mot de passe il faut que je clique sur "Mot de passe oublié" pour pouvoir en créer un nouveau. Je suis redirigé vers une page où je dois renseigner mon adresse mail. Un mail est envoyé sur ma boite mail et à l'intérieur il y a un code qui permet la réinitialisation de mon mot de passe.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon adresse email ?</h6>
@@ -72,7 +73,8 @@ export default function Faq() {
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Est-ce obligatoire d'évaluer le conducteur ?</h6>
                     <p className='mt-4 text-lg'>Non il n'est pas obligatoire de donner votre avis. Cependant, les avis sont importants pour les autres utilisateurs de l'application qui les consultent comme étant un gage de qualité.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Qui peut voir les avis ?</h6>
-                    <p className='mt-4 text-lg'>Tous les avis sont visibles par tous les utilisateurs inscrits et connectés (ou tout le monde même pas connecté ?)</p>
+                    <p className='mt-4 text-lg'>Tous les avis sont visibles par tous les utilisateurs inscrits et connectés.</p>
+                    {/* (ou tout le monde même pas connecté ?) */}
                 </div>
                 <div>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Le désistement</h5>
