@@ -76,7 +76,7 @@ const FirstForm = ({
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								3 à 30 lettres. Commence par une majuscule.
+								3 à 30 lettres.
 							</p>
 						</div>
 
@@ -111,7 +111,7 @@ const FirstForm = ({
 										: " invisible text-xs pt-2 text-red-600"
 								}
 							>
-								3 à 30 lettres. Commence par une majuscule.
+								3 à 30 lettres.
 							</p>
 						</div>
 

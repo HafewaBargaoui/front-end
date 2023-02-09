@@ -9,7 +9,7 @@ import {
 
 export default function HomePageView() {
 	return (
-		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')]">
+		<div className="accueil bg-cover bg-[url('./imgs/gradientAccueilCarbuddy.png')]">
 			<div className="recherche bg-cyan-700 bg-opacity-40 h-24 pt-7 ">
 				<div className="flex flex-row items-center justify-around">
 					<div className="">

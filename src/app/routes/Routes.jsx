@@ -21,6 +21,8 @@ import ForgetEmailView from "../views/ForgetEmailView";
 import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
 import CarteView from "../views/CarteView";
+import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
+import MailVerified from "../components/account/MailVerified";
 
 /**
  * Routes of the application
@@ -93,6 +95,8 @@ const Routes = () => {
       <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword/>} />
       <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView/>} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
+      <Route path={URL.URL_REGISTER_LAST} element={<SubmittedRegister />} />
+      <Route path={URL.URL_MAIL_VERIFIED} element={<MailVerified />} />
       <Route path={URL.URL_PROFILEPREFS} element={<ProfilePrefsView />} />
       <Route path={URL.URL_TRAJETS} element={<TrajetsView />} />
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />

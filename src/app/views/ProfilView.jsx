@@ -1,28 +1,22 @@
-import React from 'react';
+import React from "react";
+import ProfilInfos from "../components/Profil/ProfilInfos";
+import ProfilVehicule from "../components/Profil/ProfilVehicule";
+import ProfilBuddycoins from "../components/Profil/ProfilBuddycoins";
 
 export default function Profil() {
-    return (
-        <div className="accueil bg-cover bg-[url('./imgs/Gradient.png')]">
-
-            <div className='flex flex-col text-white text-lg px-72 py-28 ml-80'>
-                <p>Page de profil :</p>
-                <br></br>
-                <p>Informations de l'utilisateur :</p>
-                <p>Nom et prénom</p>
-                <p>Photo de profil</p>
-                <p>Date de naissance</p>
-                <p>Adresse postale</p>
-                <p>Adresse mail</p>
-                <p>Téléphone</p>
-                <br></br>
-                <p>Informations sur le véhicule :</p>
-                <p>Marque</p>
-                <p>Modèle</p>
-                <p>Couleur du véhicule</p>
-                <p>Nombre de places</p>
-                <p>Les filtres : animaux, fumeur, radio etc.</p>
-                <br></br>
-            </div>
+  return (
+    <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full grid justify-center items-center">
+      <div className="grid grid-rows-1 md:grid-rows-2 grid-flow-row  md:grid-flow-col gap-4">
+        <div className="row-span-3 ">
+          <ProfilInfos />
         </div>
-    )
+        <div className="col-span-2 ">
+          <ProfilVehicule />
+        </div>
+        <div className="col-span-2 ">
+          <ProfilBuddycoins />
+        </div>
+      </div>
+    </div>
+  );
 }

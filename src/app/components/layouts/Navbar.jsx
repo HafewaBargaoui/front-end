@@ -8,17 +8,17 @@ import {
   URL_PROFILEPREFS,
   URL_PROFIL,
   URL_CARTE,
+  URL_REGISTER,
 } from "../../constants/urls/urlFrontEnd";
-
-
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsLogged } from "../../redux-store/authenticationSlice";
 import {signOut} from "../../redux-store/authenticationSlice";
 
-
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment} from "react";
 import { logout } from "../../api/backend/account";
+
+
 
 const Navbar = () => {
   const isAuthenticated = useSelector(selectIsLogged);
@@ -63,6 +63,8 @@ const Navbar = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute grid item-center justify-center right-0 mt-2 px-4 w-fit origin-top-right divide-y divide-gray-100 rounded-md bg-black bg-opacity-80 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              {isAuthenticated ? 
+              <>
                 <div className="px-1 py-1 ">
                   <Menu.Item>
                     {({ active }) => (
@@ -139,6 +141,31 @@ const Navbar = () => {
                     )}
                   </Menu.Item>
                 </div>
+
+                </>
+                :
+                <div className="px-1 py-1">
+                <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active
+                            ? "bg-black bg-opacity-95 text-white"
+                            : "text-gray-300"
+                        } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
+                      >
+                        <a
+                          href={URL_REGISTER}
+                          className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
+                        >
+                          s'inscrire
+                        </a>
+                      </button>
+                    )}
+                  </Menu.Item>
+                  </div>
+
+              }
                 <div className="px-1 py-1">
                   <Menu.Item>
                     {({ active }) => (
