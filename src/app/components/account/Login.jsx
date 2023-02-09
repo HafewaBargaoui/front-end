@@ -125,7 +125,8 @@ const Login = () => {
 								Mot de passe oublié
 							</button>
 
-							<button className="btn bg-cyan-600 hover:bg-cyan-500">
+							<button className="btn bg-cyan-600 hover:bg-cyan-500"
+								onClick={handleForgetEmail} 		>
 								Adresse Email oubliée
 							</button>
 						</div>
