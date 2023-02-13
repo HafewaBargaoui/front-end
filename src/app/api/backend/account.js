@@ -27,6 +27,7 @@ export function postDriverPrefs(values) {
 }
 
 export function authenticate(values) {
+	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_AUTHENTICATE, values);
 }
 
@@ -38,7 +39,6 @@ export function logout(values) {
 export function register(values) {
 	return apiBackEnd.post(URL_BACK_REGISTER, values);
 }
-
 
 export function userPreference(values) {
 	apiBackEnd.defaults.withCredentials = true;
@@ -53,10 +53,3 @@ export function resetpassword(values, token) {
 export function forgetpassword(values) {
     return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
 }
-
-apiBackEnd.interceptors.request.use(function (config) {
-	apiBackEnd.defaults.withCredentials = true;
-    return config;
-  }, function (error) {
-    return Promise.reject(error);
-  });
