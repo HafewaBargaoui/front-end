@@ -68,7 +68,7 @@ const Login = () => {
 						<Field
 							type="text"
 							name="email"
-							placeholder="email"
+							placeholder="michel.dupont@gmail.com"
 							autoComplete="email"
 							className="inputInscription"
 						/>
@@ -85,7 +85,7 @@ const Login = () => {
 						<Field
 							type="password"
 							name="password"
-							placeholder="mot de passe"
+							placeholder="***********"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>

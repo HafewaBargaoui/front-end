@@ -7,3 +7,4 @@ export const URL_BACK_DRIVERPREF = "/driverPrefs";
 export const URL_BACK_USER_PREFERENCE = "/userPreference";
 export const URL_BACK_FORGET_PASSWORD = "/forgot-password";
 export const URL_BACK_RESET_PASSWORD = "/reset-password/:token";
+export const URL_BACK_USER_PROFILE = "/userProfile/:id";

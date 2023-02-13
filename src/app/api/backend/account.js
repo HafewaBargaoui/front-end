@@ -7,7 +7,8 @@ import {
 	URL_BACK_DRIVERPREF,
 	URL_BACK_FORGET_PASSWORD,
 	URL_BACK_RESET_PASSWORD,
-	URL_BACK_LOGOUT
+	URL_BACK_LOGOUT,
+	URL_BACK_USER_PROFILE
 
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
@@ -15,6 +16,12 @@ import apiBackEnd from "./api.Backend";
 export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
 }
+
+export function getProfile(userId) {
+	apiBackEnd.defaults.withCredentials = true;
+	return apiBackEnd.get(`/userProfile/${userId}`);
+  }
+  
 
 export function postDriverVehicule(values) {
 	apiBackEnd.defaults.withCredentials = true;
