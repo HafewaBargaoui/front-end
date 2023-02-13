@@ -50,6 +50,7 @@ export function register(values) {
 
 
 export function userPreference(values) {
+	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_USER_PREFERENCE, values);
 }
 
