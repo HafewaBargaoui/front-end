@@ -17,29 +17,24 @@ export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
 }
 
-export function getProfile(userId) {
-	apiBackEnd.defaults.withCredentials = true;
-	return apiBackEnd.get(`/userProfile/${userId}`);
+export function getProfile() {
+	return apiBackEnd.get(`/userProfile`);
   }
   
 
 export function postDriverVehicule(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_DRIVER, values);
 }
 
 export function postDriverPrefs(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_DRIVERPREF, values);
 }
 
 export function authenticate(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_AUTHENTICATE, values);
 }
 
 export function logout(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.get(URL_BACK_LOGOUT, values);
 }
 
@@ -48,7 +43,6 @@ export function register(values) {
 }
 
 export function userPreference(values) {
-	apiBackEnd.defaults.withCredentials = true;
 	return apiBackEnd.post(URL_BACK_USER_PREFERENCE, values);
 }
 
