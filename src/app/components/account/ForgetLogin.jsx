@@ -13,7 +13,7 @@ const initialValues = {
   const validationSchema = Yup.object({
 	email: Yup.string()
 	  .email('Hum, cette adresse e-mail n’a pas l’air valide. Vérifiez si elle contient bien le "@" et le ".".')
-	  .required('Required'),
+	  .required('Votre email est obligatoire.'),
   })
 
 const ForgetLogin = () => {
@@ -24,6 +24,8 @@ const ForgetLogin = () => {
 	const handleSubmit = async(values) => {
 		//Send requet to back 
 		//navigate(URL_RESET_PASSWORD);
+		
+
 		const mail = {
 			email : values.email
 		}

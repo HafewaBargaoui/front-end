@@ -1,4 +1,5 @@
 import {LockClosedIcon} from "@heroicons/react/solid";
+import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 import {Field, Form, Formik} from "formik";
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
@@ -46,6 +47,13 @@ const Login = () => {
 	
 
 };
+
+// handle toggle password
+  
+	const [open, setOpen] = useState(false)
+	const toggle = () =>{
+	setOpen(!open)
+};
 	return (
 		<div className="w-full max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
 			<div className="place-content-center">
@@ -78,7 +86,7 @@ const Login = () => {
 							className="inputInscription"
 						/>
 					</div>
-					<div className="flex flex-col space-y-3">
+					<div className="flex flex-col space-y-3 relative">
 						<label
 							className=" text-gray-800 text-md font-semibold"
 							
@@ -88,14 +96,22 @@ const Login = () => {
 						</label>
 
 						<Field
-							type="password"
+							type={(open === false)? 'password' :'text'}
 							name="password"
 							placeholder="***********"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>
+							<div className="text-2xl absolute top-9 right-3 z-30 w-4 cursor-pointer text-slate-600">
+                  {
+                    
+                      (open === false)? <EyeOffIcon onClick={toggle} />:
+                      <EyeIcon onClick={toggle} />
+                  }   
+                  </div>
 					</div>
-
+				
+           
 					{/* <div className="mt-3 flex items-center justify-between">
 						<div className="text-sm">
 							<Link to="/forgot-password">
