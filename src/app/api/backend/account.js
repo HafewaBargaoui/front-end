@@ -20,6 +20,10 @@ export function getCarBrand(values) {
 export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
   }
+
+  export function editProfile() {
+	return apiBackEnd.put(`/userProfile`);
+  }
   
 
 export function postDriverVehicule(values) {
