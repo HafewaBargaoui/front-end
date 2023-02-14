@@ -21,8 +21,10 @@ const ForgetLoginView = () => {
 	}, []);
 
 	return (
+		<div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full">
 		<div className="flex h-full items-center justify-center loginContainer ">
 			<ForgetLogin className="" />
+		</div>
 		</div>
 	);
 };

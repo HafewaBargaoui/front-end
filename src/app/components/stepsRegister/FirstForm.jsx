@@ -1,5 +1,5 @@
-import React from "react";
-
+import React , {useState} from "react";
+import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 const FirstForm = ({
 	formValues,
 	onChange,
@@ -8,6 +8,17 @@ const FirstForm = ({
 	onBlur,
 	checkingFocus,
 }) => {
+	// handle toggle password
+  
+	const [visible, setVisible] = useState(false)
+	const toggle = () =>{
+		setVisible(!visible)
+};
+
+	const [confirmVisible, confirmSetVisible] = useState(false)
+	const toggleconfirm = () =>{
+	confirmSetVisible(!confirmVisible)
+};
 	return (
 		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500">
 			<div className="grid gap-4 place-content-center items-center">
@@ -187,7 +198,7 @@ const FirstForm = ({
 							</p>
 						</div>
 
-						<div className="h-24">
+						<div className="h-24 relative">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="password"
@@ -200,11 +211,18 @@ const FirstForm = ({
 								name="password"
 								value={formValues.password}
 								onChange={onChange}
-								type="password"
+								type={(visible === false)? 'password' :'text'}
 								placeholder="******************"
 								onFocus={onFocus}
 								onBlur={onBlur}
 							></input>
+							<div className="text-2xl absolute top-10 right-10 z-30 w-4 cursor-pointer text-slate-600">
+                  {
+                    
+                      (visible === false)? <EyeOffIcon onClick={toggle} />:
+                      <EyeIcon onClick={toggle} />
+                  }   
+                  </div>
 
 							{/* {formValidation.password === false && checkingFocus.password && (
 								<p className="text-xs pt-2 text-red-600">
@@ -222,9 +240,10 @@ const FirstForm = ({
 								8 à 24 caractères. Doit inclure au moins une lettre majuscule, un
 								chiffre et un caractère spécial.
 							</p>
+							
 						</div>
 
-						<div className="h-24">
+						<div className="h-24 relative">
 							<label
 								className="block text-gray-800 text-md font-semibold mb-2"
 								htmlFor="confirmPassword"
@@ -235,13 +254,20 @@ const FirstForm = ({
 								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="confirmPassword"
 								name="confirmPassword"
-								type="password"
+								type={(confirmVisible === false)? 'password' :'text'}
 								value={formValues.confirmPassword}
 								onChange={onChange}
 								placeholder="******************"
 								onFocus={onFocus}
 								onBlur={onBlur}
 							></input>
+							   <div className="text-2xl absolute top-10 right-10 z-30 w-4 cursor-pointer text-slate-600">
+                  {
+                    
+                      (confirmVisible === false)? <EyeOffIcon onClick={toggleconfirm} />:
+                      <EyeIcon onClick={toggleconfirm} />
+                  }   
+                  </div>
 							{/* {formValidation.confirmPassword === false &&
 								checkingFocus.confirmPassword && (
 									<p className="text-xs pt-2 text-red-600">

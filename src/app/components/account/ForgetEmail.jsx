@@ -4,42 +4,40 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { forgetpassword } from "../../api/backend/account";
-
-
+import {URL_RESET_PASSWORD} from "../../constants/urls/urlFrontEnd";
+const phoneRegex = RegExp(
+	/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+  );
+  
 const initialValues = {
-	email: '',
+	phone: '',
   }
   
   const validationSchema = Yup.object({
-	email: Yup.string()
-	  .email('Hum, cette adresse e-mail n’a pas l’air valide. Vérifiez si elle contient bien le "@" et le ".".')
-	  .required('Votre email est obligatoire.'),
+	phone: Yup.string()
+	.min(10, "Veuillez entrer un numéro de téléphone valide")
+	.max(10, "Veuillez entrer un numéro de téléphone valide")
+	.matches(phoneRegex, 'Veuillez entrer un numéro de téléphone valide')
+	.required('Champ obligatoire'),
   })
 
-const ForgetLogin = () => {
+
+const ForgetEmail = () => {
 	const [errorLog, setErrorLog] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleSubmit = async(values) => {
 		//Send requet to back 
-		//navigate(URL_RESET_PASSWORD);
+		console.log("test")
 		
-
-		const mail = {
-			email : values.email
-		}
-		console.log(mail);
-		await forgetpassword(mail)
 	};
 
 	return (
 		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover  bg-slate-500">
 			<div className="flex justify-center pb-16">
 				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
-				{/* Saisissez votre adresse e-mail. 
-				Nous vous enverrons un lien pour réinitialiser votre mot de passe. */}
-				Mot de passe oublié ?
+				Email oublié ?
 				</h1>
 
 				<hr />
@@ -54,19 +52,18 @@ const ForgetLogin = () => {
 					<div className="flex flex-col space-y-6">
 						<label
 							className="pl-1 font-semibold"
-							htmlFor="email"	
+							htmlFor="phone"	
 							>
 							
-							Email:{" "}
+							Téléphone:{" "}
 						</label>
 						<Field
-							type="text"
-							name="email"
-							placeholder="email"
-							autoComplete="email"
+							type="tel"
+							name="phone"
+							placeholder="Téléphone"
 							className="inputInscription"
 						/>
-						 <ErrorMessage name='email'>
+						 <ErrorMessage name='phone'>
                 {error => <div className='text-xs pt-2 text-red-600'>{error}</div>} 
               </ErrorMessage> 
 					</div>
@@ -89,4 +86,4 @@ const ForgetLogin = () => {
 	);
 };
 
-export default ForgetLogin;
+export default ForgetEmail;
