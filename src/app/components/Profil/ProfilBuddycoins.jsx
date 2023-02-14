@@ -11,7 +11,7 @@ const ProfilBuddycoins = () => {
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
-    console.log(response.data.user);
+    //console.log(response.data.user);
     setusers(response.data.user)
   }  
   useEffect(() => {
@@ -31,7 +31,7 @@ const ProfilBuddycoins = () => {
               className="w-20"
               src="imgs/6-removebg-preview.png"
             />
-            <p className="mt-2 font-thin">{users.points}</p>
+            <p className="mt-2 font-thin">{users ? users.points : "votre solde"}</p>
          
           </div>
 

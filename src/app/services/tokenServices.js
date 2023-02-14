@@ -23,7 +23,7 @@ export function setToken(token) {
 export function getToken() {
 	// console.log(localStorage.getItem(TOKEN_NAME));
 	// console.log(Cookies.get(TOKEN_NAME));
-	console.log(localStorage.getItem(TOKEN_NAME));
+	//console.log(localStorage.getItem(TOKEN_NAME));
 	return localStorage.getItem(TOKEN_NAME);
 }
 

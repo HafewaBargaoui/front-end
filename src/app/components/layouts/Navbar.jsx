@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/C_logoWhite.png";
+import avatar from "../../../../public/imgs/avatar.png";
 import {
   URL_HOME,
   URL_LOGIN,
@@ -11,12 +12,12 @@ import {
   URL_REGISTER,
 } from "../../constants/urls/urlFrontEnd";
 import { useSelector, useDispatch } from "react-redux";
-import { selectIsLogged } from "../../redux-store/authenticationSlice";
+import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
 import {signOut} from "../../redux-store/authenticationSlice";
 
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment} from "react";
-import { logout } from "../../api/backend/account";
+import { logout, getProfile } from "../../api/backend/account";
 
 
 
@@ -24,7 +25,19 @@ const Navbar = () => {
   const isAuthenticated = useSelector(selectIsLogged);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-  console.log(isAuthenticated);
+  //console.log(isAuthenticated);
+  const user = useSelector(selectUser);
+  const [photo, setphoto] = useState([]);
+
+  const profilePic = async () => {
+    const response = await getProfile(user.id);
+    setphoto(response.data.userPrefs.file[0].filename)
+  }
+  useEffect(() => {
+    if(isAuthenticated){
+      profilePic();
+    }
+  }, [isAuthenticated])
 
 
 	const logOut = (values) => {
@@ -50,8 +63,12 @@ const Navbar = () => {
         </Link>
         <div className="relative md:order-2 ">
           <Menu as="div" className=" relative w-24 mr-16 opacity-100 z-50 ">
-            <Menu.Button className={`inline-flex w-16 justify-center rounded-full bg-black px-4 py-8 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
-              <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src="imgs/avatar.png" />
+            <Menu.Button className={`inline-flex w-20 justify-center rounded-full bg-black px-4 py-4 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
+            {isAuthenticated && photo != "" ?
+              <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src={photo} />
+              :
+              <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src={avatar} />
+            }
             </Menu.Button>
             <Transition
               as={Fragment}
