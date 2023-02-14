@@ -1,9 +1,33 @@
-import React from "react";
-import { useRef } from "react";
 import { editProfile } from "../../api/backend/account";
+import React, { useState, useEffect, useRef } from "react";
+import { useFormik } from "formik";
 
+const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, setCount}) => {
 
-const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user}) => {
+  const formik = useFormik({
+    initialValues : {
+      name              : users.name,
+      lastname          : users.lastname,
+      birthday          : users.birthday,
+      email             : users.email,
+      sex               : users.sex,
+      phone             : users.phone,
+      pathType          : adresse.pathType,
+      additionalAddress : adresse.additionalAddress,
+      streetName        : adresse.streetName,
+      streetNumber      : adresse.streetNumber,
+      city              : adresse.city,
+      zip               : adresse.zip,
+    },
+
+    onSubmit : async (values) =>
+    {     
+        console.log(values);
+        await editProfile(values);
+        setCount(1);
+        setmodalOn(false);
+    }
+	});
 
     const modalRef = useRef();
 
@@ -21,15 +45,9 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user}) =>
         }
     }
 
-    const clickModifs = async () => {
-        const response = await editProfile(user.id)
-        //setsubmitModifs(true);
-        setmodalOn(false);
-    }
-
-
-
   return (
+    <form method="post" onSubmit={formik.handleSubmit} itemRef="form">
+
     <div className="h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
     onClick={clickOut}    
    >
@@ -62,70 +80,97 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user}) =>
           <div className="grid grid-flow-row gap-4 mx-16 p-6 text-center">
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Nom :</p>
-              <input type="text"
+              <input type="text" id="name" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={users.lastname} />
+                     placeholder={users.name} 
+                     value={formik.values.name}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Prénom :</p>
-              <input type="text"
+              <input type="text" id="lastname" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={users.name} />
+                     placeholder={users.lastname} 
+                     value={formik.values.lastname}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Sexe :</p>
-              <input type="text"
+              <input type="text" id="sexe" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={users.sex} />
+                     placeholder={users.sex}
+                     value={formik.values.sex}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Mail :</p>
-              <input type="text"
+              <input type="text" id="email" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={users.email} />
+                     placeholder={users.email}
+                     value={formik.values.email}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Téléphone :</p>
-              <input type="text"
+              <input type="text" id="phone" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={users.phone} />
+                     placeholder={users.phone}
+                     value={formik.values.phone}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">N° de rue :</p>
-              <input type="text"
+              <input type="text" id="streetNumber" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={adresse.streetNumber} />
+                     placeholder={adresse.streetNumber}
+                     value={formik.values.streetNumber}
+                     onChange={formik.handleChange}
+                    />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Voie :</p>
-              <input type="text"
+              <input type="text" id="pathType" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={adresse.pathType} />
+                     placeholder={adresse.pathType}
+                     value={formik.values.pathType}
+                     onChange={formik.handleChange}
+                      />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Nom de la rue :</p>
-              <input type="text"
+              <input type="text" id="streetName" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={adresse.streetName} />
+                     placeholder={adresse.streetName}
+                     value={formik.values.streetName}
+                     onChange={formik.handleChange}
+                      />
             </div>
 
             <div className="grid grid-flow-col gap-8">
               <p className="text-white">Code Postal :</p>
-              <input type="text"
+              <input type="text" id="zip" 
                      className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
-                     placeholder={adresse.zip} />
+                     placeholder={adresse.zip}
+                     value={formik.values.zip}
+                     onChange={formik.handleChange}
+                      />
             </div>
 
-            <button 
+            <button type="submit"
           className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4"
-          onClick={clickModifs}
+          // onClick={clickModifs}
           >
           Modifier Profil
         </button>
@@ -138,6 +183,7 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user}) =>
 
 
 </div>
+</form>
   )
 }
 

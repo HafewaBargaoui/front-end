@@ -17,6 +17,8 @@ const ProfilInfos = () => {
   const [age, setage] = useState("");
   const isAuthenticated = useSelector(selectIsLogged);
   const user = useSelector(selectUser);
+  
+  const [count, setCount] = useState(1);
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
@@ -47,7 +49,7 @@ const ProfilInfos = () => {
       userProfile();
       ages();
     }
-  }, [isAuthenticated, birthday]);
+  }, [isAuthenticated, birthday, count]);
 
   const [modalOn, setmodalOn] = useState(false);
   const [submitModifs, setsubmitModifs] = useState(false)
@@ -180,6 +182,7 @@ const ProfilInfos = () => {
             users={users}
             adresse={adresse}
             user={user}
+            setCount = {setCount}
           />
         )}
     </div>

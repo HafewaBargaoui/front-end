@@ -21,8 +21,8 @@ export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
   }
 
-  export function editProfile() {
-	return apiBackEnd.put(`/userProfile`);
+  export function editProfile(values) {
+	return apiBackEnd.put(`/userProfile`, values);
   }
   
 
