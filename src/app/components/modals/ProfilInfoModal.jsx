@@ -2,13 +2,15 @@ import { editProfile } from "../../api/backend/account";
 import React, { useState, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 
-const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, setCount}) => {
+const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, setCount, count}) => {
 
+  console.log(users.id_address._id);
+  
+  
   const formik = useFormik({
     initialValues : {
       name              : users.name,
       lastname          : users.lastname,
-      birthday          : users.birthday,
       email             : users.email,
       sex               : users.sex,
       phone             : users.phone,
@@ -18,16 +20,25 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, set
       streetNumber      : adresse.streetNumber,
       city              : adresse.city,
       zip               : adresse.zip,
+      idAdresse : users.id_address._id
     },
-
+    
     onSubmit : async (values) =>
     {     
-        console.log(values);
-        await editProfile(values);
-        setCount(1);
-        setmodalOn(false);
+      setCount(count + 1);
+      console.log(values);
+      await editProfile(values);
+      setmodalOn(false);
     }
-	});
+  });
+
+
+ 
+ 
+  
+  const clickCount = () => {
+        console.log(count);
+    }
 
     const modalRef = useRef();
 
@@ -170,7 +181,7 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, set
 
             <button type="submit"
           className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4"
-          // onClick={clickModifs}
+          onClick={clickCount}
           >
           Modifier Profil
         </button>

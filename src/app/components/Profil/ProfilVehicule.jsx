@@ -2,25 +2,35 @@ import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../../api/backend/account";
 import { selectIsLogged, selectUser, selectToken } from "../../redux-store/authenticationSlice";
+import AddVehiculeModal from "../modals/AddVehiculeModal";
 
 const ProfilVehicule = () => {
-
+  const [users, setusers] = useState([]);
   const [vehicule, setvehicule] = useState([])
   const [pref, setpref] = useState([])
+  const [count, setCount] = useState(1);
   const isAuthenticated = useSelector(selectIsLogged);
   const user = useSelector(selectUser);
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
-    //console.log(response.data.driverPrefs);
+    setusers(response.data.user);
     setvehicule(response.data.vehicule)
-    setpref(response.data.driverPrefs)
+    setpref(response.data.driverPrefs[0])
   }  
   useEffect(() => {
     if(isAuthenticated){
       userProfile();
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, count])
+
+  const [modalOn, setmodalOn] = useState(false);
+  const [submitModifs, setsubmitModifs] = useState(false)
+
+  const modal = () => {
+    setmodalOn(true);
+    console.log(modalOn);
+  };
 
 
   return (
@@ -46,11 +56,25 @@ const ProfilVehicule = () => {
             <p className="font-thin">{pref ? pref.large_luggage : "coffre"}</p>
           </div>
           
-          <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black font-normal shadow-md py-2 px-4">
+          <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black font-normal shadow-md py-2 px-4"
+                  onClick={modal}
+                  >
           Ajouter un véhicule
         </button>
         </div>
       </div>
+        {modalOn && (
+          <AddVehiculeModal
+            setmodalOn={setmodalOn}
+            setsubmitModifs={setsubmitModifs}
+            setCount={setCount}
+            count={count}
+            user={user}
+            users={users}
+            vehicule={vehicule}
+            pref={pref}
+          />
+        )}
     </div>
   );
 };

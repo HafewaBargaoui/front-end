@@ -49,7 +49,7 @@ const ProfilInfos = () => {
       userProfile();
       ages();
     }
-  }, [isAuthenticated, birthday, count]);
+  }, [count, isAuthenticated,  birthday ]);
 
   const [modalOn, setmodalOn] = useState(false);
   const [submitModifs, setsubmitModifs] = useState(false)
@@ -183,6 +183,7 @@ const ProfilInfos = () => {
             adresse={adresse}
             user={user}
             setCount = {setCount}
+            count={count}
           />
         )}
     </div>
