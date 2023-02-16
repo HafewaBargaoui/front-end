@@ -61,7 +61,7 @@ const ProfilInfos = () => {
   };
 
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
+    <div className="flex grow w-96 max-w-xl space-y-6 rounded-lg pb-8  px-8 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
       <div className="grid place-content-center">
         <div className="flex flex-col text-black text-lg">
           <div className="grid place-items-center m-4 text-black">

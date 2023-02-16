@@ -11,31 +11,33 @@ const ProfilVehicule = () => {
   const [count, setCount] = useState(1);
   const isAuthenticated = useSelector(selectIsLogged);
   const user = useSelector(selectUser);
+  const [photos, setphotos] = useState([]);
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
     setusers(response.data.user);
     setvehicule(response.data.vehicule)
     setpref(response.data.driverPrefs[0])
+    setphotos(response.data.vehicule.files) 
   }  
   useEffect(() => {
     if(isAuthenticated){
       userProfile();
     }
   }, [isAuthenticated, count])
-
+  
   const [modalOn, setmodalOn] = useState(false);
   const [submitModifs, setsubmitModifs] = useState(false)
-
+  
   const modal = () => {
     setmodalOn(true);
     console.log(modalOn);
   };
-
-
+  
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8 justify-center  shadow  bg-cover bg-slate-500">
-      <div className="grid place-content-center">
+    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8   shadow  bg-cover bg-slate-500 bg-opacity-50">
+    <div className="grid grid-flow-col gap-10">
+      <div className="grid place-content-center ml-10">
         <div className="flex flex-col text-black">
           <p className="mt-2 text-center font-bold text-xl">Votre véhicule</p>
 
@@ -63,6 +65,23 @@ const ProfilVehicule = () => {
         </button>
         </div>
       </div>
+
+      <div className="grid grid-flow-col">
+      <div className="grid grid-cols-2 gap-4 mt-4 ml-4">
+
+      {photos.map((photo, i)=>(
+
+              <img
+                key={i}
+                className="w-24 rounded-md"
+                src={photo.filename}
+              />
+      ))
+           }
+      </div>
+      </div>
+
+    </div>
         {modalOn && (
           <AddVehiculeModal
             setmodalOn={setmodalOn}
