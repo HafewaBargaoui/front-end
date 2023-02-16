@@ -32,10 +32,6 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, set
     }
   });
 
-
- 
- 
-  
   const clickCount = () => {
         console.log(count);
     }
@@ -49,9 +45,7 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, set
 
     const clickOut = (e) => {
         if (modalRef.current.contains(e.target)) {
-            console.log('in')
         } else {
-            console.log('out');
             setmodalOn(false)
         }
     }
