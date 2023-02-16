@@ -23,7 +23,7 @@ const ProfilBuddycoins = () => {
 
 
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
+    <div className="flex grow w-screen md:max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
     <div className="grid place-content-center">
       <div className="grid grid-flow-col gap-16 mt-12 mb-12 justify-content-center mx-8 text-black">
       <div className="grid place-items-center mt-4 text-black">
@@ -31,7 +31,7 @@ const ProfilBuddycoins = () => {
               className="w-24"
               src="imgs/6-removebg-preview.png"
             />
-            <p className="mt-2 font-thin">{users ? users.points : "votre solde"}</p>
+            <p className="mt-2 text-lg font-thin">{users ? users.points : "votre solde"}</p>
          
           </div>
 

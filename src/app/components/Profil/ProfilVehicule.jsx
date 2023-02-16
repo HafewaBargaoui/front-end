@@ -6,6 +6,7 @@ import {
   selectUser,
 } from "../../redux-store/authenticationSlice";
 import AddVehiculeModal from "../modals/AddVehiculeModal";
+import EditVehiculeModal from "../modals/EditVehiculeModal";
 import PhotoVehiculeModal from "../modals/PhotoVehiculeModal";
 
 const ProfilVehicule = () => {
@@ -32,6 +33,7 @@ const ProfilVehicule = () => {
 
   const [modalOn, setmodalOn] = useState(false);
   const [photoModal, setphotoModal] = useState(false);
+  const [editModale, seteditModale] = useState(false);
   const [photoSrc, setphotoSrc] = useState("");
 
 
@@ -42,15 +44,19 @@ const ProfilVehicule = () => {
   const photoModale = () => {
     setphotoModal(true);
   };
+  const editModal = () => {
+    seteditModale(true);
+  };
+
 
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8 shadow  bg-cover bg-slate-500 bg-opacity-50">
-      <div className="grid grid-flow-row md:grid-flow-col gap-10">
+    <div className="flex grow w-screen justify-center md:max-w-xl rounded-lg pb-8 shadow  bg-cover bg-slate-500 bg-opacity-50">
+      <div className="grid grid-flow-row  md:grid-flow-col gap-10">
         <div className="grid place-content-center ml-10">
           <div className="flex flex-col text-black">
-            <p className="mt-2 text-center font-bold text-xl">Votre véhicule</p>
+            <p className="text-center font-bold text-xl">Votre véhicule</p>
 
-            <div className="mt-8 grid grid-cols-2">
+            <div className="mt-4 grid grid-cols-2">
               <p className="font-semibold">Marque : </p>
               <p className="font-thin">
                 {vehicule ? vehicule.brand : "marque"}
@@ -74,13 +80,22 @@ const ProfilVehicule = () => {
                 {pref ? pref.large_luggage : "coffre"}
               </p>
             </div>
+            <div className="grid grid-flow-row">
 
             <button
-              className="mt-8 bg-vert hover:bg-verth rounded-md text-black font-normal shadow-md py-2 px-4"
+              className="mt-4 bg-jauneh hover:bg-jaune rounded-md text-black font-normal shadow-md py-1 px-4"
+              onClick={editModal}
+            >
+              Modifier le véhicule
+            </button>
+
+            <button
+              className="mt-2 bg-vert hover:bg-verth rounded-md text-black font-normal shadow-md py-1 px-4"
               onClick={modal}
             >
               Ajouter un véhicule
             </button>
+            </div>
           </div>
         </div>
 
@@ -113,6 +128,18 @@ const ProfilVehicule = () => {
           setphotoModal={setphotoModal}
           photos={photos}
           photoSrc={photoSrc}
+        />
+      )}
+      {editModale && (
+        <EditVehiculeModal
+          seteditModale={seteditModale}
+          setCount={setCount}
+          count={count}
+          user={user}
+          users={users}
+          vehicule={vehicule}
+          pref={pref}
+          photos={photos}
         />
       )}
     </div>

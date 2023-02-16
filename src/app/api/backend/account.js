@@ -24,6 +24,10 @@ export function getProfile() {
   export function editProfile(values) {
 	return apiBackEnd.put(`/userProfile`, values);
   }
+
+  export function updateVehicule(values) {
+	return apiBackEnd.put(`/updateVehicule`, values);
+  }
   
 
 export function postDriverVehicule(values) {
