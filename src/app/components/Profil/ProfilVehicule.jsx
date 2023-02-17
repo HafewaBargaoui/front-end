@@ -99,6 +99,7 @@ const ProfilVehicule = () => {
           </div>
         </div>
 
+        {photos && 
         <div className="grid grid-flow-col">
           <div onClick={photoModale} className="grid grid-cols-2 gap-4 mt-4 ml-4">
             {photos.map((photo, i) => (
@@ -111,6 +112,9 @@ const ProfilVehicule = () => {
             ))}
           </div>
         </div>
+        
+        }
+
       </div>
       {modalOn && (
         <AddVehiculeModal
