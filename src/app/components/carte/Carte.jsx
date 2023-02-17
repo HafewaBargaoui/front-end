@@ -5,6 +5,8 @@ import "../../app.scss";
 import L from "leaflet";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.js";
+import "leaflet-control-geocoder/dist/Control.Geocoder.js"
+import "leaflet-control-geocoder/dist/Control.Geocoder.css"
 
 const Carte = () => {
   const position = [50.64055652613224, 3.0438356144452072];
@@ -16,12 +18,16 @@ const Carte = () => {
       "https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}@2x.jpg?key=KqtlJiAPF3SvpfVBeuZ4"
     ).addTo(map);
 
-    L.marker(position).addTo(map).bindPopup("user1 ici !");
-
-    L.marker(position1).addTo(map).bindPopup("user2 ici !");
-
     L.Routing.control({
       waypoints: [L.latLng(position), L.latLng(position1)],
+      lineOptions: {
+        styles: [{
+          color: "#F4E04D",
+          weight: 3,
+          opacity: 0.8
+        }],
+      },
+      geocoder: L.Control.Geocoder.nominatim(),
     }).addTo(map);
   }, [position, position1]);
 
