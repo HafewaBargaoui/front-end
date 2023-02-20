@@ -11,8 +11,11 @@ const Carte = () => {
   const position = [50.64055652613224, 3.0438356144452072];
   const position1 = [50.54055552613224, 3.14377356144452072];
   const [routingControl, setRoutingControl] = useState(null);
-  const [depart, setDepart] = useState("Lille, France");
-  const [arrive, setArrive] = useState("Paris, France");
+  const [depart, setDepart] = useState("Lille");
+  const [arrive, setArrive] = useState("Paris");
+  const [results, setresults] = useState([])
+  const [err, seterr] = useState(false);
+  const [errMsg, seterrMsg] = useState("entrez une destination valide");
 
   useEffect(() => {
     const map = L.map("map");
@@ -33,20 +36,26 @@ const Carte = () => {
     setRoutingControl(routingControl);
   }, []);
 
-  const submit = (event) => {
-    event.preventDefault();
+  const submit = (e) => {
+    e.preventDefault();
     const waypoints = [
       L.latLng(0, 0),
       L.latLng(0, 0),
     ];
 
     L.Control.Geocoder.nominatim().geocode(depart, function (results) {
-      console.log(results);
-      waypoints[0] = L.latLng(results[0].center.lat, results[0].center.lng);
-      L.Control.Geocoder.nominatim().geocode(arrive, function (results) {
-        waypoints[1] = L.latLng(results[0].center.lat, results[0].center.lng);
-        routingControl.setWaypoints(waypoints);
-      });
+        console.log(results);
+        if (results.length > 0 ) {
+          waypoints[0] = L.latLng(results[0].center.lat, results[0].center.lng);
+          
+          L.Control.Geocoder.nominatim().geocode(arrive, function (results) {
+            waypoints[1] = L.latLng(results[0].center.lat, results[0].center.lng);
+            routingControl.setWaypoints(waypoints);
+          });
+        } else {
+          seterr(true)
+        }
+
     });
   };
 
@@ -60,6 +69,7 @@ const Carte = () => {
           <button type="submit" className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
             Rechercher
           </button>
+          {err && <p className="text-red-500">{errMsg}</p>}
         </form>
       </div>
     </>
