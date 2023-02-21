@@ -55,7 +55,7 @@ const Login = () => {
 	setOpen(!open)
 };
 	return (
-		<div className="w-full max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
+		<div className="w-full max-w-xl space-y-3 rounded-lg pb-8 px-4 shadow lg:px-8 bg-cover bg-slate-500">
 			<div className="place-content-center">
 				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					CONNEXION
