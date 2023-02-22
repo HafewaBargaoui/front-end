@@ -44,14 +44,10 @@ const Carte = () => {
   useEffect(() => {
     L.Control.Geocoder.nominatim().geocode(depart, function (results) {
       setresultsDepart(results);
-
     L.Control.Geocoder.nominatim().geocode(arrive, function (results) {
       setresultsArrive(results);
     });
   });
-
-    console.log(depart);
-    console.log(arrive);
   }, [depart, arrive]);
 
   const filteredDepart =
@@ -87,6 +83,7 @@ const Carte = () => {
       <div className="ml-6">
         <form onSubmit={submit} method="post" className="grid grid-flow-row ">
           <div>
+            <p className="text-white mb-4">Départ : </p>
             <Combobox value={selectedDepart} onChange={setselectedDepart}>
               <div className="relative mt-1">
                 <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -122,7 +119,7 @@ const Carte = () => {
                           className={({ active }) =>
                             `relative cursor-default select-none py-2 pl-10 pr-4 ${
                               active
-                                ? "bg-teal-600 text-white"
+                                ? "bg-jauneh text-black"
                                 : "text-gray-900"
                             }`
                           }
@@ -158,7 +155,8 @@ const Carte = () => {
                 </Transition>
               </div>
             </Combobox>
-
+            
+            <p className="text-white mt-4 mb-4">Arrivée : </p>
             <Combobox value={selectedArrive} onChange={setselectedArrive}>
               <div className="relative mt-1">
                 <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -194,7 +192,7 @@ const Carte = () => {
                           className={({ active }) =>
                             `relative cursor-default select-none py-2 pl-10 pr-4 ${
                               active
-                                ? "bg-teal-600 text-white"
+                                ? "bg-jauneh text-black"
                                 : "text-gray-900"
                             }`
                           }

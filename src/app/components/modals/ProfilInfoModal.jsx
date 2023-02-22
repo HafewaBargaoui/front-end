@@ -28,6 +28,7 @@ const ProfilInfoModal = ({setmodalOn, users, adresse, setsubmitModifs, user, set
       setCount(count + 1);
       console.log(values);
       await editProfile(values);
+      window.location.reload()
       setmodalOn(false);
     }
   });
