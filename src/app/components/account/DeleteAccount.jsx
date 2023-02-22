@@ -7,15 +7,27 @@ import {
     URL_HOME,
 
 } from "../../constants/urls/urlFrontEnd";
+import { useDispatch } from "react-redux";
+import { logout } from "../../api/backend/account";
+import { signOut } from "../../redux-store/authenticationSlice";
 
 
 const DeleteAccount = () => {
+    const dispatch = useDispatch();
 
-
+    const logOut = (values) => {
+        logout(values)
+          .then((res) => {
+    
+            dispatch(signOut(res.data));
+            navigate(URL_HOME);
+          })
+      };
 
     const [click, setclick] = useState(false)
     const deleteUser = async (req, res) => {
         deleteAccount();
+        logOut();
     };
 
     const clicked = () => {
