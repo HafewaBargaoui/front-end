@@ -23,19 +23,20 @@ const ProfilBuddycoins = () => {
 
 
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
+    <div className="flex grow w-screen md:max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
     <div className="grid place-content-center">
-      <div className="grid justify-content-center mx-4 text-black">
+      <div className="grid grid-flow-col gap-16 mt-12 mb-12 justify-content-center mx-8 text-black">
       <div className="grid place-items-center mt-4 text-black">
             <img
-              className="w-20"
+              className="w-24"
               src="imgs/6-removebg-preview.png"
             />
-            <p className="mt-2 font-thin">{users ? users.points : "votre solde"}</p>
+            <p className="mt-2 text-lg font-thin">{users ? users.points : "votre solde"}</p>
          
           </div>
 
-        
+        <div className="grid place-content-center">
+
         <button className="mt-6 bg-jauneh hover:bg-jaune rounded-md text-black  font-normal shadow-md  py-2 px-4">
         Historique des transactions
       </button>
@@ -43,6 +44,10 @@ const ProfilBuddycoins = () => {
       <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
         Acheter des BuddyCoins
       </button>
+
+        </div>
+
+
       </div>
     </div>
   </div>
