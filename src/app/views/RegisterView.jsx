@@ -187,9 +187,13 @@ const RegisterView = () => {
 			delete values.terms;
 			delete values.confirmPassword;
 			const response = await register(values);
+
+			if(response.message)
+			{
+				window.location.href=("/register-submitted");
+			}
 		}
 		
-      	navigate("/register-submitted");
 
 		//redirection vers page message
 	};

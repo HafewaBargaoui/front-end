@@ -8,8 +8,8 @@ import {
 	URL_BACK_FORGET_PASSWORD,
 	URL_BACK_RESET_PASSWORD,
 	URL_BACK_LOGOUT,
-	URL_BACK_USER_PROFILE
-
+	URL_BACK_USER_PROFILE,
+	URL_BACK_ENDPOINT_SOCKET
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
@@ -21,10 +21,9 @@ export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
   }
 
-  export function editProfile(values) {
+export function editProfile(values) {
 	return apiBackEnd.put(`/userProfile`, values);
-  }
-  
+}
 
 export function postDriverVehicule(values) {
 	return apiBackEnd.post(URL_BACK_DRIVER, values);
@@ -57,4 +56,8 @@ export function resetpassword(values, token) {
 
 export function forgetpassword(values) {
     return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+}
+
+export function emit() {
+    return apiBackEnd.post(URL_BACK_ENDPOINT_SOCKET);
 }
