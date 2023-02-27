@@ -24,6 +24,9 @@ import CarteView from "../views/CarteView";
 import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
 import MailVerified from "../components/account/MailVerified";
 import PasswordModified from "../components/account/PasswordModified";
+
+import SearchTrajetView from "../views/SearchTrajetView";
+
 /**
  * Routes of the application
  * with public and private route
@@ -102,6 +105,9 @@ const Routes = () => {
       <Route path={URL.URL_TRAJETS} element={<TrajetsView />} />
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
       <Route path={URL.URL_CARTE} element={<CarteView />} />
+
+      <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} /> 
+      
     </RoutesContainer>
   );
 };

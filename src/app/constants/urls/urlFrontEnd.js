@@ -21,3 +21,5 @@ export const URL_CONTACT ='/contact'
 export const URL_PROFILEPREFS ='/profilePrefs';
 export const URL_TRAJETS ='/trajets';
 export const URL_CARTE ='/carte';
+
+export const URL_SEARCH = `/search`;
