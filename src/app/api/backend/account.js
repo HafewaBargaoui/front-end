@@ -9,9 +9,13 @@ import {
 	URL_BACK_RESET_PASSWORD,
 	URL_BACK_LOGOUT,
 	URL_BACK_USER_PROFILE,
-	URL_BACK_ENDPOINT_SOCKET
+	URL_BACK_ENDPOINT_SOCKET,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
+
+export function getMessageSocket(values) {
+	return apiBackEnd.get(URL_BACK_ENDPOINT_SOCKET, values);
+}
 
 export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);

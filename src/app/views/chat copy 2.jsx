@@ -13,7 +13,6 @@ const chatSocket = () => {
 
     const [name] = useState(user.username);
     const [roomId, setRoomId] = useState();
-    const [roomFindId, setRoomFindId] = useState();
     const [message, setMessage] = useState('');
     const [messageReceived, setMessageReceived] = useState([]);
     const [nameReceived, setNameReceived] = useState([]);
@@ -49,17 +48,15 @@ const chatSocket = () => {
             socket.emit('messageEnvoye', message)
         }
         else {
-            socket.emit('messagePriveEnvoye', { roomFindId, message, roomId, name })
+            socket.emit('messagePriveEnvoye', { message, roomId, name })
             setMessage('');
         }
     };
 
     const joinRoomId = async (index) => {
-        console.log(roomSelected[index].user);
+        console.log("index : " + index);
+        console.log(roomSelected[index]);
         socket.emit('salle rejoint', roomSelected[index].room[0].id)
-        setRoomId(roomSelected[index].room[0].id);
-        setHistory(roomSelected[index].user)
-        setRoomFindId(roomSelected[index]._id)
     }
 
     return (
@@ -80,8 +77,8 @@ const chatSocket = () => {
                 </div>
 
                 <div className="flex ml-24 mr-56 flex-wrap w-full border border-sky-500 bg-white">
-
                     <div>
+
                         {history.map((message, index) => (
                             <div key={index}>
                                 <div>{message.user_name} {message.message}</div>
@@ -94,7 +91,6 @@ const chatSocket = () => {
                             </div>
                         ))}
                     </div>
-
                     <div className="flex flex-wrap items-end justify-center w-full m-2">
                         <input
                             type="text"
@@ -104,7 +100,6 @@ const chatSocket = () => {
                         />
                         <button onClick={sendMessage}>Envoyé</button>
                     </div>
-
                 </div>
             </section>
         </div>

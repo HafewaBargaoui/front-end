@@ -32,7 +32,6 @@ export const authenticationSlice = createSlice({
 
 			const user = {
 				username: claims.sub,
-				id: claims.userId,
 				roles: userRolesStr.split(","),
 			};
 			state.user = user;
