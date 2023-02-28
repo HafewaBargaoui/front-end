@@ -4,10 +4,14 @@ import FirstStep from "../components/stepsSearchTrajet/FirstStep";
 import SecondStep from "../components/stepsSearchTrajet/SecondStep";
 import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
 import PrefsTrajet from "../components/stepsSearchTrajet/PrefsTrajet";
+import Carte from "../components/carte/Carte";
 
 const SearchTrajetView = () => {
   const [clickNext, setclickNext] = useState(false);
   const [clickSuivant, setclickSuivant] = useState(false);
+  const [trajetDepart, settrajetDepart] = useState();
+  const [trajetArrive, settrajetArrive] = useState();
+
   const click2 = (e) => {
     e.preventDefault();
     setclickSuivant(!clickSuivant);
@@ -16,6 +20,7 @@ const SearchTrajetView = () => {
   const click = (e) => {
     e.preventDefault();
     setclickNext(!clickNext);
+    console.log(trajetDepart);
   };
 
   /////////////////////////////////////////////////////////////////////
@@ -25,6 +30,10 @@ const SearchTrajetView = () => {
     setNextScreeen(!nextScreeen);
   };
 
+  const submitSearch = (e) => {
+    e.preventDefault();
+    console.log("clicked");
+  };
   //////////////////////////////////////////////////////////////
 
   return (
@@ -75,11 +84,15 @@ const SearchTrajetView = () => {
               setclickNext={setclickNext}
               clickNext={clickNext}
               click={click}
+              submitSearch={submitSearch}
+              settrajetDepart={settrajetDepart}
+              settrajetArrive={settrajetArrive}
             />
           )}
 
-          {clickNext & !clickSuivant && (
+          {clickNext && !clickSuivant && (
             <div className="">
+              <Carte />
               <PrefsTrajet />
 
               <SecondStep

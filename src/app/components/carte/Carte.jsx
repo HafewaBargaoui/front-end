@@ -18,10 +18,6 @@ const Carte = () => {
   const position1 = [50.54055552613224, 3.14377356144452072];
   const [routingControl, setRoutingControl] = useState(null);
 
-
-  
-
-
   useEffect(() => {
     const map = L.map("map");
     L.tileLayer(
@@ -55,20 +51,12 @@ const Carte = () => {
     setRoutingControl(routingControl);
   }, []);
 
+  console.log(selectedDepart);
+  console.log(selectedArrive);
 
+  return;
 
-    console.log(selectedDepart);
-    console.log(selectedArrive);
-
-    
-  
-
-  return (
-    <>
-      <div id="map" className="rounded-lg z-10 h-5/6 w-4/6"></div>
-  
-    </>
-  );
+  <div id="map" className="rounded-lg z-10 h-5/6 w-4/6"></div>;
 };
 
 export default Carte;
