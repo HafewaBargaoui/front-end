@@ -17,9 +17,7 @@ export default function HomePageView() {
     arrive,
     setArrive,
     resultsDepart,
-    setresultsDepart,
     resultsArrive,
-    setresultsArrive,
   } = useSearch();
   const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
   const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);

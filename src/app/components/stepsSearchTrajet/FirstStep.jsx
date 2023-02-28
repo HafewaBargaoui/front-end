@@ -1,52 +1,27 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment } from "react";
 
-import { LocationMarkerIcon } from "@heroicons/react/solid";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
-import { useSearch } from "../hook/UseSearch";
 
 const FirstStep = ({
-  setClickNext,
-  clickNext,
   click,
-  submitSearch,
-  setTrajetDepart,
-  setTrajetArrive,
+  filteredDepart,
+  filteredArrive,
+  setselectedDepart,
+  selectedDepart,
+  setselectedArrive,
+  selectedArrive,
+  depart,
+  arrive,
+  setDepart,
+  setArrive,
 }) => {
-  const {
-    depart,
-    setDepart,
-    arrive,
-    setArrive,
-    resultsDepart,
-    setresultsDepart,
-    resultsArrive,
-    setresultsArrive,
-  } = useSearch();
-  const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
-  const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
-  const filteredDepart =
-    depart === ""
-      ? resultsDepart
-      : resultsDepart.filter((depart) => depart.name);
-
-  const filteredArrive =
-    arrive === ""
-      ? resultsArrive
-      : resultsArrive.filter((arrive) => arrive.name);
-
-  const onclickTrajet = (e) => {
-    e.preventDefault();
-    console.log("test");
-    setTrajetDepart(selectedDepart);
-    setTrajetArrive(selectedArrive);
-  };
+ 
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
-      <form onSubmit={submitSearch}>
+      <form>
         <div className="grid grid-cols-2">
-          {/*//////////////////////////////////////// départ ///////////////////////////////////////////////////////*/}
+        
 
           <Combobox value={selectedDepart} onChange={setselectedDepart}>
             <div className="relative mt-1">
@@ -117,23 +92,7 @@ const FirstStep = ({
               </Transition>
             </div>
           </Combobox>
-          {/* <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="departure"
-            >
-              Départ :
-            </label>
 
-            <input
-              className=" shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline "
-              id="departure"
-              name="departure"
-              type="text"
-              placeholder="EX : Lille"
-            ></input>
-          </div> */}
-          {/*//////////////////////////////////////// Arrivé///////////////////////////////////////////////////////*/}
           <Combobox value={selectedArrive} onChange={setselectedArrive}>
             <div className="relative mt-1">
               <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
@@ -203,22 +162,7 @@ const FirstStep = ({
               </Transition>
             </div>
           </Combobox>
-          {/* <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="arrival"
-            >
-              Arrivée :
-            </label>
-            <input
-              className="shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="arrival"
-              name="arrival"
-              type="text"
-              placeholder="EX : Paris"
-            ></input>
-          </div> */}
-          {/*//////////////////////////////////////// Date ///////////////////////////////////////////////////////*/}
+
 
           <div className="p-6">
             <label
@@ -283,10 +227,9 @@ const FirstStep = ({
                   ></input>
                 </div>
               </div>
-              <div onClick={onclickTrajet}>
+              <div>
                 <input
                   onClick={click}
-                  type="submit"
                   value="Etape suivante"
                   className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white "
                 />

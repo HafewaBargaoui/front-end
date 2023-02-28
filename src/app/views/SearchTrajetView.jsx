@@ -1,16 +1,41 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import FirstStep from "../components/stepsSearchTrajet/FirstStep";
 import SecondStep from "../components/stepsSearchTrajet/SecondStep";
 import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
 import PrefsTrajet from "../components/stepsSearchTrajet/PrefsTrajet";
+import { useSearch } from "../components/hook/UseSearch";
 import Carte from "../components/carte/Carte";
 
 const SearchTrajetView = () => {
+
+  const {
+    depart,
+    setDepart,
+    arrive,
+    setArrive,
+    resultsDepart,
+    resultsArrive,
+  } = useSearch();
+
   const [clickNext, setclickNext] = useState(false);
   const [clickSuivant, setclickSuivant] = useState(false);
-  const [trajetDepart, settrajetDepart] = useState();
-  const [trajetArrive, settrajetArrive] = useState();
+  const [trajetDepart, settrajetDepart] = useState([]);
+  const [trajetArrive, settrajetArrive] = useState([]);
+  const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
+  const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
+
+
+
+  const filteredDepart =
+    depart === ""
+      ? resultsDepart
+      : resultsDepart.filter((depart) => depart.name);
+
+  const filteredArrive =
+    arrive === ""
+      ? resultsArrive
+      : resultsArrive.filter((arrive) => arrive.name);
+
 
   const click2 = (e) => {
     e.preventDefault();
@@ -20,21 +45,10 @@ const SearchTrajetView = () => {
   const click = (e) => {
     e.preventDefault();
     setclickNext(!clickNext);
-    console.log(trajetDepart);
+    settrajetDepart(selectedDepart);
+    settrajetArrive(selectedArrive);
   };
 
-  /////////////////////////////////////////////////////////////////////
-  const [nextScreeen, setNextScreeen] = useState(false);
-  const clickScreen = (e) => {
-    e.preventDefault();
-    setNextScreeen(!nextScreeen);
-  };
-
-  const submitSearch = (e) => {
-    e.preventDefault();
-    console.log("clicked");
-  };
-  //////////////////////////////////////////////////////////////
 
   return (
     <>
@@ -84,17 +98,31 @@ const SearchTrajetView = () => {
               setclickNext={setclickNext}
               clickNext={clickNext}
               click={click}
-              submitSearch={submitSearch}
               settrajetDepart={settrajetDepart}
               settrajetArrive={settrajetArrive}
+              trajetDepart={trajetDepart}
+              trajetArrive={trajetArrive}
+              filteredDepart={filteredDepart}
+              filteredArrive={filteredArrive}
+              setselectedDepart={setselectedDepart}
+              selectedDepart={selectedDepart}
+              setselectedArrive={setselectedArrive}
+              selectedArrive={selectedArrive}
+              depart={depart}
+              arrive={arrive}
+              setDepart={setDepart}
+              setArrive={setArrive}
             />
           )}
 
           {clickNext && !clickSuivant && (
             <div className="">
-              <Carte />
               <PrefsTrajet />
 
+              <Carte 
+                trajetDepart={trajetDepart}
+                trajetArrive={trajetArrive}
+              />
               <SecondStep
                 setclickSuivant={setclickSuivant}
                 clickSuivant={clickSuivant}

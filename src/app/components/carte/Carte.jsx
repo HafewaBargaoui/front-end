@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import "../../../../node_modules/leaflet/dist/leaflet.css";
 import "../../app.scss";
 import L from "leaflet";
@@ -8,7 +8,7 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import { useLocation } from "react-router-dom";
 
-const Carte = () => {
+const Carte = ({trajetDepart, trajetArrive}) => {
   const location = useLocation();
   const selectedDepart = location.state?.selectedDepart;
   const selectedArrive = location.state?.selectedArrive;
@@ -18,6 +18,7 @@ const Carte = () => {
   const position1 = [50.54055552613224, 3.14377356144452072];
   const [routingControl, setRoutingControl] = useState(null);
 
+
   useEffect(() => {
     const map = L.map("map");
     L.tileLayer(
@@ -26,14 +27,31 @@ const Carte = () => {
 
     const waypoints = [L.latLng(0, 0), L.latLng(0, 0)];
 
-    waypoints[0] = L.latLng(
-      selectedDepart.center.lat,
-      selectedDepart.center.lng
-    );
-    waypoints[1] = L.latLng(
-      selectedArrive.center.lat,
-      selectedArrive.center.lng
-    );
+    {selectedDepart  ?
+      waypoints[0] = L.latLng(
+        selectedDepart.center.lat,
+        selectedDepart.center.lng
+      )
+      :
+      waypoints[0] = L.latLng(
+        trajetDepart.center.lat,
+        trajetDepart.center.lng
+      )
+    }
+
+    {selectedArrive ?
+      waypoints[1] = L.latLng(
+        selectedArrive.center.lat,
+        selectedArrive.center.lng
+      )
+      :
+      waypoints[1] = L.latLng(
+        trajetArrive.center.lat,
+        trajetArrive.center.lng
+      )
+    
+    }
+     
 
     const routingControl = L.Routing.control({
       waypoints: [L.latLng(position), L.latLng(position1)],
@@ -51,12 +69,12 @@ const Carte = () => {
     setRoutingControl(routingControl);
   }, []);
 
-  console.log(selectedDepart);
-  console.log(selectedArrive);
-
-  return;
-
-  <div id="map" className="rounded-lg z-10 h-5/6 w-4/6"></div>;
+  return (
+    <>
+      <div id="map" className="rounded-lg z-10 h-5/6 w-4/6"></div>
+  
+    </>
+  );
 };
 
 export default Carte;
