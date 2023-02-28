@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 
-const FirstStep = () => {
+const FirstStep = ({ setClickNext, clickNext, click }) => {
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
@@ -106,7 +106,10 @@ const FirstStep = () => {
                 </div>
               </div>
               <div>
-                <button className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white ">
+                <button
+                  onClick={click}
+                  className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white "
+                >
                   Etape suivante
                 </button>
               </div>
