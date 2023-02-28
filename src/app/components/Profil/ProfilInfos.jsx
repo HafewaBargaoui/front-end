@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { getProfile } from "../../api/backend/account";
 import {
   selectIsLogged,
   selectUser,
-  selectToken,
 } from "../../redux-store/authenticationSlice";
 import avatar from "../../../../public/imgs/avatar.png";
+import ProfilInfoModal from "../modals/ProfilInfoModal";
 
 const ProfilInfos = () => {
   const [users, setusers] = useState([]);
@@ -16,6 +16,8 @@ const ProfilInfos = () => {
   const [age, setage] = useState("");
   const isAuthenticated = useSelector(selectIsLogged);
   const user = useSelector(selectUser);
+  
+  const [count, setCount] = useState(1);
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
@@ -46,10 +48,19 @@ const ProfilInfos = () => {
       userProfile();
       ages();
     }
-  }, [isAuthenticated, birthday]);
+  }, [count, isAuthenticated,  birthday ]);
+
+  const [modalOn, setmodalOn] = useState(false);
+  const [submitModifs, setsubmitModifs] = useState(false)
+
+
+  const modal = () => {
+    setmodalOn(true);
+    console.log(modalOn);
+  };
 
   return (
-    <div className="flex grow max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500">
+    <div className="flex grow place-content-center w-screen md:w-96 max-w-xl space-y-6 rounded-lg pb-8  px-8 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
       <div className="grid place-content-center">
         <div className="flex flex-col text-black text-lg">
           <div className="grid place-items-center m-4 text-black">
@@ -156,10 +167,24 @@ const ProfilInfos = () => {
             )}
           </div>
         </div>
-        <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+        <button 
+          className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4"
+          onClick={modal}
+          >
           Modifier Profil
         </button>
       </div>
+      {modalOn && (
+          <ProfilInfoModal
+            setmodalOn={setmodalOn}
+            setsubmitModifs={setsubmitModifs}
+            users={users}
+            adresse={adresse}
+            user={user}
+            setCount = {setCount}
+            count={count}
+          />
+        )}
     </div>
   );
 };

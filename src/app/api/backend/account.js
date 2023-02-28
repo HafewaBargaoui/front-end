@@ -8,6 +8,7 @@ import {
 	URL_BACK_FORGET_PASSWORD,
 	URL_BACK_RESET_PASSWORD,
 	URL_BACK_LOGOUT,
+	URL_BACK_DELETE_ACCOUNT,
 	URL_BACK_USER_PROFILE
 
 } from "../../constants/urls/urlBackEnd";
@@ -19,6 +20,14 @@ export function getCarBrand(values) {
 
 export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
+  }
+
+  export function editProfile(values) {
+	return apiBackEnd.put(`/userProfile`, values);
+  }
+
+  export function updateVehicule(values) {
+	return apiBackEnd.put(`/updateVehicule`, values);
   }
   
 
@@ -47,10 +56,14 @@ export function userPreference(values) {
 }
 
 export function resetpassword(values, token) {
-	apiBackEnd.defaults.headers.common['Authorization'] = `Bearer ${token}` 
-    return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values, token);
+	apiBackEnd.defaults.headers.common['Authorization'] = `Bearer ${token}`
+	return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values, token);
 }
 
 export function forgetpassword(values) {
-    return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+	return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+}
+
+export function deleteAccount() {
+	return apiBackEnd.put(`/deleteAccount`);
 }

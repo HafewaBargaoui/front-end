@@ -283,6 +283,16 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@mapbox/corslite@0.0.7":
+  "integrity" "sha512-w/uS474VFjmqQ7fFWIMZINQM1BAQxDLuoJaZZIPES1BmeYpCtlh9MtbFxKGGDAsfvut8/HircIsVvEYRjQ+iMg=="
+  "resolved" "https://registry.npmjs.org/@mapbox/corslite/-/corslite-0.0.7.tgz"
+  "version" "0.0.7"
+
+"@mapbox/polyline@^0.2.0":
+  "integrity" "sha512-GCddO0iw6AzOQqZgBmjEQI9Pgo40/yRgkTkikGctE01kNBN0ThWYuAnTD+hRWrAWMV6QJ0rNm4m8DAsaAXE7Pg=="
+  "resolved" "https://registry.npmjs.org/@mapbox/polyline/-/polyline-0.2.0.tgz"
+  "version" "0.2.0"
+
 "@nodelib/fs.scandir@2.1.5":
   "integrity" "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g=="
   "resolved" "https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz"
@@ -359,6 +369,11 @@
   "resolved" "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.3.tgz"
   "version" "1.0.3"
 
+"@types/geojson@*":
+  "integrity" "sha512-Nmh0K3iWQJzniTuPRcJn5hxXkfB1T1pgB89SBig5PlJQU5yocazeu4jATJlaA0GYFKWMqDdvYemoSnF2pXgLVA=="
+  "resolved" "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.10.tgz"
+  "version" "7946.0.10"
+
 "@types/hoist-non-react-statics@^3.3.1":
   "integrity" "sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA=="
   "resolved" "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
@@ -366,6 +381,20 @@
   dependencies:
     "@types/react" "*"
     "hoist-non-react-statics" "^3.3.0"
+
+"@types/leaflet-routing-machine@^3.2.4":
+  "integrity" "sha512-CFcWghU+eDel/zY2Q1u1tI6rxL2V6SfJ85/prt7s2QEw8tK+OkH+o5PLm/7eYsZH86i30ff5rmEk8GN1nZ9ODg=="
+  "resolved" "https://registry.npmjs.org/@types/leaflet-routing-machine/-/leaflet-routing-machine-3.2.4.tgz"
+  "version" "3.2.4"
+  dependencies:
+    "@types/leaflet" "*"
+
+"@types/leaflet@*":
+  "integrity" "sha512-7LeOSj7EloC5UcyOMo+1kc3S1UT3MjJxwqsMT1d2PTyvQz53w0Y0oSSk9nwZnOZubCmBvpSNGceucxiq+ZPEUw=="
+  "resolved" "https://registry.npmjs.org/@types/leaflet/-/leaflet-1.9.0.tgz"
+  "version" "1.9.0"
+  dependencies:
+    "@types/geojson" "*"
 
 "@types/lodash@^4.14.175":
   "integrity" "sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ=="
@@ -900,7 +929,23 @@
   "resolved" "https://registry.npmjs.org/jwt-decode/-/jwt-decode-3.1.2.tgz"
   "version" "3.1.2"
 
-"leaflet@^1.7.1", "leaflet@^1.9.3":
+"leaflet-control-geocoder@^2.4.0":
+  "integrity" "sha512-b2QlxuFd40uIDbnoUI3U9fzfnB4yKUYlmsXjquJ2d2YjoJqnyVYcIJeErAVv3kPvX3nI0gzvBq1XHMgSVFrGkQ=="
+  "resolved" "https://registry.npmjs.org/leaflet-control-geocoder/-/leaflet-control-geocoder-2.4.0.tgz"
+  "version" "2.4.0"
+  optionalDependencies:
+    "open-location-code" "^1.0.0"
+
+"leaflet-routing-machine@^3.2.12":
+  "integrity" "sha512-HLde58G1YtD9xSIzZavJ6BPABZaV1hHeGst8ouhzuxmSC3s32NVtADT+njbIUMW1maHRCrsgTk/E4hz5QH7FrA=="
+  "resolved" "https://registry.npmjs.org/leaflet-routing-machine/-/leaflet-routing-machine-3.2.12.tgz"
+  "version" "3.2.12"
+  dependencies:
+    "@mapbox/corslite" "0.0.7"
+    "@mapbox/polyline" "^0.2.0"
+    "osrm-text-instructions" "^0.13.2"
+
+"leaflet@^1.6.0", "leaflet@^1.7.1", "leaflet@^1.9.3":
   "integrity" "sha512-iB2cR9vAkDOu5l3HAay2obcUHZ7xwUBBjph8+PGtmW/2lYhbLizWtG7nTeYht36WfOslixQF9D/uSIzhZgGMfQ=="
   "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.9.3.tgz"
   "version" "1.9.3"
@@ -1013,6 +1058,16 @@
   "integrity" "sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw=="
   "resolved" "https://registry.npmjs.org/object-hash/-/object-hash-3.0.0.tgz"
   "version" "3.0.0"
+
+"open-location-code@^1.0.0":
+  "integrity" "sha512-DBm14BSn40Ee241n80zIFXIT6+y8Tb0I+jTdosLJ8Sidvr2qONvymwqymVbHV2nS+1gkDZ5eTNpnOIVV0Kn2fw=="
+  "resolved" "https://registry.npmjs.org/open-location-code/-/open-location-code-1.0.3.tgz"
+  "version" "1.0.3"
+
+"osrm-text-instructions@^0.13.2":
+  "integrity" "sha512-ge4ZTIetMQKAHKq2MwWf83ntzdJN20ndRKRaVNoZ3SkDkBNO99Qddz7r6+hrVx38I+ih6Rk5T1yslczAB6Q9Pg=="
+  "resolved" "https://registry.npmjs.org/osrm-text-instructions/-/osrm-text-instructions-0.13.4.tgz"
+  "version" "0.13.4"
 
 "path-parse@^1.0.7":
   "integrity" "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="
