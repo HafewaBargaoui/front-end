@@ -27,11 +27,11 @@ export default function Faq() {
                 <div className=''>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Inscription - connexion</h5>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment s'inscrire ?</h6>
-                    <p className='mt-4 text-lg'>Pour s'inscrire à l'application ,il faut cliquer sur la tête avatar puis cliquer sur "S'inscrire". Ensuite, on est redirigé vers la page où il faut renseigner diverses informations. On peut également s'inscrire à partir de la page d'accueil, il suffit juste de scroller un peu et cliquer sur le bouton "S'inscrire". </p>
+                    <p className='mt-4 text-lg'>Pour s'inscrire à l'application, il faut cliquer sur la tête avatar puis cliquer sur "S'inscrire". Ensuite, on est redirigé vers la première page où il faut renseigner diverses informations. Une fois l'inscription terminée, on reçoit un mail, il faut cliquer sur le lien de ce mail pour valider l'inscription. On est redirigé directement sur la page d'accueil. On peut également s'inscrire à partir de la page d'accueil, il suffit juste de scroller un peu et cliquer sur le bouton "S'inscrire". </p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se désinscrire ?</h6>
-                    <p className='mt-4 text-lg'>Il faut être connecté et aller dans mon profil. Pour se faire, il faut cliquer sur la tête avatar, puis cliquer sur "Profil". Tout en bas, il y a un lien "Se désinscrire" il faut cliquer dessus et confirmer son choix. La désinscription est prise en compte.</p>
+                    <p className='mt-4 text-lg'>Il faut être connecté puis cliquer sur la tête avatar et cliquer sur "supprimer mon compte". On arrive sur une page où l'on nous demande de confirmer notre choix. Si on clique sur "Oui" le compte est supprimé et on retourne sur la page d'accueil en tant qu'utilisateur non inscrit. La désinscription est prise en compte. Si on clique sur "non" on retourne sur la page d'accueil en tant qu'utilisateur connecté. </p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se connecter ?</h6>
-                    <p className='mt-4 text-lg'>Il faut cliquer sur la tête avatar puis cliquer sur "Se connecter". Ensuite, on est redirigé vers la page où il faut renseigner son adresse mail et le mot de passe qu'on s'est créé. A savoir que pour se connecter à l'application, il faut s'inscrire au préalable.</p>
+                    <p className='mt-4 text-lg'>Il faut cliquer sur la tête avatar puis cliquer sur "Connexion". Ensuite, on est redirigé vers la page où il faut renseigner son adresse mail et le mot de passe qu'on s'est créé. A savoir que pour se connecter à l'application, il faut s'inscrire au préalable.</p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Comment se déconnecter ?</h6>
                     <p className='mt-4 text-lg'>Pour se déconnecter il faut cliquer sur la tête avatar puis cliquer sur "Déconnexion". A savoir que pour se déconnecter à l'application, il faut être connecté au préalable.</p>
                 </div>
@@ -44,8 +44,6 @@ export default function Faq() {
                     {/*  (il faut renseigner l'ancien et créer le nouveau?) */}
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon mot de passe ?</h6>
                     <p className='mt-4 text-lg'> J'ai la possibilité d'en créer un nouveau. Au moment de me connecter si je ne sais plus mon mot de passe il faut que je clique sur "Mot de passe oublié" pour pouvoir en créer un nouveau. Je suis redirigé vers une page où je dois renseigner mon adresse mail. Un mail est envoyé sur ma boite mail et à l'intérieur il y a un code qui permet la réinitialisation de mon mot de passe.</p>
-                    <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'> Que faire si je perds mon adresse email ?</h6>
-                    <p className='mt-4 text-lg'>J'ai la possibilité de la récupérer par le biais de mon numéro de téléphone. Au moment de me connecter si je ne sais plus mon adresse mail il faut que je clique sur "Adresse email oubliée" pour pouvoir la récupérer. Je suis redirigé vers une page où je dois renseigner mon numéro de téléphone.</p>
                 </div>
                 <div>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mb-4 mt-12 text-cyan-500'>Le trajet</h5>
@@ -63,7 +61,7 @@ export default function Faq() {
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Que faire lorsque je n'ai plus de points pour faire un trajet ?</h6>
                     <p className='mt-4 text-lg'>J'ai la possibilité d'en acheter. Pour cela il faut être connecté puis aller dans mon profil et dans la catégorie "acheter des points". On peut également aller dans la barre de navigation et cliquer sur "BuddyCoins". </p>
                     <h6 className='underline underline-offset-4 decoration-dotted text-2xl mt-4'>Est-il possible de vendre mes points ?</h6>
-                    <p className='mt-4 text-lg'>Oui. Pour cela il faut être connecté et aller dans mon profil. Il y a un lien qui permet cette transaction. </p>
+                    <p className='mt-4 text-lg'>Oui. Pour cela il faut être connecté et aller dans la barre de navigation puis cliquer sur buddyCoins. Il y a un lien qui permet cette transaction. </p>
                 </div>
                 <div>
                     <h5 className='underline underline-offset-4 font-bold text-3xl mt-12 mb-4 text-cyan-500'>L'évaluation des conducteurs</h5>

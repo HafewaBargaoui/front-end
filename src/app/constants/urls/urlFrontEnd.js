@@ -1,4 +1,3 @@
-
 export const URL_HOME = '/';
 export const URL_LOGIN = '/login';
 export const URL_FORGET_LOGIN = '/forget-login';
@@ -23,3 +22,7 @@ export const URL_TRAJETS ='/trajets';
 export const URL_CARTE ='/carte';
 export const URL_DELETE_ACCOUNT ='/deleteAccount';
 export const URL_DELETE_ACCOUNT_MODAL ='/deleteAccountModal';
+export const URL_COINS ='/coins';
+export const URL_BUYCOINS ='/buyCoins';
+export const URL_SELLCOINS ='/sellCoins';
+export const URL_HISTCOINS ='/histCoins';
