@@ -9,7 +9,8 @@ import {
 	URL_BACK_RESET_PASSWORD,
 	URL_BACK_LOGOUT,
 	URL_BACK_DELETE_ACCOUNT,
-	URL_BACK_USER_PROFILE
+	URL_BACK_USER_PROFILE,
+	URL_BACK_CREATE_ROUTE
 
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
@@ -62,6 +63,10 @@ export function resetpassword(values, token) {
 
 export function forgetpassword(values) {
 	return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+}
+
+export function createRoute(values) {
+	return apiBackEnd.post(URL_BACK_CREATE_ROUTE, values);
 }
 
 export function deleteAccount() {

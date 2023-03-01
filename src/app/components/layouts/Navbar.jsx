@@ -243,7 +243,7 @@ const Navbar = () => {
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0 ml-12">
             <li>
               <a
-                href="#"
+                href="/createTrajet"
                 className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
                 aria-current="page"
               >

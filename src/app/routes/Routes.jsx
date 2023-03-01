@@ -28,6 +28,8 @@ import PasswordModified from "../components/account/PasswordModified";
 import DeleteAccountModal from "../components/modals/DeleteAccountModal";
 
 import SearchTrajetView from "../views/SearchTrajetView";
+import TrajetCreateView from "../views/TrajetCreateView";
+
 
 /**
  * Routes of the application
@@ -101,6 +103,7 @@ const Routes = () => {
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
       <Route path={URL.URL_CARTE} element={<CarteView />} />
       <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} />
+      <Route path={URL.URL_TRAJET_CREATE} element={<TrajetCreateView />} />
       <Route
         path={URL.URL_DELETE_ACCOUNT_MODAL}
         element={<DeleteAccountModal />}
