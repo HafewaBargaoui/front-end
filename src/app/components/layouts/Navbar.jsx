@@ -29,15 +29,15 @@ const Navbar = () => {
   const user = useSelector(selectUser);
   const [photo, setphoto] = useState([]);
 
-  // const profilePic = async () => {
-  //   const response = await getProfile(user.id);
-  //   setphoto(response.data.userPrefs.file[0].filename)
-  // }
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     profilePic();
-  //   }
-  // }, [isAuthenticated])
+  const profilePic = async () => {
+    const response = await getProfile(user.id);
+    setphoto(response.data.userPrefs.file[0].filename)
+  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      profilePic();
+    }
+  }, [isAuthenticated])
 
 
   const logOut = (values) => {

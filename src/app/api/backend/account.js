@@ -23,6 +23,13 @@ export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
 }
 
+
+export function updateVehicule(values) {
+	return apiBackEnd.put(`/updateVehicule`, values);
+  }
+  
+
+
 export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
   }
