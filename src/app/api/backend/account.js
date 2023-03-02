@@ -61,7 +61,6 @@ export function resetpassword(values, token) {
 }
 
 export function forgetpassword(values) {
-<<<<<<< HEAD
     return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
 }
 
