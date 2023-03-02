@@ -22,6 +22,9 @@ import DeleteAccountView from "../views/DeleteAccountView";
 import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
 import CarteView from "../views/CarteView";
+
+import ChatSocket from "../views/chat";
+
 import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
 import MailVerified from "../components/account/MailVerified";
 import PasswordModified from "../components/account/PasswordModified";
@@ -102,6 +105,7 @@ const Routes = () => {
       <Route path={URL.URL_TRAJETS} element={<TrajetsView />} />
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
       <Route path={URL.URL_CARTE} element={<CarteView />} />
+      <Route path={URL.URL_CHAT_SOCKET} element={<ChatSocket />} />
       <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} />
       <Route path={URL.URL_TRAJET_CREATE} element={<TrajetCreateView />} />
       <Route

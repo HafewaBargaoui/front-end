@@ -10,10 +10,14 @@ import {
 	URL_BACK_LOGOUT,
 	URL_BACK_DELETE_ACCOUNT,
 	URL_BACK_USER_PROFILE,
-	URL_BACK_CREATE_ROUTE
-
+	URL_BACK_CREATE_ROUTE,
+	URL_BACK_ENDPOINT_SOCKET,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
+
+export function getMessageSocket(values) {
+	return apiBackEnd.get(URL_BACK_ENDPOINT_SOCKET, values);
+}
 
 export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
@@ -23,14 +27,9 @@ export function getProfile() {
 	return apiBackEnd.get(`/userProfile`);
   }
 
-  export function editProfile(values) {
+export function editProfile(values) {
 	return apiBackEnd.put(`/userProfile`, values);
-  }
-
-  export function updateVehicule(values) {
-	return apiBackEnd.put(`/updateVehicule`, values);
-  }
-  
+}
 
 export function postDriverVehicule(values) {
 	return apiBackEnd.post(URL_BACK_DRIVER, values);
@@ -62,7 +61,11 @@ export function resetpassword(values, token) {
 }
 
 export function forgetpassword(values) {
-	return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+    return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
+}
+
+export function emit() {
+    return apiBackEnd.post(URL_BACK_ENDPOINT_SOCKET);
 }
 
 export function createRoute(values) {
