@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSearch } from "../components/hook/UseSearch";
 import CreateTrajetFirst from "../components/CreateTrajet/CreateTrajetFirst";
 import CarteCreate from "../components/carte/CarteCreate";
-
-
-
 import { useSelector } from "react-redux";
 import { getProfile } from "../api/backend/account";
 import { selectIsLogged, selectUser } from "../redux-store/authenticationSlice";
@@ -36,8 +33,6 @@ const TrajetCreateView = () => {
   const userVehicule = async () => {
     const response = await getProfile(user.id);
     setvehicule(response.data.user.id_vehicule);
-    console.log(response.data.user.id_vehicule);
-    console.log(vehicule);
   };
   useEffect(() => {
     if (isAuthenticated) {
@@ -56,11 +51,6 @@ const TrajetCreateView = () => {
       ? resultsArrive
       : resultsArrive.filter((arrive) => arrive.name);
 
-
-  const click2 = (e) => {
-    e.preventDefault();
-    setclickSuivant(!clickSuivant);
-  };
 
   const click = (e) => {
     e.preventDefault();

@@ -78,9 +78,12 @@ const EditVehiculeModal = ({
       formDataUserVehicule.append("idPref", users.id_driver_preference[0]._id);
       formDataUserVehicule.append("large_luggage", values.large_luggage);
 
-      for (var i = 0; i < values.files.length; i++) {
-        let file = values.files[i];
-        formDataUserVehicule.append("files", file);
+    
+
+        for (var i = 0; i < values.files.length; i++) {
+          let file = values.files[i];
+          formDataUserVehicule.append("files", file);
+   
       }
 
       await updateVehicule(formDataUserVehicule);

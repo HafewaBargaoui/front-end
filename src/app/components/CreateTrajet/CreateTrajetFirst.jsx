@@ -195,7 +195,7 @@ const CreateTrajetFirst = ({
                       active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                     }`
                   }
-                  value={vehicule.brand}
+                  value={vehicule}
                 >
                   {({ selected }) => (
                     <>
