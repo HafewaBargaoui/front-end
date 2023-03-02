@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-
-import { Combobox, Transition } from "@headlessui/react";
+import { Combobox, Transition, Listbox } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
 
 const CreateTrajetFirst = ({
@@ -17,7 +16,12 @@ const CreateTrajetFirst = ({
   setArrive,
   setheureDepart,
   setdateDepart,
+  vehicule,
+  selectedvehicule,
+  setselectedvehicule,
 }) => {
+
+  console.log(vehicule);
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
@@ -117,7 +121,7 @@ const CreateTrajetFirst = ({
                 leaveTo="opacity-0"
                 afterLeave={() => setArrive("")}
               >
-                <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                   {filteredArrive.length === 0 && arrive !== "" ? (
                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                       Nothing found.
@@ -164,6 +168,58 @@ const CreateTrajetFirst = ({
             </div>
           </Combobox>
 
+          <p>Véhicule :</p>
+          <Listbox value={selectedvehicule} onChange={setselectedvehicule}>
+        <div className="relative mt-1">
+          <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+            <span className="block truncate">{vehicule.brand}</span>
+            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+              <ChevronUpIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {vehicule.map((vehicule, i) => (
+                <Listbox.Option
+                  key={i}
+                  className={({ active }) =>
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                    }`
+                  }
+                  value={vehicule.brand}
+                >
+                  {({ selected }) => (
+                    <>
+                      <span
+                        className={`block truncate ${
+                          selected ? 'font-medium' : 'font-normal'
+                        }`}
+                      >
+                        {vehicule.brand}
+                      </span>
+                      {selected ? (
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -193,7 +249,7 @@ const CreateTrajetFirst = ({
               onChange={(e) => setheureDepart(e.target.value)}
             />
           </div>
-          <div className="p-6">
+          <div className="p-6 ">
             <div className="flex flex-col">
               <div>
                 <input

@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import SecondStep from "../components/stepsSearchTrajet/SecondStep";
-import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
-import PrefsTrajet from "../components/stepsSearchTrajet/PrefsTrajet";
+import React, { useState, useEffect } from "react";
 import { useSearch } from "../components/hook/UseSearch";
-import Carte from "../components/carte/Carte";
 import CreateTrajetFirst from "../components/CreateTrajet/CreateTrajetFirst";
-import CreateTrajetSecond from "../components/CreateTrajet/CreateTrajetSecond";
 import CarteCreate from "../components/carte/CarteCreate";
+
+
+
+import { useSelector } from "react-redux";
+import { getProfile } from "../api/backend/account";
+import { selectIsLogged, selectUser } from "../redux-store/authenticationSlice";
 
 const TrajetCreateView = () => {
 
@@ -19,6 +20,8 @@ const TrajetCreateView = () => {
     resultsArrive,
   } = useSearch();
 
+  const isAuthenticated = useSelector(selectIsLogged);
+  const user = useSelector(selectUser);
   const [clickNext, setclickNext] = useState(false);
   const [clickSuivant, setclickSuivant] = useState(false);
   const [trajetDepart, settrajetDepart] = useState('');
@@ -27,7 +30,20 @@ const TrajetCreateView = () => {
   const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
   const [heureDepart, setheureDepart] = useState()
   const [dateDepart, setdateDepart] = useState()
+  const [vehicule, setvehicule] = useState([]);
+  const [selectedvehicule, setselectedvehicule] = useState(vehicule[0]);
 
+  const userVehicule = async () => {
+    const response = await getProfile(user.id);
+    setvehicule(response.data.user.id_vehicule);
+    console.log(response.data.user.id_vehicule);
+    console.log(vehicule);
+  };
+  useEffect(() => {
+    if (isAuthenticated) {
+      userVehicule();
+    }
+  }, [isAuthenticated]);
 
 
   const filteredDepart =
@@ -80,6 +96,9 @@ const TrajetCreateView = () => {
               setArrive={setArrive}
               setheureDepart={setheureDepart}
               setdateDepart={setdateDepart}
+              vehicule={vehicule}
+              selectedvehicule={selectedvehicule}
+              setselectedvehicule={setselectedvehicule}
               
             />
           )}
@@ -93,12 +112,12 @@ const TrajetCreateView = () => {
                 trajetArrive={trajetArrive}
                 dateDepart={dateDepart}
               heureDepart={heureDepart}
+              selectedvehicule={selectedvehicule}
               />
             
             </div>
           )}
 
-          {clickSuivant && <ThirdStep />}
         </div>
       </div>
     </>

@@ -9,7 +9,7 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import { useLocation } from "react-router-dom";
 import { createRoute } from "../../api/backend/account";
 
-const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart }) => {
+const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, selectedvehicule }) => {
   const location = useLocation();
   const selectedDepart = location.state?.selectedDepart;
   const selectedArrive = location.state?.selectedArrive;
@@ -21,6 +21,11 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart }) =>
   const [coinCost, setcoinCost] = useState();
   const [DepartLatLng, setDepartLatLng] = useState();
   const [ArriveLatLng, setArriveLatLng] = useState();
+  const [voiture, setvoiture] = useState({
+    brand: selectedvehicule.brand,
+    model: selectedvehicule.model,
+    fuel_type: selectedvehicule.fuel_type,
+  })
 
   const submitTrajet = async () => {
     const datas = {
@@ -33,10 +38,12 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart }) =>
       point_cost:  coinCost,
       starting_latlng: DepartLatLng, 
       arrival_latlng:  ArriveLatLng,
+      vehicule: voiture,
     }
     console.log(datas);
     await createRoute(datas);
   }
+
 
 
   useEffect(() => {
@@ -137,6 +144,9 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart }) =>
         </p>
         <p className="text-3xl text-white font-semibold">
           heure départ : {heureDepart} 
+        </p>
+        <p className="text-3xl text-white font-semibold">
+          véhicule : {selectedvehicule.brand + selectedvehicule.model}  
         </p>
         <button onClick={submitTrajet}>envoyer</button>
       </div>
