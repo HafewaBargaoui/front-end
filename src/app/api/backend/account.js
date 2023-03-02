@@ -8,7 +8,9 @@ import {
 	URL_BACK_FORGET_PASSWORD,
 	URL_BACK_RESET_PASSWORD,
 	URL_BACK_LOGOUT,
+	URL_BACK_DELETE_ACCOUNT,
 	URL_BACK_USER_PROFILE,
+	URL_BACK_CREATE_ROUTE,
 	URL_BACK_ENDPOINT_SOCKET,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
@@ -54,14 +56,23 @@ export function userPreference(values) {
 }
 
 export function resetpassword(values, token) {
-	apiBackEnd.defaults.headers.common['Authorization'] = `Bearer ${token}` 
-    return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values, token);
+	apiBackEnd.defaults.headers.common['Authorization'] = `Bearer ${token}`
+	return apiBackEnd.post(URL_BACK_RESET_PASSWORD, values, token);
 }
 
 export function forgetpassword(values) {
+<<<<<<< HEAD
     return apiBackEnd.post(URL_BACK_FORGET_PASSWORD, values);
 }
 
 export function emit() {
     return apiBackEnd.post(URL_BACK_ENDPOINT_SOCKET);
+}
+
+export function createRoute(values) {
+	return apiBackEnd.post(URL_BACK_CREATE_ROUTE, values);
+}
+
+export function deleteAccount() {
+	return apiBackEnd.put(`/deleteAccount`);
 }

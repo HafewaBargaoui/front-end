@@ -17,6 +17,7 @@ import HomePageView from "../views/HomePageView";
 import ForgetLoginView from "../views/ForgetLoginView";
 import ResetPassword from "../views/ResetPasswordView";
 import ForgetEmailView from "../views/ForgetEmailView";
+import DeleteAccountView from "../views/DeleteAccountView";
 
 import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
@@ -27,6 +28,12 @@ import ChatSocket from "../views/chat";
 import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
 import MailVerified from "../components/account/MailVerified";
 import PasswordModified from "../components/account/PasswordModified";
+import DeleteAccountModal from "../components/modals/DeleteAccountModal";
+
+import SearchTrajetView from "../views/SearchTrajetView";
+import TrajetCreateView from "../views/TrajetCreateView";
+
+
 /**
  * Routes of the application
  * with public and private route
@@ -36,10 +43,7 @@ import PasswordModified from "../components/account/PasswordModified";
 const Routes = () => {
   return (
     <RoutesContainer>
-      <Route
-        path={URL.URL_HOME}
-        element={<HomePageView />}
-      />
+      <Route path={URL.URL_HOME} element={<HomePageView />} />
 
       {/* <Route
         path={URL.URL_CREATE}
@@ -60,7 +64,6 @@ const Routes = () => {
       /> */}
       {/* <Route exact path="/login" element={<LoginView />} /> */}
 
-
       {/* <Route exact path="/create" element={<CreateRoute />} /> 
 
       <Route exact path="/checkcar" element={<CheckCar />} />  
@@ -77,9 +80,6 @@ const Routes = () => {
 
       <Route exact path="/homePage" element={<HomePageView />} /> */}
 
-
-
-
       <Route
         path={URL.URL_ADMIN_HOME}
         element={
@@ -91,13 +91,13 @@ const Routes = () => {
       <Route path={URL.URL_PROFIL} element={<ProfilView />} />
       <Route path={URL.URL_FAQ} element={<FaqView />} />
       <Route path={URL.URL_CONTACT} element={<ContactView />} />
-
+      <Route path={URL.URL_DELETE_ACCOUNT} element={<DeleteAccountView />} />
 
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
-      <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView/>} />
-      <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword/>} />
-      <Route path={URL.URL_PASSWORD_MODIFIED} element={<PasswordModified/>} />
-      <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView/>} />
+      <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView />} />
+      <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword />} />
+      <Route path={URL.URL_PASSWORD_MODIFIED} element={<PasswordModified />} />
+      <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView />} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       <Route path={URL.URL_REGISTER_LAST} element={<SubmittedRegister />} />
       <Route path={URL.URL_MAIL_VERIFIED} element={<MailVerified />} />
@@ -106,6 +106,12 @@ const Routes = () => {
       <Route path={URL.URL_AVATAR} element={<AvatarView />} />
       <Route path={URL.URL_CARTE} element={<CarteView />} />
       <Route path={URL.URL_CHAT_SOCKET} element={<ChatSocket />} />
+      <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} />
+      <Route path={URL.URL_TRAJET_CREATE} element={<TrajetCreateView />} />
+      <Route
+        path={URL.URL_DELETE_ACCOUNT_MODAL}
+        element={<DeleteAccountModal />}
+      />
     </RoutesContainer>
   );
 };
