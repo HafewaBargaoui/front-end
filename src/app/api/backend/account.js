@@ -12,6 +12,8 @@ import {
 	URL_BACK_USER_PROFILE,
 	URL_BACK_CREATE_ROUTE,
 	URL_BACK_ENDPOINT_SOCKET,
+	URL_BACK_GET_DRIVER_ROUTE,
+	URL_BACK_PUT_USER_ROOM
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
@@ -23,19 +25,16 @@ export function getCarBrand(values) {
 	return apiBackEnd.get(URL_BACK_CARBRANDS, values);
 }
 
-
 export function updateVehicule(values) {
 	return apiBackEnd.put(`/updateVehicule`, values);
-  }
-  
-
+}
 
 export function getProfile() {
-	return apiBackEnd.get(`/userProfile`);
+	return apiBackEnd.get(URL_BACK_USER_PROFILE);
   }
 
 export function editProfile(values) {
-	return apiBackEnd.put(`/userProfile`, values);
+	return apiBackEnd.put(URL_BACK_USER_PROFILE, values);
 }
 
 export function postDriverVehicule(values) {
@@ -80,5 +79,13 @@ export function createRoute(values) {
 }
 
 export function deleteAccount() {
-	return apiBackEnd.put(`/deleteAccount`);
+	return apiBackEnd.put(URL_BACK_DELETE_ACCOUNT);
+}
+
+export function getDriverRoute(values) {
+	return apiBackEnd.post(URL_BACK_GET_DRIVER_ROUTE, values);
+}
+
+export function updateRoomUser(values) {
+	return apiBackEnd.put(URL_BACK_PUT_USER_ROOM, values);
 }

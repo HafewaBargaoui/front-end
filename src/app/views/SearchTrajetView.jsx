@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react"
 import FirstStep from "../components/stepsSearchTrajet/FirstStep";
 import SecondStep from "../components/stepsSearchTrajet/SecondStep";
 import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
@@ -23,8 +23,7 @@ const SearchTrajetView = () => {
   const [trajetArrive, settrajetArrive] = useState([]);
   const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
   const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
-
-
+  const [routeSelected, setRouteSelected] = useState();
 
   const filteredDepart =
     depart === ""
@@ -40,6 +39,7 @@ const SearchTrajetView = () => {
   const click2 = (e) => {
     e.preventDefault();
     setclickSuivant(!clickSuivant);
+    setRouteSelected(routeSelected)
   };
 
   const click = (e) => {
@@ -49,9 +49,12 @@ const SearchTrajetView = () => {
     settrajetArrive(selectedArrive);
   };
 
-
   return (
     <>
+
+    <div className="container flex ">
+
+    </div>
       <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
         <div className="grid grid-flow-col text-center text-sm font-normal mx-4 p-4  ">
           {/* //////////////////////////////////////// Affichage conditionnel ////////////////////////////////////////*/}
@@ -114,7 +117,6 @@ const SearchTrajetView = () => {
               setArrive={setArrive}
             />
           )}
-
           {clickNext && !clickSuivant && (
             <div className="">
               <PrefsTrajet />
@@ -125,13 +127,18 @@ const SearchTrajetView = () => {
               />
               <SecondStep
                 setclickSuivant={setclickSuivant}
-                clickSuivant={clickSuivant}
+                setRouteSelected = {setRouteSelected}
+                routeSelected = {routeSelected}
+                trajetDepart = {trajetDepart}
+                trajetArrive = {trajetArrive}
                 click2={click2}
               />
             </div>
           )}
 
-          {clickSuivant && <ThirdStep />}
+          {clickSuivant && (
+          <ThirdStep 
+          routeSelected = {routeSelected} />)}
         </div>
       </div>
     </>

@@ -66,7 +66,6 @@ const Carte = ({ trajetDepart, trajetArrive }) => {
     routingControl.setWaypoints(waypoints);
     setRoutingControl(routingControl);
 
-    console.log(routingControl);
     routingControl.on("routesfound", function (e) {
       const routes = e.routes;
       const summary = routes[0].summary;
@@ -82,10 +81,6 @@ const Carte = ({ trajetDepart, trajetArrive }) => {
       setcoinCost(Math.round(distance / 2));
     });
   }, []);
-
-  console.log(tempsTrajet + " min");
-  console.log(distanceTrajet + " km");
-  console.log(coinCost + " BC");
 
   return (
     <>

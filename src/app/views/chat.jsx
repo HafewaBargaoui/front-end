@@ -29,7 +29,8 @@ const chatSocket = () => {
         console.log(response.data);
     }, [setHistory, setRoomSelected]);
     
-    useEffect(async () => {
+    useEffect(async () => 
+    {
         socket = io(url, {
             query: { token: token }
         });

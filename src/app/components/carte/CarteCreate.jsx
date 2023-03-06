@@ -110,15 +110,7 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
       setArriveLatLng(routes[0].waypoints[1].latLng)
     });
   }, []);
-
-  console.log(tempsTrajet + " min");
-  console.log(distanceTrajet + " km");
-  console.log(coinCost + " BC");
-  console.log(heureDepart);
-  console.log(dateDepart);
-  console.log(DepartLatLng);
-  console.log(ArriveLatLng);
-
+  
   return (
     <div className="w-full h-full grid grid-flow-col">
       <div id="map" className="rounded-lg z-10 h-96 w-96"></div>
