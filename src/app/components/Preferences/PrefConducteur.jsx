@@ -65,18 +65,16 @@ const PrefConducteur = () => {
       files: null,
     },
     onSubmit: async (values) => {
-
       const formDataUserVehicule = new FormData();
-      formDataUserVehicule.append("brand",  values.brand);
-      formDataUserVehicule.append("seats",  values.seats);
-      formDataUserVehicule.append("model",  values.model);
-      formDataUserVehicule.append("fuel_type",  values.fuel_type);
+      formDataUserVehicule.append("brand", values.brand);
+      formDataUserVehicule.append("seats", values.seats);
+      formDataUserVehicule.append("model", values.model);
+      formDataUserVehicule.append("fuel_type", values.fuel_type);
 
-      for (var i = 0; i < values.files.length; i++) 
-      {
+      for (var i = 0; i < values.files.length; i++) {
         let file = values.files[i];
-        formDataUserVehicule.append('files', file);
-      }      
+        formDataUserVehicule.append("files", file);
+      }
       const formDataUserPrefs = new FormData();
       formDataUserPrefs.append("animal_friendly", values.animal_friendly);
       formDataUserPrefs.append("smoker_friendly", values.smoker_friendly);
@@ -87,7 +85,6 @@ const PrefConducteur = () => {
       setnextClicked(true);
     },
   });
-
 
   const [carOpt, setcarOpt] = useState([]);
   const [model, setmodel] = useState([]);
@@ -283,13 +280,15 @@ const PrefConducteur = () => {
                 const checked = formik.values.animal_friendly;
                 return (
                   <div
-                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${checked
-                      ? "bg-vert bg-opacity-70"
-                      : "bg-bleu bg-opacity-30"
-                      } p-1 hover:scale-105 hover:shadow-lg ${checked
+                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
+                      checked
+                        ? "bg-vert bg-opacity-70"
+                        : "bg-bleu bg-opacity-30"
+                    } p-1 hover:scale-105 hover:shadow-lg ${
+                      checked
                         ? "hover:bg-verth hover:bg-opacity-70"
                         : "hover:bg-bleuh hover:bg-opacity-30"
-                      } shadow-sm cursor-pointer`}
+                    } shadow-sm cursor-pointer`}
                     key={option.id}
                   >
                     <div className="grid place-items-center justify-items-center text-center">
@@ -311,13 +310,15 @@ const PrefConducteur = () => {
                 const checkedd = formik.values.smoker_friendly;
                 return (
                   <div
-                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${checkedd
-                      ? "bg-vert bg-opacity-70"
-                      : "bg-bleu bg-opacity-30"
-                      } p-1 hover:scale-105 hover:shadow-lg ${checkedd
+                    className={`grid grid-row-2 place-items-center rounded-md h-20 w-20 ${
+                      checkedd
+                        ? "bg-vert bg-opacity-70"
+                        : "bg-bleu bg-opacity-30"
+                    } p-1 hover:scale-105 hover:shadow-lg ${
+                      checkedd
                         ? "hover:bg-verth hover:bg-opacity-70"
                         : "hover:bg-bleuh hover:bg-opacity-30"
-                      } shadow-sm cursor-pointer`}
+                    } shadow-sm cursor-pointer`}
                     key={option.id}
                   >
                     <div className="grid place-items-center justify-items-center text-center">
