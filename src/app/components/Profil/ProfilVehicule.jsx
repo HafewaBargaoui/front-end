@@ -37,7 +37,6 @@ const ProfilVehicule = () => {
     }
   }, [isAuthenticated, count]);
 
-  console.log(nbVehicules);
 
   const [modalOn, setmodalOn] = useState(false);
   const [photoModal, setphotoModal] = useState(false);

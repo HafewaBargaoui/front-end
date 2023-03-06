@@ -88,7 +88,6 @@ const EditVehiculeModal = ({
 
       await updateVehicule(formDataUserVehicule);
       for (const value of formDataUserVehicule.values()) {
-        console.log(value);
       }
       seteditModale(false);
     },
@@ -103,7 +102,6 @@ const EditVehiculeModal = ({
     const response = await getCarBrand();
     setcarOpt(response.data);
     setfuelOption(response.data);
-    console.log(response.data);
   };
 
   const getModele = async (e) => {
@@ -111,7 +109,6 @@ const EditVehiculeModal = ({
     let marque = carOpt.find((brand) => brand.name === selectedBrandName);
     setSelectedBrand(marque);
     setmodel(marque.modele);
-    console.log(marque.modele);
     formik.handleChange(e);
   };
 

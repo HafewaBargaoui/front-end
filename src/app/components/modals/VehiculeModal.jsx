@@ -6,7 +6,6 @@ import PhotoVehiculeModal from "./PhotoVehiculeModal";
 const VehiculeModal = ({setVehiculeModal, vehiculeModal, nbVehicule, VehiculeSelect, count, setCount, user, users, pref}) => {
     const modalRef = useRef();
     const vehicule = VehiculeSelect;
-    console.log(vehicule);
     const photos = vehicule.files
 
     const clickOut = (e) => {
