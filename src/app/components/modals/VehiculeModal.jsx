@@ -7,6 +7,7 @@ const VehiculeModal = ({setVehiculeModal, vehiculeModal, nbVehicule, VehiculeSel
     const modalRef = useRef();
     const vehicule = VehiculeSelect;
     const photos = vehicule.files
+    console.log(vehicule);
 
     const clickOut = (e) => {
       if (modalRef.current.contains(e.target)) {
@@ -56,6 +57,13 @@ const VehiculeModal = ({setVehiculeModal, vehiculeModal, nbVehicule, VehiculeSel
                   <p className="font-semibold">Carburant : </p>
                   <p className="font-thin">
                     {vehicule ? vehicule.fuel_type : "carburant"}
+                  </p>
+                </div>
+               
+                <div className="grid grid-cols-2">
+                  <p className="font-semibold">Coffre : </p>
+                  <p className="font-thin">
+                    {vehicule ? vehicule.large_luggage : "coffre"}
                   </p>
                 </div>
 

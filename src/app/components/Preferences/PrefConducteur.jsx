@@ -70,6 +70,7 @@ const PrefConducteur = () => {
       formDataUserVehicule.append("seats", values.seats);
       formDataUserVehicule.append("model", values.model);
       formDataUserVehicule.append("fuel_type", values.fuel_type);
+      formDataUserVehicule.append("large_luggage", values.large_luggage);
 
       for (var i = 0; i < values.files.length; i++) {
         let file = values.files[i];
@@ -78,7 +79,7 @@ const PrefConducteur = () => {
       const formDataUserPrefs = new FormData();
       formDataUserPrefs.append("animal_friendly", values.animal_friendly);
       formDataUserPrefs.append("smoker_friendly", values.smoker_friendly);
-      formDataUserPrefs.append("large_luggage", values.large_luggage);
+
 
       await postDriverVehicule(formDataUserVehicule);
       await postDriverPrefs(formDataUserPrefs);

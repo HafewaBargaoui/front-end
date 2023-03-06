@@ -16,6 +16,8 @@ const EditVehiculeModal = ({
   setCount,
   photos,
 }) => {
+  console.log(vehicule);
+  console.log(pref._id);
   function MyDropzone() {
     const [files, setFiles] = useState([]);
     const onDrop = useCallback(
@@ -74,8 +76,8 @@ const EditVehiculeModal = ({
       formDataUserVehicule.append("seats", values.seats);
       formDataUserVehicule.append("model", values.model);
       formDataUserVehicule.append("fuel_type", values.fuel_type);
-      formDataUserVehicule.append("idVehicule", users.id_vehicule[0]._id);
-      formDataUserVehicule.append("idPref", users.id_driver_preference[0]._id);
+      formDataUserVehicule.append("idVehicule", vehicule._id);
+      formDataUserVehicule.append("idPref", pref._id);
       formDataUserVehicule.append("large_luggage", values.large_luggage);
 
     
@@ -89,6 +91,7 @@ const EditVehiculeModal = ({
       await updateVehicule(formDataUserVehicule);
       for (const value of formDataUserVehicule.values()) {
       }
+      window.location.reload();
       seteditModale(false);
     },
   });
@@ -287,7 +290,7 @@ const EditVehiculeModal = ({
                           name="large_luggage"
                           className="inputInscription"
                         >
-                          <option value=""> {pref.large_luggage} </option>
+                          <option value=""> {vehicule.large_luggage} </option>
                           {large_luggageOptions.map((option) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -321,7 +324,7 @@ const EditVehiculeModal = ({
                           <div className="">
                             <MyDropzone
                               onDrop={(acceptedFiles) =>
-                                formik.setFieldValue("file", acceptedfiless[0])
+                                formik.setFieldValue("file", acceptedFiles[3])
                               }
                             />
                           </div>

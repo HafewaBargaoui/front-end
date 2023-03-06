@@ -158,7 +158,7 @@ const ProfilVehicule = () => {
                 <div className="grid grid-cols-2">
                   <p className="font-semibold">Coffre : </p>
                   <p className="font-thin">
-                    {pref ? pref.large_luggage : "coffre"}
+                    {vehicule ? vehicule.large_luggage : "coffre"}
                   </p>
                 </div>
 
@@ -238,10 +238,10 @@ const ProfilVehicule = () => {
             <p className="grid text-center font-bold text-xl">Vos véhicule</p>
             <div className="grid grid-flow-col gap-4 place-items-center">
               {nbVehicules.map((vehicule, i) => (
-                <div onClick={(e) => setVehiculeSelect(vehicule)}>
+                <div key={i} 
+                     onClick={() => setVehiculeSelect(vehicule)}>
 
                 <div
-                  key={i}
                   className={`grid bg-black bg-opacity-50 hover:scale-105 rounded-md shadow-md `}
                   onClick={vehiculeclickModal}
                 >
@@ -274,8 +274,8 @@ const ProfilVehicule = () => {
                 count={count}
                 setCount={setCount}
                 user={user}
-              users={users}
-              pref={pref}
+                users={users}
+                pref={pref}
               />
             )
           }
