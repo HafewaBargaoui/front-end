@@ -16,7 +16,6 @@ const AddVehiculeModal = ({
   count,
   setCount,
 }) => {
-  console.log(users._id);
 
   function MyDropzone() {
     const [files, setFiles] = useState([]);
@@ -76,16 +75,16 @@ const AddVehiculeModal = ({
       formDataUserVehicule.append("seats", values.seats);
       formDataUserVehicule.append("model", values.model);
       formDataUserVehicule.append("fuel_type", values.fuel_type);
+      formDataUserVehicule.append("large_luggage", values.large_luggage);
 
       for (var i = 0; i < values.files.length; i++) {
         let file = values.files[i];
         formDataUserVehicule.append("files", file);
       }
-      const formDataUserPrefs = new FormData();
-      formDataUserPrefs.append("large_luggage", values.large_luggage);
+      
 
       await postDriverVehicule(formDataUserVehicule);
-      await postDriverPrefs(formDataUserPrefs);
+      window.location.reload();
       setmodalOn(false);
     },
   });
@@ -99,7 +98,6 @@ const AddVehiculeModal = ({
     const response = await getCarBrand();
     setcarOpt(response.data);
     setfuelOption(response.data);
-    console.log(response.data);
   };
 
   const getModele = async (e) => {
@@ -107,7 +105,6 @@ const AddVehiculeModal = ({
     let marque = carOpt.find((brand) => brand.name === selectedBrandName);
     setSelectedBrand(marque);
     setmodel(marque.modele);
-    console.log(marque.modele);
     formik.handleChange(e);
   };
 
@@ -159,15 +156,12 @@ const AddVehiculeModal = ({
   const modalRef = useRef();
 
   const closeClick = () => {
-    console.log("clic X");
     setmodalOn(false);
   };
 
   const clickOut = (e) => {
     if (modalRef.current.contains(e.target)) {
-      console.log("in");
     } else {
-      console.log("out");
       setmodalOn(false);
     }
   };

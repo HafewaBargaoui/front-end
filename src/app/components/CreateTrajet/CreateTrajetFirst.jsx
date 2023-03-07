@@ -21,7 +21,7 @@ const CreateTrajetFirst = ({
   setselectedvehicule,
 }) => {
 
-  console.log(vehicule);
+  
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
