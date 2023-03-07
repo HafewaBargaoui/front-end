@@ -67,3 +67,11 @@ export function forgetpassword(values) {
 export function deleteAccount() {
 	return apiBackEnd.put(`/deleteAccount`);
 }
+
+export function buyBuddyCoins() {
+	return apiBackEnd.get();
+}
+
+export function sellBuddyCoins() {
+	return apiBackEnd.get();
+}

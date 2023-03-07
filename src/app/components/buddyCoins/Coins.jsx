@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../../api/backend/account";
-import { selectIsLogged, selectUser, selectToken } from "../../redux-store/authenticationSlice";
+import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
 import { Link } from "react-router-dom";
 import {
     URL_BUYCOINS,

@@ -46,12 +46,14 @@ const HistCoins = () => {
     ];
 
     return (
-        <div className='h-full flex justify-center items-center  bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
-            <div className="m-36 w-full">
-
+        <div className='h-full bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
+             <h3 className="text-white flex justify-center py-24 underline underline-offset-4">Historique des transactions :</h3>
+            <div className="mx-48">
+            {/* flex justify-center items-center
+            hist des transactions */}
                 <div className="m-2">
                     <div
-                        className={`grid grid-flow-col justify-between place-items-center  bg-white w-full rounded-lg p-2 drop-shadow-lg ${buy && "scale-105"
+                        className={`grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg ${buy && "scale-105"
                             } hover:scale-105 hover:transition duration-700 ease-in-out`}
                         onClick={() => setBuy(!buy)}
                     >
@@ -90,7 +92,7 @@ const HistCoins = () => {
                     </div>
                 </div>
                 
-                <div className="m-2 mt-12">
+                <div className="m-2 mt-16">
                     <div
                         className={`grid grid-flow-col justify-between place-items-center  bg-white w-full rounded-lg p-2 drop-shadow-lg ${sell && "scale-105"
                             } hover:scale-105 hover:transition duration-700 ease-in-out`}
