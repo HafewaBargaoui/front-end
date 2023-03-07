@@ -4,7 +4,7 @@ import paul from "../../assets/images/profil/fakeUser3.png";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import haut from "../../assets/images/profil/flecheHaut.png";
 import bas from "../../assets/images/profil/flecheBas.png";
-import { userJourney } from "../../api/backend/account";
+import { userJourney, userSubmittedJourney } from "../../api/backend/account";
 import { useSelector } from "react-redux";
 import {selectIsLogged, selectUser} from "../../redux-store/authenticationSlice";
 
@@ -102,10 +102,18 @@ const Trajets = () => {
   };
   console.log(infos);
 
+  const submittedJourney = async () => {
+    const response = await userSubmittedJourney();
+    console.log(response.data)
+
+  };
+
+
 
   useEffect(() => {
     if (isAuthenticated) {
       journey();
+      submittedJourney();
     }
   }, [isAuthenticated])
   

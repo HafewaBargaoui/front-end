@@ -14,7 +14,8 @@ import {
 	URL_BACK_ENDPOINT_SOCKET,
 	URL_BACK_GET_DRIVER_ROUTE,
 	URL_BACK_PUT_USER_ROOM,
-	URL_BACK_USER_JOURNEY
+	URL_BACK_USER_JOURNEY,
+	URL_BACK_USER_SUBMITTEDJOURNEY,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
@@ -93,4 +94,8 @@ export function updateRoomUser(values) {
 
 export function userJourney() {
 	return apiBackEnd.get(URL_BACK_USER_JOURNEY);
+  }
+
+  export function userSubmittedJourney() {
+	return apiBackEnd.get(URL_BACK_USER_SUBMITTEDJOURNEY);
   }
