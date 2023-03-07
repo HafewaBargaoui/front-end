@@ -13,3 +13,4 @@ export const URL_BACK_DELETE_ACCOUNT ='/deleteAccount';
 export const URL_BACK_CREATE_ROUTE ='/createPath';
 export const URL_BACK_GET_DRIVER_ROUTE ='/routeSelected';
 export const URL_BACK_PUT_USER_ROOM ='/userRoomUser';
+export const URL_BACK_USER_JOURNEY ='/userJourney';
