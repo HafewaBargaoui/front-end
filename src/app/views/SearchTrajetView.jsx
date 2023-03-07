@@ -7,15 +7,8 @@ import { useSearch } from "../components/hook/UseSearch";
 import Carte from "../components/carte/Carte";
 
 const SearchTrajetView = () => {
-
-  const {
-    depart,
-    setDepart,
-    arrive,
-    setArrive,
-    resultsDepart,
-    resultsArrive,
-  } = useSearch();
+  const { depart, setDepart, arrive, setArrive, resultsDepart, resultsArrive } =
+    useSearch();
 
   const [clickNext, setclickNext] = useState(false);
   const [clickSuivant, setclickSuivant] = useState(false);
@@ -23,8 +16,17 @@ const SearchTrajetView = () => {
   const [trajetArrive, settrajetArrive] = useState([]);
   const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
   const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
+  // *****
 
-
+  const [nextScreen, setnextScreen] = useState(false);
+  const screen = (e) => {
+    e.preventDefault();
+    setnextScreen(!nextScreen);
+  };
+  {
+    console.log("nextScreen", nextScreen);
+  }
+  // *****
 
   const filteredDepart =
     depart === ""
@@ -35,7 +37,6 @@ const SearchTrajetView = () => {
     arrive === ""
       ? resultsArrive
       : resultsArrive.filter((arrive) => arrive.name);
-
 
   const click2 = (e) => {
     e.preventDefault();
@@ -49,11 +50,12 @@ const SearchTrajetView = () => {
     settrajetArrive(selectedArrive);
   };
 
-
   return (
     <>
-      <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
-        <div className="grid grid-flow-col text-center text-sm font-normal mx-4 p-4  ">
+      <div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
+        {/* <div className="mx-4 p-4 flex justify-between items-center text-center ">
+          <div className="relative flex flex-col items-center "> */}
+        <div className="grid grid-flow-col  text-center text-sm font-normal mx-4 p-4 ">
           {/* //////////////////////////////////////// Affichage conditionnel ////////////////////////////////////////*/}
 
           {!clickSuivant ? (
@@ -61,12 +63,13 @@ const SearchTrajetView = () => {
               className={`rounded-full ${
                 !clickNext ? "bg-green-500" : "bg-slate-400 cursor-pointer "
               } w-24 h-24 grid justify-center items-center `}
+              // onClick={screen}
             >
               <p className="">Informations trajet</p>
             </div>
           ) : (
             <div className="rounded-full bg-slate-400 w-24 h-24 grid justify-center items-center cursor-pointer ">
-              <p>Informations trajet</p>
+              <p onClick={screen}>Informations trajet</p>
             </div>
           )}
           {!clickSuivant ? (
@@ -74,6 +77,7 @@ const SearchTrajetView = () => {
               className={`rounded-full ${
                 clickNext ? "bg-green-500" : "bg-slate-400 cursor-pointer"
               } w-24 h-24 grid justify-center items-center`}
+              // onClick={screen}
             >
               <p>Choix du trajet</p>
             </div>
@@ -89,9 +93,10 @@ const SearchTrajetView = () => {
             } w-24 h-24 grid justify-center items-center`}
           >
             <p>Réservation</p>
+            {/* </div>
+          </div> */}
           </div>
         </div>
-
         <div className=" pt-8 mb-12 grid gap-4 place-content-center ">
           {!clickNext && (
             <FirstStep
@@ -116,18 +121,14 @@ const SearchTrajetView = () => {
           )}
 
           {clickNext && !clickSuivant && (
-            <div className="">
+            <div className="grid grid-cols-2 gap-x-12 justify-items-center ">
               <PrefsTrajet />
-
-              <Carte 
-                trajetDepart={trajetDepart}
-                trajetArrive={trajetArrive}
-              />
               <SecondStep
                 setclickSuivant={setclickSuivant}
                 clickSuivant={clickSuivant}
                 click2={click2}
               />
+              <Carte trajetDepart={trajetDepart} trajetArrive={trajetArrive} />
             </div>
           )}
 

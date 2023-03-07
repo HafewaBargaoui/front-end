@@ -1,7 +1,11 @@
 import React, { Fragment } from "react";
 
 import { Combobox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
+import {
+  CheckIcon,
+  ChevronUpIcon,
+  LocationMarkerIcon,
+} from "@heroicons/react/solid";
 
 const FirstStep = ({
   click,
@@ -16,15 +20,15 @@ const FirstStep = ({
   setDepart,
   setArrive,
 }) => {
- 
+  const today = new Date();
+  const date = today.setDate(today.getDate());
+  const defaultValue = new Date(date).toISOString().split("T")[0]; // yyyy-mm-dd
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
         <div className="grid grid-cols-2">
-        
-
           <Combobox value={selectedDepart} onChange={setselectedDepart}>
-            <div className="relative mt-1">
+            <div className="relative mt-1 p-6">
               <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                 <Combobox.Input
                   className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
@@ -73,7 +77,7 @@ const FirstStep = ({
                             </span>
                             {selectedDepart ? (
                               <span
-                                className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                                className={`absolute inset-y-0 left-0 flex items-center pl-3  ${
                                   active ? "text-white" : "text-teal-600"
                                 }`}
                               >
@@ -94,7 +98,7 @@ const FirstStep = ({
           </Combobox>
 
           <Combobox value={selectedArrive} onChange={setselectedArrive}>
-            <div className="relative mt-1">
+            <div className="relative mt-1 p-6">
               <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                 <Combobox.Input
                   className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
@@ -102,6 +106,7 @@ const FirstStep = ({
                   onChange={(e) => setArrive(e.target.value)}
                   autoComplete="off"
                 />
+
                 <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
                   <ChevronUpIcon
                     className="h-5 w-5 text-gray-400"
@@ -163,7 +168,6 @@ const FirstStep = ({
             </div>
           </Combobox>
 
-
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -176,6 +180,7 @@ const FirstStep = ({
               id="departure-date"
               name="departure-date"
               type="date"
+              defaultValue={defaultValue}
             ></input>
           </div>
           {/*//////////////////////////////////////// Nombre de passagers ///////////////////////////////////////////////////////*/}
@@ -194,6 +199,7 @@ const FirstStep = ({
                   name="nbr-passengers"
                   id="solo"
                   value="seul"
+                  checked
                 />
                 <label className="p-2" htmlFor="solo">
                   Je voyage seul(e)
@@ -231,7 +237,7 @@ const FirstStep = ({
                 <input
                   onClick={click}
                   value="Etape suivante"
-                  className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white "
+                  className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white text-center "
                 />
               </div>
             </div>

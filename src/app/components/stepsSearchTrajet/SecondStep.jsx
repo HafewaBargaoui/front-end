@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
-
+import ConducteurModal from "../modals/ConducteurModal";
 import paul from "../../assets/images/profil/fakeUser3.png";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 
@@ -19,20 +19,7 @@ const trajets = [
     rate: "3",
   },
   {
-    id: 2,
-    date: "27/12/2022",
-    heure: "14h15",
-    depart: "lille",
-    arrive: "roubaix",
-    conducteur: "paul",
-    modele: "tesla modele 3",
-    photo: paul,
-    coin: buddycoin,
-    tarif: "155",
-    rate: "4",
-  },
-  {
-    id: 3,
+    id: 74,
     date: "27/12/2022",
     heure: "14h15",
     depart: "lille",
@@ -44,22 +31,141 @@ const trajets = [
     tarif: "155",
     rate: "3",
   },
-  {
-    id: 3,
-    date: "27/12/2022",
-    heure: "14h15",
-    depart: "lille",
-    arrive: "roubaix",
-    conducteur: "paul",
-    modele: "tesla modele 3",
-    photo: paul,
-    coin: buddycoin,
-    tarif: "155",
-    rate: "3",
-  },
+  // {
+  //   id: 2,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "4",
+  // },
+  // {
+  //   id: 3,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 41,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 94,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 433333,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 4000,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 489,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 454,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 7477,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
+  // {
+  //   id: 477,
+  //   date: "27/12/2022",
+  //   heure: "14h15",
+  //   depart: "lille",
+  //   arrive: "roubaix",
+  //   conducteur: "paul",
+  //   modele: "tesla modele 3",
+  //   photo: paul,
+  //   coin: buddycoin,
+  //   tarif: "155",
+  //   rate: "3",
+  // },
 ];
 
 const SecondStep = ({ setclickSuivant, clickSuivant, click2 }) => {
+  const [showMyModal, setshowMyModal] = useState(false);
+  const handleOnClose = () => setshowMyModal(false);
   return (
     <div>
       <div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
@@ -70,13 +176,18 @@ const SecondStep = ({ setclickSuivant, clickSuivant, click2 }) => {
           Dont 3 selon vos préférences
         </p>
 
-        {/* <div className="mt-6 mx-10">
+        <div className="mt-6 mx-10">
           {trajets.map((trajet) => (
             <div
               className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
               key={trajet.id}
             >
-              <img src={paul} alt="photo conducteur" className="w-8 h-8" />
+              <img
+                src={paul}
+                alt="photo conducteur"
+                className="w-8 h-8"
+                onClick={() => setshowMyModal(true)}
+              />
               <p className="uppercase font-semibold m-2">
                 {trajet.conducteur} /
                 <span className="font-light">{trajet.modele}</span>
@@ -90,15 +201,17 @@ const SecondStep = ({ setclickSuivant, clickSuivant, click2 }) => {
               </button>
             </div>
           ))}
-        </div> */}
-      </div>
-      <button
-        onClick={click2}
-        className="m-2 bg-vert hover:bg-verth rounded-md text-white font-normal shadow-md py-0 px-1
+        </div>
+        <button
+          onClick={click2}
+          className="m-2 bg-vert hover:bg-verth rounded-md text-white font-normal shadow-md py-0 px-1
       "
-      >
-        Etape suivante
-      </button>
+        >
+          Etape suivante
+        </button>
+      </div>
+
+      <ConducteurModal visible={showMyModal} onClose={handleOnClose} />
     </div>
   );
 };
