@@ -180,16 +180,20 @@ const RegisterView = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (checkingInvalidInputs()) {
-      showMessageError(true);
-    } else {
-      showMessageError(false);
-      delete values.terms;
-      delete values.confirmPassword;
-      const response = await register(values);
-    }
+		if (checkingInvalidInputs()) {
+			showMessageError(true);
+		} else {
+			showMessageError(false);
+			delete values.terms;
+			delete values.confirmPassword;
+			const response = await register(values);
 
-    navigate("/register-submitted");
+			if(response.message)
+			{
+				window.location.href=("/register-submitted");
+			}
+		}
+		
 
     //redirection vers page message
   };

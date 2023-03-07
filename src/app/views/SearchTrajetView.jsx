@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FirstStep from "../components/stepsSearchTrajet/FirstStep";
 import SecondStep from "../components/stepsSearchTrajet/SecondStep";
 import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
@@ -16,17 +16,7 @@ const SearchTrajetView = () => {
   const [trajetArrive, settrajetArrive] = useState([]);
   const [selectedDepart, setselectedDepart] = useState(resultsDepart[0]);
   const [selectedArrive, setselectedArrive] = useState(resultsArrive[0]);
-  // *****
-
-  const [nextScreen, setnextScreen] = useState(false);
-  const screen = (e) => {
-    e.preventDefault();
-    setnextScreen(!nextScreen);
-  };
-  {
-    console.log("nextScreen", nextScreen);
-  }
-  // *****
+  const [routeSelected, setRouteSelected] = useState();
 
   const filteredDepart =
     depart === ""
@@ -41,6 +31,7 @@ const SearchTrajetView = () => {
   const click2 = (e) => {
     e.preventDefault();
     setclickSuivant(!clickSuivant);
+    setRouteSelected(routeSelected);
   };
 
   const click = (e) => {
@@ -52,10 +43,9 @@ const SearchTrajetView = () => {
 
   return (
     <>
-      <div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
-        {/* <div className="mx-4 p-4 flex justify-between items-center text-center ">
-          <div className="relative flex flex-col items-center "> */}
-        <div className="grid grid-flow-col  text-center text-sm font-normal mx-4 p-4 ">
+      <div className="container flex "></div>
+      <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
+        <div className="grid grid-flow-col text-center text-sm font-normal mx-4 p-4  ">
           {/* //////////////////////////////////////// Affichage conditionnel ////////////////////////////////////////*/}
 
           {!clickSuivant ? (
@@ -119,20 +109,22 @@ const SearchTrajetView = () => {
               setArrive={setArrive}
             />
           )}
-
           {clickNext && !clickSuivant && (
             <div className="grid grid-cols-2 gap-x-12 justify-items-center ">
               <PrefsTrajet />
               <SecondStep
                 setclickSuivant={setclickSuivant}
-                clickSuivant={clickSuivant}
+                setRouteSelected={setRouteSelected}
+                routeSelected={routeSelected}
+                trajetDepart={trajetDepart}
+                trajetArrive={trajetArrive}
                 click2={click2}
               />
               <Carte trajetDepart={trajetDepart} trajetArrive={trajetArrive} />
             </div>
           )}
 
-          {clickSuivant && <ThirdStep />}
+          {clickSuivant && <ThirdStep routeSelected={routeSelected} />}
         </div>
       </div>
     </>

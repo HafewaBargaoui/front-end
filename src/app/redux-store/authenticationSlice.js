@@ -25,27 +25,16 @@ export const authenticationSlice = createSlice({
 	initialState,
 	reducers: {
 		signIn: (state, action) => {
-			//console.log(action.payload.token);
 			const token = action.payload.token;
 			state.token = token;
-			//console.log(state.token);
-			//console.log(getPayloadToken(token));
 			const claims = getPayloadToken(token);
-
-			//console.log(claims);
-			//console.log(claims.sub);
-			//console.log(claims.userRoles);
 			const userRolesStr = claims.userRoles.toString();
 
 			const user = {
 				username: claims.sub,
-				id: claims.userId,
-				// roles: claims.userRoles,
 				roles: userRolesStr.split(","),
 			};
 			state.user = user;
-			//console.log(state.user);
-			//console.log(isTokenValid);
 			state.isAuthenticated = isTokenValid(token);
 			setToken(action.payload.token);
 		},
