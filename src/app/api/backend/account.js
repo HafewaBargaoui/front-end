@@ -99,3 +99,11 @@ export function userJourney() {
   export function userSubmittedJourney() {
 	return apiBackEnd.get(URL_BACK_USER_SUBMITTEDJOURNEY);
   }
+
+  export function buyBuddyCoins() {
+	return apiBackEnd.get();
+}
+
+export function sellBuddyCoins() {
+	return apiBackEnd.get();
+}

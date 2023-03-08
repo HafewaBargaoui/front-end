@@ -33,6 +33,11 @@ import DeleteAccountModal from "../components/modals/DeleteAccountModal";
 import SearchTrajetView from "../views/SearchTrajetView";
 import TrajetCreateView from "../views/TrajetCreateView";
 
+import CoinsView from '../views/CoinsView';
+import BuyCoins from '../components/buddyCoins/BuyCoins';
+import SellCoins from '../components/buddyCoins/SellCoins';
+import HistCoins from '../components/buddyCoins/HistCoins';
+
 
 /**
  * Routes of the application
@@ -112,6 +117,11 @@ const Routes = () => {
         path={URL.URL_DELETE_ACCOUNT_MODAL}
         element={<DeleteAccountModal />}
       />
+      <Route path={URL.URL_COINS} element={<CoinsView />} />
+      <Route path={URL.URL_BUYCOINS} element={<BuyCoins />} />
+      <Route path={URL.URL_SELLCOINS} element={<SellCoins />} />
+      <Route path={URL.URL_HISTCOINS} element={<HistCoins />} />
+
     </RoutesContainer>
   );
 };

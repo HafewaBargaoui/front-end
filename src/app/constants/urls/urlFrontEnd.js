@@ -27,3 +27,8 @@ export const URL_SEARCH = `/search`;
 export const URL_TRAJET_CREATE = `/createTrajet`;
 
 export const URL_CHAT_SOCKET ='/chat';
+
+export const URL_COINS ='/coins';
+export const URL_BUYCOINS ='/buyCoins';
+export const URL_SELLCOINS ='/sellCoins';
+export const URL_HISTCOINS ='/histCoins';
