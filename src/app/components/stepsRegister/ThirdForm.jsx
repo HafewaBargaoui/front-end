@@ -27,7 +27,7 @@ const ThirdForm = ({
 						Nom d'utilisateur :
 					</label>
 					<input
-						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-80"
+						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 						id="username"
 						name="username"
 						onChange={onChange}

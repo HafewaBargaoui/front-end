@@ -8,9 +8,10 @@ import {
   URL_TRAJETS,
   URL_PROFILEPREFS,
   URL_PROFIL,
-  URL_CARTE,
   URL_REGISTER,
   URL_DELETE_ACCOUNT,
+  URL_SEARCH,
+  URL_CHAT_SOCKET,
 } from "../../constants/urls/urlFrontEnd";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
@@ -83,7 +84,7 @@ const Navbar = () => {
                 {isAuthenticated ?
                   <>
                     <div className="px-1 py-1 ">
-                      <Menu.Item>
+                    <Menu.Item>
                         {({ active }) => (
                           <button
                             className={`${active
@@ -91,11 +92,13 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
+
+
                             <a
-                              href={URL_TRAJETS}
-                              className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded hover:scale-105 md:hover:bg-transparent  md:p-0 "
+                              href={URL_CHAT_SOCKET}
+                              className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
-                              Liste des trajets
+                              Messagerie
                             </a>
                           </button>
                         )}
@@ -136,24 +139,7 @@ const Navbar = () => {
                           </button>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-
-                            <a
-                              href={URL_DELETE_ACCOUNT}
-                              className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
-                            >
-                              supprimer mon compte
-                            </a>
-                          </button>
-                        )}
-                      </Menu.Item>
+                     
                       <Menu.Item>
                         {({ active }) => (
                           <button
@@ -165,14 +151,15 @@ const Navbar = () => {
 
 
                             <a
-                              href={URL_CARTE}
+                              href="/createTrajet"
                               className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
-                              carte
+                              Créer un trajet
                             </a>
                           </button>
                         )}
                       </Menu.Item>
+
                     </div>
 
                   </>
@@ -242,11 +229,11 @@ const Navbar = () => {
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0 ml-12">
             <li>
               <a
-                href="/createTrajet"
+                href={URL_SEARCH}
                 className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
                 aria-current="page"
               >
-                Créer un trajet
+                Chercher un trajet
               </a>
             </li>
             <li>

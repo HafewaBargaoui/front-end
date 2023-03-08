@@ -12,8 +12,11 @@ const SecondStep = ({trajetDepart, trajetArrive, click2, routeSelected, setRoute
     setRouteMatched(response.data.length)
   }, []);
 
+  const [select, setselect] = useState(false)
+
   const submitRouteSelected = async(route) => {
     setRouteSelected(route)
+    setselect(!select)
   }
 
   return (
@@ -25,11 +28,11 @@ const SecondStep = ({trajetDepart, trajetArrive, click2, routeSelected, setRoute
 
         <div className="mt-6 mx-10">
           {driverRouteSelected.map((route) => (
-            <div key={route._id} className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}>
+            <div onClick={() => submitRouteSelected(route)} 
+                 key={route._id} 
+                 className={`grid grid-flow-col place-items-center ${select ? "bg-vert" : "bg-slate-100"}  bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}>
               <label for="scales">Départ : {route.starting_location}, Arrivée : {route.arrival_location}</label>
-              <button onClick={() => submitRouteSelected(route)} className="m-2 bg-vert hover:bg-verth rounded-md text-white font-normal shadow-md py-0 px-1">
-                Selectionner
-              </button>
+
             </div>
           ))}
         </div>
