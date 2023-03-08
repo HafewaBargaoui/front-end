@@ -11,6 +11,7 @@ import {
   URL_CARTE,
   URL_REGISTER,
   URL_DELETE_ACCOUNT,
+  URL_COINS,
 } from "../../constants/urls/urlFrontEnd";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
@@ -259,7 +260,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href={URL_COINS}
                 className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
               >
                 BuddyCoins

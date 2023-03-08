@@ -135,15 +135,10 @@ const Login = () => {
 							</span> */}
 							Connexion
 						</button>
-						<div className="flex justify-between  mt-8">
+						<div className="flex justify-center  mt-8">
 							<button className="btn bg-cyan-600 hover:bg-cyan-500  "
               					onClick={handleForgetLogin}                        >
 								Mot de passe oublié
-							</button>
-
-							<button className="btn bg-cyan-600 hover:bg-cyan-500"
-								onClick={handleForgetEmail} 		>
-								Adresse Email oubliée
 							</button>
 						</div>
 					</div>
