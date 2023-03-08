@@ -20,6 +20,11 @@ const Trajets = () => {
   const [infos, setinfos] = useState([])
   const [route, setroute] = useState([])
 
+
+  const [driver, setdriver] = useState([])
+  const [driverRoutes, setdriverRoutes] = useState([])
+  const [driverPic, setdriverPic] = useState([])
+
   const trajets = [
     {
       id: 1,
@@ -100,15 +105,16 @@ const Trajets = () => {
     setinfos([response.data])
     setroute(response.data.route)
   };
-  console.log(infos);
+
 
   const submittedJourney = async () => {
     const response = await userSubmittedJourney();
     console.log(response.data)
-
+    setdriver(response.data.driverInfo)
+    setdriverRoutes(response.data.driverRoutes)
+    setdriverPic(response.data.profilePrefs)
+    
   };
-
-
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -130,7 +136,7 @@ const Trajets = () => {
           onClick={() => setHisto(!histo)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">historique</span>
+            trajet / <span className="font-light">proposés</span>
           </p>
           <img src={!histo ? haut : bas } alt="logo" />
         </div>
@@ -176,7 +182,7 @@ const Trajets = () => {
           onClick={() => setFav(!fav)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">favoris</span>
+            trajet / <span className="font-light">rejoints</span>
           </p>
           <img src={!fav ? haut : bas } alt="logo" />
         </div>
@@ -187,26 +193,26 @@ const Trajets = () => {
           }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 rounded-b-xl scrollbar`}
         >
           <div className="mt-6 mx-10">
-            {trajets.map((trajet) => (
+          {driverRoutes.map((route, i) => (
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
-                key={trajet.id}
+                key={i}
               >
-                <p className="uppercase font-semibold m-2">{trajet.date}</p>
-                <p className="uppercase font-semibold m-2">{trajet.heure}</p>
+                <p className="uppercase font-semibold m-2">{route.departure_date}</p>
+                <p className="uppercase font-semibold m-2">{route.departure_time}</p>
                 <p className="uppercase font-semibold m-2">
-                  {trajet.depart} /{" "}
-                  <span className="font-light">{trajet.arrive}</span>
+                  {route.starting_location.split(",", [1])} /{" "}
+                  <span className="font-light">{route.arrival_location.split(",", [1])}</span>
                 </p>
 
-                <img src={paul} alt="photo conducteur" className="w-8 h-8" />
+                <img src={driverPic[i]} alt="photo conducteur" className="w-8 h-8" />
                 <p className="uppercase font-semibold m-2">
-                  {trajet.conducteur} /{" "}
-                  <span className="font-light">{trajet.modele}</span>
+                  {driver[i].name} /{" "}
+                  <span className="font-light">{route.vehicule.brand}</span>
                 </p>
                 <div className="grid grid-flow-col place-items-center">
-                  <img src={trajet.coin} alt="buddycoin" className="w-4 h-4" />
-                  <span className="font-light">{trajet.tarif}</span>
+                  <img src={buddycoin} alt="buddycoin" className="w-4 h-4" />
+                  <span className="font-light">{route.point_cost}</span>
                 </div>
               </div>
             ))}
@@ -222,7 +228,7 @@ const Trajets = () => {
           onClick={() => setRecurent(!recurent)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">récurents</span>
+            trajet / <span className="font-light">favoris</span>
           </p>
           <img src={!recurent ? haut : bas } alt="logo" />
         </div>
@@ -268,7 +274,7 @@ const Trajets = () => {
           onClick={() => setPropose(!propose)}
         >
           <p className="uppercase font-semibold m-2">
-            trajet / <span className="font-light">proposés</span>
+            trajet / <span className="font-light">historique</span>
           </p>
           <img src={!propose ? haut : bas } alt="logo" />
         </div>
