@@ -15,3 +15,5 @@ export const URL_BACK_GET_DRIVER_ROUTE ='/routeSelected';
 export const URL_BACK_PUT_USER_ROOM ='/userRoomUser';
 export const URL_BACK_USER_JOURNEY ='/userJourney';
 export const URL_BACK_USER_SUBMITTEDJOURNEY ='/userSubmittedJourney';
+export const URL_STRIPE ='/create-checkout-session';
+export const URL_TRADER ='/userTrader';

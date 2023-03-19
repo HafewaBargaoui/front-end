@@ -2,6 +2,12 @@ import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../../api/backend/account";
 import { selectIsLogged, selectUser, selectToken } from "../../redux-store/authenticationSlice";
+import {
+  URL_BUYCOINS,
+  URL_SELLCOINS
+} from "../../constants/urls/urlFrontEnd";
+import { Link } from "react-router-dom";
+
 
 const ProfilBuddycoins = () => {
 
@@ -27,25 +33,31 @@ const ProfilBuddycoins = () => {
     <div className="grid place-content-center">
       <div className="grid grid-flow-col gap-16 mt-12 mb-12 justify-content-center mx-8 text-black">
       <div className="grid place-items-center mt-4 text-black">
-            <img
-              className="w-24"
-              src="imgs/6-removebg-preview.png"
-            />
-            <p className="mt-2 text-lg font-thin">{users ? users.points : "votre solde"}</p>
-         
-          </div>
+        <img
+          className="w-24"
+          src="imgs/6-removebg-preview.png"
+        />
+        <p className="mt-2 text-lg font-thin">{users ? users.points : "votre solde"}</p>
+      </div>
 
         <div className="grid place-content-center">
 
         <button className="mt-6 bg-jauneh hover:bg-jaune rounded-md text-black  font-normal shadow-md  py-2 px-4">
-        Historique des transactions
-      </button>
-      
-      <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
-        Acheter des BuddyCoins
-      </button>
+          Historique des transactions
+        </button>
 
-        </div>
+        <Link to={URL_SELLCOINS}>
+          <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+              Vendre des BuddyCoins
+          </button>
+        </Link>
+
+        <Link to={URL_BUYCOINS}>
+          <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+              Acheter des BuddyCoins
+          </button>
+        </Link>
+      </div>
 
 
       </div>

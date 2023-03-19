@@ -28,18 +28,17 @@ const Navbar = () => {
   const isAuthenticated = useSelector(selectIsLogged);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector(selectUser);
   const [photo, setphoto] = useState([]);
 
   const profilePic = async () => {
-    const response = await getProfile(user.id);
-    setphoto(response.data.userPrefs.file[0].filename)
+      const response = await getProfile();
+      setphoto(response.data.userPrefs.file[0].filename)
   }
   useEffect(() => {
-    if (isAuthenticated) {
+    if (photo) {
       profilePic();
     }
-  }, [isAuthenticated])
+  }, [])
 
 
   const logOut = (values) => {
@@ -93,14 +92,12 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-
-
-                            <a
-                              href={URL_CHAT_SOCKET}
+                            <Link
+                              to={URL_CHAT_SOCKET}
                               className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
                               Messagerie
-                            </a>
+                            </Link>
                           </button>
                         )}
                       </Menu.Item>
@@ -112,12 +109,12 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-                            <a
-                              href={URL_PROFILEPREFS}
+                            <Link
+                              to={URL_PROFILEPREFS}
                               className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
                               preferences
-                            </a>
+                            </Link>
                           </button>
                         )}
                       </Menu.Item>
@@ -131,12 +128,12 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-                            <a
-                              href={URL_PROFIL}
+                            <Link
+                              to={URL_PROFIL}
                               className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
                               profil
-                            </a>
+                            </Link>
                           </button>
                         )}
                       </Menu.Item>
@@ -151,18 +148,16 @@ const Navbar = () => {
                           >
 
 
-                            <a
-                              href="/createTrajet"
+                            <Link
+                              to="/createTrajet"
                               className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
                             >
                               Créer un trajet
-                            </a>
+                            </Link>
                           </button>
                         )}
                       </Menu.Item>
-
                     </div>
-
                   </>
                   :
                   <div className="px-1 py-1">
@@ -174,12 +169,12 @@ const Navbar = () => {
                               : "text-gray-300"
                             } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                         >
-                          <a
-                            href={URL_REGISTER}
+                          <Link
+                            to={URL_REGISTER}
                             className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
                           >
                             s'inscrire
-                          </a>
+                          </Link>
                         </button>
                       )}
                     </Menu.Item>
@@ -198,22 +193,18 @@ const Navbar = () => {
                         group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                       >
                         {isAuthenticated ?
-                          <a
+                          <Link
                             onClick={logOut}
-
                             className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded font-semibold  hover:scale-105 md:hover:bg-transparent  md:p-0"
                           >
                             déconnexion
-                          </a>
+                          </Link>
                           :
-                          <a
-                            href={URL_LOGIN}
+                          <Link to={URL_LOGIN}
                             className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded font-semibold  hover:scale-105 md:hover:bg-transparent  md:p-0"
                           >
                             connexion
-                          </a>
-
-
+                          </Link>
                         }
                       </button>
                     )}
@@ -229,29 +220,23 @@ const Navbar = () => {
         >
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0 ml-12">
             <li>
-              <a
-                href={URL_SEARCH}
-                className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 "
-                aria-current="page"
-              >
-                Chercher un trajet
-              </a>
+                <Link to={URL_SEARCH} className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 " aria-current="page" >
+                  Chercher un trajet
+                </Link>
             </li>
             <li>
-              <a
-                href={URL_TRAJETS}
-                className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
+                <Link to={URL_TRAJETS}
+                  className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
               >
                 Liste des trajets{" "}
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href={URL_COINS}
-                className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-              >
+                <Link to={URL_COINS}
+                  className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
+                >
                 BuddyCoins
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

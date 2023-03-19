@@ -4,7 +4,7 @@ import {
 	getPayloadToken,
 	isTokenValid,
 	setToken,
-} from "./..//services/tokenServices";
+} from "./../services/tokenServices";
 
 /**
  * initial state: {

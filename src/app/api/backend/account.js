@@ -16,6 +16,8 @@ import {
 	URL_BACK_PUT_USER_ROOM,
 	URL_BACK_USER_JOURNEY,
 	URL_BACK_USER_SUBMITTEDJOURNEY,
+	URL_STRIPE,
+	URL_TRADER,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
@@ -106,4 +108,12 @@ export function userJourney() {
 
 export function sellBuddyCoins() {
 	return apiBackEnd.get();
+}
+
+export function paiementStripe(values) {
+	return apiBackEnd.post(URL_STRIPE, values);
+}
+
+export function getTrader(values) {
+	return apiBackEnd.get(URL_TRADER, values);
 }

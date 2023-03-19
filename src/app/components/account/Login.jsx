@@ -1,13 +1,14 @@
-import {LockClosedIcon} from "@heroicons/react/solid";
+import { LockClosedIcon } from "@heroicons/react/solid";
 import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
-import {Field, Form, Formik} from "formik";
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {Link, useNavigate} from "react-router-dom";
+import { Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
-import {URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL} from "../../constants/urls/urlFrontEnd";
-import {signIn} from "../../redux-store/authenticationSlice";
-import {authenticate} from "./../../api/backend/account";
+import { URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL } from "../../constants/urls/urlFrontEnd";
+import { signIn } from "../../redux-store/authenticationSlice";
+import { getUser } from "../../redux-store/getUserSlice";
+import { authenticate, getProfile } from "./../../api/backend/account";
 
 /**
  * Component Login
@@ -16,44 +17,42 @@ import {authenticate} from "./../../api/backend/account";
  */
 const Login = () => {
 	const [errorLog, setErrorLog] = useState(false);
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
+	const data = async() => 
+	{
+		const response = await getProfile()
+		dispatch(getUser({ type: "user", payload: response.data }));
+	}
 
 	const handleLogin = (values) => {
 		authenticate(values)
 			.then((res) => {
 				if (res.status === 200) {
+					data();
 					dispatch(signIn(res.data));
 					navigate(URL_HOME);
 				} else {
-					console.log(res.message);
 					dispatch(signIn(res.data));
 					navigate(URL_HOME);
-				} 
+				}
 			})
 			.catch((error) => setErrorLog(error));
 	};
-  const handleForgetLogin = () => {
-
-
-					navigate(URL_FORGET_LOGIN);
-				
-			
+	const handleForgetLogin = () => {
+		navigate(URL_FORGET_LOGIN);
 	};
 	const handleForgetEmail = () => {
-
 		navigate(URL_FORGET_EMAIL);
-	
+	};
 
-};
+	// handle toggle password
 
-// handle toggle password
-  
 	const [open, setOpen] = useState(false)
-	const toggle = () =>{
-	setOpen(!open)
-};
+	const toggle = () => {
+		setOpen(!open)
+	};
 	return (
 		<div className="w-full max-w-xl space-y-3 rounded-lg pb-8 px-4 shadow lg:px-8 bg-cover bg-slate-500">
 			<div className="place-content-center">
@@ -89,29 +88,29 @@ const Login = () => {
 					<div className="flex flex-col space-y-3 relative">
 						<label
 							className=" text-gray-800 text-md font-semibold"
-							
+
 							htmlFor="password"
 						>
 							Mot de Passe :{" "}
 						</label>
 
 						<Field
-							type={(open === false)? 'password' :'text'}
+							type={(open === false) ? 'password' : 'text'}
 							name="password"
 							placeholder="***********"
 							autoComplete="current-password"
 							className="inputInscription"
 						/>
-							<div className="text-2xl absolute top-9 right-3 z-30 w-4 cursor-pointer text-slate-600">
-                  {
-                    
-                      (open === false)? <EyeOffIcon onClick={toggle} />:
-                      <EyeIcon onClick={toggle} />
-                  }   
-                  </div>
+						<div className="text-2xl absolute top-9 right-3 z-30 w-4 cursor-pointer text-slate-600">
+							{
+
+								(open === false) ? <EyeOffIcon onClick={toggle} /> :
+									<EyeIcon onClick={toggle} />
+							}
+						</div>
 					</div>
-				
-           
+
+
 					{/* <div className="mt-3 flex items-center justify-between">
 						<div className="text-sm">
 							<Link to="/forgot-password">
@@ -137,7 +136,7 @@ const Login = () => {
 						</button>
 						<div className="flex justify-center  mt-8">
 							<button className="btn bg-cyan-600 hover:bg-cyan-500  "
-              					onClick={handleForgetLogin}                        >
+								onClick={handleForgetLogin}                        >
 								Mot de passe oublié
 							</button>
 						</div>

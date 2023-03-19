@@ -8,7 +8,9 @@ import {
 } from "../constants/urls/urlFrontEnd";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
-
+import { selectUserData } from "../redux-store/getUserSlice";
+import { useSelector } from 'react-redux';
+import { selectUser } from "../redux-store/authenticationSlice";
 
 export default function HomePageView() {
   const {
@@ -31,6 +33,7 @@ const filteredArrive =
 	? resultsArrive
 	: resultsArrive.filter((arrive) => arrive.name);
 
+  console.log(useSelector(selectUser));
 
   return (
     <div className="accueil bg-cover bg-[url('./imgs/gradientAccueilCarbuddy.png')]">

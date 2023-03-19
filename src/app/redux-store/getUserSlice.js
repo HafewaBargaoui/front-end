@@ -1,26 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
-import { getProfile } from "../api/backend/account";
 
 const initialState = {
-	userData : null,
-	data : null
+	userData : {}
 };
 
 export const getUserSlice = createSlice({
 	name: "user",
 	initialState,
 	reducers: {
-		getUser: async (state) => 
+		getUser: (state, action) => 
 		{
-			await getProfile().then((res) =>
-			{
-				console.log(res);
-				state.userData = res;
-			});
-		 }
+			const data = action.payload;
+			state.userData = data;
+		}
 	},
 });
 
-export const { getUser } = getUserSlice.actions;
-export const selectUserdata = (state) => state.user;
+export const { getUser } = getUserSlice.actions
+export const selectUserData = (state) => state.user.userData;
 export default getUserSlice.reducer;
