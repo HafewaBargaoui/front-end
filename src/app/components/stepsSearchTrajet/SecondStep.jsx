@@ -32,7 +32,7 @@ const SecondStep = ({
     setRouteSelected(route);
     setselect(!select);
   };
-
+console.log(driverRouteSelected);
   return (
     <div>
       <div className="rounded-xl p-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80 text-center">
@@ -74,8 +74,8 @@ const SecondStep = ({
               <div className="grid grid-cols-7 place-items-center p-2 ">
                 <div className="">
                   <div className="grid grid-flow-col place-items-center cursor-pointer " onClick={() => setshowMyModal(true)}>
-                    <img src={paul} alt="driver" className="w-12 h-12 mr-4"  />
-                    <span className="font-semibold">Paul</span>
+                    <img src={route.id_user.id_user_preference.file[0].filename} alt="driver" className="w-12 h-12 mr-4"  />
+                    <span className="font-semibold">{route.id_user.name}</span>
                     <span className="font-light"> / {route.vehicule.brand}</span>
                   </div>    
                 </div>
