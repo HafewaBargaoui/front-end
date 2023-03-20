@@ -28,9 +28,8 @@ const chatSocket = () => {
         setRoomSelected(response.data);
         console.log(response.data);
     }, [setHistory, setRoomSelected]);
-    
-    useEffect(async () => 
-    {
+
+    useEffect(async () => {
         socket = io(url, {
             query: { token: token }
         });
@@ -65,25 +64,24 @@ const chatSocket = () => {
 
     return (
 
-        <div className="h-full bg-cover bg-[#e5f6ec]">
-            <h1 className="flex flex-wrap mb-5 justify-center">Messagerie trajet</h1>
-            <section className="flex">
+        <div className='h-full bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
+            <h3 className="text-white flex justify-center py-16 underline underline-offset-4">Messagerie du trajet :</h3>
 
-                <div className="mt-16">
-                    <div className="ml-16 flex-wrap w-full h-80 border border-sky-500 rounded-lg bg-[#efefef]">
-                        <h5>Rooms</h5>
+            <div className="flex flex-row justify-center">
+                <div className="rounded-lg px-4 lg:px-8 mt-6 mr-12">
+                    <div className="ml-32 w-full h-80 border border-sky-500 rounded-lg bg-[#efefef]">
+                        <h5 className="flex justify-center underline underline-offset-4 font-medium mt-4">Rooms :</h5>
                         <div className="leading-10">
-
                             {roomSelected.map((roomSelected, index) => (
                                 <div key={index}>
-                                    <button  onClick={() => joinRoomId(index)}>{roomSelected.room[0].name}</button>
+                                    <button onClick={() => joinRoomId(index)}>{roomSelected.room[0].name}</button>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-                
-                <div className="flex p-5 ml-24 mr-56 mt-16 flex-wrap w-full border border-sky-500 bg-white rounded-lg outline outline-offset-2 outline-blue-500 overflow-y-auto max-h-96">
+
+                <div className="flex p-5 ml-36 mr-56 mt-6 flex-wrap w-full border border-sky-500 bg-white rounded-lg outline outline-offset-2 outline-blue-500 overflow-y-auto max-h-96">
 
                     <div className="">
                         {history.map((message, index) => (
@@ -100,18 +98,19 @@ const chatSocket = () => {
                     </div>
 
                 </div>
-
-            </section>
-                    <div className="flex flex-wrap justify-center w-full mt-6">
-                        <input
-                            className="rounded-lg"
-                            type="text"
-                            placeholder="message"
-                            value={message}
-                            onChange={(event) => setMessage(event.target.value)}
-                        />
-                        <button onClick={sendMessage}>Envoyé</button>
-                    </div>
+            </div>
+            <div className="flex flex-wrap justify-center mt-8 ">
+                <input
+                    className="rounded-lg mr-8 w-96"
+                    type="text"
+                    placeholder="Entrez votre message"
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                />
+                <button
+                    className="text-white p-4 bg-vert hover:bg-verth rounded-lg"
+                    onClick={sendMessage}>Envoyer</button>
+            </div>
         </div>
     );
 }

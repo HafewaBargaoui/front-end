@@ -7,6 +7,8 @@ import bas from "../../assets/images/profil/flecheBas.png";
 import { userJourney, userSubmittedJourney } from "../../api/backend/account";
 import { useSelector } from "react-redux";
 import {selectIsLogged, selectUser} from "../../redux-store/authenticationSlice";
+import { Fade } from "react-awesome-reveal";
+
 
 const Trajets = () => {
   const isAuthenticated = useSelector(selectIsLogged);
@@ -148,6 +150,8 @@ const Trajets = () => {
         >
           <div className="mt-6 mx-10">
             {route.map((route, i) => (
+              <Fade cascade>
+
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={i}
@@ -169,6 +173,7 @@ const Trajets = () => {
                   <span className="font-light">{route.point_cost}</span>
                 </div>
               </div>
+              </Fade>
             ))}
           </div>
         </div>
@@ -193,6 +198,8 @@ const Trajets = () => {
           }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 rounded-b-xl scrollbar`}
         >
           <div className="mt-6 mx-10">
+          <Fade>
+
           {driverRoutes.map((route, i) => (
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
@@ -216,6 +223,7 @@ const Trajets = () => {
                 </div>
               </div>
             ))}
+          </Fade>
           </div>
         </div>
       </div>
@@ -239,6 +247,8 @@ const Trajets = () => {
           }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 rounded-b-xl scrollbar`}
         >
           <div className="mt-6 mx-10">
+          <Fade>
+
             {trajets.map((trajet) => (
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
@@ -262,6 +272,7 @@ const Trajets = () => {
                 </div>
               </div>
             ))}
+          </Fade>
           </div>
         </div>
       </div>
@@ -285,6 +296,8 @@ const Trajets = () => {
           }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 rounded-b-xl scrollbar`}
         >
           <div className="mt-6 mx-10">
+          <Fade>
+
           {route.map((route, i) => (
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
@@ -308,6 +321,7 @@ const Trajets = () => {
                 </div>
               </div>
             ))}
+          </Fade>
           </div>
         </div>
       </div>

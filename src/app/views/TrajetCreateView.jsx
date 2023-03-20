@@ -62,7 +62,9 @@ const TrajetCreateView = () => {
 
   return (
     <>
-      <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
+      {/* <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer "> */}
+      <div className='h-full bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
+
 
         <div className=" pt-8 mb-12 grid gap-4 place-content-center ">
           {!clickNext && (
@@ -94,9 +96,8 @@ const TrajetCreateView = () => {
           )}
 
           {clickNext && !clickSuivant && (
-            <div className="h-screen w-screen">
+            <div className="">
           
-
               <CarteCreate
                 trajetDepart={trajetDepart}
                 trajetArrive={trajetArrive}

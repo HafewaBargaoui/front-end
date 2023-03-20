@@ -169,7 +169,7 @@ const AddVehiculeModal = ({
   return (
     <form method="post" onSubmit={formik.handleSubmit} itemRef="form">
       <div
-        className="h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
+        className="h-screen w-screen z-50 absolute top-0 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
         onClick={clickOut}
       >
         <div ref={modalRef}>

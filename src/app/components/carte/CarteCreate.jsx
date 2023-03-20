@@ -29,15 +29,15 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
 
   const submitTrajet = async () => {
     const datas = {
-      starting_location: trajetDepart.name  ,
-      arrival_location: trajetArrive.name ,
+      starting_location: trajetDepart.name,
+      arrival_location: trajetArrive.name,
       distance: distanceTrajet,
-      departure_time:  heureDepart,
-      duration:  tempsTrajet,
-      departure_date:  dateDepart,
-      point_cost:  coinCost,
-      starting_latlng: DepartLatLng, 
-      arrival_latlng:  ArriveLatLng,
+      departure_time: heureDepart,
+      duration: tempsTrajet,
+      departure_date: dateDepart,
+      point_cost: coinCost,
+      starting_latlng: DepartLatLng,
+      arrival_latlng: ArriveLatLng,
       vehicule: voiture,
     }
     console.log(datas);
@@ -57,25 +57,25 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
     {
       selectedDepart
         ? (waypoints[0] = L.latLng(
-            selectedDepart.center.lat,
-            selectedDepart.center.lng
-          ))
+          selectedDepart.center.lat,
+          selectedDepart.center.lng
+        ))
         : (waypoints[0] = L.latLng(
-            trajetDepart.center.lat,
-            trajetDepart.center.lng
-          ));
+          trajetDepart.center.lat,
+          trajetDepart.center.lng
+        ));
     }
 
     {
       selectedArrive
         ? (waypoints[1] = L.latLng(
-            selectedArrive.center.lat,
-            selectedArrive.center.lng
-          ))
+          selectedArrive.center.lat,
+          selectedArrive.center.lng
+        ))
         : (waypoints[1] = L.latLng(
-            trajetArrive.center.lat,
-            trajetArrive.center.lng
-          ));
+          trajetArrive.center.lat,
+          trajetArrive.center.lng
+        ));
     }
 
     const routingControl = L.Routing.control({
@@ -110,37 +110,49 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
       setArriveLatLng(routes[0].waypoints[1].latLng)
     });
   }, []);
-  
-  return (
-    <div className="w-full h-full grid grid-flow-col">
-      <div id="map" className="rounded-lg z-10 h-96 w-96"></div>
-      <div className="">
-        <p className="text-3xl text-white font-semibold">
-          depart : {trajetDepart.name}{" "}
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          arrivée : {trajetArrive.name}{" "}
-        </p>
 
-        <p className="text-3xl text-white font-semibold">
-          Distance : {distanceTrajet} km
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          temps : {tempsTrajet}{" "}
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          Prix : {coinCost} BuddyCoins{" "}
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          date : {dateDepart} 
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          heure départ : {heureDepart} 
-        </p>
-        <p className="text-3xl text-white font-semibold">
-          véhicule : {selectedvehicule.brand + selectedvehicule.model}  
-        </p>
-        <button onClick={submitTrajet}>envoyer</button>
+  return (
+    // <div className="">
+
+    <div className="flex flex-row justify-center mt-24">
+
+      <div id="map" className="rounded-lg h-96 w-96 mr-16"></div>
+
+      <div className="rounded-lg shadow bg-cover bg-slate-500 bg-opacity-50">
+        <div className="mx-4 my-2">
+          <p className="text-2xl text-white font-semibold mb-2">
+            Départ : {trajetDepart.name}{" "}
+          </p>
+          <p className="text-2xl text-white font-semibold mb-2">
+            Arrivée : {trajetArrive.name}{" "}
+          </p>
+
+          <p className="text-2xl text-white font-semibold mb-2">
+            Distance : {distanceTrajet} kms
+          </p>
+          <p className="text-2xl text-white font-semibold mb-2">
+            Temps : {tempsTrajet}{" "}
+          </p>
+          <p className="text-2xl text-white font-semibold mb-2">
+            Prix : {coinCost} BuddyCoins{" "}
+          </p>
+          <p className="text-2xl text-white font-semibold mb-2">
+            Date : {dateDepart}
+          </p>
+          <p className="text-2xl text-white font-semibold mb-2">
+            Heure du départ : {heureDepart}
+          </p>
+          <p className="text-2xl text-white font-semibold">
+            Véhicule : {selectedvehicule.brand + selectedvehicule.model}
+          </p>
+          <div className="px-52 mt-4 mb-2 text-center ">
+
+            <div className="text-white text-2xl bg-vert hover:bg-verth rounded-md ">
+              <button onClick={submitTrajet}>Envoyer</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );
