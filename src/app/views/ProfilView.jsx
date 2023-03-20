@@ -9,6 +9,7 @@ export default function Profil() {
       <div className="grid grid-rows-1 h-max md:grid-rows-2 grid-flow-row  md:grid-flow-col gap-y-2 md:gap-x-6">
         <div className="row-span-3 ">
           <ProfilInfos />
+
         </div>
         <div className="col-span-2 ">
           <ProfilVehicule />

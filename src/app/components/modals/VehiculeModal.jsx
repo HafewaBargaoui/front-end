@@ -32,7 +32,7 @@ const VehiculeModal = ({setVehiculeModal, vehiculeModal, nbVehicule, VehiculeSel
 
   return (
     <div
-      className="h-full w-full fixed top-0 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
+      className="h-full w-full z-50 fixed top-0 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
       onClick={clickOut}
     >
       <div ref={modalRef}>

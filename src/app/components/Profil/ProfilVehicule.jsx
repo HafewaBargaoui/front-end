@@ -9,6 +9,8 @@ import AddVehiculeModal from "../modals/AddVehiculeModal";
 import EditVehiculeModal from "../modals/EditVehiculeModal";
 import PhotoVehiculeModal from "../modals/PhotoVehiculeModal";
 import VehiculeModal from "../modals/VehiculeModal";
+import { Fade } from "react-awesome-reveal";
+import { motion } from "framer-motion";
 
 const ProfilVehicule = () => {
   const [users, setusers] = useState([]);
@@ -37,7 +39,6 @@ const ProfilVehicule = () => {
     }
   }, [isAuthenticated, count]);
 
-
   const [modalOn, setmodalOn] = useState(false);
   const [photoModal, setphotoModal] = useState(false);
   const [editModale, seteditModale] = useState(false);
@@ -56,19 +57,28 @@ const ProfilVehicule = () => {
     setVehiculeModal(true);
   };
 
+  const variants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="flex grow w-screen justify-center md:max-w-xl rounded-lg pb-8 shadow  bg-cover bg-slate-500 bg-opacity-50">
-        {nbVehicules.length == 0 && 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+      className="flex grow w-screen justify-center md:max-w-xl rounded-lg pb-8 shadow  bg-cover bg-slate-500 bg-opacity-50"
+    >
+      {nbVehicules.length == 0 && (
         <>
           <div className="grid grid-flow-row  md:grid-flow-col gap-10">
             <div className="grid place-content-center ml-10">
               <div className="flex flex-col text-black">
-                <p className="text-center font-bold text-xl">Vous n'avez pas encore ajouter de véhicule</p>
-
-              
+                <p className="text-center font-bold text-xl">
+                  Vous n'avez pas encore ajouter de véhicule
+                </p>
 
                 <div className="grid grid-flow-row">
-           
                   <button
                     className="mt-2 bg-vert hover:bg-verth rounded-md text-black font-normal shadow-md py-1 px-4"
                     onClick={modal}
@@ -128,8 +138,7 @@ const ProfilVehicule = () => {
             />
           )}
         </>
-       
-      }
+      )}
       {nbVehicules.length == 1 && (
         <>
           <div className="grid grid-flow-row  md:grid-flow-col gap-10">
@@ -232,27 +241,31 @@ const ProfilVehicule = () => {
       )}
 
       {nbVehicules.length > 1 && (
-        (
         <>
           <div className="grid grid-flow-row gap-10">
             <p className="grid text-center font-bold text-xl">Vos véhicule</p>
             <div className="grid grid-flow-col gap-4 place-items-center">
               {nbVehicules.map((vehicule, i) => (
-                <div key={i} 
-                     onClick={() => setVehiculeSelect(vehicule)}>
-
-                <div
-                  className={`grid bg-black bg-opacity-50 hover:scale-105 rounded-md shadow-md `}
-                  onClick={vehiculeclickModal}
+                <motion.div
+                  key={i}
+                  onClick={() => setVehiculeSelect(vehicule)}
+                  variants={variants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
                 >
-                  <p className="font-semibold text-center p-2 text-white">
-                    {vehicule.brand}
-                  </p>
-                  <p className="font-semibold text-center p-2 text-white">
-                    {vehicule.model}
-                  </p>
-                </div>
-                </div>
+                  <div
+                    className={`grid h-24 w-20 bg-jauneh hover:scale-105 rounded-md shadow-md `}
+                    onClick={vehiculeclickModal}
+                  >
+                    <p className="font-semibold text-center p-2 text-black">
+                      {vehicule.brand}
+                    </p>
+                    <p className="font-semibold text-center p-2 text-black">
+                      {vehicule.model}
+                    </p>
+                  </div>
+                </motion.div>
               ))}
             </div>
             <div className="grid grid-flow-col">
@@ -264,21 +277,19 @@ const ProfilVehicule = () => {
               </button>
             </div>
           </div>
-          {
-            vehiculeModal && (
-              <VehiculeModal
-                setVehiculeModal={setVehiculeModal}
-                vehiculeModal={vehiculeModal}
-                nbVehicules={nbVehicules}
-                VehiculeSelect={VehiculeSelect}
-                count={count}
-                setCount={setCount}
-                user={user}
-                users={users}
-                pref={pref}
-              />
-            )
-          }
+          {vehiculeModal && (
+            <VehiculeModal
+              setVehiculeModal={setVehiculeModal}
+              vehiculeModal={vehiculeModal}
+              nbVehicules={nbVehicules}
+              VehiculeSelect={VehiculeSelect}
+              count={count}
+              setCount={setCount}
+              user={user}
+              users={users}
+              pref={pref}
+            />
+          )}
           {modalOn && (
             <AddVehiculeModal
               setmodalOn={setmodalOn}
@@ -298,21 +309,20 @@ const ProfilVehicule = () => {
             />
           )}
           {editModale && (
-        <EditVehiculeModal
-          seteditModale={seteditModale}
-          setCount={setCount}
-          count={count}
-          user={user}
-          users={users}
-          vehicule={vehicule}
-          pref={pref}
-          photos={photos}
-        />
-      )}
+            <EditVehiculeModal
+              seteditModale={seteditModale}
+              setCount={setCount}
+              count={count}
+              user={user}
+              users={users}
+              vehicule={vehicule}
+              pref={pref}
+              photos={photos}
+            />
+          )}
         </>
-      )
       )}
-    </div>
+    </motion.div>
   );
 };
 
