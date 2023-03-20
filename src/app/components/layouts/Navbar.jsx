@@ -38,7 +38,7 @@ const Navbar = () => {
     if (photo) {
       profilePic();
     }
-  }, [])
+  }, [isAuthenticated])
 
 
   const logOut = (values) => {
