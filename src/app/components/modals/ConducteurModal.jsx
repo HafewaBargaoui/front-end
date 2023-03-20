@@ -9,12 +9,13 @@ import clim from "../../assets/images/profileprefs/clim.png";
 import voiture from "../../assets/images/voiture.png";
 import animaux from "../../assets/images/animaux.png";
 
-const ConducteurModal = ({ visible, onClose }) => {
+const ConducteurModal = ({ visible, onClose, infoRoute }) => {
   const handleOnClose = (e) => {
     if (e.target.id === "container") onClose();
   };
   if (!visible) return null;
 
+  console.log(infoRoute);
   return (
     <div
       id="container"
@@ -25,7 +26,7 @@ const ConducteurModal = ({ visible, onClose }) => {
       <div className=" h-[350px]  bg-black bg-opacity-30 shadow rounded-lg backdrop-blur-sm p-6  w-[450px] relative">
         {/* /////////////////////////////////////////////////////////////// */}
         <div className="flex justify-between items-center">
-          <img src={paul} alt="driver" className="w-20 h-20" />
+          <img src={infoRoute.id_user.id_user_preference.file[0].filename} alt="driver" className="w-20 h-20" />
 
           <div>
             <div className="grid">
@@ -57,8 +58,8 @@ const ConducteurModal = ({ visible, onClose }) => {
 
         <div className="pt-3">
           <div className="grid">
-            <span className="font-semibold text-lg"> Paul / 35 ans</span>
-            <span className=" font-thin text-lg "> Roule en Tesla Model 3</span>
+            <span className="font-semibold text-lg"> {infoRoute.id_user.name} / 35 ans</span>
+            <span className=" font-thin text-lg "> Roule en {infoRoute.vehicule.brand}</span>
           </div>
         </div>
 

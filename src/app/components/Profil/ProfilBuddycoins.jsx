@@ -40,7 +40,7 @@ return (
       <div className="grid grid-flow-col gap-16 mt-12 mb-12 justify-content-center mx-8 text-black">
         <div className="grid place-items-center mt-4 text-black">
           <img className="w-24" src="imgs/6-removebg-preview.png" />
-          <p className="mt-2 text-lg font-thin">
+          <p className="mt-2 text-lg font-semibold">
             {users ? users.points : "votre solde"}
           </p>
         </div>
@@ -60,17 +60,19 @@ return (
               </button>
             </Link>
 
+            <Link to={URL_BUYCOINS}>
+              <button className="mt-2 h-full bg-bleu hover:bg-bleuh rounded-md text-black  font-normal shadow-md  py-2 px-4">
+                Acheter des BuddyCoins
+              </button>
+            </Link>
+
             <Link to={URL_SELLCOINS}>
               <button className="mt-2 h-full bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
                 Vendre des BuddyCoins
               </button>
             </Link>
 
-            <Link to={URL_BUYCOINS}>
-              <button className="mt-2 h-full bg-bleu hover:bg-bleuh rounded-md text-black  font-normal shadow-md  py-2 px-4">
-                Acheter des BuddyCoins
-              </button>
-            </Link>
+
           </div>
         </div>
       </div>

@@ -12,7 +12,9 @@ const SecondStep = ({
   setRouteSelected,
 }) => {
   const [showMyModal, setshowMyModal] = useState(false);
+  const [infoRoute, setInfoRoute] = useState([]);
   const handleOnClose = () => setshowMyModal(false);
+
 
   const [driverRouteSelected, setDriverRoute] = useState([]);
   const [routeMatched, setRouteMatched] = useState();
@@ -73,7 +75,7 @@ console.log(driverRouteSelected);
             >
               <div className="grid grid-cols-7 place-items-center p-2 ">
                 <div className="">
-                  <div className="grid grid-flow-col place-items-center cursor-pointer " onClick={() => setshowMyModal(true)}>
+                  <div className="grid grid-flow-col place-items-center cursor-pointer " onClick={() => {setshowMyModal(true); setInfoRoute(route)}}>
                     <img src={route.id_user.id_user_preference.file[0].filename} alt="driver" className="w-12 h-12 mr-4"  />
                     <span className="font-semibold">{route.id_user.name}</span>
                     <span className="font-light"> / {route.vehicule.brand}</span>
@@ -111,14 +113,6 @@ console.log(driverRouteSelected);
                     </div>
                   </div>
                 </div>
-                <div>
-                  <button
-                    onClick={() => submitRouteSelected(route)}
-                    className=" bg-vert hover:bg-verth rounded-md  shadow-md text-white text-center py-2 px-4"
-                  >
-                    Selectionner
-                  </button>
-                </div>
               </div>
             </div>
           ))}
@@ -130,7 +124,7 @@ console.log(driverRouteSelected);
       >
         Etape suivante
       </button>
-      <ConducteurModal visible={showMyModal} onClose={handleOnClose} />
+      <ConducteurModal visible={showMyModal} onClose={handleOnClose} infoRoute={infoRoute} />
     </div>
   );
 };

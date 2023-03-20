@@ -214,7 +214,7 @@ const FirstStep = ({
 
               <div className=" p-4 bg-white rounded-md">
                 <input
-                  className="ml-2"
+                  className="ml-2 cursor-pointer"
                   type="radio"
                   name="nbr-passengers"
                   id="solo"
@@ -227,7 +227,7 @@ const FirstStep = ({
               <div className="mt-4 p-4 bg-white rounded-md">
                 <div>
                   <input
-                    className="ml-2"
+                    className="ml-2 cursor-pointer"
                     type="radio"
                     name="nbr-passengers"
                     id="accompanied"
@@ -257,7 +257,7 @@ const FirstStep = ({
                 <input
                   onClick={click}
                   value="Etape suivante"
-                  className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white text-center"
+                  className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white text-center cursor-pointer"
                 />
               </div>
             </div>
