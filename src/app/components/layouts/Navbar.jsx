@@ -84,7 +84,7 @@ const Navbar = () => {
                 {isAuthenticated ?
                   <>
                     <div className="px-1 py-1 ">
-                    <Menu.Item>
+                    <Menu.Item as={Link} to={URL_CHAT_SOCKET} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
                         {({ active }) => (
                           <button
                             className={`${active
@@ -92,16 +92,11 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-                            <Link
-                              to={URL_CHAT_SOCKET}
-                              className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
-                            >
                               Messagerie
-                            </Link>
                           </button>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      <Menu.Item as={Link} to={URL_PROFILEPREFS} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
                         {({ active }) => (
                           <button
                             className={`${active
@@ -109,18 +104,15 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-                            <Link
-                              to={URL_PROFILEPREFS}
-                              className="block py-2 pl-3 pr-4 text-white text-xs text-center rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
-                            >
+                         
                               preferences
-                            </Link>
+                           
                           </button>
                         )}
                       </Menu.Item>
                     </div>
                     <div className="px-1 py-1">
-                      <Menu.Item>
+                    <Menu.Item as={Link} to={URL_PROFIL} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
                         {({ active }) => (
                           <button
                             className={`${active
@@ -128,17 +120,12 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-                            <Link
-                              to={URL_PROFIL}
-                              className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded hover:scale-105 md:hover:bg-transparent  md:p-0"
-                            >
                               profil
-                            </Link>
                           </button>
                         )}
                       </Menu.Item>
                      
-                      <Menu.Item>
+                      <Menu.Item as={Link} to="/createTrajet" onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
                         {({ active }) => (
                           <button
                             className={`${active
@@ -146,14 +133,7 @@ const Navbar = () => {
                                 : "text-gray-300"
                               } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
                           >
-
-
-                            <Link
-                              to="/createTrajet"
-                              className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0"
-                            >
                               Créer un trajet
-                            </Link>
                           </button>
                         )}
                       </Menu.Item>
