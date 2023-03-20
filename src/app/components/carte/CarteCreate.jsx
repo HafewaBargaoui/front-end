@@ -8,6 +8,9 @@ import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import { useLocation } from "react-router-dom";
 import { createRoute } from "../../api/backend/account";
+import { useNavigate } from "react-router-dom";
+import { URL_TRAJET_VALIDE } from "../../constants/urls/urlFrontEnd";
+
 
 const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, selectedvehicule }) => {
   const location = useLocation();
@@ -26,6 +29,8 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
     model: selectedvehicule.model,
     fuel_type: selectedvehicule.fuel_type,
   })
+  const navigate = useNavigate();
+
 
   const submitTrajet = async () => {
     const datas = {
@@ -42,6 +47,7 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
     }
     console.log(datas);
     await createRoute(datas);
+    navigate(URL_TRAJET_VALIDE)
   }
 
 

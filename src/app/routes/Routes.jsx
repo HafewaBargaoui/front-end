@@ -37,6 +37,7 @@ import CoinsView from '../views/CoinsView';
 import BuyCoins from '../components/buddyCoins/BuyCoins';
 import SellCoins from '../components/buddyCoins/SellCoins';
 import HistCoins from '../components/buddyCoins/HistCoins';
+import TrajetValide from "../components/carte/TrajetValide";
 
 
 /**
@@ -113,6 +114,7 @@ const Routes = () => {
       <Route path={URL.URL_CHAT_SOCKET} element={<ChatSocket />} />
       <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} />
       <Route path={URL.URL_TRAJET_CREATE} element={<TrajetCreateView />} />
+      <Route path={URL.URL_TRAJET_VALIDE} element={<TrajetValide />} />
       <Route
         path={URL.URL_DELETE_ACCOUNT_MODAL}
         element={<DeleteAccountModal />}
