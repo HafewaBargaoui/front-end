@@ -188,24 +188,12 @@ const RegisterView = () => {
 			delete values.confirmPassword;
 			const response = await register(values);
 
-			if(response.message)
+			if(response.status == 200)
 			{
 				window.location.href=("/register-submitted");
 			}
 		}
-		
-
-    //redirection vers page message
   };
-
-  // const test = async () => {
-  // 	delete values.terms;
-  // 	delete values.confirmPassword;
-
-  // 	console.log(values);
-  // 	const response = await register(values);
-  // 	console.log(response);
-  // };
 
   return (
     <div className="accueil bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full">
