@@ -8,8 +8,6 @@
 
 
 
-
-
 @layer utilities {
     .scrollbar::-webkit-scrollbar {
       width: 10px;

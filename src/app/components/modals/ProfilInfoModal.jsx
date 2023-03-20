@@ -60,7 +60,7 @@ const ProfilInfoModal = ({
   return (
     <form method="post" onSubmit={formik.handleSubmit} itemRef="form">
       <div
-        className="h-full w-full absolute top-5 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
+        className="h-full w-full z-50 absolute top-5 left-0 flex justify-center items-center bg-black bg-opacity-75 backdrop-blur-sm x"
         onClick={clickOut}
       >
         <div ref={modalRef}>
