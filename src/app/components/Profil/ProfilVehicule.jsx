@@ -252,7 +252,7 @@ const ProfilVehicule = () => {
                   variants={variants}
                   initial="hidden"
                   animate="visible"
-                  transition={{ delay: 1 + i * 0.1, duration: 0.5 }}
+                  transition={{ delay: 0.3 + i * 0.1, duration: 0.3 }}
                 >
                   <div
                     className={`grid h-24 w-20 bg-jauneh hover:scale-105 rounded-md shadow-md `}

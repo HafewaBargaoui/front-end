@@ -32,9 +32,9 @@ useEffect(() => {
 
 return (
   <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ delay: 1, duration: 0.2 }}
+    initial={{ opacity: 0, x: 100 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.8, duration: 0.5 }}
     className="flex grow w-screen md:max-w-xl space-y-3 rounded-lg pb-8  px-4 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
     <div className="grid place-content-center">
       <div className="grid grid-flow-col gap-16 mt-12 mb-12 justify-content-center mx-8 text-black">
@@ -45,29 +45,29 @@ return (
           </p>
         </div>
 
-        <div className="grid place-content-center">
-          <div className="grid place-content-center">
+        <div>
+          <div className="grid grid-cols-2 gap-1">
 
             <Link to={URL_COINS}>
-              <button className="mt-6 bg-jauneh hover:bg-jaune rounded-md text-black  font-normal shadow-md  py-2 px-4">
-                A quoi ca sert ?
+              <button className="mt-2 h-full bg-jaune  hover:bg-jauneh rounded-md text-black  font-normal shadow-md  py-2 px-4">
+                A quoi ça peut bien servir ?
               </button>
             </Link>
 
             <Link to={URL_SELLCOINS}>
-              <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+              <button className="mt-2 h-full bg-rose hover:bg-roseh rounded-md text-black  font-normal shadow-md  py-2 px-4">
                 Historique des transactions
               </button>
             </Link>
 
             <Link to={URL_SELLCOINS}>
-              <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+              <button className="mt-2 h-full bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
                 Vendre des BuddyCoins
               </button>
             </Link>
 
             <Link to={URL_BUYCOINS}>
-              <button className="mt-2 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4">
+              <button className="mt-2 h-full bg-bleu hover:bg-bleuh rounded-md text-black  font-normal shadow-md  py-2 px-4">
                 Acheter des BuddyCoins
               </button>
             </Link>
@@ -75,6 +75,6 @@ return (
         </div>
       </div>
     </div>
-  </motion.div >
+  </motion.div>
 )}
 export default ProfilBuddycoins;
