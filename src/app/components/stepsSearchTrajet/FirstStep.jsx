@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
+import {LocationMarkerIcon} from "@heroicons/react/outline";
 
 const FirstStep = ({
   click,
@@ -19,7 +20,7 @@ const FirstStep = ({
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
-        <div className="grid grid-cols-2">
+        <div className=" grid grid-cols-1 md:grid-cols-2">
           {/*//////////////////////////////////////// Depart ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
@@ -28,20 +29,26 @@ const FirstStep = ({
             >
               Départ :
             </label>
+            
             <Combobox value={selectedDepart} onChange={setselectedDepart}>
               <div className="relative mt-1">
-                <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                <div className="text-slate-400 focus-within:text-gray-600 relative flex items-center w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm ">
+                <LocationMarkerIcon
+                                    className="h-5 w-5 absolute ml-3 pointer-events-none"
+                                    aria-hidden="true"
+                                    
+                                  />
                   <Combobox.Input
-                    className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+                    className="w-full border-none py-2 pl-10 pr-3 text-sm leading-5 text-gray-900 ring-2 focus:ring-0"
                     displayValue={(depart) => depart.name}
                     onChange={(e) => setDepart(e.target.value)}
                     autoComplete="off"
                   />
                   <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                    <ChevronUpIcon
+                    {/* <ChevronUpIcon
                       className="h-5 w-5 text-gray-400"
                       aria-hidden="true"
-                    />
+                    /> */}
                   </Combobox.Button>
                 </div>
                 <Transition
@@ -108,18 +115,23 @@ const FirstStep = ({
             </label>
             <Combobox value={selectedArrive} onChange={setselectedArrive}>
               <div className="relative mt-1">
-                <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                <div className="relative flex items-center text-slate-400 focus-within:text-gray-600  w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                <LocationMarkerIcon
+                                    className="h-5 w-5 absolute ml-3 pointer-events-none"
+                                    aria-hidden="true"
+                                    
+                                  />
                   <Combobox.Input
-                    className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+                    className="w-full border-none py-2 pl-10 pr-3 text-sm leading-5 text-gray-900 focus:ring-0"
                     displayValue={(arrive) => arrive.name}
                     onChange={(e) => setArrive(e.target.value)}
                     autoComplete="off"
                   />
                   <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                    <ChevronUpIcon
+                    {/* <ChevronUpIcon
                       className="h-5 w-5 text-gray-400"
                       aria-hidden="true"
-                    />
+                    /> */}
                   </Combobox.Button>
                 </div>
                 <Transition
@@ -240,6 +252,7 @@ const FirstStep = ({
                   ></input>
                 </div>
               </div>
+              
               <div>
                 <input
                   onClick={click}

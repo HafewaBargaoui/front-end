@@ -51,10 +51,7 @@ const SearchTrajetView = () => {
 
   return (
     <>
-
-    <div className="container flex ">
-
-    </div>
+      <div className="container flex "></div>
       <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
         <div className="grid grid-flow-col text-center text-sm font-normal mx-4 p-4  ">
           {/* //////////////////////////////////////// Affichage conditionnel ////////////////////////////////////////*/}
@@ -119,26 +116,31 @@ const SearchTrajetView = () => {
           )}
           {clickNext && !clickSuivant && (
             <div className="">
-              <PrefsTrajet />
+              {/* <PrefsTrajet /> */}
 
-              <Carte 
+              {/* <Carte 
                 trajetDepart={trajetDepart}
                 trajetArrive={trajetArrive}
-              />
+              /> */}
               <SecondStep
                 setclickSuivant={setclickSuivant}
-                setRouteSelected = {setRouteSelected}
-                routeSelected = {routeSelected}
-                trajetDepart = {trajetDepart}
-                trajetArrive = {trajetArrive}
+                setRouteSelected={setRouteSelected}
+                routeSelected={routeSelected}
+                trajetDepart={trajetDepart}
+                trajetArrive={trajetArrive}
                 click2={click2}
               />
             </div>
           )}
 
           {clickSuivant && (
-          <ThirdStep 
-          routeSelected = {routeSelected} />)}
+            <div className="grid grid-cols-2">
+              <div><Carte trajetDepart={trajetDepart} trajetArrive={trajetArrive} /></div>
+                <div><ThirdStep routeSelected={routeSelected} /></div>
+              
+             
+            </div>
+          )}
         </div>
       </div>
     </>
