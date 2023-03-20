@@ -26,6 +26,7 @@ export const URL_DELETE_ACCOUNT_MODAL = "/deleteAccountModal";
 export const URL_SEARCH = `/search`;
 export const URL_TRAJET_CREATE = `/createTrajet`;
 export const URL_TRAJET_VALIDE = `/trajetvalide`;
+export const URL_TRAJET_SEARCH_VALIDE = `/validatedSearch`;
 
 export const URL_CHAT_SOCKET ='/chat';
 

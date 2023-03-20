@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import ValidatedSearch from "./ValidatedSearch";
+import React from "react";
 import { updateRoomUser } from "../../api/backend/account";
 import paul from "../../assets/images/profil/fakeUser3.png";
 import { StarIcon } from "@heroicons/react/solid";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
+import { useNavigate } from "react-router-dom";
+import { URL_TRAJET_SEARCH_VALIDE } from "../../constants/urls/urlFrontEnd";
+
 // Implementer la verification si user connecte sinon refuser la validation
 
 const ThirdStep = (routeSelected) => {
-  const [next, setnext] = useState(false);
+  const navigate = useNavigate();
+
 
   const submitRouteSelected = async (route) => {
     updateRoomUser(route);
-    setnext(!next);
+    navigate(URL_TRAJET_SEARCH_VALIDE);
   };
   return (
     <div>
@@ -111,7 +114,6 @@ const ThirdStep = (routeSelected) => {
         </div>
       </div>
 
-      {next && <ValidatedSearch />}
     </div>
   );
 };
