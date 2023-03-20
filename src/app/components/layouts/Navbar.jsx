@@ -66,7 +66,7 @@ const Navbar = () => {
           <Menu as="div" className=" relative w-24 mr-16 opacity-100 z-50 ">
             <Menu.Button className={`inline-flex w-20 justify-center rounded-full bg-black px-4 py-4 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}>
               {isAuthenticated && photo != "" ?
-                <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src={photo} />
+                <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full w-12 h-12"}`} src={photo} />
                 :
                 <img className={`${isAuthenticated && "border-2 border-green-500 rounded-full"}`} src={avatar} />
               }

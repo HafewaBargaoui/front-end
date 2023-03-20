@@ -71,7 +71,7 @@ const ProfilInfos = () => {
             <div className="grid place-items-center m-4 text-black">
               {photo != "" ? (
                 <img
-                  className="w-16 rounded-full border-2 border-green-500"
+                  className="w-16 h-16 rounded-full border-2 border-green-500"
                   src={photo}
                 />
               ) : (
