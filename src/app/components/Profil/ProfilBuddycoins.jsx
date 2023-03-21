@@ -8,7 +8,8 @@ import { selectIsLogged, selectUser, selectToken } from "../../redux-store/authe
 import {
   URL_BUYCOINS,
   URL_SELLCOINS,
-  URL_COINS
+  URL_COINS, 
+  URL_HISTCOINS
 } from "../../constants/urls/urlFrontEnd";
 
 const ProfilBuddycoins = () => 
@@ -54,7 +55,7 @@ return (
               </button>
             </Link>
 
-            <Link to={URL_SELLCOINS}>
+            <Link to={URL_HISTCOINS}>
               <button className="mt-2 h-full bg-rose hover:bg-roseh rounded-md text-black  font-normal shadow-md  py-2 px-4">
                 Historique des transactions
               </button>
