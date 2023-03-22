@@ -34,3 +34,4 @@ export const URL_COINS ='/coins';
 export const URL_BUYCOINS ='/buyCoins';
 export const URL_SELLCOINS ='/sellCoins';
 export const URL_HISTCOINS ='/histCoins';
+export const URL_VOS_TRAJETS ='/TrajetsEnCours';

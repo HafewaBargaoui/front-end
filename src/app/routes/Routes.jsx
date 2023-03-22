@@ -39,7 +39,7 @@ import SellCoins from '../components/buddyCoins/SellCoins';
 import HistCoins from '../components/buddyCoins/HistCoins';
 import TrajetValide from "../components/carte/TrajetValide";
 import ValidatedSearch from "../components/stepsSearchTrajet/ValidatedSearch";
-
+import VosTrajetsView from "../views/VosTrajetsView";
 
 /**
  * Routes of the application
@@ -125,6 +125,7 @@ const Routes = () => {
       <Route path={URL.URL_BUYCOINS} element={<BuyCoins />} />
       <Route path={URL.URL_SELLCOINS} element={<SellCoins />} />
       <Route path={URL.URL_HISTCOINS} element={<HistCoins />} />
+      <Route path={URL.URL_VOS_TRAJETS} element={<VosTrajetsView />} />
 
     </RoutesContainer>
   );

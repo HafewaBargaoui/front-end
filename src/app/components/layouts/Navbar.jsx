@@ -13,6 +13,7 @@ import {
   URL_SEARCH,
   URL_CHAT_SOCKET,
   URL_COINS,
+  URL_VOS_TRAJETS,
 } from "../../constants/urls/urlFrontEnd";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
@@ -84,6 +85,18 @@ const Navbar = () => {
                 {isAuthenticated ?
                   <>
                     <div className="px-1 py-1 ">
+                    <Menu.Item as={Link} to={URL_VOS_TRAJETS} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
+                        {({ active }) => (
+                          <button
+                            className={`${active
+                                ? "bg-black bg-opacity-95 text-white"
+                                : "text-gray-300"
+                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
+                          >
+                              Vos Trajets
+                          </button>
+                        )}
+                      </Menu.Item>
                     <Menu.Item as={Link} to={URL_CHAT_SOCKET} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
                         {({ active }) => (
                           <button
