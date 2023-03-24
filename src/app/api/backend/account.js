@@ -18,6 +18,7 @@ import {
 	URL_BACK_USER_SUBMITTEDJOURNEY,
 	URL_STRIPE,
 	URL_TRADER,
+	URL_EMAIL_PAIEMENT,
 	URL_BACK_UPDATE_ROUTE,
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
@@ -117,6 +118,10 @@ export function paiementStripe(values) {
 
 export function getTrader(values) {
 	return apiBackEnd.get(URL_TRADER, values);
+}
+
+export function mailPaiement() {
+	return apiBackEnd.get(URL_EMAIL_PAIEMENT);
 }
 
 export function updateRoute(values) {
