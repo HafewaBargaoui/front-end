@@ -17,3 +17,4 @@ export const URL_BACK_USER_JOURNEY ='/userJourney';
 export const URL_BACK_USER_SUBMITTEDJOURNEY ='/userSubmittedJourney';
 export const URL_STRIPE ='/create-checkout-session';
 export const URL_TRADER ='/userTrader';
+export const URL_EMAIL_PAIEMENT ='/mailPaiement';

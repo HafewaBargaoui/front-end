@@ -1,53 +1,50 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getProfile } from "../../api/backend/account";
-import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
-import { sellBuddyCoins } from "../../api/backend/account";
-import SellBuddyCoinsModal from '../modals/SellBuddyCoinsModal';
-
+import { useSelector } from "react-redux";
+import { getProfile, getTrader } from "../../api/backend/account";
+import { selectIsLogged } from "../../redux-store/authenticationSlice";
+import { paiementStripe } from "../../api/backend/account";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
-
+import { useFormik } from "formik";
 
 const SellCoins = () => {
 
     const [users, setusers] = useState([])
+    const [coins, setCoins] = useState([])
+
     const isAuthenticated = useSelector(selectIsLogged);
-    const user = useSelector(selectUser);
 
     const userProfile = async () => {
-        const response = await getProfile(user.id);
+        const response = await getProfile();
         setusers(response.data.user)
     }
-    useEffect(() => {
-        if (isAuthenticated) {
+    useEffect(async () => 
+    {
+        if (isAuthenticated) 
+        {
+            const response = await getTrader();
+            setCoins(response.data)
             userProfile();
         }
     }, [isAuthenticated])
 
-    const [click, setclick] = useState(false)
-    const buy = async (req, res) => {
-        sellBuddyCoins();
-    };
-
-    const clicked = () => {
-        setclick(!click)
-    }
-
-    const coins = [
+    const formik = useFormik({
+        initialValues: 
         {
-            id: 1,
-            // date: "01/03/2022",
-            // conducteur: "Antoine",
-            // photo: homme1,
-            coin: buddycoin,
-            // tarif: 100,
+            coinsBuy: 0,
         },
-    ];
-
+        onSubmit: async (values) => 
+        {
+            await paiementStripe(values).then((res) => {
+                window.location.href = res.data.session
+            });
+        }
+    });
 
     return (
         <div className='h-full bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
-            <h3 className="text-white flex justify-center py-24 underline underline-offset-4">BuddyCoins mis en vente :</h3>
+        <form onSubmit={formik.handleSubmit}>
+            
+            <h3 className="text-white flex justify-center py-24 underline underline-offset-4">Achats de BuddyCoins</h3>
 
             <div className="flex flex-row justify-center">
                 <div className="rounded-lg px-4 shadow lg:px-8 bg-cover bg-slate-500 bg-opacity-50 mr-24 max-w-3xl">
@@ -57,7 +54,7 @@ const SellCoins = () => {
                                 className="w-24"
                                 src="imgs/6-removebg-preview.png"
                             />
-                            <p className="mt-2 text-3xl font-semibold">{users ? users.points : "votre solde"}</p>
+                            <p className="mt-2 text-3xl font-semibold">votre solde {users ? users.points : null}</p>
                         </div>
                     </div>
                 </div>
@@ -67,13 +64,11 @@ const SellCoins = () => {
                         <div className="grid grid-flow-col gap-16 my-12 justify-content-center mx-6 text-black ">
 
                             <div className="mt-6 ">
-                                {coins.map((coin) => (
                                     <div
                                         className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full px-40 rounded-lg mt-4 drop-shadow-lg`}
-                                        key={coin.id}
                                     >
                                         <div className="grid grid-flow-col place-items-center">
-                                            <img src={coin.coin} alt="buddycoin" className="w-8 h-10" />
+                                            <img src={buddycoin} alt="buddycoin" className="w-8 h-10" />
                                         </div>
 
                                         <div className="px-6 py-4">
@@ -81,27 +76,28 @@ const SellCoins = () => {
                                                 className="border-gray-500 rounded-md"
                                                 type="number"
                                                 min="0"
-                                                name="number"
-                                                id="inputNumber"
+                                                name="coinsBuy"
+                                                id="coinsBuy"
                                                 placeholder="Nombre de points"
-                                            ></input>
+                                                onChange={formik.handleChange}
+                                                ></input>
                                         </div>
 
-                                        <div onClick={clicked} className='bg-cyan-500 hover:bg-cyan-600 rounded-md text-black  font-normal shadow-md py-2 px-4 ml-28'>
-                                            <button onClick={buy}>
-                                                VENDRE
+                                        <div className='bg-cyan-500 hover:bg-cyan-600 rounded-md text-black  font-normal shadow-md py-2 px-4 ml-28'>
+                                            <button 
+                                            type="submit"
+                                            disabled={formik.isSubmitting}>
+                                                Acheter
                                             </button>
                                         </div>
 
                                     </div>
-                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {click && <SellBuddyCoinsModal />}
-
+            </form>
         </div>
     )
 }
