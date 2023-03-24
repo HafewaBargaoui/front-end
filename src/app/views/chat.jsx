@@ -69,7 +69,7 @@ const chatSocket = () => {
 
             <div className="flex flex-row justify-center">
                 <div className="rounded-lg px-4 lg:px-8 mt-6 mr-12">
-                    <div className="ml-32 w-full h-80 border border-sky-500 rounded-lg bg-[#efefef]">
+                    <div className="ml-32 w-full h-80 border border-sky-500 rounded-lg bg-[#efefef] overflow-y-auto max-h-96 scrollbar">
                         <h5 className="flex justify-center underline underline-offset-4 font-medium mt-4">Rooms :</h5>
                         <div className="leading-10">
                             {roomSelected.map((roomSelected, index) => (

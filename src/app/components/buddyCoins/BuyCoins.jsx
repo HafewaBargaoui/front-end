@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { getProfile, getTrader } from "../../api/backend/account";
-import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
+import { selectIsLogged } from "../../redux-store/authenticationSlice";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import { paiementStripe } from "../../api/backend/account";
 

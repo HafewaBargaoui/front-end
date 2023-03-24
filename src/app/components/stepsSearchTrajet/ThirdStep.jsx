@@ -10,6 +10,7 @@ import { URL_TRAJET_SEARCH_VALIDE } from "../../constants/urls/urlFrontEnd";
 
 const ThirdStep = (routeSelected) => {
   const navigate = useNavigate();
+  console.log(routeSelected);
 
 
   const submitRouteSelected = async (route) => {

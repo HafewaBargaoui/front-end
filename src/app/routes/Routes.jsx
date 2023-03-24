@@ -35,11 +35,14 @@ import TrajetCreateView from "../views/TrajetCreateView";
 
 import CoinsView from '../views/CoinsView';
 import BuyCoins from '../components/buddyCoins/BuyCoins';
+import BuyCoinsStripe from '../components/buddyCoins/BuyCoinsStripe';
 import SellCoins from '../components/buddyCoins/SellCoins';
 import HistCoins from '../components/buddyCoins/HistCoins';
 import TrajetValide from "../components/carte/TrajetValide";
 import ValidatedSearch from "../components/stepsSearchTrajet/ValidatedSearch";
 
+import ConfirmationPaiement from "../views/ConfirmationPaiementView";
+import VosTrajetsView from "../views/VosTrajetsView";
 
 /**
  * Routes of the application
@@ -125,6 +128,10 @@ const Routes = () => {
       <Route path={URL.URL_BUYCOINS} element={<BuyCoins />} />
       <Route path={URL.URL_SELLCOINS} element={<SellCoins />} />
       <Route path={URL.URL_HISTCOINS} element={<HistCoins />} />
+      <Route path={URL.URL_BUYCOINS_STRIPE} element={<BuyCoinsStripe />} />
+
+      <Route path={URL.URL_PAIEMENT_VALIDE} element={<ConfirmationPaiement />} />
+      <Route path={URL.URL_VOS_TRAJETS} element={<VosTrajetsView />} />
 
     </RoutesContainer>
   );
