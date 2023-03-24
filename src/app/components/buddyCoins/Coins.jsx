@@ -7,6 +7,7 @@ import {
     URL_BUYCOINS,
     URL_SELLCOINS,
     URL_HISTCOINS,
+    URL_BUYCOINS_STRIPE
 } from "../../constants/urls/urlFrontEnd";
 
 
@@ -51,23 +52,19 @@ const ProfilBuddycoins = () => {
                         </div>
 
                         <div className="grid place-content-center">
-                            <Link to={URL_HISTCOINS}>
-                                <button className="mt-6 bg-jauneh hover:bg-jaune rounded-md text-black font-normal shadow-md py-2 px-4">
-                                    Historique des transactions
-                                </button>
-                            </Link>
 
                             <Link to={URL_BUYCOINS}>
                                 <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md py-2 px-4">
-                                    Acheter des BuddyCoins
+                                    Acheter des BuddyCoins (users)
                                 </button>
                             </Link>
 
-                            <Link to={URL_SELLCOINS}>
-                                <button className="mt-8 bg-cyan-500 hover:bg-cyan-600 rounded-md text-black font-normal shadow-md py-2 px-4">
-                                    Vendre des BuddyCoins
+                            <Link to={URL_BUYCOINS_STRIPE}>
+                                <button className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md py-2 px-4">
+                                    Acheter des BuddyCoins (site)
                                 </button>
                             </Link>
+
                         </div>
                     </div>
                 </div>
