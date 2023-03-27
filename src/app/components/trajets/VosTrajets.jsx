@@ -17,6 +17,7 @@ const VosTrajets = () => {
     setinfos([response.data])
     setroute(response.data.route)
   };
+  console.log(route);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -38,7 +39,7 @@ const VosTrajets = () => {
     <div className="m-36 w-full">
       <div className="m-2 ">
         <div
-          className='grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg hover:scale-105 hover:transition duration-700 ease-in-out'
+          className='grid grid-flow-col justify-between place-items-center bg-white w-full rounded-lg p-2 drop-shadow-lg'
         >
           <p className="uppercase font-semibold m-2">
             Vos Trajets / <span className="font-light">en cours</span>
@@ -53,7 +54,7 @@ const VosTrajets = () => {
               <Fade key={i} cascade>
 
               <div
-                className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
+                className={`grid grid-flow-col place-items-center ${route.done == true && "opacity-30" } bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
                 key={i}
               >
                 <p className="uppercase font-semibold m-2">{route.departure_date}</p>
@@ -73,12 +74,16 @@ const VosTrajets = () => {
                   <span className="font-light">{route.point_cost}</span>
                 </div>
               <div>
+              {route.done == true ? 
+              <div className="bg-jauneh p-1 rounded-md uppercase">VALIDÉ</div>
+              :
                 <button 
                   className={`${select === i ? "bg-jaune hover:bg-jauneh" : "bg-vert hover:bg-verth"} p-1 rounded-md shadow-md uppercase`}
                   onClick={()=>{updateDriverRoute() , setClickedDone(route), setselect(i)}}
                   >
                   terminé
                 </button>
+              } 
               </div>
               </div>
               </Fade>
