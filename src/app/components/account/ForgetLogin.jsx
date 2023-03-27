@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { forgetpassword } from "../../api/backend/account";
-
+import { URL_RESET_PASSWORD_MAIL_SENT } from "../../constants/urls/urlFrontEnd";
 
 const initialValues = {
 	email: '',
@@ -31,6 +31,7 @@ const ForgetLogin = () => {
 		}
 		console.log(mail);
 		await forgetpassword(mail)
+		navigate(URL_RESET_PASSWORD_MAIL_SENT);
 	};
 
 	return (
