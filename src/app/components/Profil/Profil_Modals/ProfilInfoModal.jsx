@@ -1,14 +1,12 @@
-import { editProfile } from "../../api/backend/account";
-import React, { useState, useEffect, useRef } from "react";
+import { editProfile } from "../../../api/backend/account";
+import React, { useRef } from "react";
 import { useFormik } from "formik";
-import { URL_DELETE_ACCOUNT } from "../../constants/urls/urlFrontEnd";
+import { URL_DELETE_ACCOUNT } from "../../../constants/urls/urlFrontEnd";
 
 const ProfilInfoModal = ({
   setmodalOn,
   users,
   adresse,
-  setsubmitModifs,
-  user,
   setCount,
   count,
 }) => {

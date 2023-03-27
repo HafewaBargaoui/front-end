@@ -6,7 +6,8 @@ import {
   selectUser,
 } from "../../redux-store/authenticationSlice";
 import avatar from "../../../../public/imgs/avatar.png";
-import ProfilInfoModal from "../modals/ProfilInfoModal";
+import ProfilInfoModal from "./Profil_Modals/ProfilInfoModal";
+import Stats from "./Infos_Components/Stats";
 import { Fade } from "react-awesome-reveal";
 
 const ProfilInfos = () => {
@@ -56,7 +57,6 @@ const ProfilInfos = () => {
   }, [count, isAuthenticated, birthday]);
 
   const [modalOn, setmodalOn] = useState(false);
-  const [submitModifs, setsubmitModifs] = useState(false);
 
   const modal = () => {
     setmodalOn(true);
@@ -68,34 +68,8 @@ const ProfilInfos = () => {
       <div className="flex grow place-content-center w-screen md:w-96 max-w-xl space-y-6 rounded-lg pb-8  px-8 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
         <div className="grid place-content-center">
           <div className="flex flex-col text-black text-lg">
-            <div className="grid place-items-center m-4 text-black">
-              {photo != "" ? (
-                <img
-                  className="w-16 h-16 rounded-full border-2 border-green-500"
-                  src={photo}
-                />
-              ) : (
-                <img
-                  className="w-16 rounded-full border-2 border-green-500"
-                  src={avatar}
-                />
-              )}
-              <p className="mt-2 font-bold text-xl">Username</p>
-              <div className="mt-4 grid grid-cols-3 gap-2 justify-items-center">
-                <div className="grid justify-items-center">
-                  <p>logo1</p>
-                  <p>1</p>
-                </div>
-                <div className="grid justify-items-center">
-                  <p>logo2</p>
-                  <p>2</p>
-                </div>
-                <div className="grid justify-items-center">
-                  <p>logo3</p>
-                  <p>3</p>
-                </div>
-              </div>
-            </div>
+
+            <Stats photo={photo} avatar={avatar}/>
 
             <div className="grid grid-cols-2">
               <p className="font-semibold">Nom : </p>
@@ -200,7 +174,6 @@ const ProfilInfos = () => {
         {modalOn && (
           <ProfilInfoModal
             setmodalOn={setmodalOn}
-            setsubmitModifs={setsubmitModifs}
             users={users}
             adresse={adresse}
             user={user}
