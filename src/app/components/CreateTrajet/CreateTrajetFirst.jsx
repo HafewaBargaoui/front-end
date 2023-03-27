@@ -24,7 +24,6 @@ const CreateTrajetFirst = ({
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
         <div className="grid grid-cols-2">
-          {/*//////////////////////////////////////// Depart ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -102,7 +101,6 @@ const CreateTrajetFirst = ({
               </div>
             </Combobox>
           </div>
-          {/*//////////////////////////////////////// Arrive ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -180,7 +178,6 @@ const CreateTrajetFirst = ({
               </div>
             </Combobox>
           </div>
-          {/*//////////////////////////////////////// Date ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -196,7 +193,6 @@ const CreateTrajetFirst = ({
               onChange={(e) => setdateDepart(e.target.value)}
             />
           </div>
-          {/*//////////////////////////////////////// heure ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -212,7 +208,6 @@ const CreateTrajetFirst = ({
               onChange={(e) => setheureDepart(e.target.value)}
             />
           </div>
-          {/*//////////////////////////////////////// vehicule ///////////////////////////////////////////////////////*/}
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -277,7 +272,7 @@ const CreateTrajetFirst = ({
               </div>
             </Listbox>
           </div>
-          {/*//////////////////////////////////////// Nbr passagers ///////////////////////////////////////////////////////*/}
+
           <div className="p-6">
             <label
               className="block text-gray-800 text-md font-semibold mb-2 text-center"
@@ -293,9 +288,6 @@ const CreateTrajetFirst = ({
             />
           </div>
 
-          {/*//////////////////////////////////////// Etape suivante ///////////////////////////////////////////////////////*/}
-          {/* <div className="p-6 "> */}
-          {/* <div className="flex flex-col"> */}
           <div className="p-6">
             <input
               onClick={click}
@@ -303,8 +295,6 @@ const CreateTrajetFirst = ({
               className="mt-4 py-2 px-4 bg-vert hover:bg-verth rounded-md group shadow-md relative w-full text-white text-center "
             />
           </div>
-          {/* </div> */}
-          {/* </div> */}
         </div>
       </form>
     </div>

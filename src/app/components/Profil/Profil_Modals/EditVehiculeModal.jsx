@@ -1,22 +1,18 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import {
-  getCarBrand,
-  postDriverVehicule,
-  postDriverPrefs,
-} from "../../api/backend/account";
+import { getCarBrand, updateVehicule } from "../../../api/backend/account";
 
-const AddVehiculeModal = ({
-  setmodalOn,
-  user,
+const EditVehiculeModal = ({
+  seteditModale,
   vehicule,
   pref,
-  users,
   count,
   setCount,
+  photos,
 }) => {
-
+  console.log(vehicule);
+  console.log(pref._id);
   function MyDropzone() {
     const [files, setFiles] = useState([]);
     const onDrop = useCallback(
@@ -75,17 +71,20 @@ const AddVehiculeModal = ({
       formDataUserVehicule.append("seats", values.seats);
       formDataUserVehicule.append("model", values.model);
       formDataUserVehicule.append("fuel_type", values.fuel_type);
+      formDataUserVehicule.append("idVehicule", vehicule._id);
+      formDataUserVehicule.append("idPref", pref._id);
       formDataUserVehicule.append("large_luggage", values.large_luggage);
 
       for (var i = 0; i < values.files.length; i++) {
         let file = values.files[i];
         formDataUserVehicule.append("files", file);
       }
-      
 
-      await postDriverVehicule(formDataUserVehicule);
+      await updateVehicule(formDataUserVehicule);
+      for (const value of formDataUserVehicule.values()) {
+      }
       window.location.reload();
-      setmodalOn(false);
+      seteditModale(false);
     },
   });
 
@@ -156,13 +155,13 @@ const AddVehiculeModal = ({
   const modalRef = useRef();
 
   const closeClick = () => {
-    setmodalOn(false);
+    seteditModale(false);
   };
 
   const clickOut = (e) => {
     if (modalRef.current.contains(e.target)) {
     } else {
-      setmodalOn(false);
+      seteditModale(false);
     }
   };
 
@@ -189,7 +188,7 @@ const AddVehiculeModal = ({
                           name="brand"
                           className="inputInscription"
                         >
-                          <option value=""> Marque </option>
+                          <option value=""> {vehicule.brand} </option>
                           {carOpt.map((option, i) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -212,7 +211,7 @@ const AddVehiculeModal = ({
                           name="model"
                           className="inputInscription"
                         >
-                          <option value=""> Modèle </option>
+                          <option value=""> {vehicule.model} </option>
                           {model.map((option, i) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -235,7 +234,7 @@ const AddVehiculeModal = ({
                           name="fuel_type"
                           className="inputInscription"
                         >
-                          <option value=""> Carburant </option>
+                          <option value=""> {vehicule.fuel_type} </option>
                           {fuelOption.map((option, i) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -260,7 +259,7 @@ const AddVehiculeModal = ({
                           name="seats"
                           className="inputInscription"
                         >
-                          <option value=""> Nb de places </option>
+                          <option value=""> {vehicule.seats} </option>
                           {seatsOptions.map((option) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -283,7 +282,7 @@ const AddVehiculeModal = ({
                           name="large_luggage"
                           className="inputInscription"
                         >
-                          <option value=""> Coffre </option>
+                          <option value=""> {vehicule.large_luggage} </option>
                           {large_luggageOptions.map((option) => (
                             <option
                               className="bg-black border border-roseh rounded-lg text-white font-light"
@@ -297,17 +296,30 @@ const AddVehiculeModal = ({
                       </div>
                     </div>
 
-                    <div className="grid justify-center w-full pb-4">
-                      <div className="h-24 w-full grid grid-flow-row place-items-center ">
-                        <p className="text-center text-white  uppercase font-semibold text-xs">
-                          photo du vehicule
-                        </p>
-                        <div className="">
-                          <MyDropzone
-                            onDrop={(acceptedFiles) =>
-                              formik.setFieldValue("file", acceptedfiless[0])
-                            }
-                          />
+                    <div className="grid grid-flow-col">
+                      <div className="grid grid-flow-col">
+                        <div className="grid grid-cols-2 gap-4 mt-4 ml-4">
+                          {photos.map((photo, i) => (
+                            <img
+                              key={i}
+                              className="w-12 rounded-md"
+                              src={photo.filename}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="grid justify-center w-full pb-4">
+                        <div className="h-24 w-full grid grid-flow-row place-items-center ">
+                          <p className="text-center text-white  uppercase font-semibold text-xs">
+                            photo du vehicule
+                          </p>
+                          <div className="">
+                            <MyDropzone
+                              onDrop={(acceptedFiles) =>
+                                formik.setFieldValue("file", acceptedFiles[3])
+                              }
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -332,4 +344,4 @@ const AddVehiculeModal = ({
   );
 };
 
-export default AddVehiculeModal;
+export default EditVehiculeModal;
