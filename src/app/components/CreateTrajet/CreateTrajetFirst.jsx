@@ -20,6 +20,9 @@ const CreateTrajetFirst = ({
   selectedvehicule,
   setselectedvehicule,
 }) => {
+  const today = new Date();
+  const date = today.setDate(today.getDate());
+  const defaultValue = new Date(date).toISOString().split("T")[0]; 
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
@@ -193,6 +196,9 @@ const CreateTrajetFirst = ({
               id="departure-date"
               name="departure-date"
               type="date"
+              min={new Date().toISOString().split('T')[0]}
+              onKeyDown={(e) => e.preventDefault()}
+              defaultValue={defaultValue}
               onChange={(e) => setdateDepart(e.target.value)}
             />
           </div>
