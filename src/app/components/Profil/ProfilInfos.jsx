@@ -63,106 +63,86 @@ const ProfilInfos = () => {
     console.log(modalOn);
   };
 
+  const FadeText = ({ text, delay }) => (
+    <Fade cascade delay={delay} damping={0.1} className="font-thin">
+      {text}
+    </Fade>
+  );
+
   return (
     <Fade direction="left">
       <div className="flex grow place-content-center w-screen md:w-96 max-w-xl space-y-6 rounded-lg pb-8  px-8 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
         <div className="grid place-content-center">
           <div className="flex flex-col text-black text-lg">
-
-            <Stats photo={photo} avatar={avatar}/>
+            <Stats photo={photo} avatar={avatar} />
 
             <div className="grid grid-cols-2">
               <p className="font-semibold">Nom : </p>
-              {users != undefined ? (
-                <Fade cascade delay={100} damping={0.1} className="font-thin">
-                  {users.lastname}
-                </Fade>
-              ) : (
-                <p className="font-thin">Nom</p>
-              )}
+              {users && <FadeText text={users.lastname} delay={100} />}
+              {!users && <p className="font-thin">Nom</p>}
             </div>
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Prénom : </p>
-              {users != undefined ? (
-                <Fade cascade delay={300} damping={0.1} className="font-thin">
-                  {users.name}
-                </Fade>
-              ) : (
-                <p className="font-thin">prénom</p>
-              )}
+              {users && <FadeText text={users.name} delay={300} />}
+              {!users && <p className="font-thin">Prénom</p>}
             </div>
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Sexe : </p>
-              {users != undefined ? (
-                <Fade cascade delay={500} damping={0.1} className="font-thin">
-                  {users.sex}
-                </Fade>
-              ) : (
-                <p className="font-thin">sexe</p>
-              )}
+              {users && <FadeText text={users.sex} delay={500} />}
+              {!users && <p className="font-thin">Sexe</p>}
             </div>
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Âge : </p>
-              {birthday != undefined ? (
-                <Fade cascade delay={600} damping={0.1} className="font-thin">
-                  {age}
-                </Fade>
-              ) : (
-                <p className="font-thin">25</p>
-              )}
+              {users && <FadeText text={age} delay={600} />}
+              {!users && <p className="font-thin">Âge</p>}
             </div>
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Adresse mail : </p>
-              {users != undefined ? (
-                <Fade cascade delay={800} damping={0.1} className="font-thin">
-                  {users.email}
-                </Fade>
-              ) : (
-                <p className="font-thin">adresse mail</p>
-              )}
+              {users && <FadeText text={users.email} delay={800} />}
+              {!users && <p className="font-thin">Adresse mail</p>}
             </div>
-            <div className="grid grid-cols-2 ">
+
+            <div className="grid grid-cols-2">
               <p className="font-semibold">Adresse : </p>
-              {adresse != undefined ? (
-                <Fade cascade delay={1000} damping={0.1} className="font-thin">
-                  {adresse.streetNumber +
+              {adresse && (
+                <FadeText
+                  text={
+                    adresse.streetNumber +
                     " " +
                     adresse.pathType +
                     " " +
-                    adresse.streetName}
-                </Fade>
-              ) : (
-                <p className="font-thin">255 rue jesaispas</p>
+                    adresse.streetName
+                  }
+                  delay={800}
+                />
               )}
+              {!adresse && <p className="font-thin">Adresse</p>}
             </div>
+
             <div className="grid grid-cols-2">
-              <p className="font-semibold">Code Postal : </p>
-              {adresse != undefined ? (
-                <Fade cascade delay={1500} damping={0.1} className="font-thin">
-                  {adresse.zip}
-                </Fade>
-              ) : (
-                <Fade cascade delay={2000} damping={0.1} className="font-thin">
-                  59500
-                </Fade>
-              )}
+              <p className="font-semibold">Adresse mail : </p>
+              {adresse && <FadeText text={adresse.zip} delay={800} />}
+              {!adresse && <p className="font-thin">59000</p>}
             </div>
+
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Ville : </p>
-              <Fade cascade delay={2500} damping={0.1} className="font-thin">
+              <Fade cascade delay={800} damping={0.1} className="font-thin">
                 Lille
               </Fade>
             </div>
+
             <div className="grid grid-cols-2">
               <p className="font-semibold">Téléphone : </p>
-              {users != undefined ? (
-                <Fade cascade delay={3000} damping={0.1} className="font-thin">
-                  {users.phone}
-                </Fade>
-              ) : (
-                <p className="font-thin">Téléphone</p>
-              )}
+              {users && <FadeText text={users.phone} delay={800} />}
+              {!users && <p className="font-thin">Téléphone</p>}
             </div>
+
           </div>
           <button
             className="mt-8 bg-vert hover:bg-verth rounded-md text-black  font-normal shadow-md  py-2 px-4"
