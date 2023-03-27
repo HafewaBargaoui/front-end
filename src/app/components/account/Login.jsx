@@ -120,6 +120,13 @@ const Login = () => {
 							</Link>
 						</div>
 					</div> */}
+					 <p
+            className=" text-slate-700 underline hover:text-cyan-900"
+            onClick={handleForgetLogin}
+          >
+            Mot de passe oublié ?
+          </p>
+
 
 					<div className="text-center">
 						<button
@@ -134,12 +141,12 @@ const Login = () => {
 							</span> */}
 							Connexion
 						</button>
-						<div className="flex justify-center  mt-8">
+						{/* <div className="flex justify-center  mt-8">
 							<button className="btn bg-cyan-600 hover:bg-cyan-500  "
 								onClick={handleForgetLogin}                        >
 								Mot de passe oublié
 							</button>
-						</div>
+						</div> */}
 					</div>
 					{errorLog && (
 						<div className="flex justify-center">
