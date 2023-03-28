@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import homme from "../../../assets/images/profileprefs/male.png";
 import femme from "../../../assets/images/profileprefs/female.png";
 
@@ -14,8 +14,6 @@ import electrique from "../../../assets/images/profileprefs/electrique.png";
 
 import {
     getCarBrand,
-    postDriverVehicule,
-    postDriverPrefs,
   } from "../../../api/backend/account";
 
 export const Datas = () => {
