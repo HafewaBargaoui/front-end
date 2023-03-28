@@ -4,18 +4,32 @@ import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
 import {
-  getCarBrand,
   postDriverVehicule,
   postDriverPrefs,
 } from "../../api/backend/account";
 
+import { Datas } from "./Datas/Datas";
+
 const PrefConducteur = () => {
+  const {
+    seatsOptions,
+    large_luggageOptions,
+    animalOption,
+    smokerOption,
+    carOpt,
+    model,
+    setmodel,
+    fuelOption,
+    setSelectedBrand,
+  } = Datas();
+
   function MyDropzone() {
     const [files, setFiles] = useState([]);
     const onDrop = useCallback(
       (acceptedFiles) => {
         setFiles([...files, ...acceptedFiles]);
         formik.setFieldValue("files", [...files, ...acceptedFiles]);
+        console.log(acceptedFiles);
       },
       [files]
     );
@@ -75,29 +89,17 @@ const PrefConducteur = () => {
       for (var i = 0; i < values.files.length; i++) {
         let file = values.files[i];
         formDataUserVehicule.append("files", file);
+        console.log(file);
       }
       const formDataUserPrefs = new FormData();
       formDataUserPrefs.append("animal_friendly", values.animal_friendly);
       formDataUserPrefs.append("smoker_friendly", values.smoker_friendly);
-
 
       await postDriverVehicule(formDataUserVehicule);
       await postDriverPrefs(formDataUserPrefs);
       setnextClicked(true);
     },
   });
-
-  const [carOpt, setcarOpt] = useState([]);
-  const [model, setmodel] = useState([]);
-  const [fuelOption, setfuelOption] = useState([]);
-  const [selectedBrand, setSelectedBrand] = useState({});
-
-  const carOptions = async () => {
-    const response = await getCarBrand();
-    setcarOpt(response.data);
-    setfuelOption(response.data);
-    console.log(response.data);
-  };
 
   const getModele = async (e) => {
     const selectedBrandName = e.target.value;
@@ -107,54 +109,6 @@ const PrefConducteur = () => {
     console.log(marque.modele);
     formik.handleChange(e);
   };
-
-  useEffect(() => {
-    carOptions();
-  }, []);
-
-  const seatsOptions = [
-    {
-      id: "1",
-      label: "1",
-      value: "1",
-    },
-    {
-      id: "2",
-      label: "2",
-      value: "2",
-    },
-    {
-      id: "3",
-      label: "3",
-      value: "3",
-    },
-    {
-      id: "4",
-      label: "4",
-      value: "4",
-    },
-  ];
-
-  const large_luggageOptions = [
-    {
-      id: "1",
-      label: "pas de coffre",
-      value: "pas de coffre",
-    },
-    {
-      id: "2",
-      label: "petit coffre",
-      value: "petit coffre",
-    },
-    {
-      id: "3",
-      label: "grand coffre",
-      value: "grand coffre",
-    },
-  ];
-
-  const animalOption = [{ id: 1, title: "animaux" }];
-  const smokerOption = [{ id: 2, title: "fumeurs" }];
 
   return (
     <>
@@ -175,7 +129,7 @@ const PrefConducteur = () => {
                   className="inputInscription"
                 >
                   <option value=""> Marque </option>
-                  {carOpt.map((option, i) => (
+                  {carOpt.map((option) => (
                     <option
                       className="bg-black border border-roseh rounded-lg text-white font-light"
                       key={option._id}
@@ -346,7 +300,7 @@ const PrefConducteur = () => {
                 <div className="">
                   <MyDropzone
                     onDrop={(acceptedFiles) =>
-                      formik.setFieldValue("file", acceptedfiless[0])
+                      formik.setFieldValue("file", acceptedFiles[0])
                     }
                   />
                 </div>
