@@ -9,7 +9,7 @@ const SecondForm = ({
 	checkingFocus,
 }) => {
 	return (
-		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500 px-48 pb-8">
+		<div className="max-w-2xl rounded-xl shadow-lg lg:px-8 bg-cover bg-center bg-slate-500 px-4 pb-8">
 			<div className="grid gap-4 place-content-center items-center">
 				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
 					INSCRIPTION
@@ -28,7 +28,7 @@ const SecondForm = ({
 								Type de voie :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="address"
 								name="pathType"
 								type="text"
@@ -46,7 +46,7 @@ const SecondForm = ({
 								Complément d'adresse :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="addressAdd"
 								name="additionalAddress"
 								type="text"
@@ -64,7 +64,7 @@ const SecondForm = ({
 								Nom de la rue :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="street"
 								name="streetName"
 								type="text"
@@ -83,7 +83,7 @@ const SecondForm = ({
 								Numéro de la rue :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="street"
 								name="streetNumber"
 								type="number"
@@ -101,7 +101,7 @@ const SecondForm = ({
 								Ville :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="city"
 								name="city"
 								type="text"
@@ -119,7 +119,7 @@ const SecondForm = ({
 								Code postal :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="zip"
 								type="text"
 								name="zip"
@@ -141,7 +141,7 @@ const SecondForm = ({
 						Téléphone :
 					</label>
 					<input
-						className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+						className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 						id="phone"
 						type="tel"
 						name="phone"
