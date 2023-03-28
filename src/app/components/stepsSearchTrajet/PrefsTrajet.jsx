@@ -19,16 +19,16 @@ const PrefsTrajet = () => {
       <form>
       <p className='text-yellow-400'> Section 1</p>
         <div className='mb-4'>
-          <Sections id={parler} name={prefs} value={parler} txt={Parler}/>
-          <Sections id={fumer} name={prefs} value={fumer} txt={Fumer}/>
-          <Sections id={radio} name={prefs} value={radio} txt={Radio}/>
-          <Sections id={clim} name={prefs} value={clim} txt={Clim}/>
+          <Sections id={"parler"} name={"prefs"} value={"parler"} txt={"Parler"}/>
+          <Sections id={"fumer"} name={"prefs"} value={"fumer"} txt={"Fumer"}/>
+          <Sections id={"radio"} name={"prefs"} value={"radio"} txt={"Radio"}/>
+          <Sections id={"clim"} name={"prefs"} value={"clim"} txt={"Clim"}/>
         </div>
         <p className='text-yellow-400'> Section 2</p>
-          <Sections id={berline} name={vehicule} value={berline} txt={Berline}/>
-          <Sections id={tout-terrain} name={vehicule} value={tout-terrain} txt={Tout-terrain}/>
-          <Sections id={citadine} name={vehicule} value={citadine} txt={Citadine}/>
-          <Sections id={electrique} name={vehicule} value={electrique} txt={Électrique}/>
+          <Sections id={"berline"} name={"vehicule"} value={"berline"} txt={"Berline"}/>
+          <Sections id={"tout-terrain"} name={"vehicule"} value={"tout-terrain"} txt={"Tout-terrain"}/>
+          <Sections id={"citadine"} name={"vehicule"} value={"citadine"} txt={"Citadine"}/>
+          <Sections id={"electrique"} name={"vehicule"} value={"electrique"} txt={"Électrique"}/>
       </form>
     </div>
   );
