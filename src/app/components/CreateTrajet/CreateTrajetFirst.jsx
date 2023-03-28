@@ -20,19 +20,51 @@ const CreateTrajetFirst = ({
   vehicule,
   selectedvehicule,
   setselectedvehicule,
+  dateDepart,
+  heureDepart,
 }) => {
+  const handleHeure = (e) => {
+    setheureDepart(e.target.value);
+  };
+
+  const handleDate = (e) => {
+    setdateDepart(e.target.value);
+  };
+
+  const InputInfos = ({ htmlFor, txt, id, name, type, value, onChange }) => (
+    <div className="p-6">
+      <label
+        className="block text-gray-800 text-md font-semibold mb-2 text-center"
+        htmlFor={htmlFor}
+      >
+        {txt} :
+      </label>
+      <input
+        className=" shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id={id}
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
+
+  const CustomLabel = ({ txt, htmlFor }) => (
+    <label
+      className="block text-gray-800 text-md font-semibold mb-2 text-center"
+      htmlFor={htmlFor}
+    >
+      {txt} :
+    </label>
+  );
+
   return (
     <div className=" rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
       <form>
         <div className="grid grid-cols-2">
           <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="departure"
-            >
-              Départ :
-            </label>
-
+            <CustomLabel txt="Départ" htmlFor="departure" />
             <CreateDepart
               filteredDepart={filteredDepart}
               setselectedDepart={setselectedDepart}
@@ -42,13 +74,7 @@ const CreateTrajetFirst = ({
             />
           </div>
           <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="arrival"
-            >
-              Destination :
-            </label>
-
+            <CustomLabel txt="Destination" htmlFor="arrival" />
             <CreateArrive
               filteredArrive={filteredArrive}
               setselectedArrive={setselectedArrive}
@@ -57,44 +83,28 @@ const CreateTrajetFirst = ({
               setArrive={setArrive}
             />
           </div>
-          <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="departure-date"
-            >
-              Date de depart :
-            </label>
-            <input
-              className=" shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="departure-date"
-              name="departure-date"
-              type="date"
-              onChange={(e) => setdateDepart(e.target.value)}
-            />
-          </div>
-          <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="departure-time"
-            >
-              Heure :
-            </label>
-            <input
-              className=" shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="departure-time"
-              name="departure-time"
-              type="time"
-              onChange={(e) => setheureDepart(e.target.value)}
-            />
-          </div>
-          <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="vehicule"
-            >
-              Véhicule :
-            </label>
 
+          <InputInfos
+            htmlFor="departure-date"
+            txt="Date de départ"
+            id="departure-date"
+            name="departure-date"
+            type="date"
+            value={dateDepart}
+            onChange={handleDate}
+          />
+          <InputInfos
+            htmlFor="departure-time"
+            txt="Heure de départ"
+            id="departure-time"
+            name="departure-time"
+            type="time"
+            value={heureDepart}
+            onChange={handleHeure}
+          />
+
+          <div className="p-6">
+            <CustomLabel txt="Véhicule" htmlFor="vehicule" />
             <SelectVehicule
               vehicule={vehicule}
               selectedvehicule={selectedvehicule}
@@ -102,20 +112,13 @@ const CreateTrajetFirst = ({
             />
           </div>
 
-          <div className="p-6">
-            <label
-              className="block text-gray-800 text-md font-semibold mb-2 text-center"
-              htmlFor="nbr-passengers"
-            >
-              Nombre de passagers :
-            </label>
-            <input
-              className=" shadow appearance-none border rounded-md w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="nbr-passengers"
-              name="nbr-passengers"
-              type="number"
-            />
-          </div>
+          <InputInfos
+            htmlFor="nbr-passengers"
+            txt="Nombre de passagers"
+            id="nbr-passengers"
+            name="nbr-passengers"
+            type="number"
+          />
 
           <div className="p-6">
             <input

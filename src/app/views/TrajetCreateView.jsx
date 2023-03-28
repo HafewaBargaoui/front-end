@@ -91,6 +91,8 @@ const TrajetCreateView = () => {
               vehicule={vehicule}
               selectedvehicule={selectedvehicule}
               setselectedvehicule={setselectedvehicule}
+              dateDepart={dateDepart}
+              heureDepart={heureDepart}
               
             />
           )}
