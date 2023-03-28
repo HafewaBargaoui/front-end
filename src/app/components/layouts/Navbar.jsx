@@ -49,8 +49,30 @@ const Navbar = () => {
         dispatch(signOut(res.data));
         navigate(URL_HOME);
       })
-
   };
+
+  const MenuElement = ({to, txt}) => (
+    <Menu.Item as={Link} to={to} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
+    {({ active }) => (
+      <button
+        className={`${active
+            ? "bg-black bg-opacity-95 text-white"
+            : "text-gray-300"
+          } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
+      >
+          {txt}
+      </button>
+    )}
+  </Menu.Item>
+  )
+
+  const ListMenu = ({to, txt}) => (
+    <li>
+                <Link to={to} className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 ">
+                  {txt}
+                </Link>
+            </li>
+  )
 
 
   return (
@@ -85,71 +107,13 @@ const Navbar = () => {
                 {isAuthenticated ?
                   <>
                     <div className="px-1 py-1 ">
-                    <Menu.Item as={Link} to={URL_VOS_TRAJETS} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-                              Vos Trajets
-                          </button>
-                        )}
-                      </Menu.Item>
-                    <Menu.Item as={Link} to={URL_CHAT_SOCKET} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-                              Messagerie
-                          </button>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item as={Link} to={URL_PROFILEPREFS} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-                         
-                              preferences
-                           
-                          </button>
-                        )}
-                      </Menu.Item>
+                    <MenuElement to={URL_VOS_TRAJETS} txt="Vos Trajets"/>
+                    <MenuElement to={URL_CHAT_SOCKET} txt="Messagerie"/>
+                    <MenuElement to={URL_PROFILEPREFS} txt="preferences"/>
                     </div>
                     <div className="px-1 py-1">
-                    <Menu.Item as={Link} to={URL_PROFIL} onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-                              profil
-                          </button>
-                        )}
-                      </Menu.Item>
-                     
-                      <Menu.Item as={Link} to="/createTrajet" onClick={close} className="block py-2 pl-3 pr-4 text-white text-center text-xs rounded  hover:scale-105 md:hover:bg-transparent  md:p-0">
-                        {({ active }) => (
-                          <button
-                            className={`${active
-                                ? "bg-black bg-opacity-95 text-white"
-                                : "text-gray-300"
-                              } group flex w-full items-center justify-center rounded-md px-2 py-2 text-sm`}
-                          >
-                              Créer un trajet
-                          </button>
-                        )}
-                      </Menu.Item>
+                    <MenuElement to={URL_PROFIL} txt="profil"/>
+                    <MenuElement to="/createTrajet" txt="Créer un trajet"/>
                     </div>
                   </>
                   :
@@ -212,25 +176,10 @@ const Navbar = () => {
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-32 md:mt-0 md:text-sm md:font-medium md:border-0 ml-12">
-            <li>
-                <Link to={URL_SEARCH} className="lienhover block py-2 pl-3 pr-4 text-white bg-black rounded md:p-0 " aria-current="page" >
-                  Chercher un trajet
-                </Link>
-            </li>
-            <li>
-                <Link to={URL_TRAJETS}
-                  className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0 "
-              >
-                Liste des trajets{" "}
-              </Link>
-            </li>
-            <li>
-                <Link to={URL_COINS}
-                  className="lienhover block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent  md:p-0"
-                >
-                BuddyCoins
-              </Link>
-            </li>
+            <ListMenu to={URL_SEARCH} txt="Chercher un trajet"/>
+            <ListMenu to={URL_TRAJETS} txt="Liste des trajets"/>
+            <ListMenu to={URL_COINS} txt="BuddyCoins"/>
+
           </ul>
         </div>
       </div>
