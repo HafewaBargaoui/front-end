@@ -12,7 +12,6 @@ const ThirdStep = (routeSelected) => {
   const navigate = useNavigate();
   console.log(routeSelected);
 
-
   const submitRouteSelected = async (route) => {
     updateRoomUser(route);
     navigate(URL_TRAJET_SEARCH_VALIDE);
@@ -114,7 +113,6 @@ const ThirdStep = (routeSelected) => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

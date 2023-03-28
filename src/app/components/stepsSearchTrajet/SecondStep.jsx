@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getDriverRoute } from "../../api/backend/account";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
-import { StarIcon, ArrowNarrowRightIcon } from "@heroicons/react/solid";
-import paul from "../../assets/images/profil/fakeUser3.png";
+import { StarIcon } from "@heroicons/react/solid";
 import ConducteurModal from "../modals/ConducteurModal";
 const SecondStep = ({
   trajetDepart,
   trajetArrive,
   click2,
-  routeSelected,
   setRouteSelected,
 }) => {
   const [showMyModal, setshowMyModal] = useState(false);
@@ -48,20 +46,6 @@ console.log(driverRouteSelected);
             {routeMatched} Trajets trouvés pour votre recherche.
           </h6>
         )}
-
-        {/* /////////////////////////////////////////////////////////////////////////////// */}
-
-        {/* <div className="bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg ">
-          <div className="grid grid-cols-3 place-items-center">
-            <div>{trajetDepart.name.split(",", [1])}</div>
-            <div className=" text-slate-500  w-8 h-6 ">
-              <ArrowNarrowRightIcon />
-            </div>
-            <div>{trajetArrive.name.split(",", [1])}</div>
-          </div>
-        </div> */}
-
-        {/* ////////////////////////////////////////////////////////////////////////////// */}
 
         <div className="mt-6 mx-10">
           {driverRouteSelected.map((route) => (

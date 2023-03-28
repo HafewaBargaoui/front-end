@@ -12,16 +12,13 @@ import { Fade } from "react-awesome-reveal";
 
 const Trajets = () => {
   const isAuthenticated = useSelector(selectIsLogged);
-  const user = useSelector(selectUser);
   const [fav, setFav] = useState(false);
   const [histo, setHisto] = useState(false);
   const [recurent, setRecurent] = useState(false);
   const [propose, setPropose] = useState(false);
 
-
   const [infos, setinfos] = useState([])
   const [route, setroute] = useState([])
-
 
   const [driver, setdriver] = useState([])
   const [driverRoutes, setdriverRoutes] = useState([])
@@ -149,8 +146,8 @@ const Trajets = () => {
           }  h-64 overflow-y-scroll bg-opacity-10 mt-0 bg-slate-300 rounded-b-xl scrollbar`}
         >
           <div className="mt-6 mx-10">
-            {route.map((route, i) => (
               <Fade cascade>
+            {route.map((route, i) => (
 
               <div
                 className={`grid grid-flow-col place-items-center bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg `}
@@ -173,8 +170,8 @@ const Trajets = () => {
                   <span className="font-light">{route.point_cost}</span>
                 </div>
               </div>
-              </Fade>
             ))}
+              </Fade>
           </div>
         </div>
       </div>
@@ -324,11 +321,7 @@ const Trajets = () => {
           </Fade>
           </div>
         </div>
-      </div>
-
-
-
-      
+      </div>      
     </div>
   );
 };
