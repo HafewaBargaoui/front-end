@@ -16,7 +16,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import HomePageView from "../views/HomePageView";
 import ForgetLoginView from "../views/ForgetLoginView";
 import ResetPassword from "../views/ResetPasswordView";
-import ForgetEmailView from "../views/ForgetEmailView";
+
 import DeleteAccountView from "../views/DeleteAccountView";
 
 import ProfilePrefsView from "../views/ProfilePrefsView";
@@ -112,7 +112,7 @@ const Routes = () => {
         path={URL.URL_RESET_PASSWORD_MAIL_SENT}
         element={<ResetPasswordMailSent />}
       />
-      <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView />} />
+     
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       <Route path={URL.URL_REGISTER_LAST} element={<SubmittedRegister />} />
       <Route path={URL.URL_MAIL_VERIFIED} element={<MailVerified />} />
