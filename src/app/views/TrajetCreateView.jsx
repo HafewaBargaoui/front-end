@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearch } from "../components/hook/UseSearch";
+import { useSearch } from "../hook/UseSearch";
 import CreateTrajetFirst from "../components/CreateTrajet/CreateTrajetFirst";
 import CarteCreate from "../components/carte/CarteCreate";
 import { useSelector } from "react-redux";

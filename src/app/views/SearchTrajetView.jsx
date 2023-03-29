@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import FirstStep from "../components/stepsSearchTrajet/FirstStep";
 import SecondStep from "../components/stepsSearchTrajet/SecondStep";
 import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
 import PrefsTrajet from "../components/stepsSearchTrajet/PrefsTrajet";
-import { useSearch } from "../components/hook/UseSearch";
+import { useSearch } from "../hook/UseSearch";
 import Carte from "../components/carte/Carte";
 
 const SearchTrajetView = () => {
