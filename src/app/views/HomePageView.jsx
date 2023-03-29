@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useSearch } from "../components/hook/UseSearch";
+import { useSearch } from "../hook/useSearch"
 import {
   URL_REGISTER,
   URL_FAQ,
@@ -9,9 +9,8 @@ import {
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
 import { gsap } from "gsap";
-import { AttentionSeeker, Fade } from "react-awesome-reveal";import { selectUserData } from "../redux-store/getUserSlice";
-import { useSelector } from 'react-redux';
-import { selectUser } from "../redux-store/authenticationSlice";
+import { AttentionSeeker, Fade } from "react-awesome-reveal";
+
 
 export default function HomePageView() {
   const { depart, setDepart, arrive, setArrive, resultsDepart, resultsArrive } =
@@ -216,9 +215,6 @@ export default function HomePageView() {
         </div>
       </div>
   
-
-  
-
       <div className="">
         <Fade duration={2000} triggerOnce="true">
           <div className="flex mx-auto w-96 mt-10 mb-10 ">
