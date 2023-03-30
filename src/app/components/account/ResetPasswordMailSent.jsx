@@ -19,7 +19,6 @@ const ResetPasswordMailSent = () => {
   return (
     <div className='h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
       <div className="w-full max-w-lg h-96 max-h-lg flex justify-center items-center lg:px-8 bg-white bg-opacity-30 rounded-lg shadow-lg shadow-gray-900/80">
-        {/* <h3>Mot de passe oublié</h3> */}
         <p className="text-black text-center font-semibold">
           Un e-mail contenant les instructions à suivre pour réinitialiser votre
           mot de passe vient de vous être envoyé. Consultez votre boîte mail.
