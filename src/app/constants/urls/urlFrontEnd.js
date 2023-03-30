@@ -34,3 +34,4 @@ export const URL_HISTCOINS = import.meta.env.VITE_FRONT_URL_HISTCOINS
 export const URL_BUYCOINS_STRIPE = import.meta.env.VITE_FRONT_URL_BUYCOINS_STRIPE
 export const URL_PAIEMENT_VALIDE = import.meta.env.VITE_FRONT_URL_PAIEMENT_VALIDE
 export const URL_VOS_TRAJETS = import.meta.env.VITE_FRONT_URL_VOS_TRAJETS
+export const URL_REVIEW = import.meta.env.VITE_FRONT_URL_REVIEW

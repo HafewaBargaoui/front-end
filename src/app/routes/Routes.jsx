@@ -39,6 +39,7 @@ import ValidatedSearch from "../components/stepsSearchTrajet/ValidatedSearch";
 
 import ConfirmationPaiement from "../views/ConfirmationPaiementView";
 import VosTrajetsView from "../views/VosTrajetsView";
+import DriverReview from "../components/Review/DriverReview";
 
 /**
  * Routes of the application
@@ -83,6 +84,7 @@ const Routes = () => {
 
       <Route path={URL.URL_PAIEMENT_VALIDE} element={<ConfirmationPaiement />} />
       <Route path={URL.URL_VOS_TRAJETS} element={<VosTrajetsView />} />
+      <Route path={URL.URL_REVIEW} element={<DriverReview />} />
 
     </RoutesContainer>
   );
