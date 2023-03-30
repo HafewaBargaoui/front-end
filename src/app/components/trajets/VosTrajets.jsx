@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
-import { userJourney, updateRoute } from "../../api/backend/account";
+import { userJourney, updateRoute } from "../../api/backend/trajetAPI";
 import { useSelector } from "react-redux";
 import {selectIsLogged} from "../../redux-store/authenticationSlice";
 import { Fade } from "react-awesome-reveal";

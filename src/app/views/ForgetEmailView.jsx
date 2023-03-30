@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {URL_HOME} from "../constants/urls/urlFrontEnd";
-import Login from "../components/account/Login";
 import {selectIsLogged} from "../redux-store/authenticationSlice";
 import ForgetEmail from "../components/account/ForgetEmail";
 

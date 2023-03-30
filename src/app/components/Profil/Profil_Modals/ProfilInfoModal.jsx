@@ -1,4 +1,4 @@
-import { editProfile } from "../../../api/backend/account";
+import { editProfile } from "../../../api/backend/profileAPI";
 import React, { useRef } from "react";
 import { useFormik } from "formik";
 import { URL_DELETE_ACCOUNT } from "../../../constants/urls/urlFrontEnd";

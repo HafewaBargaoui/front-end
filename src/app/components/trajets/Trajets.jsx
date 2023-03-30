@@ -4,9 +4,9 @@ import paul from "../../assets/images/profil/fakeUser3.png";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import haut from "../../assets/images/profil/flecheHaut.png";
 import bas from "../../assets/images/profil/flecheBas.png";
-import { userJourney, userSubmittedJourney } from "../../api/backend/account";
+import { userJourney, userSubmittedJourney } from "../../api/backend/trajetAPI";
 import { useSelector } from "react-redux";
-import {selectIsLogged, selectUser} from "../../redux-store/authenticationSlice";
+import {selectIsLogged} from "../../redux-store/authenticationSlice";
 import { Fade } from "react-awesome-reveal";
 
 

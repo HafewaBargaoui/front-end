@@ -20,7 +20,8 @@ import { signOut } from "../../redux-store/authenticationSlice";
 
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import { logout, getProfile } from "../../api/backend/account";
+import { getProfile } from "../../api/backend/profileAPI";
+import { logout } from "../../api/backend/accountAPI";
 
 
 

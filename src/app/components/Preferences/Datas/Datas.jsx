@@ -14,7 +14,7 @@ import electrique from "../../../assets/images/profileprefs/electrique.png";
 
 import {
     getCarBrand,
-  } from "../../../api/backend/account";
+  } from "../../../api/backend/vehiculeAPI";
 
 export const Datas = () => {
 

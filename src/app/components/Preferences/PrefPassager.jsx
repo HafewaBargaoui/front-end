@@ -6,7 +6,7 @@ import PrefConducteur from "./PrefConducteur";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import { userPreference } from "../../api/backend/account";
+import { userPreference } from "../../api/backend/profileAPI";
 import { Datas } from "./Datas/Datas";
 
 const PrefPassager = () => {

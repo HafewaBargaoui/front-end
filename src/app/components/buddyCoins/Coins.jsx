@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getProfile } from "../../api/backend/account";
+import { getProfile } from "../../api/backend/profileAPI";
 import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
 import { Link } from "react-router-dom";
 import {
     URL_BUYCOINS,
-    URL_SELLCOINS,
-    URL_HISTCOINS,
     URL_BUYCOINS_STRIPE
 } from "../../constants/urls/urlFrontEnd";
 

@@ -7,7 +7,7 @@ import "leaflet-routing-machine/dist/leaflet-routing-machine.js";
 import "leaflet-control-geocoder/dist/Control.Geocoder.js";
 import "leaflet-control-geocoder/dist/Control.Geocoder.css";
 import { useLocation } from "react-router-dom";
-import { createRoute } from "../../api/backend/account";
+import { createRoute } from "../../api/backend/trajetAPI";
 import { useNavigate } from "react-router-dom";
 import { URL_TRAJET_VALIDE } from "../../constants/urls/urlFrontEnd";
 

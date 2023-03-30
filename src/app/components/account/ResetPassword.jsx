@@ -3,13 +3,13 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {signIn} from "../../redux-store/authenticationSlice";
 import {authenticate} from "../../api/backend/account";
 import { URL_PASSWORD_MODIFIED } from "../../constants/urls/urlFrontEnd";
 
-import { resetpassword } from "../../api/backend/account";
+import { resetpassword } from "../../api/backend/accountAPI";
 
 /**
  * Component Reset Password

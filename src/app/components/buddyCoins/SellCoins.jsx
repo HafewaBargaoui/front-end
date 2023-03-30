@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getProfile } from "../../api/backend/account";
+import { useSelector } from "react-redux";
+import { getProfile } from "../../api/backend/profileAPI";
 import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
-import { sellBuddyCoins } from "../../api/backend/account";
+import { sellBuddyCoins } from "../../api/backend/buddycoinAPI";
 import SellBuddyCoinsModal from '../modals/SellBuddyCoinsModal';
 
 import buddycoin from "../../assets/images/profil/buddycoin.png";

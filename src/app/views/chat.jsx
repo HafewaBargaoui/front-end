@@ -3,7 +3,7 @@ import { selectToken, selectUser } from "../redux-store/authenticationSlice";
 import { useSelector } from 'react-redux';
 import url from '../api/backend/socket_url';
 import io from "socket.io-client";
-import { getMessageSocket } from "../api/backend/account";
+import { getMessageSocket } from "../api/backend/messagerieAPI";
 
 var socket;
 

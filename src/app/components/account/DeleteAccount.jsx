@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { deleteAccount } from '../../api/backend/account';
+import { deleteAccount } from '../../api/backend/accountAPI';
 import { Link } from "react-router-dom";
 import DeleteAccountModal from '../modals/DeleteAccountModal';
 
@@ -8,7 +8,7 @@ import {
 
 } from "../../constants/urls/urlFrontEnd";
 import { useDispatch } from "react-redux";
-import { logout } from "../../api/backend/account";
+import { logout } from "../../api/backend/accountAPI";
 import { signOut } from "../../redux-store/authenticationSlice";
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDriverRoute } from "../../api/backend/account";
+import { getDriverRoute } from "../../api/backend/trajetAPI";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import { StarIcon } from "@heroicons/react/solid";
 import ConducteurModal from "../modals/ConducteurModal";

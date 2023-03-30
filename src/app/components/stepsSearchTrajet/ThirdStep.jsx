@@ -1,5 +1,5 @@
 import React from "react";
-import { updateRoomUser } from "../../api/backend/account";
+import { updateRoomUser } from "../../api/backend/messagerieAPI";
 import paul from "../../assets/images/profil/fakeUser3.png";
 import { StarIcon } from "@heroicons/react/solid";
 import buddycoin from "../../assets/images/profil/buddycoin.png";

@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import { forgetpassword } from "../../api/backend/account";
+import { forgetpassword } from "../../api/backend/accountAPI";
 
 
 const initialValues = {

@@ -1,12 +1,10 @@
 import React from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import PrefLastScreen from "./PrefLastScreen";
 import { useFormik } from "formik";
 import { useDropzone } from "react-dropzone";
-import {
-  postDriverVehicule,
-  postDriverPrefs,
-} from "../../api/backend/account";
+import { postDriverVehicule } from "../../api/backend/vehiculeAPI";
+import { postDriverPrefs } from "../../api/backend/profileAPI";
 
 import { Datas } from "./Datas/Datas";
 

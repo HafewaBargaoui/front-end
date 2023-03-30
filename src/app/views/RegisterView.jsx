@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { register } from "../api/backend/account";
+import { register } from "../api/backend/accountAPI";
 import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
 import SecondForm from "../components/stepsRegister/SecondForm";

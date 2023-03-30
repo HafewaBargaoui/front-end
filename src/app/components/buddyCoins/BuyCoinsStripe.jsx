@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getProfile, getTrader } from "../../api/backend/account";
+import { getProfile } from "../../api/backend/profileAPI";
 import { selectIsLogged } from "../../redux-store/authenticationSlice";
-import { paiementStripe } from "../../api/backend/account";
+import { paiementStripe, getTrader } from "../../api/backend/buddycoinAPI";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import { useFormik } from "formik";
 

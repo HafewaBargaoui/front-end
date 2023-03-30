@@ -1,14 +1,14 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
 import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { getUser } from "../../redux-store/getUserSlice";
-import { authenticate, getProfile } from "./../../api/backend/account";
+import { getProfile } from "./../../api/backend/profileAPI";
+import { authenticate } from "./../../api/backend/accountAPI";
 
 /**
  * Component Login

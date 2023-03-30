@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { mailPaiement } from "../api/backend/account";
+import { mailPaiement } from "../api/backend/buddycoinAPI";
 
 
 const ConfirmationPaiement = () => {

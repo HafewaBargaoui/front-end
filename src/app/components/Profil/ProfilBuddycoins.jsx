@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getProfile } from "../../api/backend/account";
+import { getProfile } from "../../api/backend/profileAPI";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
-import { selectIsLogged, selectUser, selectToken } from "../../redux-store/authenticationSlice";
+import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
 
 import {
-  URL_BUYCOINS,
   URL_SELLCOINS,
   URL_COINS, 
   URL_HISTCOINS,
-  URL_BUYCOINS_STRIPE
 } from "../../constants/urls/urlFrontEnd";
 
 const ProfilBuddycoins = () => 

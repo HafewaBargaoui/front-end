@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getProfile, getTrader } from "../../api/backend/account";
 import { selectIsLogged } from "../../redux-store/authenticationSlice";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
-import { paiementStripe } from "../../api/backend/account";
+import { getProfile } from "../../api/backend/profileAPI";
+import { paiementStripe, getTrader } from "../../api/backend/buddycoinAPI";
 
 const BuyCoins = () => {
 
