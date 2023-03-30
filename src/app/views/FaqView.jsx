@@ -9,7 +9,7 @@ export default function Faq() {
     return (
         <div className="h-full w-full flex justify-center items-center bg-cover bg-[url('./imgs/Gradient.png')]">
             <div className='flex flex-col text-white text-lg ml-64 mr-64'>
-                <div className='text-white mt-12 mb-12 text-4xl font-bold uppercase text-center underline underline-offset-4 text-cyan-500'>
+                <div className='mt-12 mb-12 text-4xl font-bold uppercase text-center underline underline-offset-4 text-cyan-500'>
                     <p>Foire aux questions :</p>
                 </div>
                 <div className=''>

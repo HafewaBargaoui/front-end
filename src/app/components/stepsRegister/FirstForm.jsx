@@ -64,7 +64,7 @@ const FirstForm = ({
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64 "
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64 "
 								id="lastname"
 								name="lastname"
 								type="text"
@@ -100,7 +100,7 @@ const FirstForm = ({
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="name"
 								name="name"
 								onChange={onChange}
@@ -135,7 +135,7 @@ const FirstForm = ({
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="birthday"
 								name="birthday"
 								onChange={onChange}
@@ -172,7 +172,7 @@ const FirstForm = ({
 							</label>
 
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="email"
 								name="email"
 								onChange={onChange}
@@ -206,7 +206,7 @@ const FirstForm = ({
 								Mot de passe :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="password"
 								name="password"
 								value={formValues.password}
@@ -251,7 +251,7 @@ const FirstForm = ({
 								Confirmation mot de passe :
 							</label>
 							<input
-								className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
+								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
 								id="confirmPassword"
 								name="confirmPassword"
 								type={(confirmVisible === false)? 'password' :'text'}
