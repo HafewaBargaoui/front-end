@@ -13,13 +13,13 @@ const Footer = () => {
                     </Link>             
       )
       const FooterHref = ({lien, txt}) => (   
-        <a href ={lien} className="mr-40 text-lg"> {txt}
+        <a href ={lien} target="_blank" className="mr-40 text-lg"> {txt}
         </a>             
 )
-      const FooterImg = ({src, lien, alt, title}) => (
+      const FooterImg = ({src, lien, alt, title, target}) => (
           <div className="w-14 pr-6">
-              <a href={lien}>
-              <img src={src} alt={alt} title={title}/>
+              <a href={lien} target="_blank">
+              <img src={src} alt={alt} title={title} />
               </a>
           </div>
       ); 
@@ -45,7 +45,7 @@ const Footer = () => {
              <FooterImg src={twitter} title ={"twitter"} lien={"https://twitter.com"} />
              <FooterImg src={youtube} title ={"youtube"} lien={"https://youtube.com"} />
              <FooterImg src={linkedin} title ={"linkedin"} lien={"https://linkedin.com"} />
-             <FooterImg src={instagram} title ={"instagram"} lien={"https://instagram.com"} />
+             <FooterImg src={instagram} title ={"instagram"} lien={"https://instagram.com"}/>
           </div>
           <div className="mx-auto text-white pr-32">
             <p>Copyright © 2023.Carbuddy Inc.</p>
