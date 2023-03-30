@@ -55,7 +55,7 @@ const CarteCreate = ({ trajetDepart, trajetArrive, heureDepart, dateDepart, sele
   useEffect(() => {
     const map = L.map("map");
     L.tileLayer(
-      "https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}@2x.jpg?key=KqtlJiAPF3SvpfVBeuZ4"
+      import.meta.env.VITE_API_KEY_CARTE
     ).addTo(map);
 
     const waypoints = [L.latLng(0, 0), L.latLng(0, 0)];

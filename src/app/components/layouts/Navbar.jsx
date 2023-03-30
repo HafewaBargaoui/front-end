@@ -9,14 +9,13 @@ import {
   URL_PROFILEPREFS,
   URL_PROFIL,
   URL_REGISTER,
-  URL_DELETE_ACCOUNT,
   URL_SEARCH,
   URL_CHAT_SOCKET,
   URL_COINS,
   URL_VOS_TRAJETS,
 } from "../../constants/urls/urlFrontEnd";
 import { useSelector, useDispatch } from "react-redux";
-import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
+import { selectIsLogged } from "../../redux-store/authenticationSlice";
 import { signOut } from "../../redux-store/authenticationSlice";
 
 import { Menu, Transition } from "@headlessui/react";
