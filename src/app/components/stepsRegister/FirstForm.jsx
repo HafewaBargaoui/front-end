@@ -1,67 +1,65 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 const FirstForm = ({
-	formValues,
-	onChange,
-	formValidation,
-	onFocus,
-	onBlur,
-	checkingFocus,
+  formValues,
+  onChange,
+  formValidation,
+  onFocus,
+  onBlur,
+  checkingFocus,
 }) => {
-	// handle toggle password
-  
-	const [visible, setVisible] = useState(false)
-	const toggle = () =>{
-		setVisible(!visible)
-};
+  const [visible, setVisible] = useState(false);
+  const toggle = () => {
+    setVisible(!visible);
+  };
 
-	const [confirmVisible, confirmSetVisible] = useState(false)
-	const toggleconfirm = () =>{
-	confirmSetVisible(!confirmVisible)
-};
-	return (
-		<div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500">
-			<div className="grid gap-4 place-content-center items-center">
-				<h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
-					INSCRIPTION
-				</h1>
-			</div>
-			<hr />
+  const [confirmVisible, confirmSetVisible] = useState(false);
+  const toggleconfirm = () => {
+    confirmSetVisible(!confirmVisible);
+  };
+  return (
+    <div className="max-w-2xl rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-500">
+      <div className="grid gap-4 place-content-center items-center">
+        <h1 className="mt-3 mb-3 text-center text-3xl font-semibold text-black">
+          INSCRIPTION
+        </h1>
+      </div>
+      <hr />
 
-			<form className="mt-8 ml-6 space-y-6 ">
-				<div className="flex justify-around">
-					<div>
-						<label htmlFor="female">Femme </label>
-						<input
-							type="radio"
-							name="sex"
-							id="sexe"
-							value="femme"
-							className="text-cyan-600"
-							onChange={onChange}
-						/>
-					</div>
-					<div>
-						<label htmlFor="male">Homme </label>
-						<input
-							type="radio"
-							name="sex"
-							id="sexe"
-							value="homme"
-							className="text-cyan-600"
-							onChange={onChange}
-						/>
-					</div>
-				</div>
-				<div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
-					<div className="grid grid-row space-y-3 ">
-						<div className="h-24">
-							<label
-								className="block text-gray-800 text-md font-semibold mb-2"
-								htmlFor="name"
-							>
-								Nom :
-							</label>
+      <form className="mt-8 ml-6 space-y-6 ">
+        <div className="flex justify-around">
+          <div>
+            <label htmlFor="female">Femme </label>
+            <input
+              type="radio"
+              name="sex"
+              id="sexe"
+              value="femme"
+              className="text-cyan-600"
+              onChange={onChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="male">Homme </label>
+            <input
+              type="radio"
+              name="sex"
+              id="sexe"
+              value="homme"
+              className="text-cyan-600"
+              onChange={onChange}
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3 rounded-md shadow-sm">
+          <div className="grid grid-row space-y-3 ">
+            <div className="h-24">
+              <label
+                className="block text-gray-800 text-md font-semibold mb-2"
+                htmlFor="name"
+              >
+                Nom :
+              </label>
 
 							<input
 								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64 "
@@ -75,29 +73,24 @@ const FirstForm = ({
 								onBlur={onBlur}
 							></input>
 
-							{/* {formValidation.lastname === false && checkingFocus.lastname && (
-								<p className="text-xs pt-2 text-red-600">
-									3 à 30 lettre. Doit commencer par une majuscule
-								</p>
-							)} */}
-							<p
-								className={
-									formValidation.lastname === false && checkingFocus.lastname
-										? "text-xs pt-2 text-pink-800 font-semibold"
-										: " invisible text-xs pt-2 text-red-600"
-								}
-							>
-								3 à 30 lettres.
-							</p>
-						</div>
+              <p
+                className={
+                  formValidation.lastname === false && checkingFocus.lastname
+                    ? "text-xs pt-2 text-pink-800 font-semibold"
+                    : " invisible text-xs pt-2 text-red-600"
+                }
+              >
+                3 à 30 lettres.
+              </p>
+            </div>
 
-						<div className="h-24">
-							<label
-								className="block text-gray-800 text-md font-semibold mb-2"
-								htmlFor="lastname"
-							>
-								Prénom :
-							</label>
+            <div className="h-24">
+              <label
+                className="block text-gray-800 text-md font-semibold mb-2"
+                htmlFor="lastname"
+              >
+                Prénom :
+              </label>
 
 							<input
 								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
@@ -126,13 +119,13 @@ const FirstForm = ({
 							</p>
 						</div>
 
-						<div className="h-24">
-							<label
-								className=" block text-gray-800 text-md font-semibold mb-2"
-								htmlFor="birthday"
-							>
-								Date de naissance :
-							</label>
+            <div className="h-24">
+              <label
+                className=" block text-gray-800 text-md font-semibold mb-2"
+                htmlFor="birthday"
+              >
+                Date de naissance :
+              </label>
 
 							<input
 								className="inputInscription shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-64"
@@ -288,17 +281,14 @@ const FirstForm = ({
 					</div>
 				</div>
 
-				<div
-					data-role="main"
-					className="ui-content"
-				>
-					<div className="grid grid-cols-2 place-items-center gap-3 text-black font-bold">
-						<div></div>
-					</div>
-				</div>
-			</form>
-		</div>
-	);
+        <div data-role="main" className="ui-content">
+          <div className="grid grid-cols-2 place-items-center gap-3 text-black font-bold">
+            <div></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default FirstForm;

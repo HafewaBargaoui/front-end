@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { forgetpassword } from "../../api/backend/accountAPI";
 
+import { URL_RESET_PASSWORD_MAIL_SENT } from "../../constants/urls/urlFrontEnd";
 
 const initialValues = {
 	email: '',
@@ -22,29 +23,22 @@ const ForgetLogin = () => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async(values) => {
-		//Send requet to back 
-		//navigate(URL_RESET_PASSWORD);
-		
-
 		const mail = {
 			email : values.email
 		}
 		console.log(mail);
 		await forgetpassword(mail)
+		navigate(URL_RESET_PASSWORD_MAIL_SENT);
 	};
 
 	return (
 		<div className="w-full max-w-md space-y-3 rounded-lg  mt-8 pb-8  px-4 shadow sm:px-6 lg:px-8  bg-cover  bg-slate-500">
 			<div className="flex justify-center pb-16">
 				<h1 className="mt-6 text-center text-3xl font-semibold text-black">
-				{/* Saisissez votre adresse e-mail. 
-				Nous vous enverrons un lien pour réinitialiser votre mot de passe. */}
 				Mot de passe oublié ?
 				</h1>
-
 				<hr />
 			</div>
-
 			<Formik
 				 initialValues={initialValues}
 				 validationSchema={validationSchema}
@@ -56,8 +50,7 @@ const ForgetLogin = () => {
 							className="pl-1 font-semibold"
 							htmlFor="email"	
 							>
-							
-							Email:{" "}
+							Email:
 						</label>
 						<Field
 							type="text"
@@ -70,21 +63,16 @@ const ForgetLogin = () => {
                 {error => <div className='text-xs pt-2 text-red-600'>{error}</div>} 
               </ErrorMessage> 
 					</div>
-			
-
 					<div className="text-center">		
-						{/* <div className="flex justify-between pt-8"> */}
 							<button 
 								type="submit"
 								className="btn bg-cyan-700 hover:bg-cyan-800 relative w-1/2 text-white font-bold"
 							>
 								Envoyer
 							</button>
-						{/* </div> */}
 					</div>
 				</Form>
 			</Formik>
-			{/* <p>Retour à la page de connexion</p> */}
 		</div>
 	);
 };

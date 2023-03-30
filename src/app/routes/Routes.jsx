@@ -12,7 +12,7 @@ import RegisterView from "../views/RegisterView";
 import HomePageView from "../views/HomePageView";
 import ForgetLoginView from "../views/ForgetLoginView";
 import ResetPassword from "../views/ResetPasswordView";
-import ForgetEmailView from "../views/ForgetEmailView";
+
 import DeleteAccountView from "../views/DeleteAccountView";
 
 import ProfilePrefsView from "../views/ProfilePrefsView";
@@ -24,6 +24,7 @@ import ChatSocket from "../views/chat";
 import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
 import MailVerified from "../components/account/MailVerified";
 import PasswordModified from "../components/account/PasswordModified";
+import ResetPasswordMailSent from "../components/account/ResetPasswordMailSent";
 import DeleteAccountModal from "../components/modals/DeleteAccountModal";
 
 import SearchTrajetView from "../views/SearchTrajetView";
@@ -59,7 +60,11 @@ const Routes = () => {
       <Route path={URL.URL_FORGET_LOGIN} element={<ForgetLoginView />} />
       <Route path={URL.URL_RESET_PASSWORD} element={<ResetPassword />} />
       <Route path={URL.URL_PASSWORD_MODIFIED} element={<PasswordModified />} />
-      <Route path={URL.URL_FORGET_EMAIL} element={<ForgetEmailView />} />
+      <Route
+        path={URL.URL_RESET_PASSWORD_MAIL_SENT}
+        element={<ResetPasswordMailSent />}
+      />
+     
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       <Route path={URL.URL_REGISTER_LAST} element={<SubmittedRegister />} />
       <Route path={URL.URL_MAIL_VERIFIED} element={<MailVerified />} />
