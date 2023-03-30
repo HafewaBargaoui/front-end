@@ -10,11 +10,6 @@ import {authenticate} from "../../api/backend/account";
 import { URL_PASSWORD_MODIFIED } from "../../constants/urls/urlFrontEnd";
 
 import { resetpassword } from "../../api/backend/account";
-
-/**
- * Component Reset Password
- */
-
 const initialValues = {
   password: "",
   password_confirm: "",
@@ -64,14 +59,10 @@ const ResetPassword = () => {
 	  	await resetpassword(newPassword, token);
 		navigate(URL_PASSWORD_MODIFIED);
 	};
-  // handle toggle password
-  
   const [visible, setVisible] = useState(false)
     const toggle = () =>{
       setVisible(!visible)
     }
-      // handle toggle password confirm
-  
   const [confirmVisible, confirmSetVisible] = useState(false)
   const toggleconfirm = () =>{
     confirmSetVisible(!confirmVisible)
@@ -89,13 +80,9 @@ const ResetPassword = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        //mode= "onTouched"
-        //onBlur= {e.preventDefault()}
         onSubmit={handleResetLogin}
       >
         <Form className="mt-8 space-y-6">
- {/* ////////////////////////////////////Password///////////////////////////////////////////// */}
- 
           <div className="flex flex-col space-y-6 relative ">
             <label className="pl-1 font-semibold" htmlFor="password">
               Saisissez votre nouveau mot de passe{" "}
@@ -124,21 +111,15 @@ const ResetPassword = () => {
               )}
             </ErrorMessage>
           </div>
-          
-{/* //////////////////////////////////// Confirm password ///////////////////////////////////////////// */}
           <div className="flex flex-col space-y-6 relative">
             <label className="pl-1 font-semibold" htmlFor="password">
-              Confirmez le nouveau mot de passe{" "}
+              Confirmez le nouveau mot de passe
             </label>
 
             <Field
               type={(confirmVisible === false)? 'password' :'text'}
               name="password_confirm"
               placeholder="Confirmer"
-              // onPaste={(e)=>{
-              //   e.preventDefault()
-              //   return false;
-              // }}
               maxLength="24"
               autoComplete="current-password"
               className="inputInscription"
@@ -156,7 +137,6 @@ const ResetPassword = () => {
               )}
             </ErrorMessage>
           </div>
-{/* ////////////////////////////////////Button///////////////////////////////////////////// */}
           <div className="text-center">
             <button
               type="submit"
@@ -165,10 +145,8 @@ const ResetPassword = () => {
               Valider le nouveau mot de passe
             </button>        
           </div>
-{/* /////////////////////////////////////////////////////////////////////////////////// */}
         </Form>
       </Formik>
-{/* ///////////////////////////////////////////////////////////////////////////////////// */}
     </div>
   );
 };
