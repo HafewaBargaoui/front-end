@@ -4,10 +4,8 @@ import REGEX from "../constants/regex";
 import FirstForm from "../components/stepsRegister/FirstForm";
 import SecondForm from "../components/stepsRegister/SecondForm";
 import ThirdForm from "../components/stepsRegister/ThirdForm";
-import { useNavigate } from "react-router-dom";
-
+import PersonSVG from "../assets/svg/PersonSVG";
 const RegisterView = () => {
-  const navigate = useNavigate();
   const formList = ["FirstForm", "SecondForm", "ThirdForm"];
 
   const formLength = formList.length;
@@ -214,22 +212,7 @@ const RegisterView = () => {
           >
             <div className="flex items-center ">
               <span className="stepper-head-icon ml-12">
-                <svg
-                  className="h-8 w-8 text-cyan-500"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {" "}
-                  <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                  <circle cx="12" cy="7" r="4" />{" "}
-                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg>
+             <PersonSVG />
               </span>
               <span
                 className={
@@ -250,22 +233,7 @@ const RegisterView = () => {
           >
             <div className="flex items-center">
               <span className="stepper-head-icon ml-10">
-                <svg
-                  className="h-8 w-8 text-cyan-500"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {" "}
-                  <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                  <circle cx="12" cy="7" r="4" />{" "}
-                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg>
+              <PersonSVG />
               </span>
               <span
                 className={
@@ -286,22 +254,7 @@ const RegisterView = () => {
           >
             <div className="flex items-center">
               <span className="stepper-head-icon ml-10">
-                <svg
-                  className="h-8 w-8 text-cyan-500"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  {" "}
-                  <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                  <circle cx="12" cy="7" r="4" />{" "}
-                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg>
+              <PersonSVG />
               </span>
               <span
                 className={
@@ -322,7 +275,7 @@ const RegisterView = () => {
             className="bg-cyan-700  hover:bg-cyan-800 rounded-md text-gray-400 font-bold py-2 px-4 disabled:bg-gray-400 disabled:bg-opacity-25 disabled:text-opacity-25 "
             disabled={page === 0}
           >
-            Prev
+            Précédent
           </button>
           {page === 2 ? (
             <button
@@ -331,17 +284,16 @@ const RegisterView = () => {
               //permet de désactiver/griser le bouttons submits si les saisies ne sont pas bonnes :
               // disabled={checkingInvalidInputs()}
             >
-              Submit
+              S'inscrire
             </button>
           ) : (
             <button
               onClick={handleNext}
               className=" bg-cyan-700 hover:bg-cyan-800 rounded-md text-white font-bold py-2 px-4 disabled:bg-gray-400"
             >
-              Next
+              Suivant
             </button>
           )}
-          {/* <button onClick={test}>envoie</button> */}
         </div>
       </div>
     </div>

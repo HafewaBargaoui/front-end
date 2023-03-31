@@ -2,19 +2,13 @@ import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
+import {useNavigate } from "react-router-dom";
 import { URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { getUser } from "../../redux-store/getUserSlice";
 import { getProfile } from "./../../api/backend/profileAPI";
 import { authenticate } from "./../../api/backend/accountAPI";
 
-/**
- * Component Login
- *
- * @author Peter Mollet
- */
 const Login = () => {
 	const [errorLog, setErrorLog] = useState(false);
 	const navigate = useNavigate();
@@ -46,9 +40,6 @@ const Login = () => {
 	const handleForgetEmail = () => {
 		navigate(URL_FORGET_EMAIL);
 	};
-
-	// handle toggle password
-
 	const [open, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!open)
@@ -109,37 +100,19 @@ const Login = () => {
 							}
 						</div>
 					</div>
-
-
-					{/* <div className="mt-3 flex items-center justify-between">
-						<div className="text-sm">
-							<Link to="/forgot-password">
-								<span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-									Forgot your password?
-								</span>
-							</Link>
-						</div>
-					</div> */}
-
+					 <p
+            className=" text-slate-700 underline hover:text-cyan-900"
+            onClick={handleForgetLogin}
+          >
+            Mot de passe oublié ?
+          </p>
 					<div className="text-center">
 						<button
 							type="submit"
 							className="btn bg-cyan-700 group hover:bg-cyan-800 relative w-1/2 text-white mt-4"
 						>
-							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-								<LockClosedIcon
-									className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
-									aria-hidden="true"
-								/>
-							</span> */}
 							Connexion
 						</button>
-						<div className="flex justify-center  mt-8">
-							<button className="btn bg-cyan-600 hover:bg-cyan-500  "
-								onClick={handleForgetLogin}                        >
-								Mot de passe oublié
-							</button>
-						</div>
 					</div>
 					{errorLog && (
 						<div className="flex justify-center">
@@ -148,10 +121,6 @@ const Login = () => {
 							</small>
 						</div>
 					)}
-
-					<p>
-						{/* vous n'avez pas encore de compte ? <Link to ={}>cliquez ici</Link> */}
-					</p>
 				</Form>
 			</Formik>
 		</div>

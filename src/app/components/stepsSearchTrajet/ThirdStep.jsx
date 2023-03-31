@@ -76,9 +76,9 @@ const ThirdStep = (routeSelected) => {
             </div>
 
             <div className="grid grid-cols-2   ">
-              <img src={paul} alt="driver" className="w-12 h-12" />
+              <img src={routeSelected.routeSelected.id_user.id_user_preference.file[0].filename} alt="driver" className="w-12 h-12" />
 
-              <div>Paul / {routeSelected.routeSelected.vehicule.brand}</div>
+              <div>{routeSelected.routeSelected.id_user.name} / {routeSelected.routeSelected.vehicule.brand}</div>
             </div>
           </div>
           <div>
