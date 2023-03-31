@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import { gsap } from "gsap";
 import hommes from "../../assets/images/homepage/hommes.jpeg"
 const Presentation = () => {

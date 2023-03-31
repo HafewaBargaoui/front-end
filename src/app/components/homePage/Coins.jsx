@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import {Fade } from "react-awesome-reveal";
 import tirelire from "../../assets/images/homepage/tirelire.jpg"
 

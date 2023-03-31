@@ -3,7 +3,7 @@ import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {useNavigate } from "react-router-dom";
-import { URL_HOME, URL_FORGET_LOGIN, URL_FORGET_EMAIL } from "../../constants/urls/urlFrontEnd";
+import { URL_HOME, URL_FORGET_LOGIN } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { getUser } from "../../redux-store/getUserSlice";
 import { getProfile } from "./../../api/backend/profileAPI";
@@ -37,9 +37,7 @@ const Login = () => {
 	const handleForgetLogin = () => {
 		navigate(URL_FORGET_LOGIN);
 	};
-	const handleForgetEmail = () => {
-		navigate(URL_FORGET_EMAIL);
-	};
+
 	const [open, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!open)

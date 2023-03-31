@@ -5,8 +5,6 @@ import PhotoVehiculeModal from "./PhotoVehiculeModal";
 
 const VehiculeModal = ({
   setVehiculeModal,
-  vehiculeModal,
-  nbVehicule,
   VehiculeSelect,
   count,
   setCount,
@@ -30,9 +28,6 @@ const VehiculeModal = ({
   const [editModale, seteditModale] = useState(false);
   const [photoSrc, setphotoSrc] = useState("");
 
-  const modal = () => {
-    setmodalOn(true);
-  };
   const photoModale = () => {
     setphotoModal(true);
   };

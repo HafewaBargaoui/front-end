@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const CreateTrajetSecond = ({ setclickSuivant, clickSuivant, click2 }) => {
+const CreateTrajetSecond = ({ click2 }) => {
   return (
     <div>
       <div className="rounded-xl px-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">

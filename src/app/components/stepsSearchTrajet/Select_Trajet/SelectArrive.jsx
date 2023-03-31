@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpIcon } from "@heroicons/react/solid";
+import { CheckIcon } from "@heroicons/react/solid";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
 
 
@@ -26,10 +26,6 @@ const SelectArrive = ({
           autoComplete="off"
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-          {/* <ChevronUpIcon
-            className="h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          /> */}
         </Combobox.Button>
       </div>
       <Transition

@@ -2,14 +2,8 @@ import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import {signIn} from "../../redux-store/authenticationSlice";
-import {authenticate} from "../../api/backend/account";
 import { URL_PASSWORD_MODIFIED } from "../../constants/urls/urlFrontEnd";
-
-
 import { resetpassword } from "../../api/backend/accountAPI";
 
 /**
@@ -35,23 +29,7 @@ const validationSchema = Yup.object({
 });
 
 const ResetPassword = () => {
-	const [errorLog, setErrorLog] = useState(false);
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
-//navigate("/password-modified");
-
-	const ResetPassword = (values) => {
-		authenticate(values)
-			.then((res) => {
-				if (res.status === 200) {
-					dispatch(signIn(res.data));
-					navigate(URL_HOME);
-				} else {
-					console.log(res.message);
-				}
-			})
-			.catch((error) => setErrorLog(error));
-	};
   const handleResetLogin = async (values) => {
 
 	const queryParameters = new URLSearchParams(window.location.search)

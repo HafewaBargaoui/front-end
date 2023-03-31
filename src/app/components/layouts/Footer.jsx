@@ -16,7 +16,7 @@ const Footer = () => {
         <a href ={lien} target="_blank" className="mr-40 text-lg"> {txt}
         </a>             
 )
-      const FooterImg = ({src, lien, alt, title, target}) => (
+      const FooterImg = ({src, lien, alt, title }) => (
           <div className="w-14 pr-6">
               <a href={lien} target="_blank">
               <img src={src} alt={alt} title={title} />

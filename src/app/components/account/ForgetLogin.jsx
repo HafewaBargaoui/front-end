@@ -1,7 +1,6 @@
+import React from "react";
 import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as Yup from 'yup'
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { forgetpassword } from "../../api/backend/accountAPI";
 
@@ -18,8 +17,6 @@ const initialValues = {
   })
 
 const ForgetLogin = () => {
-	const [errorLog, setErrorLog] = useState(false);
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleSubmit = async(values) => {

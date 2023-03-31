@@ -1,7 +1,5 @@
 import React from "react";
 import { updateRoomUser } from "../../api/backend/messagerieAPI";
-import paul from "../../assets/images/profil/fakeUser3.png";
-import { StarIcon } from "@heroicons/react/solid";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import { useNavigate } from "react-router-dom";
 import { URL_TRAJET_SEARCH_VALIDE } from "../../constants/urls/urlFrontEnd";
@@ -86,7 +84,6 @@ const ThirdStep = (routeSelected) => {
           </div>
 
           <div className="grid grid-cols-2">
-            {/* <div className=" flex flex-row"> */}
             <p className="font-thin ">
               {" "}
               Besoin d'informations complémentaires ?
@@ -95,7 +92,6 @@ const ThirdStep = (routeSelected) => {
             <button className=" bg-jaunebtn rounded-md hover:bg-jauneh drop-shadow-md py-0 px-4">
               Discuter
             </button>
-            {/* </div> */}
           </div>
 
           {/* /////////////////////////////////////// */}

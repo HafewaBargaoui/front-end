@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
-import { gsap } from "gsap";
 import { URL_REGISTER} from "../../constants/urls/urlFrontEnd";
 import map from "../../assets/images/homepage/map.jpg"
 
