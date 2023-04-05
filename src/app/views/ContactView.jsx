@@ -1,11 +1,5 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import React, { useState } from "react";
-import facebook from "../assets/images/footer/facebook.png";
-import youtube from "../assets/images/footer/youtube.png";
-import linkedin from "../assets/images/footer/linkedin.png";
-import twitter from "../assets/images/footer/twitter.png";
-import instagram from "../assets/images/footer/instagram.png";
 export default function Contact() {
   const FooterImg = ({ src, lien, alt, title }) => (
     <div className="w-14 pr-6 ml-4">
