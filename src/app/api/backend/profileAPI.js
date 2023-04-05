@@ -3,9 +3,13 @@ import {
 	URL_BACK_DRIVERPREF,
 	URL_BACK_USER_PROFILE,
 	URL_BACK_GET_DRIVER_ROUTE,
+	URL_BACK_GOOGLE_ROUTE
 } from "../../constants/urls/urlBackEnd";
 import apiBackEnd from "./api.Backend";
 
+export function registerGoogle() {
+	return apiBackEnd.get(URL_BACK_GOOGLE_ROUTE);
+  }
 
 export function getProfile() {
 	return apiBackEnd.get(URL_BACK_USER_PROFILE);

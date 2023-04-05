@@ -19,4 +19,5 @@ export const URL_STRIPE = import.meta.env.VITE_URL_STRIPE;
 export const URL_TRADER = import.meta.env.VITE_URL_TRADER;
 export const URL_EMAIL_PAIEMENT = import.meta.env.VITE_URL_EMAIL_PAIEMENT;
 export const URL_BACK_UPDATE_ROUTE = import.meta.env.VITE_URL_BACK_UPDATE_ROUTE;
+export const URL_BACK_GOOGLE_ROUTE = import.meta.env.VITE_URL_BACK_GOOGLE_ROUTE;
 
