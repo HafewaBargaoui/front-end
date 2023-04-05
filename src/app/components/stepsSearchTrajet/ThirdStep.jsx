@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { updateRoomUser } from "../../api/backend/messagerieAPI";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
 import { useNavigate } from "react-router-dom";
 import { URL_TRAJET_SEARCH_VALIDE } from "../../constants/urls/urlFrontEnd";
+import GoBuyCoins from "./Search_modal/GoBuyCoins";
 
 // Implementer la verification si user connecte sinon refuser la validation
 
@@ -10,22 +11,27 @@ const ThirdStep = (routeSelected) => {
   const navigate = useNavigate();
   console.log(routeSelected);
 
+  const [modalOn, setmodalOn] = useState(false);
+
   const submitRouteSelected = async (route) => {
-    updateRoomUser(route);
-    navigate(URL_TRAJET_SEARCH_VALIDE);
+    const response = await updateRoomUser(route);
+    console.log(response.data);
+    if (response.data.errorMsg) {
+      setmodalOn(true)
+    } else {
+      //navigate(URL_TRAJET_SEARCH_VALIDE);
+    }
   };
   return (
-    <div>
+    <div className="h-full">
       <div className="max-w-2xl rounded-xl px-4 py-4 shadow-lg lg:px-8 bg-cover bg-center bg-white bg-opacity-30 shadow-gray-900/80">
         <h6 className="text-center m-1 font-semibold">
           Vous avez selectionné :
         </h6>
 
         <div className="bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg p-8 ">
-          {/* ////////////////////////////// */}
           <div className="grid grid-cols-2 ">
             <p className="font-semibold">Trajet prévu le : </p>
-
             <p className="font-thin">
               {routeSelected.routeSelected.departure_date}
             </p>
@@ -35,7 +41,7 @@ const ThirdStep = (routeSelected) => {
             <p className="font-semibold"> De : </p>
 
             <p className="font-thin">
-              {routeSelected.routeSelected.starting_location}
+              {routeSelected.routeSelected.starting_location.split(",", [1])}
             </p>
           </div>
 
@@ -43,17 +49,13 @@ const ThirdStep = (routeSelected) => {
             <p className="font-semibold uppercase"> à : </p>
 
             <p className="font-thin">
-              {routeSelected.routeSelected.arrival_location}
+              {routeSelected.routeSelected.arrival_location.split(",", [1])}
             </p>
           </div>
-
-          {/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
           <div>
             <hr className="h-1 my-4 bg-gray-300 border-0 dark:bg-gray-700" />
           </div>
-
-          {/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
 
           <div className="grid grid-cols-2">
             <p className="font-semibold uppercase"> Pour : </p>
@@ -108,6 +110,7 @@ const ThirdStep = (routeSelected) => {
             </button>
           </div>
         </div>
+      {modalOn && <GoBuyCoins setmodalOn={setmodalOn}/>}
       </div>
     </div>
   );

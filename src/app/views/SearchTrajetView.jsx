@@ -58,41 +58,41 @@ const SearchTrajetView = () => {
 
           {!clickSuivant ? (
             <div
-              className={`rounded-full ${
+              className={`rounded-md ${
                 !clickNext ? "bg-green-500" : "bg-slate-400 cursor-pointer "
-              } w-24 h-24 grid justify-center items-center `}
+              } w-24 h-12 mx-2 font-semibold grid justify-center items-center `}
             >
               <p className="">Informations trajet</p>
             </div>
           ) : (
-            <div className="rounded-full bg-slate-400 w-24 h-24 grid justify-center items-center cursor-pointer ">
+            <div className="rounded-md bg-slate-400 w-24 h-12 mx-2 font-semibold grid justify-center items-center cursor-pointer ">
               <p>Informations trajet</p>
             </div>
           )}
           {!clickSuivant ? (
             <div
-              className={`rounded-full ${
+              className={`rounded-md ${
                 clickNext ? "bg-green-500" : "bg-slate-400 cursor-pointer"
-              } w-24 h-24 grid justify-center items-center`}
+              } w-24 h-12 mx-2 font-semibold grid justify-center items-center`}
             >
               <p>Choix du trajet</p>
             </div>
           ) : (
-            <div className="rounded-full  bg-slate-400 w-24 h-24 grid justify-center items-center cursor-pointer">
+            <div className="rounded-md  bg-slate-400 w-24 h-12 mx-2 font-semibold grid justify-center items-center cursor-pointer">
               <p>Choix du trajet</p>
             </div>
           )}
 
           <div
-            className={`rounded-full ${
+            className={`rounded-md ${
               clickSuivant ? "bg-green-500" : "bg-slate-400 cursor-pointer"
-            } w-24 h-24 grid justify-center items-center`}
+            } w-24 h-12 mx-2 font-semibold grid justify-center items-center`}
           >
             <p>Réservation</p>
           </div>
         </div>
 
-        <div className=" pt-8 mb-12 grid gap-4 place-content-center ">
+        <div className=" h-full w-full grid gap-4 place-content-center ">
           {!clickNext && (
             <FirstStep
               setclickNext={setclickNext}
@@ -137,8 +137,6 @@ const SearchTrajetView = () => {
             <div className="grid grid-cols-2">
               <div><Carte trajetDepart={trajetDepart} trajetArrive={trajetArrive} /></div>
                 <div><ThirdStep routeSelected={routeSelected} /></div>
-              
-             
             </div>
           )}
         </div>

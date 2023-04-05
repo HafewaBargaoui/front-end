@@ -32,7 +32,6 @@ const DriverReview = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
   const name = driver.map((drive) => drive.id_user.name);
-  //const photo = driver.map((drive) => drive.id_user.id_user_preference.file[0].filename);
   const car = driver.map((drive) => drive.vehicule.brand);
   const driverId = driver.map((drive) => drive.id_user._id);
   const depart = driver.map((drive) => drive.starting_location.split(",", [1]));
