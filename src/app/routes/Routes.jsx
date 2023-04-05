@@ -19,7 +19,7 @@ import ProfilePrefsView from "../views/ProfilePrefsView";
 import TrajetsView from "../views/TrajetsView";
 import CarteView from "../views/CarteView";
 
-import ChatSocket from "../views/chat";
+import ChatSocket from "../views/ChatSocket";
 
 import SubmittedRegister from "../components/stepsRegister/SubmittedRegister";
 import MailVerified from "../components/account/MailVerified";
