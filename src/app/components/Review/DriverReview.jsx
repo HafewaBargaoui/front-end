@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { driverNote, getDriverReview } from "../../api/backend/trajetAPI";
 import { StarIcon, CheckIcon } from "@heroicons/react/solid";
-import user from "../../assets/images/profil/fakeUser3.png";
 import { useNavigate } from "react-router-dom";
 //import {URL_REVIEW_SAVED } from "../../constants/urls/urlFrontEnd";
 import { URL_REVIEW_SAVED } from "../../constants/urls/urlFrontEnd";
@@ -40,6 +39,8 @@ const DriverReview = () => {
   const arrivee = driver.map((drive) => drive.arrival_location.split(",", [1]));
   const date = driver.map((drive) => drive.departure_date);
   const note = rating;
+  const photo = driver.map((drive) => drive.id_user.id_user_preference.file[0].filename);
+  console.log(photo);
 
   return (
     <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
@@ -84,7 +85,7 @@ const DriverReview = () => {
               <hr className="h-1 my-4 bg-gray-300 border-0 dark:bg-gray-700" />
             </div>
             <div className="grid grid-cols-2   ">
-              <img src={user} alt="driver" className="w-12 h-12" />
+              <img src={photo} alt="driver" className="w-12 h-12" />
 
               <div>
                 {name} / {car}
