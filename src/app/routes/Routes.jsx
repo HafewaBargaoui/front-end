@@ -42,6 +42,8 @@ import ConfirmationPaiement from "../views/ConfirmationPaiementView";
 import VosTrajetsView from "../views/VosTrajetsView";
 import DriverReview from "../components/Review/DriverReview";
 import ReviewSaved from "../components/Review/ReviewSaved";
+import SecondStep from "../components/stepsSearchTrajet/SecondStep";
+import ThirdStep from "../components/stepsSearchTrajet/ThirdStep";
 /**
  * Routes of the application
  * with public and private route
@@ -74,6 +76,8 @@ const Routes = () => {
       <Route path={URL.URL_CARTE} element={<CarteView />} />
       <Route path={URL.URL_CHAT_SOCKET} element={<ChatSocket />} />
       <Route path={URL.URL_SEARCH} element={<SearchTrajetView />} />
+      <Route path={URL.URL_SEARCH_SELECT} element={<SecondStep />} />
+      <Route path={URL.URL_SEARCH_JOIN} element={<ThirdStep />} />
       <Route path={URL.URL_TRAJET_CREATE} element={<TrajetCreateView />} />
       <Route path={URL.URL_TRAJET_VALIDE} element={<TrajetValide />} />
       <Route path={URL.URL_TRAJET_SEARCH_VALIDE} element={<ValidatedSearch />} />
