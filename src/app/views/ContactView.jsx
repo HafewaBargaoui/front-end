@@ -1,4 +1,5 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
+import React from "react";
 import * as Yup from "yup";
 export default function Contact() {
   const FooterImg = ({ src, lien, alt, title }) => (
@@ -63,7 +64,7 @@ export default function Contact() {
                 <Field
                   type="text"
                   id="name"
-                  maxlength="30"
+                  maxLength="30"
                   placeholder="Michel"
                   name="name"
                   className="w-full inputInscription shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
@@ -82,7 +83,7 @@ export default function Contact() {
                   type="text"
                   id="lastname"
                   name="lastname"
-                  maxlength="30"
+                  maxLength="30"
                   placeholder="Dupont"
                   className="w-full inputInscription shadow appearance-none border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
                 />
