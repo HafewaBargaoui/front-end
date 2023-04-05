@@ -1,8 +1,13 @@
 //route=6425947df1938501a485000d
 import React, { useState, useEffect } from "react";
 import { driverNote, getDriverReview } from "../../api/backend/trajetAPI";
-
+import { StarIcon } from "@heroicons/react/solid";
+import user from "../../assets/images/profil/fakeUser3.png";
+import { useNavigate } from "react-router-dom";
+//import {URL_REVIEW_SAVED } from "../../constants/urls/urlFrontEnd";
+import { URL_REVIEW_SAVED } from "../../constants/urls/urlFrontEnd";
 const DriverReview = () => {
+  const navigate = useNavigate();
   const queryParameters = new URLSearchParams(window.location.search);
   const route = queryParameters.get("route");
 
@@ -13,36 +18,99 @@ const DriverReview = () => {
   };
 
   const noteDriver = async () => {
-    await driverNote({id : driverId, note: note});
-  }
+    await driverNote({ id: driverId, note: note });
+    navigate(URL_REVIEW_SAVED);
+  };
 
   useEffect(() => {
     driverProfile();
   }, []);
-
-  const name = driver.map((drive) => (drive.id_user.name));
-  const driverId = driver.map((drive) => (drive.id_user._id));
-  const depart = driver.map((drive) => (drive.starting_location.split(",", [1])));
-  const arrivee = driver.map((drive) => (drive.arrival_location.split(",", [1])));
-  const note = 5;
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
+  const name = driver.map((drive) => drive.id_user.name);
+  //const photo = driver.map((drive) => drive.id_user.id_user_preference.file[0].filename);
+  const car = driver.map((drive) => drive.vehicule.brand);
+  const driverId = driver.map((drive) => drive.id_user._id);
+  const depart = driver.map((drive) => drive.starting_location.split(",", [1]));
+  const arrivee = driver.map((drive) => drive.arrival_location.split(",", [1]));
+  const date = driver.map((drive) => drive.departure_date);
+  const note = rating;
 
   return (
-    <div className='h-screen w-screen absolute top-0 left-0 flex justify-center items-center bg-cover bg-[url("/src/app/assets/images/darkgradient.png")]'>
-      <div className="w-full max-w-lg h-96 max-h-lg flex justify-center items-center lg:px-8 bg-white bg-opacity-30 rounded-lg shadow-lg shadow-gray-900/80">
-        <div className="grid grid-flow-row">
-            <p className="text-black text-center font-semibold">
-              Vous avez fait le trajet :{depart} / {arrivee}
-            </p>
-            <p className="text-black text-center font-semibold">
-             Avec : {name}
-            </p>
-            <button 
-                  className='bg-vert hover:bg-verth p-1 rounded-md shadow-md uppercase'
-                  onClick={()=>{noteDriver()}}
-                  >
-                  Notez
-                </button>
-        </div>
+    <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
+      <div className="w-1/3 rounded-xl px-4 py-4 shadow-lg lg:px-8 bg-cover bg-center bg-slate-100 bg-opacity-90">
+        {/* <div className="bg-slate-100 bg-opacity-90 w-full rounded-lg m-auto mt-4 drop-shadow-lg p-8 "> */}
+        <h4 className="text-center pb-8 m-1 font-bold">
+            Votre avis nous intéresse !
+          </h4>
+          <div className="grid grid-cols-2 ">
+            <p className="font-semibold">Trajet effectué le : </p>
+
+            <p className="font-thin">{date}</p>
+          </div>
+
+          <div className="grid grid-cols-2">
+            <p className="font-semibold"> De : </p>
+
+            <p className="font-thin">{depart}</p>
+          </div>
+
+          <div className="grid grid-cols-2">
+            <p className="font-semibold uppercase"> à : </p>
+
+            <p className="font-thin">{arrivee}</p>
+          </div>
+          <div>
+            <hr className="h-1 my-4 bg-gray-300 border-0 dark:bg-gray-700" />
+          </div>
+
+          <div className="grid grid-cols-2   ">
+            <img src={user} alt="driver" className="w-12 h-12" />
+
+            <div>
+              {name} / {car}
+            </div>
+          </div>
+          <div>
+            <hr className="h-1 my-4 bg-gray-300 border-0 dark:bg-gray-700" />
+          </div>
+          <h6 className="text-center m-1 font-semibold">
+            Évaluez votre expérience
+          </h6>
+          <div className="flex justify-center items-center ">
+            {[...Array(5)].map((star, i) => {
+              const ratingValue = i + 1;
+              //console.log(ratingValue);
+              return (
+                <label>
+                  <input
+                    className="invisible"
+                    type="radio"
+                    name="rating"
+                    value={ratingValue}
+                    onClick={() => setRating(ratingValue)}
+                  />
+                  <StarIcon
+                    width={30}
+                    color={ratingValue <= (hover || rating) ? "gold" : "grey"}
+                    onMouseEnter={() => setHover(ratingValue)}
+                    onMouseLeave={() => setHover(null)}
+                  />
+                </label>
+              );
+            })}
+          </div>
+          <div className="grid justify-center content-center items-center">
+            <button
+              className="mt-8 bg-vert hover:bg-verth rounded-md text-white font-normal shadow-md py-2 px-4 uppercase justify-items-center"
+              onClick={() => {
+                noteDriver();
+              }}
+            >
+              Notez
+            </button>
+          </div>
+        {/* </div> */}
       </div>
     </div>
   );

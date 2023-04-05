@@ -35,3 +35,4 @@ export const URL_PAIEMENT_VALIDE = import.meta.env.VITE_FRONT_URL_PAIEMENT_VALID
 export const URL_VOS_TRAJETS = import.meta.env.VITE_FRONT_URL_VOS_TRAJETS
 export const URL_REVIEW = import.meta.env.VITE_FRONT_URL_REVIEW
 export const URL_RESET_PASSWORD_MAIL_SENT = import.meta.env.VITE_FRONT_URL_RESET_PASSWORD_MAIL_SENT
+export const URL_REVIEW_SAVED =  import.meta.env.VITE_FRONT_URL_REVIEW_SAVED

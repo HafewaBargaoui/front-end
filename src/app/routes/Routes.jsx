@@ -41,7 +41,7 @@ import ValidatedSearch from "../components/stepsSearchTrajet/ValidatedSearch";
 import ConfirmationPaiement from "../views/ConfirmationPaiementView";
 import VosTrajetsView from "../views/VosTrajetsView";
 import DriverReview from "../components/Review/DriverReview";
-
+import ReviewSaved from "../components/Review/ReviewSaved";
 /**
  * Routes of the application
  * with public and private route
@@ -90,7 +90,8 @@ const Routes = () => {
       <Route path={URL.URL_PAIEMENT_VALIDE} element={<ConfirmationPaiement />} />
       <Route path={URL.URL_VOS_TRAJETS} element={<VosTrajetsView />} />
       <Route path={URL.URL_REVIEW} element={<DriverReview />} />
-
+      <Route path={URL.URL_REVIEW_SAVED} element={<ReviewSaved />} />
+      
     </RoutesContainer>
   );
 };
