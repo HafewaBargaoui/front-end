@@ -2,11 +2,12 @@ import { EyeOffIcon, EyeIcon } from "@heroicons/react/solid";
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { URL_HOME, URL_FORGET_LOGIN } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { getUser } from "../../redux-store/getUserSlice";
-import { getProfile } from "./../../api/backend/profileAPI";
+import { getProfile, registerGoogle } from "./../../api/backend/profileAPI";
 import { authenticate } from "./../../api/backend/accountAPI";
 
 const Login = () => {
@@ -14,6 +15,12 @@ const Login = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
+    const google = async (req, res) => {
+        await registerGoogle().then((data) => {
+			window.location.href = data.data;
+		});
+    };
+	
 	const data = async() => 
 	{
 		const response = await getProfile()
@@ -38,6 +45,7 @@ const Login = () => {
 		navigate(URL_FORGET_LOGIN);
 	};
 
+	// handle toggle password
 	const [open, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!open)
@@ -50,6 +58,21 @@ const Login = () => {
 				</h1>
 			</div>
 			<hr />
+
+			<div className="text-center">
+						<button
+							onClick={google}
+							className="btn bg-cyan-700 group hover:bg-cyan-800 relative w-1/2 text-white mt-4"
+						>
+							{/* <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+								<LockClosedIcon
+									className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
+									aria-hidden="true"
+								/>
+							</span> */}
+							Connexion Google
+						</button>
+					</div>
 
 			<Formik
 				initialValues={{
@@ -98,12 +121,7 @@ const Login = () => {
 							}
 						</div>
 					</div>
-					 <p
-            className=" text-slate-700 underline hover:text-cyan-900"
-            onClick={handleForgetLogin}
-          >
-            Mot de passe oublié ?
-          </p>
+
 					<div className="text-center">
 						<button
 							type="submit"

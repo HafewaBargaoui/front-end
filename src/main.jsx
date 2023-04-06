@@ -7,7 +7,6 @@ import {Provider} from "react-redux";
 
 import App from "./app/App";
 import {store} from "./app/redux-store/store";
-// import 'Flowbite';
 
 ReactDOM.render(
 	<React.StrictMode>
