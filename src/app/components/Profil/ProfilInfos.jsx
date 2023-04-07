@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getProfile } from "../../api/backend/profileAPI";
-import {
-  selectIsLogged,
-  selectUser,
-} from "../../redux-store/authenticationSlice";
+import { selectIsLogged, selectUser } from "../../redux-store/authenticationSlice";
 import avatar from "../../../../public/imgs/avatar.png";
 import ProfilInfoModal from "./Profil_Modals/ProfilInfoModal";
 import Stats from "./Infos_Components/Stats";

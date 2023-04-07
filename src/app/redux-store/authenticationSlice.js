@@ -38,6 +38,20 @@ export const authenticationSlice = createSlice({
 			state.isAuthenticated = isTokenValid(token);
 			setToken(action.payload.token);
 		},
+		signInGoogle: (state, action) => {
+			const token = action.payload;
+			state.token = token;
+			const claims = getPayloadToken(token);
+			const userRolesStr = claims.userRoles.toString();
+
+			const user = {
+				username: claims.sub,
+				roles: userRolesStr.split(","),
+			};
+			state.user = user;
+			state.isAuthenticated = isTokenValid(token);
+			setToken(action.payload);
+		},
 		signOut: (state) => {
 			localStorage.clear();
 			sessionStorage.clear();
@@ -46,7 +60,7 @@ export const authenticationSlice = createSlice({
 	},
 });
 
-export const {signIn, signOut} = authenticationSlice.actions;
+export const {signIn, signOut, signInGoogle} = authenticationSlice.actions;
 
 export const selectIsLogged = (state) => state.auth.isAuthenticated;
 export const selectUser = (state) => state.auth.user;

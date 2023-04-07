@@ -113,7 +113,7 @@ const ProfilInfoModal = ({
                   <p className="text-white">Sexe :</p>
                   <input
                     type="text"
-                    id="sexe"
+                    id="sex"
                     className="inputInscription shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight"
                     placeholder={users.sex}
                     value={formik.values.sex}

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 import { URL_HOME, URL_FORGET_LOGIN } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
-import { getUser } from "../../redux-store/getUserSlice";
 import { getProfile, registerGoogle } from "./../../api/backend/profileAPI";
 import { authenticate } from "./../../api/backend/accountAPI";
 
