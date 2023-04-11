@@ -1,6 +1,10 @@
 import React from 'react'
+import { StarIcon } from "@heroicons/react/solid";
+import berline from "../../../assets/images/profileprefs/berline.png";
+import caricon from "../../../assets/images/caricon.png";
 
-const Stats = ({photo, avatar}) => {
+
+const Stats = ({photo, avatar, users, routes}) => {
 
   return (
 
@@ -16,19 +20,19 @@ const Stats = ({photo, avatar}) => {
         src={avatar}
       />
     )}
-    <p className="mt-2 font-bold text-xl">Username</p>
+    <p className="mt-2 font-bold text-xl">{users.lastname}</p>
     <div className="mt-4 grid grid-cols-3 gap-2 justify-items-center">
       <div className="grid justify-items-center">
-        <p>logo1</p>
-        <p>1</p>
+      <img className="w-6" src={caricon} />
+        <p>{routes.length}</p>
       </div>
       <div className="grid justify-items-center">
-        <p>logo2</p>
-        <p>2</p>
+      <img className="w-6" src="imgs/6-removebg-preview.png" />
+        <p>{users.points}</p>
       </div>
       <div className="grid justify-items-center">
-        <p>logo3</p>
-        <p>3</p>
+        <StarIcon width={25} color='gold'/>
+        <p>{users.note}</p>
       </div>
     </div>
   </div>

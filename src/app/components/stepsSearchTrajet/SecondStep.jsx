@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useNextSearch } from "../../hook/useNextSearch";
 import { URL_SEARCH_JOIN } from "../../constants/urls/urlFrontEnd";
+
 const SecondStep = () => {
   const navigate = useNavigate();
 
@@ -56,6 +57,7 @@ const SecondStep = () => {
     setRouteSelected(route);
     setselect(!select);
   };
+
   console.log(driverRouteSelected);
   return (
     <div className="bg-cover bg-[url('./imgs/Gradient.png')] w-full h-full  relative  flex flex-col items-center justify-center loginContainer ">
@@ -117,24 +119,9 @@ const SecondStep = () => {
                   </div>
                 </div>
 
-                <div>
-                  <div className="grid grid-flow-col">
-                    <div className="text-yellow-500  w-8 h-8">
-                      <StarIcon />
-                    </div>
-                    <div className="text-yellow-500  w-8 h-8">
-                      <StarIcon />
-                    </div>
-                    <div className="text-yellow-500  w-8 h-8">
-                      <StarIcon />
-                    </div>
-                    <div className="text-yellow-500  w-8 h-8">
-                      <StarIcon />
-                    </div>
-                    <div className="text-slate-500  w-8 h-8">
-                      <StarIcon />
-                    </div>
-                  </div>
+                <div className="grid grid-flow-col place-items-center ">
+                    <p>{route.id_user.id_driver_preference[0].animal_friendly}</p>
+                    <p>{route.id_user.id_driver_preference[0].smoker_friendly}</p>
                 </div>
               </div>
             </div>

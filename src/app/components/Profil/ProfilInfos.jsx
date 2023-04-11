@@ -15,12 +15,15 @@ const ProfilInfos = () => {
   const [age, setage] = useState("");
   const isAuthenticated = useSelector(selectIsLogged);
   const user = useSelector(selectUser);
+  
 
   const [count, setCount] = useState(1);
+  const [routes, setroutes] = useState([]);
 
   const userProfile = async () => {
     const response = await getProfile(user.id);
     setusers(response.data.user);
+    setroutes(response.data.route);
     setadresse(response.data.address);
     setphoto(response.data.userPrefs.file[0].filename);
     const date = response.data.user.birthday.split("T")[0];
@@ -71,7 +74,7 @@ const ProfilInfos = () => {
       <div className="flex grow place-content-center w-screen md:w-96 max-w-xl space-y-6 rounded-lg pb-8  px-8 shadow lg:px-8  bg-cover bg-slate-500 bg-opacity-50">
         <div className="grid place-content-center">
           <div className="flex flex-col text-black text-lg">
-            <Stats photo={photo} avatar={avatar} />
+            <Stats photo={photo} avatar={avatar} users={users} routes={routes} />
 
             <div className="grid grid-cols-2">
               <p className="font-semibold">Nom : </p>
