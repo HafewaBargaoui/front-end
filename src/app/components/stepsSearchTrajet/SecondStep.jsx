@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getDriverRoute } from "../../api/backend/trajetAPI";
 import buddycoin from "../../assets/images/profil/buddycoin.png";
-import { StarIcon } from "@heroicons/react/solid";
+import fumer from "../../assets/images/profileprefs/smoking.png";
+import nosmoke from "../../assets/images/no-smoking.png";
+import animaux from "../../assets/images/dog.png";
+import noanimals from "../../assets/images/no-animals.png";
+import caricon from "../../assets/images/caricon.png";
 import ConducteurModal from "../modals/ConducteurModal";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -15,26 +19,21 @@ const SecondStep = () => {
   console.log(location.state);
   const { trajetDepart, trajetArrive } = location.state;
 
-    const {
-    setRouteSelected,
-    routeSelected
-  } = useNextSearch();
+  const { setRouteSelected, routeSelected } = useNextSearch();
 
   const click2 = (e) => {
     e.preventDefault();
     setRouteSelected(routeSelected);
     console.log(routeSelected);
-    navigate(URL_SEARCH_JOIN, { 
-      state: 
-      {
-        routeSelected: routeSelected ,
+    navigate(URL_SEARCH_JOIN, {
+      state: {
+        routeSelected: routeSelected,
         trajetDepart: trajetDepart,
-        trajetArrive: trajetArrive
-        } })
+        trajetArrive: trajetArrive,
+      },
+    });
   };
 
-  
- 
   const [showMyModal, setshowMyModal] = useState(false);
   const [infoRoute, setInfoRoute] = useState([]);
   const handleOnClose = () => setshowMyModal(false);
@@ -57,6 +56,10 @@ const SecondStep = () => {
     setRouteSelected(route);
     setselect(!select);
   };
+
+  const Imgs = ({ src, alt }) => (
+    <img src={src} alt={alt} className="w-8 h-8 mr-4" />
+  );
 
   console.log(driverRouteSelected);
   return (
@@ -120,8 +123,20 @@ const SecondStep = () => {
                 </div>
 
                 <div className="grid grid-flow-col place-items-center ">
-                    <p>{route.id_user.id_driver_preference[0].animal_friendly}</p>
-                    <p>{route.id_user.id_driver_preference[0].smoker_friendly}</p>
+                  {route.id_user.id_driver_preference[0].animal_friendly.includes(
+                    "animaux"
+                  ) ? (
+                    <Imgs src={animaux} alt="animaux" />
+                  ) : (
+                    <Imgs src={noanimals} alt="noanimals" />
+                  )}
+                  {route.id_user.id_driver_preference[0].smoker_friendly.includes(
+                    "fumeurs"
+                  ) ? (
+                    <Imgs src={fumer} alt="fumer" />
+                  ) : (
+                    <Imgs src={nosmoke} alt="nosmoke" />
+                  )}
                 </div>
               </div>
             </div>
@@ -140,7 +155,6 @@ const SecondStep = () => {
         infoRoute={infoRoute}
       />
     </div>
-
   );
 };
 
