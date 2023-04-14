@@ -6,6 +6,7 @@ import youtube from "../../assets/images/footerHomepage/youtube.png";
 import linkedin from "../../assets/images/footerHomepage/linkedin.png";
 import twitter from "../../assets/images/footerHomepage/twitter.png";
 import instagram from "../../assets/images/footerHomepage/instagram.png";
+import logowhitepink from "../../assets/images/footerHomepage/CarbuddyWhitePink.png"
 const Footer = () => {
   const FooterLink = ({ to, txt }) => (
     <Link to={to} className="mr-40 text-lg">
@@ -29,7 +30,7 @@ const Footer = () => {
     <div>
       <div className="flex flex-row bg-black mt-36 px-4 py-12 ">
         <div className="flex w-56 ml-20">
-          <img src="imgs/CarbuddyWhitepink.png" alt="logo en blanc"></img>
+          <img src={logowhitepink} alt="logo en blanc"></img>
         </div>
         <div className="flex flex-row text-white mx-auto">
           <FooterHref lien="https://mytek-store.fr/cgv" txt="CGV" />

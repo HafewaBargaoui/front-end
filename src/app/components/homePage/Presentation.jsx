@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Fade } from "react-awesome-reveal";
 import { gsap } from "gsap";
 import hommes from "../../assets/images/homepage/hommes.jpeg"
+import logocarbuddy from "../../assets/images/footerHomepage/CarbuddyWhitePink.png"
 const Presentation = () => {
     const imgRef = useRef(null);
     useEffect(() => {
@@ -16,7 +17,7 @@ const Presentation = () => {
    <div className="">
         <Fade duration={2000} triggerOnce="true">
           <div className="flex mx-auto w-96 mt-10 mb-10 ">
-            <img src="imgs/CarbuddyWhitePink.png" alt="logo en noir"></img>
+            <img src={logocarbuddy} alt="logo en noir"></img>
           </div>
 
           <div className="flex mx-auto w-1/2 h-auto ">

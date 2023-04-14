@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useSearch } from "../hook/UseSearch";
 import CreateTrajetFirst from "../components/CreateTrajet/CreateTrajetFirst";
 import CarteCreate from "../components/carte/CarteCreate";
 import { useSelector } from "react-redux";
 import { getProfile } from "../api/backend/profileAPI";
 import { selectIsLogged, selectUser } from "../redux-store/authenticationSlice";
+import { useSearch } from "../hook/useSearch";
 
 const TrajetCreateView = () => {
 

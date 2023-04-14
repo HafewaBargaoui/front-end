@@ -8,7 +8,7 @@ import axios from "axios";
 
 const apiBackEnd = axios.create({
 	// baseURL: "http://localhost:8080/",
-	baseURL: import.meta.env.VITE_API_BACK,
+	baseURL: "http://localhost:8080/",
 	withCredentials : true
 });
 

@@ -29,7 +29,7 @@ export default function HomePageView() {
 }, [])
 
   return (
-    <div className="accueil overflow-hidden bg-cover bg-[url('./imgs/gradientAccueilCarbuddy.png')]">
+    <div className='accueil overflow-hidden bg-cover bg-[url("/src/app/assets/images/GradientAccueilCarbuddy.png")]'>
       <GoSearch/>
       <Presentation />
       <About />
